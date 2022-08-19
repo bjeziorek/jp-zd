@@ -13,7 +13,7 @@ interface DataType{
 }
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
-  const [data,setData]=useState<DataType>(days());
+  const [data,setData]=useState<DataType>(practiceNumbers())//(days());
   const [showToggleRomaji, setShowToggleRomaji]=useState('show')
   function romajiVisibility(){
     (showToggleRomaji==='show')
@@ -100,8 +100,78 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
     ]
     return dayList[Math.floor(Math.random()*dayList.length)];
 }
+
+  function practiceNumbers():DataType{
+    // gdzie ile_zwierzat jakie zwierze
+
+    const wherePool = [
+      {jp:"Watashi-no ie-ni",pl:"W moim domu"},
+      {jp:"Tsukue-no ushiro-ni",pl:"Za biurkiem"},
+      {jp:"Teburu-to beddo-no aida-ni",pl:"Między stołem a łóżkiem"},
+      {jp:"Hachimitsu-no tonari-ni",pl:"Obok miodu"},
+      {jp:"Hako-no naka-ni",pl:"W pudeku"},
+      {jp:"Kasa-no shita-ni",pl:"Pod parasolem"},
+      {jp:"Hana-no hidari-ni",pl:"Na lewo od kwiatka"},
+      {jp:"Konpyuta-no migi-ni",pl:"Na prawo od komputera"},
+    ];
+
+    const animalNumberPool = [
+      {jp: "ippiki", pl:"1"},
+      {jp: "nihiki", pl:"2"},
+      {jp: "sanbiki", pl:"3"},
+      {jp: "yonhiki", pl:"4"},
+      {jp: "gohiki", pl:"5"},
+      {jp: "roppiki", pl:"6"},
+      {jp: "nanahiki", pl:"7"},
+      {jp: "happiki", pl:"8"},
+      {jp: "kyuuhiki", pl:"9"},
+      {jp: "juuppiki", pl:"10"},
+    ]
+
+    const animalTypesPool = [
+      {jp: "neko", pl:["kot","koty","kotów"]},
+      {jp: "inu", pl:["pies","psy","psów"]},
+      {jp: "nazumi", pl:["mysz","myszy","myszy"]},
+      {jp: "hato", pl:["gołąb","gołębie","gołębi"]},
+      {jp: "suzume", pl:["wróbel","wróble","wróbli"]},
+      {jp: "sakana", pl:["ryba","ryby","ryb"]},
+      {jp: "ka / mosukiito", pl:["komar","komary","komarów"]},
+      {jp: "hachi", pl:["osa / pszczoła/ szerszeń","osy / pszczoły / szerszenie","os / pszczół / szerszeni"]},
+  ]
+
+    let where=rand(wherePool)
+    let animalNumber=rand(animalNumberPool)
+    let animalType=rand(animalTypesPool)
+    let jest_sa=(animalNumber.pl==='1'||parseInt(animalNumber.pl)>4)?" jest ":" są "
+    let declination=(():string=>{
+      if(animalNumber.pl==="1"){
+        console.log(animalType.pl[0])
+        return animalType.pl[0]
+      }else if(parseInt(animalNumber.pl)>4){
+        console.log(animalType.pl[2])
+        return animalType.pl[2]
+      }else{
+        console.log(animalType.pl[1])
+        return animalType.pl[1]
+      }
+    })()
+    
+      
+  function rand(arr:any){
+    return arr[Math.floor(Math.random()*arr.length)];
+  }
+
+  
+
+  return{
+    romaji:""+where.jp+" "+animalNumber.jp+"-no "+animalType.jp+"-ga imasu",
+    meaning:""+where.pl+jest_sa+animalNumber.pl+" "+declination
+  }
+
+  }
+
   function change(){
-    setData(days())
+    setData(practiceNumbers())//(days())
   }
   return (
     <div className="container">
