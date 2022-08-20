@@ -1,19 +1,15 @@
 import { IonButton } from '@ionic/react';
 import { useState } from 'react';
+import DataType from '../types/DataType.model';
 import './ExploreContainer.css';
+import {countingAnimals,countingLongObjects, countingPeople} from '../data/numbers';
 
 interface ContainerProps {
   name: string;
 }
 
-interface DataType{
-  romaji: string,
-  meaning: string,
-  characters?: string
-}
-
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
-  const [data,setData]=useState<DataType>(practiceNumbers())//(days());
+  const [data,setData]=useState<DataType>(days());
   const [showToggleRomaji, setShowToggleRomaji]=useState('show')
   function romajiVisibility(){
     (showToggleRomaji==='show')
@@ -170,12 +166,24 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
 
   }
 
-  function change(){
-    setData(practiceNumbers())//(days())
+  function changeToCountingAnimals(){
+    setData(countingAnimals())//(days())
+  }
+  function changeToCountingLongObjects(){
+    setData(countingLongObjects())//(days())
+  }
+  function changeToCountingPeople(){
+    setData(countingPeople())//(days())
+  }
+  function changeToAll(){
+    setData(days())
   }
   return (
     <div className="container">
-      <IonButton onClick={change}>click</IonButton>
+      <IonButton onClick={changeToCountingAnimals}>Animals</IonButton>
+      <IonButton onClick={changeToCountingLongObjects}>LongObjects</IonButton>
+      <IonButton onClick={changeToCountingPeople}>People</IonButton>
+      <IonButton onClick={changeToAll}>All</IonButton>
       <p></p>
       
       <p></p>
