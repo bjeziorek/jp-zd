@@ -4,7 +4,7 @@ import DataType from '../types/DataType.model';
 import './ExploreContainer.css';
 import {countingAnimals,countingLongObjects, countingPeople} from '../data/numbers';
 import {kanjiDict} from '../data/dictionary';
-import {comparasion,more} from '../data/comparasionSizes';
+import {comparasion,more,theMost} from '../data/comparasionSizes';
 import Kanji from '../types/Kanji.model';
 
 interface ContainerProps {
@@ -183,10 +183,13 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
     setData(days())
   }
   function changeToComparasion(){
-    setData(comparasion())
+    setData(comparasion('animals'))
   }
   function changeToMore(){
-    setData(more())
+    setData(more('animals'))
+  }
+  function changeToTheMost(){
+    setData(theMost('animals'))
   }
 
   function changeToKanji(){
@@ -203,6 +206,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToCountingPeople}>People</IonButton>
       <IonButton onClick={changeToComparasion}>Comparasion</IonButton>
       <IonButton onClick={changeToMore}>More</IonButton>
+      <IonButton onClick={changeToTheMost}>theMost</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
       <p></p>
       
