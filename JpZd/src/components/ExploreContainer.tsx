@@ -3,6 +3,9 @@ import { useState } from 'react';
 import DataType from '../types/DataType.model';
 import './ExploreContainer.css';
 import {countingAnimals,countingLongObjects, countingPeople} from '../data/numbers';
+import {kanjiDict} from '../data/dictionary';
+import {comparasion,more} from '../data/comparasionSizes';
+import Kanji from '../types/Kanji.model';
 
 interface ContainerProps {
   name: string;
@@ -10,6 +13,7 @@ interface ContainerProps {
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   const [data,setData]=useState<DataType>(days());
+  const [dataKanji,setDataKanji]=useState<Kanji>(kanjiDict('kwiat'));
   const [showToggleRomaji, setShowToggleRomaji]=useState('show')
   function romajiVisibility(){
     (showToggleRomaji==='show')
@@ -178,19 +182,38 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToAll(){
     setData(days())
   }
+  function changeToComparasion(){
+    setData(comparasion())
+  }
+  function changeToMore(){
+    setData(more())
+  }
+
+  function changeToKanji(){
+    const kanjiSet = ['kwiat','pszczoła','miód'];
+    const i=Math.floor(Math.random()*kanjiSet.length)
+    console.log(kanjiDict(kanjiSet[i]))
+    setDataKanji(kanjiDict(kanjiSet[i]))
+  }
   return (
     <div className="container">
+      <IonButton onClick={changeToKanji}>Kanji</IonButton>
       <IonButton onClick={changeToCountingAnimals}>Animals</IonButton>
       <IonButton onClick={changeToCountingLongObjects}>LongObjects</IonButton>
       <IonButton onClick={changeToCountingPeople}>People</IonButton>
+      <IonButton onClick={changeToComparasion}>Comparasion</IonButton>
+      <IonButton onClick={changeToMore}>More</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
       <p></p>
       
       <p></p>
+      <p>kanji: {dataKanji.kanji} {dataKanji.meaning.pl}</p>
+      <p></p>
+      <p></p>
       
       {
         (showToggleRomaji==='hide')
-        ?<strong>{data.romaji}</strong>
+        ?<strong>{data.romaji+ " || "+data.kanji||'-'}</strong>
         :<strong>?</strong>
       }
       <p></p>
