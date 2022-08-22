@@ -1,4 +1,6 @@
+import { Case } from "../types/Case.model";
 import DataType from "../types/DataType.model";
+import { pickThemePool } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
 import { wordList } from "./dictionary";
 
@@ -6,18 +8,20 @@ export function comparasionSizes(theme:string) {
   
 }
 
-function pickThemePool(theme:string){
-    switch(theme){
-        case 'animals':
-            return animalsPool
-        case 'food':
-        case 'buildings':
-        case 'professions':
-        case 'machines':
-        default:
-            console.log('nie rozpoznano tematu: '+theme+ ", pobrano zwierzątka, bo są fajne ;)")
-    }
 
+function genderIndexCheck(obj:{jp:string,pl:Case,plGender:string}):number{
+        console.log(obj)
+        switch(obj.plGender){
+            case 'm':
+                return 0
+            case 'ż':
+                return 1
+            case 'n':
+                return 2
+            default:
+                console.log('blad rozpoznania rodzaju dla: '+obj.pl.M)
+                return 0
+        }
 }
 
 const animalsPool= [//kto, co || kogo, czego
@@ -69,11 +73,23 @@ const adjectivesPool=[
     {jp:'hima',pl:['więcej wolnego czasu','więcej wolnego czasu','więcej wolnego czasu']},
 ]
 
+function listCases(){
+    wordList.animals.forEach(element => {
+        console.log(
+            "jest "+element.pl.M+", "+
+            "nie ma "+element.pl.D+", "+
+            "przyglądam się "+element.pl.C+", "+
+            "widzę "+element.pl.B+", "+
+            "idę z "+element.pl.N+", "+
+            "myślę o "+element.pl.Msc+", "+
+            "witaj "+element.pl.W+", "
+            )
+    })
+}
 
 export function comparasion(theme:string):DataType{// yori
-    wordList.animals.forEach(element => {
-        console.log(element.pl)
-    });
+    
+//    listCases()
     
     //a-wa b-yori adj desu
 
@@ -82,22 +98,11 @@ export function comparasion(theme:string):DataType{// yori
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
-    const genderIndex = (()=>{
-        switch(obj1.pl[0]){
-            case 'kot':
-                return 0
-            case 'ryba':
-            case 'mysz':
-                return 1
-            default:
-                console.log('blad rozpoznania rodzaju dla: '+obj1.pl[0])
-                return 0
-        }
-    })()
+    const genderIndex = genderIndexCheck(obj1)
 
-return{
+    return{
         romaji: obj1.jp+"-wa "+obj2.jp+"-yori "+adj.jp+" desuka?",
-        meaning: "Czy "+obj1.pl[0]+ " "+jest_ma+" "+adj.pl[genderIndex]+" od "+obj2.pl[1]+"?"
+        meaning: "Czy "+obj1.pl.M+ " "+jest_ma+" "+adj.pl[genderIndex]+" od "+obj2.pl.D+"?"
       }
 }
 
@@ -109,24 +114,28 @@ export function more(theme:string):DataType{ //hou-ga
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
-    const genderIndex = (()=>{
-        switch(obj1.pl[0]){
-            case 'kot':
-                return 0
-            case 'ryba':
-            case 'mysz':
-                return 1
-            default:
-                console.log('blad rozpoznania rodzaju dla: '+obj1.pl[0])
-                return 0
-        }
-    })()
+    const genderIndex = genderIndexCheck(obj1)
 
 return{
         romaji: obj1.jp+"-no hou-ga "+adj.jp+" desu",
-        meaning: obj1.pl[0]+ " "+jest_ma+" "+adj.pl[genderIndex]
+        meaning: obj1.pl.M+ " "+jest_ma+" "+adj.pl[genderIndex]
       }
+}
 
+export function whichOf(theme:string):DataType{ //dochira-ga
+
+    //a-to b-to dochira-ga adj desuka
+
+    const obj1 = rand(pickThemePool(theme))
+    const obj2 = rand(pickThemePool(theme))
+    const adj = rand(adjectivesPool)
+
+    const jest_ma = (adj.jp==='hima')?'ma':'jest'
+    
+    return{
+        romaji: obj1.jp+"-to "+obj2.jp+"-to dochira-ga "+adj.jp+" desuka",
+        meaning: "Które z pomiędzy "+obj1.pl.D+ " i "+obj2.pl.D+" "+jest_ma+" "+adj.pl[2]+"?"
+      }
 }
 
 export function theMost(theme:string):DataType{ //no naka de ichiban
@@ -139,26 +148,13 @@ export function theMost(theme:string):DataType{ //no naka de ichiban
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
-    const genderIndex = (()=>{
-        switch(obj1.pl[0]){
-            case 'kot':
-                return 0
-            case 'ryba':
-            case 'mysz':
-                return 1
-            default:
-                console.log('blad rozpoznania rodzaju dla: '+obj1.pl[0])
-                return 0
-        }
-    })()
-
+    const genderIndex = genderIndexCheck(obj1)
     const aORbORc = [obj1,obj2,obj3][Math.floor(Math.random()*3)]
 
-return{
+    return{
         romaji: obj1.jp+"-to "+obj2.jp+"-to "+obj3.jp+"-no naka-de "+aORbORc.jp+"-ga ichiban "+adj.jp+" desuka",
-        meaning: "Czy z pomiędzy "+obj1.pl[1]+", "+obj2.pl[1]+" i "+obj3.pl[1]+" "+aORbORc.pl[0]+" "+jest_ma+" naj"+adj.pl[genderIndex]+"?"
+        meaning: "Czy z pomiędzy "+obj1.pl.D+", "+obj2.pl.D+" i "+obj3.pl.D+" "+aORbORc.pl.M+" "+jest_ma+" naj"+adj.pl[genderIndex]+"?"
       }
-
 }
 
 

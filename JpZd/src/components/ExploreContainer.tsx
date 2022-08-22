@@ -4,8 +4,9 @@ import DataType from '../types/DataType.model';
 import './ExploreContainer.css';
 import {countingAnimals,countingLongObjects, countingPeople} from '../data/numbers';
 import {kanjiDict} from '../data/dictionary';
-import {comparasion,more,theMost} from '../data/comparasionSizes';
+import {comparasion,more,theMost,whichOf} from '../data/comparasionSizes';
 import Kanji from '../types/Kanji.model';
+import { goodBadAt, likeDislike } from '../data/gaParticle';
 
 interface ContainerProps {
   name: string;
@@ -191,6 +192,15 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToTheMost(){
     setData(theMost('animals'))
   }
+  function changeToWhichOf(){
+    setData(whichOf('animals'))
+  }
+  function changeToLike(){
+    setData(likeDislike('animals'))
+  }
+  function changeToGoodAt(){
+    setData(goodBadAt('animals'))
+  }
 
   function changeToKanji(){
     const kanjiSet = ['kwiat','pszczoła','miód'];
@@ -206,7 +216,10 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToCountingPeople}>People</IonButton>
       <IonButton onClick={changeToComparasion}>Comparasion</IonButton>
       <IonButton onClick={changeToMore}>More</IonButton>
-      <IonButton onClick={changeToTheMost}>theMost</IonButton>
+      <IonButton onClick={changeToTheMost}>the Most</IonButton>
+      <IonButton onClick={changeToWhichOf}>which of</IonButton>
+      <IonButton onClick={changeToLike}>like</IonButton>
+      <IonButton onClick={changeToGoodAt}>good at</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
       <p></p>
       

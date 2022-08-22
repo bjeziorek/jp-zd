@@ -1,4 +1,3 @@
-import React from 'react'
 import DataType from '../types/DataType.model';
 import rand from '../utils/randomArrayElement';
 import { dict } from './dictionary';
