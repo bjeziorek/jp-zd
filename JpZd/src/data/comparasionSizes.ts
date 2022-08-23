@@ -55,7 +55,15 @@ const animalsPool= [//kto, co || kogo, czego
 ]
 
 const adjectivesPool=[
+    {jp:'se-ga takai',pl:['wyższy (w sensie wzrostu)','wyższa (w sensie wzrostu)','wyższe (w sensie wzrostu)']},
+    {jp:'se-ga hikui',pl:['niższy (w sensie wzrostu)','niższa (w sensie wzrostu)','niższe (w sensie wzrostu)']},
+    {jp:'utsukishii',pl:['piękniejszy','piękniejsza','piękniejsze']},
+    {jp:'minikui',pl:['brzydszy','brzydsza','brzydsze']},
+    {jp:'warui',pl:['gorszy','gorsza','gorsze']},
+    {jp:'takai',pl:['wyższy','wyższa','wyższe']},
+    {jp:'yasui',pl:['tańszy','tańsza','tańsze']},
     {jp:'ookii',pl:['większy','większa','większe']},
+    {jp:'chiisai',pl:['mniejszy','mniejsza','mniejsze']},
     {jp:'atsui',pl:['gorętszy','gorętsza','gorętsze']},
     {jp:'chikai',pl:['bliżej','bliżej','bliżej']},
     {jp:'tooi',pl:['dalej','dalej','dalej']},
@@ -89,7 +97,7 @@ function listCases(){
 
 export function comparasion(theme:string):DataType{// yori
     
-//    listCases()
+    listCases()
     
     //a-wa b-yori adj desu
 
@@ -148,8 +156,8 @@ export function theMost(theme:string):DataType{ //no naka de ichiban
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
-    const genderIndex = genderIndexCheck(obj1)
     const aORbORc = [obj1,obj2,obj3][Math.floor(Math.random()*3)]
+    const genderIndex = genderIndexCheck(aORbORc)
 
     return{
         romaji: obj1.jp+"-to "+obj2.jp+"-to "+obj3.jp+"-no naka-de "+aORbORc.jp+"-ga ichiban "+adj.jp+" desuka",

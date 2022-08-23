@@ -6,7 +6,7 @@ import {countingAnimals,countingLongObjects, countingPeople} from '../data/numbe
 import {kanjiDict} from '../data/dictionary';
 import {comparasion,more,theMost,whichOf} from '../data/comparasionSizes';
 import Kanji from '../types/Kanji.model';
-import { goodBadAt, likeDislike } from '../data/gaParticle';
+import { can, goodBadAt, likeDislike, needWantHave } from '../data/gaParticle';
 
 interface ContainerProps {
   name: string;
@@ -201,6 +201,52 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToGoodAt(){
     setData(goodBadAt('animals'))
   }
+  function changeToCan(){
+    setData(can('animals'))
+  }
+  function changeToNeedWantHave(){
+    setData(needWantHave('animals'))
+  }
+  function setRandom(){
+    switch(Math.ceil(Math.random()*11)){
+      case 1: 
+        setData(countingAnimals())
+        break;
+      case 2:
+        setData(countingLongObjects())
+        break;
+      case 3:
+        setData(countingPeople())//(days())
+        break;
+      case 4:
+        setData(comparasion('animals'))
+        break;
+      case 5:
+        setData(more('animals'))
+        break;
+      case 6:
+        setData(theMost('animals'))
+        break
+      case 7:
+        setData(whichOf('animals'))
+        break
+      case 8:
+        setData(likeDislike('animals'))
+        break
+      case 9:
+        setData(goodBadAt('animals'))
+        break
+      case 10:
+        setData(can('animals'))
+        break
+      case 11:
+        setData(needWantHave('animals'))
+        break
+      default:
+        console.log('wylosowano nieistniejącą liczbę')
+        setData(theMost('animals'))
+    }
+  }
 
   function changeToKanji(){
     const kanjiSet = ['kwiat','pszczoła','miód'];
@@ -220,7 +266,11 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToWhichOf}>which of</IonButton>
       <IonButton onClick={changeToLike}>like</IonButton>
       <IonButton onClick={changeToGoodAt}>good at</IonButton>
+      <IonButton onClick={changeToCan}>can</IonButton>
+      <IonButton onClick={changeToNeedWantHave}> need want have</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
+      <IonButton onClick={setRandom}>Random</IonButton>
+
       <p></p>
       
       <p></p>

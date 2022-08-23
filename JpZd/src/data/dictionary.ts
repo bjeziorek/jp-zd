@@ -59,7 +59,7 @@ export function kanjiDict(meaning: string) {
 }
 
 let caseType = {
-    'nie ma | przyglądam się | widzę | z | o | o!':'',
+    'nie ma | przyglądam się | widzę | z | o | o!': '',
     'a u a em /cie /cie': 'a u a em /cie /cie',
     'y /ie /ę /ą /ie /o': 'y /ie /ę /ą /ie /o',
     'y y x ą y o': 'y y x ą y o',
@@ -67,38 +67,46 @@ let caseType = {
     '(ą->ę) ia iowi ia iem iu iu': '(ą->ę) ia iowi ia iem iu iu',
     '(e->x) a owi a em u u': '(e->x) a owi a em u u',
     'a owi a iem u u': 'a owi a iem u u',
-    'ia iowi ia iem iu iu':'ia iowi ia iem iu iu',
+    'ia iowi ia iem iu iu': 'ia iowi ia iem iu iu',
     'a owi a em u u': 'a owi a em u u',
     '/y /ze /ę /ą /ze /o': '/y /ze /ę /ą /ze /o',
     '/y /sze /ę /ą /sze /o': '/y /sze /ę /ą /sze /o',
     '/i /ce /ę /ą /ce /o': '/i /ce /ę /ą /ce /o',
     '(e->x) a u a em ie ie': '(e->x) a u a em ie ie',
-    '/y /y /ę /ą /y /o':'/y /y /ę /ą /y /o',
-    '(ź->z) ia iowi ia iem iu iu':'(ź->z) ia iowi ia iem iu iu',
-    '(ń->n) ia iowi ia iem iu iu':'(ń->n) ia iowi ia iem iu iu',
-    '/ / /ę /ą / /o':'/ / /ę /ą / /o',
-    'a owi a em ie ie':'a owi a em ie ie',
-    '/y /ie /ę /ą /ie /o':'/y /ie /ę /ą /ie /o',
-    '()()((l)) a owi a em e e':'()()((l)) a owi a em e e',
-    '(i->x) a u a em ie ie':'(i->x) a u a em ie ie',
+    '/y /y /ę /ą /y /o': '/y /y /ę /ą /y /o',
+    '(ź->z) ia iowi ia iem iu iu': '(ź->z) ia iowi ia iem iu iu',
+    '(ń->n) ia iowi ia iem iu iu': '(ń->n) ia iowi ia iem iu iu',
+    '/ / /ę /ą / /o': '/ / /ę /ą / /o',
+    'a owi a em ie ie': 'a owi a em ie ie',
+    '/y /ie /ę /ą /ie /o': '/y /ie /ę /ą /ie /o',
+    '()()((l)) a owi a em e e': '()()((l)) a owi a em e e',
+    '(ie->x) a u a em ie ie': '(ie->x) a u a em ie ie',
 }
+
 
 function caseDeclination(type: number | string, word: string): Case {
     //jak kot
     switch (type) {
         case caseType['a u a em /cie /cie']:
-         //kot
+            //kot
             return {
-                M: word,//jest kot
+                M: word, //jest kot
                 D: word + 'a', // nie ma kot-a
                 C: word + 'u', //przyglądam się kot-u
                 B: word + 'a', //widzę kot-a
-                N: word + 'em', //z kot-em
-                Msc: word.slice(0, word.length - 1) + 'cie', //o ko/-cie
-                W: word.slice(0, word.length - 1) + 'cie', //o! ko/-cie
+                N: word + 'em', //idę z kot-em
+                Msc: word.slice(0, word.length - 1) + 'cie', //myślę o ko/-cie
+                W: word.slice(0, word.length - 1) + 'cie', //o! witaj ko/-cie
+                M_pl: word + 'y', //są kot-y
+                D_pl: word + 'ów', // nie ma kot-ów
+                C_pl: word + 'om', //przyglądam się kot-om
+                B_pl: word + 'y', //widzę kot-y
+                N_pl: word + 'ami', //idę z kot-ami
+                Msc_pl: word + 'ach', //myślę o kot-ach
+                W_pl: word + 'y', //o! witajcie kot-y
             }
         case caseType['y /ie /ę /ą /ie /o']:
-        //ryba
+            //ryba
             return {
                 M: word,//jest ryba
                 D: word.slice(0, word.length - 1) + 'y', // nie ma ryb/-y
@@ -109,7 +117,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word.slice(0, word.length - 1) + 'o', //o! ryb/-o
             }
         case caseType['y y x ą y o']:
-        //mysz
+            //mysz
             return {
                 M: word,//jest mysz
                 D: word + 'y', // nie ma mysz-y
@@ -120,7 +128,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word + 'o', //o! mysz-o
             }
         case caseType['a owi a em ze ze']:
-        //komar
+            //komar
             return {
                 M: word,//jest komar
                 D: word + 'a', // nie ma komar-a
@@ -131,7 +139,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word + 'ze', //o! komar-ze
             }
         case caseType['(ą->ę) ia iowi ia iem iu iu']:
-        //gołąb
+            //gołąb
             return {
                 M: word,// jest gołąb
                 D: word.replace('ą', 'ę') + 'ia', // nie ma goł|ę|b-ia
@@ -142,7 +150,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word.replace('ą', 'ę') + 'iu', //o! goł|ę|b-iu
             }
         case caseType['(e->x) a owi a em u u']:
-         //wróbel
+            //wróbel
             return {
                 M: word,// jest wróbel
                 D: word.replace('e', '') + 'a', // nie ma wrób()l-a
@@ -153,30 +161,30 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word.replace('e', '') + 'u', //o! wrób()l-u
             }
         case caseType['(ń->n) ia iowi ia iem iu iu']:
-         //słoń
+            //słoń
             return {
                 M: word,//jest słoń
                 D: word.replace(/.$/, "n") + 'ia', // nie ma sło|n|-ia
                 C: word.replace(/.$/, "n") + 'iowi', //przyglądam się sło|n|-iowi
                 B: word.replace(/.$/, "n") + 'ia', //widzę sło|n|-ia
                 N: word.replace(/.$/, "n") + 'iem', //ze sło|n|-iem
-                Msc: word.replace(/.$/, "n")+ 'iu', //o sło|n|-iu
+                Msc: word.replace(/.$/, "n") + 'iu', //o sło|n|-iu
                 W: word.replace(/.$/, "n") + 'iu', //o! sło|n|-iu
             }
-        
+
         case caseType['(ź->z) ia iowi ia iem iu iu']:
-                //słoń
-                   return {
-                       M: word,//jest słoń
-                       D: word.replace(/.$/, "z") + 'ia', // nie ma sło|n|-ia
-                       C: word.replace(/.$/, "z") + 'iowi', //przyglądam się sło|n|-iowi
-                       B: word.replace(/.$/, "z") + 'ia', //widzę sło|n|-ia
-                       N: word.replace(/.$/, "z") + 'iem', //ze sło|n|-iem
-                       Msc: word.replace(/.$/, "z") + 'iu', //o sło|n|-iu
-                       W: word.replace(/.$/, "z") + 'iu', //o! sło|n|-iu
-                   }
-        case caseType['a owi a em u u']:    
-        //krokodyl
+            //słoń
+            return {
+                M: word,//jest słoń
+                D: word.replace(/.$/, "z") + 'ia', // nie ma sło|n|-ia
+                C: word.replace(/.$/, "z") + 'iowi', //przyglądam się sło|n|-iowi
+                B: word.replace(/.$/, "z") + 'ia', //widzę sło|n|-ia
+                N: word.replace(/.$/, "z") + 'iem', //ze sło|n|-iem
+                Msc: word.replace(/.$/, "z") + 'iu', //o sło|n|-iu
+                W: word.replace(/.$/, "z") + 'iu', //o! sło|n|-iu
+            }
+        case caseType['a owi a em u u']:
+            //krokodyl
             return {
                 M: word,//jest krokodyl
                 D: word + 'a', // nie ma krokodyl-a
@@ -187,7 +195,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word + 'u', //o! krokodyl-u
             }
         case caseType['a owi a iem u u']:
-       //ptak
+            //ptak
             return {
                 M: word,//jest ptak
                 D: word + 'a', // nie ma ptaka-a
@@ -198,7 +206,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word + 'u', //o! ptaku-u
             }
         case caseType['ia iowi ia iem iu iu']:
-       //żółw
+            //żółw
             return {
                 M: word,//jest żółw
                 D: word + 'ia', // nie ma żółw-ia
@@ -229,7 +237,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word.slice(0, word.length - 1) + 'o', //o! much/-o
             }
         case caseType['/y /ze /ę /ą /ze /o']:
-         //kura
+            //kura
             return {
                 M: word,//jest kura
                 D: word.slice(0, word.length - 1) + 'y', // nie ma kur/-y
@@ -240,7 +248,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word.slice(0, word.length - 1) + 'o', //o! kur/-o
             }
         case caseType['/i /ce /ę /ą /ce /o']:
-        //mrówka
+            //mrówka
             return {
                 M: word,//jest mrówka
                 D: word.slice(0, word.length - 1) + 'i', // nie ma mrówk/-i
@@ -251,7 +259,7 @@ function caseDeclination(type: number | string, word: string): Case {
                 W: word.slice(0, word.length - 1) + 'o', //o! mrówk/-o
             }
         case caseType['(e->x) a u a em ie ie']:
-         //lew
+            //lew
             return {
                 M: word,//jest lew
                 D: word.replace('e', '') + 'a', // nie ma l()w-a
@@ -261,58 +269,57 @@ function caseDeclination(type: number | string, word: string): Case {
                 Msc: word.replace('e', '') + 'ie', //o l()w-ie
                 W: word.replace('e', '') + 'ie', //o! l()w-ie
             }
-            case caseType['(i->x) a u a em ie ie']://pies
-                //lew
-                   return {
-                       M: word,//jest pies
-                       D: word.replace('i', '') + 'a', // nie ma p()s-a
-                       C: word.replace('i', '') + 'u', //przyglądam się p()s-u
-                       B: word.replace('i', '') + 'a', //widzę p()s-a
-                       N: word.replace('i', '') + 'em', //z p()s-em
-                       Msc: word.replace('i', '') + 'ie', //o p()s-ie
-                       W: word.replace('i', '') + 'ie', //o! p()s-ie
-                   }
-       
+        case caseType['(ie->x) a u a em ie ie']://pies
+            return {
+                M: word,//jest pies
+                D: word.replace('ie', '') + 'a', // nie ma p()()s-a
+                C: word.replace('ie', '') + 'u', //przyglądam się p()()s-u
+                B: word.replace('ie', '') + 'a', //widzę p()()s-a
+                N: word.replace('ie', '') + 'em', //z p()()s-em
+                Msc: word.replace('ie', '') + 'ie', //o p()()s-ie
+                W: word.replace('ie', '') + 'ie', //o! p()()s-ie
+            }
+
         case caseType['/y /y /ę /ą /y /o']: //owca
-        return {
-            M: word,//jest owca
-            D: word.slice(0,word.length-1) + 'y', // nie ma owc/-y
-            C: word.slice(0,word.length-1) +'y', //przyglądam się owc/-y
-            B: word.slice(0,word.length-1)+'ę', //widzę owc/-ę
-            N: word.slice(0,word.length-1) + 'ą', //z owc/-ą
-            Msc: word.slice(0,word.length-1) + 'y', //o owc/-y
-            W: word.slice(0,word.length-1) + 'o', //o! owc-o
-        }
+            return {
+                M: word,//jest owca
+                D: word.slice(0, word.length - 1) + 'y', // nie ma owc/-y
+                C: word.slice(0, word.length - 1) + 'y', //przyglądam się owc/-y
+                B: word.slice(0, word.length - 1) + 'ę', //widzę owc/-ę
+                N: word.slice(0, word.length - 1) + 'ą', //z owc/-ą
+                Msc: word.slice(0, word.length - 1) + 'y', //o owc/-y
+                W: word.slice(0, word.length - 1) + 'o', //o! owc-o
+            }
         case caseType['/ / /ę /ą / /o']: //świnia
-        return {
-            M: word,//jest świnia
-            D: word.slice(0,word.length-1), // nie ma świni/
-            C: word.slice(0,word.length-1), //przyglądam się świni/
-            B: word.slice(0,word.length-1)+'ę', //widzę świni/-ę
-            N: word.slice(0,word.length-1) + 'ą', //ze świni/-ą
-            Msc: word.slice(0,word.length-1), //o świni/
-            W: word.slice(0,word.length-1) + 'o', //o! świni/-o
-        }
+            return {
+                M: word,//jest świnia
+                D: word.slice(0, word.length - 1), // nie ma świni/
+                C: word.slice(0, word.length - 1), //przyglądam się świni/
+                B: word.slice(0, word.length - 1) + 'ę', //widzę świni/-ę
+                N: word.slice(0, word.length - 1) + 'ą', //ze świni/-ą
+                Msc: word.slice(0, word.length - 1), //o świni/
+                W: word.slice(0, word.length - 1) + 'o', //o! świni/-o
+            }
         case caseType['a owi a em ie ie']: //pingwin
-        return {
-            M: word,//jest pingwin
-            D: word + 'a', // nie ma pingwin-a
-            C: word +'owi', //przyglądam się pingwin-owi
-            B: word+'a', //widzę pingwin-a
-            N: word + 'em', //z pingwin-em
-            Msc: word + 'ie', //o pingwin-ie
-            W: word + 'ie', //o! pingwin-ie
-        }
+            return {
+                M: word,//jest pingwin
+                D: word + 'a', // nie ma pingwin-a
+                C: word + 'owi', //przyglądam się pingwin-owi
+                B: word + 'a', //widzę pingwin-a
+                N: word + 'em', //z pingwin-em
+                Msc: word + 'ie', //o pingwin-ie
+                W: word + 'ie', //o! pingwin-ie
+            }
         case caseType['()()((l)) a owi a em e e']: //orzeł
-        return {
-            M: word,//jest orzeł
-            D: word.replace('ze','') + 'a', // nie ma or()()ł-a
-            C: word.replace('ze','') +'owi', //przyglądam się or()()ł-owi
-            B: word.replace('ze','')+'a', //widzę or()()ł-a
-            N: word.replace('ze','') + 'em', //z or()()ł-em
-            Msc: word.replace('ze','').replace('ł','l') + 'e', //o or()()(l)-e
-            W: word.replace('ze','').replace('ł','l') + 'e', //o! or()()(l)-e
-        }
+            return {
+                M: word,//jest orzeł
+                D: word.replace('ze', '') + 'a', // nie ma or()()ł-a
+                C: word.replace('ze', '') + 'owi', //przyglądam się or()()ł-owi
+                B: word.replace('ze', '') + 'a', //widzę or()()ł-a
+                N: word.replace('ze', '') + 'em', //z or()()ł-em
+                Msc: word.replace('ze', '').replace('ł', 'l') + 'e', //o or()()(l)-e
+                W: word.replace('ze', '').replace('ł', 'l') + 'e', //o! or()()(l)-e
+            }
         default:
             console.log('brak odmiany przez przypadki dla typu: ' + type + ' i słowa: ' + word)
             return {
@@ -332,43 +339,43 @@ export const wordList = {
         //kto co | kogo czego (nie ma) | komu czemu (się przyglądam) 
         // | kogo co (widzę) | z kim z czym (idę) | o kim o czym (mówię)
         // o! 
-        { jp: 'neko', pl: caseDeclination(caseType['a u a em /cie /cie'], 'kot'), plGender:'m'},//[{M:'kot'},{D:'kota'},{C:'kotu'},{B:'kota'},{N:'kotem'},{Msc:'o kocie'},{W:'kocie'}]},
-        { jp: 'sakana', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'ryba'), plGender:'ż' },//[{ M: 'ryba' }, { D: 'ryby' }, { C: 'rybie' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
-        { jp: 'nezumi', pl: caseDeclination(caseType['y y x ą y o'], 'mysz'), plGender:'ż' },//[{ M: 'mysz' }, { D: 'myszy' }, { C: 'myszy' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
-        { jp: 'ka', pl: caseDeclination(caseType['a owi a em ze ze'], 'komar'), plGender:'m' },// ['komar', 'komara', 'komarowi', ''] },
-        { jp: 'hato', pl: caseDeclination(caseType['(ą->ę) ia iowi ia iem iu iu'], 'gołąb'), plGender:'m' },//['gołąb', 'gołębia'] },
-        { jp: 'suzume', pl: caseDeclination(caseType['(e->x) a owi a em u u'], 'wróbel'), plGender:'m' },// ['wróbel', 'wróbla'] },
-        { jp: 'sou', pl: caseDeclination(caseType['(ń->n) ia iowi ia iem iu iu'], 'słoń'), plGender:'m' },//['słoń', 'słonia'] },
-        { jp: 'tori', pl: caseDeclination(caseType['a owi a iem u u'], 'ptak'), plGender:'m' },//['ptak', 'ptaka'] },
-        { jp: 'HAMUSUTAA', pl: caseDeclination(caseType['a owi a em u u'], 'chomik'), plGender:'m' },//['chomik', 'chomika'] },
-        { jp: 'uma', pl: caseDeclination(caseType['(ń->n) ia iowi ia iem iu iu'], 'koń'), plGender:'m' },//['koń', 'konia'] },
-        { jp: 'ushi', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'krowa'), plGender:'ż' },// ['krowa', 'krowy'] },
-        { jp: 'niwatori', pl: caseDeclination(caseType['/y /ze /ę /ą /ze /o'], 'kura'), plGender:'ż' },// ['kura', 'kury'] },
-        { jp: 'ari', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'mrówka'), plGender:'ż' },// ['mrówka', 'mrówki'] },
-        { jp: 'shishiko', pl: caseDeclination(caseType['(e->x) a u a em ie ie'], 'lew'), plGender:'m' },// ['lew', 'lwa'] },
-        { jp: 'inu', pl: caseDeclination(caseType['(i->x) a u a em ie ie'], 'pies'), plGender:'m' },
-        { jp: 'saru', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'małpa'), plGender:'m' },// ['małpa', 'małpy'] },
-        { jp: 'usagi', pl: caseDeclination(caseType['a owi a iem u u'], 'królik'), plGender:'m' },// ['królik', 'królika'] },
-        { jp: 'hitsuji', pl: caseDeclination(caseType['/y /y /ę /ą /y /o'], 'owca'), plGender:'ż' },//['owca', 'owcy'] },
-        { jp: 'buta', pl:caseDeclination(caseType['/ / /ę /ą / /o'], 'świnia'), plGender:'ż' },// ['świnia', 'świni'] },
-        { jp: 'jinchou', pl:caseDeclination(caseType['a owi a em ie ie'], 'pingwin'), plGender:'m' },//pl: ['pingwin', 'pingwina'] },
-        { jp: 'ookami', pl: caseDeclination(caseType['a owi a iem u u'], 'wilk'), plGender:'m' },//['wilk', 'wilka'] },
-        { jp: 'kuma', pl: caseDeclination(caseType['(ź->z) ia iowi ia iem iu iu'], 'niedźwiedź'), plGender:'m' },//['niedźwiedź', 'niedźwiedzia'] },
-        { jp: 'risu', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'wiewiórka'), plGender:'ż' },//['wiewiórka', 'wiewiórka'] },
-        { jp: 'washi', pl: caseDeclination(caseType['()()((l)) a owi a em e e'],'orzeł'), plGender:'m'},// ['orzeł', 'orła'] },
-        { jp: 'taka', pl:caseDeclination(caseType['(ą->ę) ia iowi ia iem iu iu'], 'jastrząb') , plGender:'m'},// ['jastrząb', 'jastrzębia'] },
-        { jp: 'wani', pl: caseDeclination(caseType['a owi a em u u'], 'krokodyl'), plGender:'m' },//['krokodyl', 'krokodyla'] },
-        { jp: 'shika', pl: caseDeclination(caseType['/y /ie /ę /ą /ie /o'], 'sarna'), plGender:'ż' },// ['sarna', 'sarny'] },
-        { jp: 'inoshishi', pl: caseDeclination(caseType['a owi a iem u u'], 'dzik'), plGender:'m' },//  ['dzik', 'dzika'] },
-        { jp: 'hae', pl: caseDeclination(caseType['/y /sze /ę /ą /sze /o'], 'mucha'), plGender:'ż' },// ['mucha', 'muchy'] },
-        { jp: 'kitsune', pl:caseDeclination(caseType['a owi a em ie ie'], 'lis'), plGender:'m' },// pl: ['lis', 'lisa'] },
-        { jp: 'harinezumi', pl: caseDeclination(caseType['a owi a em u u'], 'jeż'), plGender:'m' },// ['jeż', 'jeża'] },
-        { jp: 'hiso', pl: caseDeclination(caseType['a owi a em u u'], 'nietoperz'), plGender:'m' },// ['nietoperz', 'nietoperza'] },
-        { jp: 'tonbo', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'ważka'), plGender:'ż' },// ['ważka', 'ważki'] },
-        { jp: 'kame', pl:caseDeclination(caseType['ia iowi ia iem iu iu'], 'żółw'), plGender:'m' },//  ['żółw', 'żółwia'] },
-        { jp: 'hakuchou', pl: caseDeclination(caseType['(ź->z) ia iowi ia iem iu iu'], 'łabędź'), plGender:'m' },// ['łabędź'] },
-        { jp: 'kamo', pl:caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'kaczka'), plGender:'ż' },// ['kaczka'] },
-        { jp: 'fukurou', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'sowa'), plGender:'ż' },//['sowa'] },
+        { jp: 'neko', pl: caseDeclination(caseType['a u a em /cie /cie'], 'kot'), plGender: 'm', isAlive: true, isHuman: false },//[{M:'kot'},{D:'kota'},{C:'kotu'},{B:'kota'},{N:'kotem'},{Msc:'o kocie'},{W:'kocie'}]},
+        { jp: 'sakana', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'ryba'), plGender: 'ż', isAlive: true, isHuman: false },//[{ M: 'ryba' }, { D: 'ryby' }, { C: 'rybie' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
+        { jp: 'nezumi', pl: caseDeclination(caseType['y y x ą y o'], 'mysz'), plGender: 'ż', isAlive: true, isHuman: false },//[{ M: 'mysz' }, { D: 'myszy' }, { C: 'myszy' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
+        { jp: 'ka', pl: caseDeclination(caseType['a owi a em ze ze'], 'komar'), plGender: 'm' },// ['komar', 'komara', 'komarowi', ''] },
+        { jp: 'hato', pl: caseDeclination(caseType['(ą->ę) ia iowi ia iem iu iu'], 'gołąb'), plGender: 'm', isAlive: true, isHuman: false },//['gołąb', 'gołębia'] },
+        { jp: 'suzume', pl: caseDeclination(caseType['(e->x) a owi a em u u'], 'wróbel'), plGender: 'm', isAlive: true, isHuman: false },// ['wróbel', 'wróbla'] },
+        { jp: 'sou', pl: caseDeclination(caseType['(ń->n) ia iowi ia iem iu iu'], 'słoń'), plGender: 'm', isAlive: true, isHuman: false },//['słoń', 'słonia'] },
+        { jp: 'tori', pl: caseDeclination(caseType['a owi a iem u u'], 'ptak'), plGender: 'm', isAlive: true, isHuman: false },//['ptak', 'ptaka'] },
+        { jp: 'HAMUSUTAA', pl: caseDeclination(caseType['a owi a iem u u'], 'chomik'), plGender: 'm', isAlive: true, isHuman: false },//['chomik', 'chomika'] },
+        { jp: 'uma', pl: caseDeclination(caseType['(ń->n) ia iowi ia iem iu iu'], 'koń'), plGender: 'm', isAlive: true, isHuman: false },//['koń', 'konia'] },
+        { jp: 'ushi', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'krowa'), plGender: 'ż', isAlive: true, isHuman: false },// ['krowa', 'krowy'] },
+        { jp: 'niwatori', pl: caseDeclination(caseType['/y /ze /ę /ą /ze /o'], 'kura'), plGender: 'ż', isAlive: true, isHuman: false },// ['kura', 'kury'] },
+        { jp: 'ari', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'mrówka'), plGender: 'ż', isAlive: true, isHuman: false },// ['mrówka', 'mrówki'] },
+        { jp: 'shishiko', pl: caseDeclination(caseType['(e->x) a u a em ie ie'], 'lew'), plGender: 'm', isAlive: true, isHuman: false },// ['lew', 'lwa'] },
+        { jp: 'inu', pl: caseDeclination(caseType['(ie->x) a u a em ie ie'], 'pies'), plGender: 'm', isAlive: true, isHuman: false },
+        { jp: 'saru', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'małpa'), plGender: 'm', isAlive: true, isHuman: false },// ['małpa', 'małpy'] },
+        { jp: 'usagi', pl: caseDeclination(caseType['a owi a iem u u'], 'królik'), plGender: 'm', isAlive: true, isHuman: false },// ['królik', 'królika'] },
+        { jp: 'hitsuji', pl: caseDeclination(caseType['/y /y /ę /ą /y /o'], 'owca'), plGender: 'ż', isAlive: true, isHuman: false },//['owca', 'owcy'] },
+        { jp: 'buta', pl: caseDeclination(caseType['/ / /ę /ą / /o'], 'świnia'), plGender: 'ż', isAlive: true, isHuman: false },// ['świnia', 'świni'] },
+        { jp: 'jinchou', pl: caseDeclination(caseType['a owi a em ie ie'], 'pingwin'), plGender: 'm', isAlive: true, isHuman: false },//pl: ['pingwin', 'pingwina'] },
+        { jp: 'ookami', pl: caseDeclination(caseType['a owi a iem u u'], 'wilk'), plGender: 'm' },//['wilk', 'wilka'] },
+        { jp: 'kuma', pl: caseDeclination(caseType['(ź->z) ia iowi ia iem iu iu'], 'niedźwiedź'), plGender: 'm', isAlive: true, isHuman: false },//['niedźwiedź', 'niedźwiedzia'] },
+        { jp: 'risu', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'wiewiórka'), plGender: 'ż', isAlive: true, isHuman: false },//['wiewiórka', 'wiewiórka'] },
+        { jp: 'washi', pl: caseDeclination(caseType['()()((l)) a owi a em e e'], 'orzeł'), plGender: 'm', isAlive: true, isHuman: false },// ['orzeł', 'orła'] },
+        { jp: 'taka', pl: caseDeclination(caseType['(ą->ę) ia iowi ia iem iu iu'], 'jastrząb'), plGender: 'm', isAlive: true, isHuman: false },// ['jastrząb', 'jastrzębia'] },
+        { jp: 'wani', pl: caseDeclination(caseType['a owi a em u u'], 'krokodyl'), plGender: 'm', isAlive: true, isHuman: false },//['krokodyl', 'krokodyla'] },
+        { jp: 'shika', pl: caseDeclination(caseType['/y /ie /ę /ą /ie /o'], 'sarna'), plGender: 'ż', isAlive: true, isHuman: false },// ['sarna', 'sarny'] },
+        { jp: 'inoshishi', pl: caseDeclination(caseType['a owi a iem u u'], 'dzik'), plGender: 'm', isAlive: true, isHuman: false },//  ['dzik', 'dzika'] },
+        { jp: 'hae', pl: caseDeclination(caseType['/y /sze /ę /ą /sze /o'], 'mucha'), plGender: 'ż', isAlive: true, isHuman: false },// ['mucha', 'muchy'] },
+        { jp: 'kitsune', pl: caseDeclination(caseType['a owi a em ie ie'], 'lis'), plGender: 'm', isAlive: true, isHuman: false },// pl: ['lis', 'lisa'] },
+        { jp: 'harinezumi', pl: caseDeclination(caseType['a owi a em u u'], 'jeż'), plGender: 'm', isAlive: true, isHuman: false },// ['jeż', 'jeża'] },
+        { jp: 'hiso', pl: caseDeclination(caseType['a owi a em u u'], 'nietoperz'), plGender: 'm', isAlive: true, isHuman: false },// ['nietoperz', 'nietoperza'] },
+        { jp: 'tonbo', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'ważka'), plGender: 'ż', isAlive: true, isHuman: false },// ['ważka', 'ważki'] },
+        { jp: 'kame', pl: caseDeclination(caseType['ia iowi ia iem iu iu'], 'żółw'), plGender: 'm', isAlive: true, isHuman: false },//  ['żółw', 'żółwia'] },
+        { jp: 'hakuchou', pl: caseDeclination(caseType['(ź->z) ia iowi ia iem iu iu'], 'łabędź'), plGender: 'm', isAlive: true, isHuman: false },// ['łabędź'] },
+        { jp: 'kamo', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'kaczka'), plGender: 'ż', isAlive: true, isHuman: false },// ['kaczka'] },
+        { jp: 'fukurou', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'sowa'), plGender: 'ż', isAlive: true, isHuman: false },//['sowa'] },
     ],
     people: [
 
