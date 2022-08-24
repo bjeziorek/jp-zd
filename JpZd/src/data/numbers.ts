@@ -1,4 +1,5 @@
 import DataType from '../types/DataType.model';
+import { pickThemePool } from '../utils/pickTheme';
 import rand from '../utils/randomArrayElement';
 import { dict } from './dictionary';
 
@@ -210,4 +211,68 @@ export function countingPeople(){
       romaji: peopleType.jp+"-ga "+peopleNumber.jp+" imasu",
       meaning: "Mam "+peopleNumber.pl+" "+peopleDeclination
     }
+}
+
+export function age(theme:string){
+  const agePool=[
+    {jp:'issai',pl:'1 rok'},
+    {jp:'ni-sai',pl:'2 lata'},
+    {jp:'san-sai',pl:'3 lata'},
+    {jp:'yon-sai',pl:'4 lata'},
+    {jp:'go-sai',pl:'5 lat'},
+    {jp:'roku-sai',pl:'6 lat'},
+    {jp:'nana-sai',pl:'7 lat'},
+    {jp:'hassai',pl:'8 lat'},
+    {jp:'kyuu-sai',pl:'9 lat'},
+    {jp:'juu-sai',pl:'10 lat'},
+    {jp:'juu-issai',pl:'11 lat'},
+    {jp:'juu-ni-sai',pl:'12 lat'},
+    {jp:'juu-san-sai',pl:'13 lat'},
+    {jp:'juu-yon-sai',pl:'14 lat'},
+    {jp:'juu-go-sai',pl:'15 lat'},
+    {jp:'juu-roku-sai',pl:'16 lat'},
+    {jp:'juu-nana-sai',pl:'17 lat'},
+    {jp:'juu-hassai',pl:'18 lat'},
+    {jp:'juu-kyuu-sai',pl:'19 lat'},
+    {jp:'hatachi',pl:'20 lat'},
+    {jp:'ni-juu-issai',pl:'21 lat'},
+    {jp:'ni-juu-ni-sai',pl:'22 lata'},
+    {jp:'ni-juu-san-sai',pl:'23 lata'},
+    {jp:'ni-juu-yon-sai',pl:'24 lata'},
+    {jp:'ni-juu-go-sai',pl:'25 lat'},
+    {jp:'ni-juu-roku-sai',pl:'26 lat'},
+    {jp:'ni-juu-nana-sai',pl:'27 lat'},
+    {jp:'ni-juu-hassai',pl:'28 lat'},
+    {jp:'ni-juu-kyuu-sai',pl:'29 lat'},
+    {jp:'san-juu-issai',pl:'31 lat'},
+    {jp:'yon-juu-sai',pl:'48 lat'},
+    {jp:'go-juu-ni-sai',pl:'52 lata'},
+    {jp:'roku-juu-kyuu-sai',pl:'69 lat'},
+  ]
+  const professions=[
+    {jp:'kyoushi',pl:'nauczyciela'},
+    {jp:'daigakusei',pl:'studenta'},
+    {jp:'kangofu',pl:'pielęgniarki'},
+    {jp:'isha',pl:'lekarza'},
+    {jp:'kaishain',pl:'pracownika'},
+    {jp:'untenshu',pl:'kierowcy'},
+    {jp:'UEETAA',pl:'kelnera'},
+    {jp:'UEETORESU',pl:'kelnerki'},
+    {jp:'keisatsukan',pl:'policjanta'},
+    {jp:'seibikou',pl:'mechanika'},
+    {jp:'ENJINIA',pl:'inżyniera'},
+    {jp:'shufu',pl:'gospodyni domowej'},
+    {jp:'hisho',pl:'sekretarki'},
+    {jp:'biyoushi',pl:'fryzjera'},
+    {jp:"ten'in",pl:'sprzedawcy'},
+  ]
+
+  const person = rand(professions)
+  const animal= rand(pickThemePool(theme))
+  const age = rand(agePool)
+  
+  return{
+    romaji:person.jp+'-no '+animal.jp+'-wa '+age.jp+' desu',
+    meaning:animal.pl.M+' '+person.pl+' ma '+age.pl
+  }
 }

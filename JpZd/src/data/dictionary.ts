@@ -377,7 +377,9 @@ export const wordList = {
         { jp: 'kamo', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'kaczka'), plGender: 'ż', isAlive: true, isHuman: false },// ['kaczka'] },
         { jp: 'fukurou', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'sowa'), plGender: 'ż', isAlive: true, isHuman: false },//['sowa'] },
     ],
-    people: [
+    family: [
+    ],
+    professions: [
 
     ],
     places: [
