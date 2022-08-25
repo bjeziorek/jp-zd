@@ -15,6 +15,7 @@ import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
 import { daysOfMonth } from "../data/calendar";
 import { hurts } from "../data/body";
 import rand from "../utils/randomArrayElement";
+import { give } from "../data/actions";
 
 interface ContainerProps {
   name: string;
@@ -330,6 +331,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToAge() {
     setData(age(theme));
   }
+  function changeToGive() {
+    setData(give(theme));
+  }
   function setRandom() {
     const pool = [
       countingAnimals(),
@@ -346,6 +350,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       days(),
       hurts(theme),
       age(theme),
+      give(theme),
     ];
 
     console.log(pool)
@@ -375,6 +380,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToHurts}>hurts</IonButton>
       <IonButton onClick={changeToNeedWantHave}> need want have</IonButton>
       <IonButton onClick={changeToAge}> Age</IonButton>
+      <IonButton onClick={changeToGive}> give/place</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

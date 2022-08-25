@@ -378,6 +378,7 @@ export const wordList = {
         { jp: 'fukurou', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'sowa'), plGender: 'ż', isAlive: true, isHuman: false },//['sowa'] },
     ],
     family: [
+        
     ],
     professions: [
 
