@@ -18,7 +18,7 @@ let whatPool = [
 export function likeDislike(theme: string): DataType {
     const verbList = [
         { jp: 'suki', pl: 'lubi' },
-        { jp: 'kirei', pl: 'nie lubi' },
+        { jp: 'kirai', pl: 'nie lubi' },
     ]
     const obj1 = rand(pickThemePool(theme))
     const obj2 = rand(pickThemePool(theme))

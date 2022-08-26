@@ -354,7 +354,7 @@ export const wordList = {
         { jp: 'ari', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'mrówka'), plGender: 'ż', isAlive: true, isHuman: false },// ['mrówka', 'mrówki'] },
         { jp: 'shishiko', pl: caseDeclination(caseType['(e->x) a u a em ie ie'], 'lew'), plGender: 'm', isAlive: true, isHuman: false },// ['lew', 'lwa'] },
         { jp: 'inu', pl: caseDeclination(caseType['(ie->x) a u a em ie ie'], 'pies'), plGender: 'm', isAlive: true, isHuman: false },
-        { jp: 'saru', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'małpa'), plGender: 'm', isAlive: true, isHuman: false },// ['małpa', 'małpy'] },
+        { jp: 'saru', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'małpa'), plGender: 'ż', isAlive: true, isHuman: false },// ['małpa', 'małpy'] },
         { jp: 'usagi', pl: caseDeclination(caseType['a owi a iem u u'], 'królik'), plGender: 'm', isAlive: true, isHuman: false },// ['królik', 'królika'] },
         { jp: 'hitsuji', pl: caseDeclination(caseType['/y /y /ę /ą /y /o'], 'owca'), plGender: 'ż', isAlive: true, isHuman: false },//['owca', 'owcy'] },
         { jp: 'buta', pl: caseDeclination(caseType['/ / /ę /ą / /o'], 'świnia'), plGender: 'ż', isAlive: true, isHuman: false },// ['świnia', 'świni'] },
@@ -378,7 +378,7 @@ export const wordList = {
         { jp: 'fukurou', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'sowa'), plGender: 'ż', isAlive: true, isHuman: false },//['sowa'] },
     ],
     family: [
-        
+
     ],
     professions: [
 

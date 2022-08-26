@@ -31,7 +31,7 @@ export function give(theme:string):DataType{
     // słon daje kotu jedzenie
     // slon daje kota na stół
     return{
-        romaji:animal2.jp+'-wa '+animal1.jp+'-ni '+what.jp[0]+' '+what.jp[1],
+        romaji:animal2.jp+'-wa '+animal1.jp+'-ni '+what.jp[0]+'-o '+what.jp[1],
         meaning:animal2.pl.M+' '+what.pl[0]+' '+animal1.pl[what.jp[1]==='agemasu'?'C':'B']+' '+what.pl[1]
     }
 }
