@@ -16,7 +16,7 @@ import { daysOfMonth } from "../data/calendar";
 import { hurts } from "../data/body";
 import rand from "../utils/randomArrayElement";
 import { give } from "../data/actions";
-import { adverb } from "../data/adverb";
+import { adverb, thisAdverb } from "../data/adverb";
 
 interface ContainerProps {
   name: string;
@@ -338,6 +338,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToAdverb() {
     setData(adverb(theme));
   }
+  function changeToThisAdverb() {
+    setData(thisAdverb(theme));
+  }
   function setRandom() {
     const pool = [
       countingAnimals(),
@@ -355,7 +358,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       hurts(theme),
       age(theme),
       give(theme),
-      adverb(theme)
+      adverb(theme),
+      thisAdverb(theme),
     ];
 
     console.log(pool)
@@ -387,6 +391,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAge}> Age</IonButton>
       <IonButton onClick={changeToGive}> give/place</IonButton>
       <IonButton onClick={changeToAdverb}> adverb</IonButton>
+      <IonButton onClick={changeToThisAdverb}> this adverb</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
