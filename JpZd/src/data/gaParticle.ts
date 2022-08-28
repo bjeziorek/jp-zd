@@ -26,15 +26,25 @@ export function likeDislike(theme: string): DataType {
 
     return {
         romaji: obj1.jp + '-wa ' + obj2.jp + '-ga ' + verb.jp + ' desu',
-        meaning: `${obj1.pl.M} ${verb.pl} ${(verb.jp === 'suki')?obj2.pl.B:obj2.pl.D}`
+        meaning: `${obj1.pl.M} ${verb.pl} ${(verb.jp === 'suki') ? obj2.pl.B : obj2.pl.D}`
     }
 }
 
 export function goodBadAt(theme: string): DataType {
     const verbList = [
-        { jp: 'jouzu', pl: 'dobry w' },
-        { jp: 'heta', pl: 'słaby w' },
+        { jp: 'jouzu', pl: 'dobry' },
+        { jp: 'heta', pl: 'słaby' },
     ]
+
+    function genderSetter(gender: string, text: string): string {
+        console.log(text, gender)
+        switch (gender) {
+            case 'ż': return text.slice(0, -1) + 'a'
+            case 'n': return text.slice(0, -1) + 'e'
+            default: return text
+        }
+
+    }
 
     const obj1 = rand(pickThemePool(theme))
     const what = rand(whatPool)
@@ -42,7 +52,7 @@ export function goodBadAt(theme: string): DataType {
 
     return {
         romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp + ' desu',
-        meaning: obj1.pl.M + ' jest ' + verb.pl + ' ' + what.pl
+        meaning: obj1.pl.M + ' jest ' + genderSetter(obj1.plGender, verb.pl) + ' w ' + what.pl
     }
 }
 
@@ -96,7 +106,7 @@ export function needWantHave(theme: string): DataType {
         { jp: 'kitte', pl: { potrzebuje: 'znaczka na list', chce: 'znaczek na list', ma: 'znaczek na list' } },
         { jp: randAnimal.jp, pl: { potrzebuje: randAnimal.pl.D, chce: randAnimal.pl.B, ma: randAnimal.pl.B } },
     ]
-  
+
     for (let i = 0; i < 9; i++) {
         randAnimal = rand(pickThemePool(theme))
         whatWantPool.push({ jp: randAnimal.jp, pl: { potrzebuje: randAnimal.pl.D, chce: randAnimal.pl.B, ma: randAnimal.pl.B } },)
