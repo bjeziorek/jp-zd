@@ -240,6 +240,69 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
         romaji: "Ginkou-to yuubinkyouku-no aida-ni uchi-ga arimasu.",
         meaning: "Między bankiem a pocztą jest dom.",
       },
+      //pozdrowienia
+      {
+        romaji: "Ohayou gozaimasu",
+        meaning: "Dzień dobry (przed południem).",
+      },
+      {
+        romaji: "Konnichi-wa",
+        meaning: "Dzień dobry (po południu).",
+      },
+      {
+        romaji: "Konban-wa",
+        meaning: "Dobry wieczór",
+      },
+      {
+        romaji: "Sayounara",
+        meaning: "Do widzenia",
+      },
+      {
+        romaji: "Hajime mashite. Douzo yoroshiku",
+        meaning: "Bardzo mi miło Panią/Pana poznać (przy pierwszym spotkaniu)",
+      },
+      {
+        romaji: "Itte kimasu",
+        meaning: "Wychodzę (z własnego domu)",
+      },
+      {
+        romaji: "Itterashai",
+        meaning: "Uważaj na siebie (osoba pozostająca w domu)",
+      },
+      {
+        romaji: "Tadaimasu",
+        meaning: "Już jestem (wracając do swojego domu)",
+      },
+      {
+        romaji: "Okaerinasai",
+        meaning: "Dobrze, że jesteś (powitanie osoby wracającej do swojego domu)",
+      },
+      {
+        romaji: "Itadakimasu",
+        meaning: "Smacznego",
+      },
+      {
+        romaji: "Gochisousama deshita",
+        meaning: "Dziękuję (po posiłku)",
+      },
+      {
+        romaji: "Oyasumi nasai",
+        meaning: "Dobranoc",
+      },
+      {
+        romaji: "Douzo",
+        meaning: "Proszę (dając coś)",
+      },
+      {
+        romaji: "Arigatou (gozaimasu)",
+        meaning: "Dziękuję (bardzo)",
+      },
+      {
+        romaji: "(Doumo) sumimasen",
+        meaning: "(Bardzo) przepraszam",
+      },
+
+
 
       ///liczby!!!!
     ];
