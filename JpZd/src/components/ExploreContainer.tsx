@@ -38,7 +38,48 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       ? setShowToggleTranslation("hide")
       : setShowToggleTranslation("show");
   }
-  function days(): DataType {
+
+  function muzyka(): DataType {
+  
+    const pool=[
+      {pyt:'Gdzie leżą C',odp:'Na dodatkowej lini na dole oraz na 4 polu'},
+      {pyt:'Gdzie leżą D',odp:'Na polu pod pięciolinią oraz na 4 linii'},
+      {pyt:'Gdzie leżą E',odp:'Na 1 lini oraz na 4 polu'},
+      {pyt:'Gdzie leżą F',odp:'Na 1 polu oraz na 5 linii'},
+      {pyt:'Gdzie leżą G',odp:'Na 2 lini oraz na polu nad pięciolinią'},
+      {pyt:'Gdzie leżą A',odp:'Na 2 polu oraz na dodatkowej linii na górze'},
+      {pyt:'Gdzie leżą H',odp:'Na 3 lini oraz na polu nad dodatkową linią na górze'},
+      {pyt:'Co leży na 1 linii?',odp:'e1'},
+      {pyt:'Co leży na 2 linii?',odp:'g1'},
+      {pyt:'Co leży na 3 linii?',odp:'h1'},
+      {pyt:'Co leży na 4 linii?',odp:'d2'},
+      {pyt:'Co leży na 5 linii?',odp:'f2'},
+      {pyt:'Co leży na dodatkowej dolnej linii?',odp:'c1'},
+      {pyt:'Co leży na dodatkowej górnej linii?',odp:'a2'},
+      {pyt:'Co leży na 1 polu?',odp:'f1'},
+      {pyt:'Co leży na 2 polu?',odp:'a1'},
+      {pyt:'Co leży na 3 polu?',odp:'c2'},
+      {pyt:'Co leży na 4 polu?',odp:'e2'},
+      {pyt:'Co leży na polu nad dodatkową kreską nad pięciolinią?',odp:'h2'},
+      {pyt:'Co leży na polu nad pięciolinią?',odp:'g2'},
+      {pyt:'Co leży na polu pod pięciolinią?',odp:'d1'},
+      {pyt:'Który dźwięk gra klawisz na lewo od dwóch czarnych?',odp:'c'},
+      {pyt:'Który dźwięk gra klawisz pomiędzy dwoma czarnymi?',odp:'d'},
+      {pyt:'Który dźwięk gra klawisz na prawo od dwóch czarnych?',odp:'e'},
+      {pyt:'Który dźwięk gra klawisz na prawo od trzech czarnych?',odp:'f'},
+      {pyt:'Który dźwięk gra klawisz piewszy pomiędzy trzema czarnymi?',odp:'g'},
+      {pyt:'Który dźwięk gra klawisz drugi pomiędzy trzema czarnymi?',odp:'a'},
+      {pyt:'Który dźwięk gra klawisz na lewo od trzech czarnych?',odp:'h'},
+  ]
+
+    const x = rand(pool)
+
+    return{
+    romaji:x.pyt,
+    meaning:x.odp
+  }
+  }
+    function days(): DataType {
     //this const is recreated every time the function is called so new random values are assigned
     const dayList: Array<DataType> = [
       {
@@ -341,6 +382,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToThisAdverb() {
     setData(thisAdverb(theme));
   }
+  function changeToMuzyka() {
+    setData(muzyka());
+  }
   function setRandom() {
     const pool = [
       countingAnimals(),
@@ -393,6 +437,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAdverb}> adverb</IonButton>
       <IonButton onClick={changeToThisAdverb}> this adverb</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
+      <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
       <p></p>
