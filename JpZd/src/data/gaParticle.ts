@@ -26,7 +26,7 @@ export function likeDislike(theme: string): DataType {
 
     return {
         romaji: obj1.jp + '-wa ' + obj2.jp + '-ga ' + verb.jp + ' desu',
-        meaning: obj1.pl.M + ' ' + verb.pl + ' ' + obj2.pl.D
+        meaning: `${obj1.pl.M} ${verb.pl} ${(verb.jp === 'suki')?obj2.pl.B:obj2.pl.D}`
     }
 }
 

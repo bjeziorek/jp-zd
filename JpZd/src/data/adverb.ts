@@ -119,7 +119,7 @@ function be(time: string, gender: string) {
     }
 }
 const thatPool: Array<TenseSet> = [
-    { jp: { past: 'katta mono', present: 'kau mono', future: 'kau koto', }, pl: { past: 'to, co kupił', present: 'to, co kupuje', future: 'to, co kupi', } },
+    { jp: { past: 'katta mono', present: 'kau mono', future: 'kau mono', }, pl: { past: 'to, co kupił', present: 'to, co kupuje', future: 'to, co kupi', } },
     { jp: { past: 'mita koto', present: 'miru koto', future: 'miru koto', }, pl: { past: 'to, co widział', present: 'to, co widzi', future: 'to, co zobaczy', } },
     { jp: { past: 'tabeta mono', present: 'taberu mono', future: 'taberu mono', }, pl: { past: 'to, co zjadł', present: 'to, co je', future: 'to, co zje', } },
     { jp: { past: 'shita koto', present: 'suru koto', future: 'suru koto', }, pl: { past: 'to, co zrobił', present: 'to, co robi', future: 'to, co zrobi', } },
