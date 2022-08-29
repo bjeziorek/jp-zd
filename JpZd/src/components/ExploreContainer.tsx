@@ -476,7 +476,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToKanji() {
     const kanjiSet = ["kwiat", "pszczoła", "miód"];
     const i = Math.floor(Math.random() * kanjiSet.length);
-    console.log(kanjiDict(kanjiSet[i]));
+    //console.log(kanjiDict(kanjiSet[i]));
     setDataKanji(kanjiDict(kanjiSet[i]));
   }
   return (

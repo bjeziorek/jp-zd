@@ -83,8 +83,45 @@ let caseType = {
     '(ie->x) a u a em ie ie': '(ie->x) a u a em ie ie',
 }
 
+function caseDeclination2(word:string){
+    const lastLetter = word.slice(-1)
+    const secondLastLetter = word.slice(-2,-1)
+    const endD=secondLastLetter==='k'?'i':'y'
+    const endC=
+    (secondLastLetter==='k'||
+    secondLastLetter==='h'|| //czy istanieje inny przypadek niż ch? może się zdarzyć samo h? jak tak to może nie zadziałać
+    secondLastLetter==='r')
+    ?word.slice(-3,-1).replace(/k$/,'c').replace('ch','sz').replace(/r$/,'rz')+'e'
+    :word.slice(-3,-1)+'ie'
+    const EndMsc=
+    (secondLastLetter==='k'||
+    secondLastLetter==='h'|| //czy istanieje inny przypadek niż ch? może się zdarzyć samo h? jak tak to może nie zadziałać
+    secondLastLetter==='r')
+    ?word.slice(-3,-1).replace(/k$/,'c').replace('ch','sz').replace(/r$/,'rz')+'e'
+    :word.slice(-3,-1)+'ie'
+
+    console.log(word,lastLetter,secondLastLetter,endD)
+    
+    let wordObj:Case;
+    if(lastLetter==='a'&&
+    secondLastLetter!=='i'&&
+    secondLastLetter!=='c'){
+        wordObj= {
+            M: word,//jest ryba
+            D: word.slice(0, word.length - 1) + endD, // nie ma ryb/-y
+            C: word.slice(0, word.length - 3) + endC, //przyglądam się ryb/-ie
+            B: word.slice(0, word.length - 1) + 'ę', //widzę ryb/-ę
+            N: word.slice(0, word.length - 1) + 'ą', //z ryb/-ą
+            Msc: word.slice(0, word.length - 3) + EndMsc, //o ryb/-ie
+            W: word.slice(0, word.length - 1) + 'o', //o! ryb/-o
+        }
+        console.log(wordObj)
+    }
+    
+}
 
 function caseDeclination(type: number | string, word: string): Case {
+    caseDeclination2(word)
     //jak kot
     switch (type) {
         case caseType['a u a em /cie /cie']:

@@ -97,7 +97,7 @@ function listCases(){
 
 export function comparasion(theme:string):DataType{// yori
     
-    listCases()
+   // listCases()
     
     //a-wa b-yori adj desu
 
