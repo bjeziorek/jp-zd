@@ -84,6 +84,7 @@ let caseType = {
 }
 
 function caseDeclination2(word:string){
+    const vowel = /[aieouyęą]/;
     const lastLetter = word.slice(-1)
     const secondLastLetter = word.slice(-2,-1)
     const endD=secondLastLetter==='k'?'i':'y'
@@ -93,20 +94,16 @@ function caseDeclination2(word:string){
     secondLastLetter==='r')
     ?word.slice(-3,-1).replace(/k$/,'c').replace('ch','sz').replace(/r$/,'rz')+'e'
     :word.slice(-3,-1)+'ie'
-    const EndMsc=
-    (secondLastLetter==='k'||
-    secondLastLetter==='h'|| //czy istanieje inny przypadek niż ch? może się zdarzyć samo h? jak tak to może nie zadziałać
-    secondLastLetter==='r')
-    ?word.slice(-3,-1).replace(/k$/,'c').replace('ch','sz').replace(/r$/,'rz')+'e'
-    :word.slice(-3,-1)+'ie'
+    const EndMsc=endC
 
     console.log(word,lastLetter,secondLastLetter,endD)
     
     let wordObj:Case;
-    if(lastLetter==='a'&&
+    //typ 1
+    if(lastLetter==='a'&&  // ostatnia litera a (większość) - typ 1: i/y e/ie ę ą e o
     secondLastLetter!=='i'&&
     secondLastLetter!=='c'){
-        wordObj= {
+        wordObj= {   
             M: word,//jest ryba
             D: word.slice(0, word.length - 1) + endD, // nie ma ryb/-y
             C: word.slice(0, word.length - 3) + endC, //przyglądam się ryb/-ie
@@ -115,8 +112,25 @@ function caseDeclination2(word:string){
             Msc: word.slice(0, word.length - 3) + EndMsc, //o ryb/-ie
             W: word.slice(0, word.length - 1) + 'o', //o! ryb/-o
         }
-        console.log(wordObj)
+       // console.log('typ1', wordObj)
+        console.log('typ1 - ok')
     }
+    //typ 2
+    if(  // - typ 2a: i/y e/ie ę ą e o
+    secondLastLetter.match(vowel)&&
+    lastLetter.match(/[lżkb]/)){
+        wordObj= {   
+            M: word,//jest krokodyl
+            D: word.replace(/ąb$/,'ębi') + 'a', // nie ma krokodyl-a
+            C: word.replace(/ąb$/,'ębi') + 'owi', //przyglądam się krokodyl-owi
+            B: word.replace(/ąb$/,'ębi') + 'a', //widzę krokodyl-a
+            N: word.replace(/k$/,'ki').replace(/ąb$/,'ębi') + 'em', //z krokodyl-em
+            Msc: word.replace(/ąb$/,'ębi') + 'u', //o krokodyl-u
+            W: word.replace(/ąb$/,'ębi') + 'u', //o! krokodyl-u 
+          }
+        console.log('typ2a ---------------', wordObj)
+    }
+    //typ 2
     
 }
 
