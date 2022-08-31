@@ -249,30 +249,13 @@ export function age(theme:string){
     {jp:'go-juu-ni-sai',pl:'52 lata'},
     {jp:'roku-juu-kyuu-sai',pl:'69 lat'},
   ]
-  const professions=[
-    {jp:'kyoushi',pl:'nauczyciela'},
-    {jp:'daigakusei',pl:'studenta'},
-    {jp:'kangofu',pl:'pielęgniarki'},
-    {jp:'isha',pl:'lekarza'},
-    {jp:'kaishain',pl:'pracownika'},
-    {jp:'untenshu',pl:'kierowcy'},
-    {jp:'UEETAA',pl:'kelnera'},
-    {jp:'UEETORESU',pl:'kelnerki'},
-    {jp:'keisatsukan',pl:'policjanta'},
-    {jp:'seibikou',pl:'mechanika'},
-    {jp:'ENJINIA',pl:'inżyniera'},
-    {jp:'shufu',pl:'gospodyni domowej'},
-    {jp:'hisho',pl:'sekretarki'},
-    {jp:'biyoushi',pl:'fryzjera'},
-    {jp:"ten'in",pl:'sprzedawcy'},
-  ]
 
-  const person = rand(professions)
-  const animal= rand(pickThemePool(theme))
+  const animal = rand(pickThemePool(theme))
+  const person= rand(pickThemePool(theme))
   const age = rand(agePool)
   
   return{
     romaji:person.jp+'-no '+animal.jp+'-wa '+age.jp+' desu',
-    meaning:animal.pl.M+' '+person.pl+' ma '+age.pl
+    meaning:animal.pl.M+' '+person.pl.D+' ma '+age.pl
   }
 }

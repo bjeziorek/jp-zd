@@ -24,7 +24,7 @@ interface ContainerProps {
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   const [data, setData] = useState<DataType>(days());
-  const [theme, setTheme] = useState<string>("animals"); //potem podmieniać na przycisku
+  const [theme, setTheme] = useState<string>("professions"); //potem podmieniać na przycisku
   const [dataKanji, setDataKanji] = useState<Kanji>(kanjiDict("kwiat"));
   const [showToggleRomaji, setShowToggleRomaji] = useState("show");
   function romajiVisibility() {

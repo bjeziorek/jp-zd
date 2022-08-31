@@ -1,6 +1,7 @@
 import { Case } from './../types/Case.model';
 import Dict from "../types/Dict.model"
 import Kanji from "../types/Kanji.model"
+import WordList from '../types/WordList.model';
 
 export default function dictionary() {
     return 0
@@ -83,28 +84,28 @@ let caseType = {
     '(ie->x) a u a em ie ie': '(ie->x) a u a em ie ie',
 }
 
-function caseDeclination2(word:string){
+function caseDeclination2(word: string):Case {
     const vowel = /[aieouyęą]/;
     const lastLetter = word.slice(-1)
-    const secondLastLetter = word.slice(-2,-1)
-    const thirdLastLetter = word.slice(-3,-2)
-    const endD=secondLastLetter==='k'?'i':'y'
-    const endC=
-    (secondLastLetter==='k'||
-    secondLastLetter==='h'|| //czy istanieje inny przypadek niż ch? może się zdarzyć samo h? jak tak to może nie zadziałać
-    secondLastLetter==='r')
-    ?word.slice(-3,-1).replace(/k$/,'c').replace('ch','sz').replace(/r$/,'rz')+'e'
-    :word.slice(-3,-1)+'ie'
-    const EndMsc=endC
+    const secondLastLetter = word.slice(-2, -1)
+    const thirdLastLetter = word.slice(-3, -2)
+    const endD = secondLastLetter === 'k' ? 'i' : 'y'
+    const endC =
+        (secondLastLetter === 'k' ||
+            secondLastLetter === 'h' || //czy istanieje inny przypadek niż ch? może się zdarzyć samo h? jak tak to może nie zadziałać
+            secondLastLetter === 'r')
+            ? word.slice(-3, -1).replace(/k$/, 'c').replace('ch', 'sz').replace(/r$/, 'rz') + 'e'
+            : word.slice(-3, -1) + 'ie'
+    const EndMsc = endC
 
-    console.log(word,lastLetter,secondLastLetter,endD)
-    
-    let wordObj:Case;
+    console.log(word, lastLetter, secondLastLetter, endD)
+
+    let wordObj: Case;
     //typ 1
-    if(lastLetter==='a'&&  // ostatnia litera a (większość) - typ 1: i/y e/ie ę ą e o
-    secondLastLetter!=='i'&&
-    secondLastLetter!=='c'){
-        wordObj= {   
+    if (lastLetter === 'a' &&  // ostatnia litera a (większość) - typ 1: i/y e/ie ę ą e o
+        secondLastLetter !== 'i' &&
+        secondLastLetter !== 'c') {
+        return {
             M: word,//jest ryba
             D: word.slice(0, word.length - 1) + endD, // nie ma ryb/-y
             C: word.slice(0, word.length - 3) + endC, //przyglądam się ryb/-ie
@@ -113,64 +114,125 @@ function caseDeclination2(word:string){
             Msc: word.slice(0, word.length - 3) + EndMsc, //o ryb/-ie
             W: word.slice(0, word.length - 1) + 'o', //o! ryb/-o
         }
-       // console.log('typ1', wordObj)
-        console.log('typ1 - ok')
+        console.log('typ1', wordObj)
+        // console.log('typ1 - ok')
     }
     //typ 2
-    if(  // - typ 2a: a owi a em u u
-    (secondLastLetter.match(vowel)&&
-    lastLetter.match(/[lżkbń]/))||
-    word.slice(-3)==='ółw'||
-    (thirdLastLetter.match(vowel)&&
-    word.slice(-2).match(/dź|rz/))||
-    word==='wróbel'){
-        
-        wordObj= {   
+    if (  // - typ 2a: a owi a em u u
+        (secondLastLetter.match(vowel) &&
+            lastLetter.match(/[lżkbń]/)) ||
+        word.slice(-3) === 'ółw' ||
+        (thirdLastLetter.match(vowel) &&
+            word.slice(-2).match(/dź|rz|lk/)) ||
+        word === 'wróbel') {
+
+        return {
             M: word,//jest krokodyl
-            D: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'a', // nie ma krokodyl-a
-            C: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'owi', //przyglądam się krokodyl-owi
-            B: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'a', //widzę krokodyl-a
-            N: word.replace(/k$/,'ki').replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'em', //z krokodyl-em
-            Msc: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'u', //o krokodyl-u
-            W: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'u', //o! krokodyl-u 
-          }
-        console.log('typ2a ---------------', wordObj)
+            D: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'a', // nie ma krokodyl-a
+            C: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'owi', //przyglądam się krokodyl-owi
+            B: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'a', //widzę krokodyl-a
+            N: word.replace(/k$/, 'ki').replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'em', //z krokodyl-em
+            Msc: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'u', //o krokodyl-u
+            W: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'u', //o! krokodyl-u 
+        }
+        console.log('typ2a', wordObj)
     }
     //typ 2b
-    if(  // - typ 2b: a owi a em e e
-    word!=='pies'&&((secondLastLetter.match(vowel)&&
-    lastLetter.match(/[nsr]/))||
-    word.match(/orzeł/))){
-        
-        wordObj= {   
+    if (  // - typ 2b: a owi a em e e
+        word !== 'pies' && ((secondLastLetter.match(vowel) &&
+            lastLetter.match(/[nsr]/)) ||
+            
+         (thirdLastLetter.match(vowel) && word.match(/nt$/)) ||
+            word.match(/orzeł/))) {
+
+        return {
             M: word,//jest lis
-            D: word.replace('orzeł','orł')+ 'a', // nie ma lis-a
-            C: word.replace('orzeł','orł')+ 'owi', //przyglądam się lis-owi
-            B: word.replace('orzeł','orł')+ 'a', //widzę lis-a
-            N: word.replace('orzeł','orł') + 'em', //z lis-em
-            Msc: word.replace(/s$/,'si').replace(/n$/,'ni').replace(/r$/,'rz').replace('orzeł','orl') + 'e', //o lis-ie , komar-ze, pingwin-ie
-            W: word.replace(/s$/,'si').replace(/n$/,'ni').replace(/r$/,'rz').replace('orzeł','orl')+ 'e', //o! lis-ie 
-          }
-        console.log('typ2b ---------------', wordObj)
+            D: word.replace('orzeł', 'orł') + 'a', // nie ma lis-a
+            C: word.replace('orzeł', 'orł') + 'owi', //przyglądam się lis-owi
+            B: word.replace('orzeł', 'orł') + 'a', //widzę lis-a
+            N: word.replace('orzeł', 'orł') + 'em', //z lis-em
+            Msc: word.replace(/s$/, 'si').replace(/n$/, 'ni').replace(/r$/, 'rz').replace(/t$/, 'ci').replace('orzeł', 'orl') + 'e', //o lis-ie , komar-ze, pingwin-ie
+            W: word.replace(/s$/, 'si').replace(/n$/, 'ni').replace(/r$/, 'rz').replace(/t$/, 'ci').replace('orzeł', 'orl') + 'e', //o! lis-ie 
+        }
+        console.log('typ2b ------ ', wordObj)
     }
     //typ 3
-    if(  // - typ 3: a u a em e e
-    ((secondLastLetter.match(vowel)&&
-    lastLetter.match(/[t]/))||
-    word.match(/lew|pies/))){
-        
-        wordObj= {   
+    if (  // - typ 3: a u a em e e
+        ((secondLastLetter.match(vowel) && word.match(/t$/)) ||
+            word.match(/lew|pies/))) {
+
+        return {
             M: word,//jest kot
-            D: word.replace('lew','lw').replace('pies','ps')+ 'a', // nie ma kot-a
-            C: word.replace('lew','lw').replace('pies','ps')+ 'u', //przyglądam się kot-u
-            B: word.replace('lew','lw').replace('pies','ps')+ 'a', //widzę kot-a
-            N: word.replace('lew','lw').replace('pies','ps') + 'em', //z kot-em
-            Msc: word.replace('lew','lw').replace('pies','ps').replace(/t$/,'c') + 'ie', //o ko/[c]-ie
-            W: word.replace('lew','lw').replace('pies','ps').replace(/t$/,'c')+ 'ie', //o! ko/[c]-ie 
-          }
-        console.log('typ3 ---------------', wordObj)
+            D: word.replace('lew', 'lw').replace('pies', 'ps') + 'a', // nie ma kot-a
+            C: word.replace('lew', 'lw').replace('pies', 'ps') + 'u', //przyglądam się kot-u
+            B: word.replace('lew', 'lw').replace('pies', 'ps') + 'a', //widzę kot-a
+            N: word.replace('lew', 'lw').replace('pies', 'ps') + 'em', //z kot-em
+            Msc: word.replace('lew', 'lw').replace('pies', 'ps').replace(/t$/, 'c') + 'ie', //o ko/[c]-ie
+            W: word.replace('lew', 'lw').replace('pies', 'ps').replace(/t$/, 'c') + 'ie', //o! ko/[c]-ie 
+        }
+        console.log('typ3', wordObj)
     }
-    
+
+    //typ - -ca
+    if (  // - typ '/y /y /ę /ą /y /o'
+        (word.match(/ca$/))) {
+
+        return {
+            M: word,//jest owca
+            D: word.slice(0, -1) + 'y', // nie ma owc/-y
+            C: word.slice(0, -1) + 'y', //przyglądam się owc/-y
+            B: word.slice(0, -1) + 'ę', //widzę owc/-ę
+            N: word.slice(0, -1) + 'ą', //ze owc/-ą
+            Msc: word.slice(0, -1) + 'y', //o owc/-y
+            W: word.slice(0, -1) + 'o', //o! owc/-o
+        }
+        console.log('typ -ca', wordObj)
+    }
+
+
+    //typ - -nia
+    if (  // - typ '/ / /ę /ą / /o'
+        (word.match(/nia$|yni$/))) {
+
+        return{
+            M: word,//jest świania
+            D: word.replace(/a$/,''), // nie ma świni/
+            C: word.replace(/a$/,''), //przyglądam się świni/
+            B: word.replace(/a$/,'') + 'ę', //widzę świni/-ę
+            N: word.replace(/a$/,'') + 'ą', //ze świni/-ą
+            Msc: word.replace(/a$/,''), //o świni/
+            W: word.replace(/a$/,'')+ 'o', //o! świni/-o
+        }
+        console.log('typ -nia/-yni', wordObj)
+    }
+
+    //typ - mysz
+    if (  // - typ 'y y x ą y o'
+        (word.match(/mysz/))) {
+
+        return {
+            M: word,//jest mysz
+            D: word + 'y', // nie ma mysz-y
+            C: word + 'y', //przyglądam się myszy
+            B: word, //widzę mysz
+            N: word + 'ą', //z mysz-ą
+            Msc: word + 'y', //o mysz-y
+            W: word + 'o', //o! mysz-o
+        }
+        console.log('typ mysz', wordObj)
+    }
+
+    //default
+    console.log('unknown case pattern for: '+word)
+    return{
+        M: word,
+        D: word,
+        C: word ,
+        B: word,
+        N: word ,
+        Msc: word ,
+        W: word ,
+    }
 }
 
 function caseDeclination(type: number | string, word: string): Case {
@@ -424,7 +486,7 @@ function caseDeclination(type: number | string, word: string): Case {
     }
 }
 
-export const wordList = {
+export const wordList:WordList = {
     animals: [
         //kto co | kogo czego (nie ma) | komu czemu (się przyglądam) 
         // | kogo co (widzę) | z kim z czym (idę) | o kim o czym (mówię)
@@ -432,7 +494,7 @@ export const wordList = {
         { jp: 'neko', pl: caseDeclination(caseType['a u a em /cie /cie'], 'kot'), plGender: 'm', isAlive: true, isHuman: false },//[{M:'kot'},{D:'kota'},{C:'kotu'},{B:'kota'},{N:'kotem'},{Msc:'o kocie'},{W:'kocie'}]},
         { jp: 'sakana', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'ryba'), plGender: 'ż', isAlive: true, isHuman: false },//[{ M: 'ryba' }, { D: 'ryby' }, { C: 'rybie' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
         { jp: 'nezumi', pl: caseDeclination(caseType['y y x ą y o'], 'mysz'), plGender: 'ż', isAlive: true, isHuman: false },//[{ M: 'mysz' }, { D: 'myszy' }, { C: 'myszy' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
-        { jp: 'ka', pl: caseDeclination(caseType['a owi a em ze ze'], 'komar'), plGender: 'm' },// ['komar', 'komara', 'komarowi', ''] },
+        { jp: 'ka', pl: caseDeclination(caseType['a owi a em ze ze'], 'komar'), plGender: 'm' , isAlive: true, isHuman: false},// ['komar', 'komara', 'komarowi', ''] },
         { jp: 'hato', pl: caseDeclination(caseType['(ą->ę) ia iowi ia iem iu iu'], 'gołąb'), plGender: 'm', isAlive: true, isHuman: false },//['gołąb', 'gołębia'] },
         { jp: 'suzume', pl: caseDeclination(caseType['(e->x) a owi a em u u'], 'wróbel'), plGender: 'm', isAlive: true, isHuman: false },// ['wróbel', 'wróbla'] },
         { jp: 'sou', pl: caseDeclination(caseType['(ń->n) ia iowi ia iem iu iu'], 'słoń'), plGender: 'm', isAlive: true, isHuman: false },//['słoń', 'słonia'] },
@@ -449,7 +511,7 @@ export const wordList = {
         { jp: 'hitsuji', pl: caseDeclination(caseType['/y /y /ę /ą /y /o'], 'owca'), plGender: 'ż', isAlive: true, isHuman: false },//['owca', 'owcy'] },
         { jp: 'buta', pl: caseDeclination(caseType['/ / /ę /ą / /o'], 'świnia'), plGender: 'ż', isAlive: true, isHuman: false },// ['świnia', 'świni'] },
         { jp: 'jinchou', pl: caseDeclination(caseType['a owi a em ie ie'], 'pingwin'), plGender: 'm', isAlive: true, isHuman: false },//pl: ['pingwin', 'pingwina'] },
-        { jp: 'ookami', pl: caseDeclination(caseType['a owi a iem u u'], 'wilk'), plGender: 'm' },//['wilk', 'wilka'] },
+        { jp: 'ookami', pl: caseDeclination(caseType['a owi a iem u u'], 'wilk'), plGender: 'm', isAlive: true, isHuman: false },//['wilk', 'wilka'] },
         { jp: 'kuma', pl: caseDeclination(caseType['(ź->z) ia iowi ia iem iu iu'], 'niedźwiedź'), plGender: 'm', isAlive: true, isHuman: false },//['niedźwiedź', 'niedźwiedzia'] },
         { jp: 'risu', pl: caseDeclination(caseType['/i /ce /ę /ą /ce /o'], 'wiewiórka'), plGender: 'ż', isAlive: true, isHuman: false },//['wiewiórka', 'wiewiórka'] },
         { jp: 'washi', pl: caseDeclination(caseType['()()((l)) a owi a em e e'], 'orzeł'), plGender: 'm', isAlive: true, isHuman: false },// ['orzeł', 'orła'] },
@@ -468,10 +530,24 @@ export const wordList = {
         { jp: 'fukurou', pl: caseDeclination(caseType['y /ie /ę /ą /ie /o'], 'sowa'), plGender: 'ż', isAlive: true, isHuman: false },//['sowa'] },
     ],
     family: [
-
     ],
     professions: [
-
+        { jp: 'kangofu', pl: caseDeclination2('pielęgniarka'), plGender: 'ż', isAlive: true, isHuman: true },
+        { jp: 'daigakusei', pl: caseDeclination2('student'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: 'joshigakusei', pl: caseDeclination2('studentka'), plGender: 'ż', isAlive: true, isHuman: true },
+        { jp: 'kyoushi', pl: caseDeclination2('nauczyciel'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: 'isha', pl: caseDeclination2('lekarz'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "kaisha'in", pl: caseDeclination2('pracownik'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "untenshu", pl: caseDeclination2('kierowca'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "UEETORESU", pl: caseDeclination2('kelnerka'), plGender: 'ż', isAlive: true, isHuman: true },
+        { jp: "UEETAA", pl: caseDeclination2('kelner'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "seibikou", pl: caseDeclination2('mechanik'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "ENJINIA", pl: caseDeclination2('inżynier'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "shufu", pl: caseDeclination2('gospodyni'), plGender: 'ż', isAlive: true, isHuman: true },
+        { jp: "hisho", pl: caseDeclination2('sekretarka'), plGender: 'ż', isAlive: true, isHuman: true },
+        { jp: "keisatsukan", pl: caseDeclination2('policjant'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "biyoushi", pl: caseDeclination2('fryzjer'), plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "ten'in", pl: caseDeclination2('sprzedawca'), plGender: 'm', isAlive: true, isHuman: true },
     ],
     places: [
 
