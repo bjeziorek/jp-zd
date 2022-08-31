@@ -87,6 +87,7 @@ function caseDeclination2(word:string){
     const vowel = /[aieouyęą]/;
     const lastLetter = word.slice(-1)
     const secondLastLetter = word.slice(-2,-1)
+    const thirdLastLetter = word.slice(-3,-2)
     const endD=secondLastLetter==='k'?'i':'y'
     const endC=
     (secondLastLetter==='k'||
@@ -116,21 +117,59 @@ function caseDeclination2(word:string){
         console.log('typ1 - ok')
     }
     //typ 2
-    if(  // - typ 2a: i/y e/ie ę ą e o
-    secondLastLetter.match(vowel)&&
-    lastLetter.match(/[lżkb]/)){
+    if(  // - typ 2a: a owi a em u u
+    (secondLastLetter.match(vowel)&&
+    lastLetter.match(/[lżkbń]/))||
+    word.slice(-3)==='ółw'||
+    (thirdLastLetter.match(vowel)&&
+    word.slice(-2).match(/dź|rz/))||
+    word==='wróbel'){
+        
         wordObj= {   
             M: word,//jest krokodyl
-            D: word.replace(/ąb$/,'ębi') + 'a', // nie ma krokodyl-a
-            C: word.replace(/ąb$/,'ębi') + 'owi', //przyglądam się krokodyl-owi
-            B: word.replace(/ąb$/,'ębi') + 'a', //widzę krokodyl-a
-            N: word.replace(/k$/,'ki').replace(/ąb$/,'ębi') + 'em', //z krokodyl-em
-            Msc: word.replace(/ąb$/,'ębi') + 'u', //o krokodyl-u
-            W: word.replace(/ąb$/,'ębi') + 'u', //o! krokodyl-u 
+            D: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'a', // nie ma krokodyl-a
+            C: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'owi', //przyglądam się krokodyl-owi
+            B: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'a', //widzę krokodyl-a
+            N: word.replace(/k$/,'ki').replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'em', //z krokodyl-em
+            Msc: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'u', //o krokodyl-u
+            W: word.replace(/ąb$/,'ębi').replace(/w$/,'wi').replace(/dź$/,'dzi').replace(/ń$/,'ni').replace(/^wróbel/,'wróbl') + 'u', //o! krokodyl-u 
           }
         console.log('typ2a ---------------', wordObj)
     }
-    //typ 2
+    //typ 2b
+    if(  // - typ 2b: a owi a em e e
+    word!=='pies'&&((secondLastLetter.match(vowel)&&
+    lastLetter.match(/[nsr]/))||
+    word.match(/orzeł/))){
+        
+        wordObj= {   
+            M: word,//jest lis
+            D: word.replace('orzeł','orł')+ 'a', // nie ma lis-a
+            C: word.replace('orzeł','orł')+ 'owi', //przyglądam się lis-owi
+            B: word.replace('orzeł','orł')+ 'a', //widzę lis-a
+            N: word.replace('orzeł','orł') + 'em', //z lis-em
+            Msc: word.replace(/s$/,'si').replace(/n$/,'ni').replace(/r$/,'rz').replace('orzeł','orl') + 'e', //o lis-ie , komar-ze, pingwin-ie
+            W: word.replace(/s$/,'si').replace(/n$/,'ni').replace(/r$/,'rz').replace('orzeł','orl')+ 'e', //o! lis-ie 
+          }
+        console.log('typ2b ---------------', wordObj)
+    }
+    //typ 3
+    if(  // - typ 3: a u a em e e
+    ((secondLastLetter.match(vowel)&&
+    lastLetter.match(/[t]/))||
+    word.match(/lew|pies/))){
+        
+        wordObj= {   
+            M: word,//jest kot
+            D: word.replace('lew','lw').replace('pies','ps')+ 'a', // nie ma kot-a
+            C: word.replace('lew','lw').replace('pies','ps')+ 'u', //przyglądam się kot-u
+            B: word.replace('lew','lw').replace('pies','ps')+ 'a', //widzę kot-a
+            N: word.replace('lew','lw').replace('pies','ps') + 'em', //z kot-em
+            Msc: word.replace('lew','lw').replace('pies','ps').replace(/t$/,'c') + 'ie', //o ko/[c]-ie
+            W: word.replace('lew','lw').replace('pies','ps').replace(/t$/,'c')+ 'ie', //o! ko/[c]-ie 
+          }
+        console.log('typ3 ---------------', wordObj)
+    }
     
 }
 
