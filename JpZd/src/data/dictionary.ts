@@ -493,6 +493,23 @@ function caseDeclination_deprecated(type: number | string, word: string): Case {
     }
 }
 
+export const verbs = {
+    pool1:[
+        {jp:'miru',pl:{niedokonany:'widzieć',dokonany:'zobaczyć'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+        {jp:'kau',pl:{niedokonany:'kopować',dokonany:'kupić'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+        {jp:'suru',pl:{niedokonany:'robić',dokonany:'zrobić'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+        {jp:'neru',pl:{niedokonany:'spać',dokonany:'wyspać'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+        {jp:'okiru',pl:{niedokonany:'budzić',dokonany:'obudzić'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+        {jp:'okuru',pl:{niedokonany:'wysyłać',dokonany:'wysłać'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+        {jp:'deru',pl:{niedokonany:'wychodzić',dokonany:'wyjść'},particle:{jp:'o',pl:{txt:'od/z',case:'D'}}},
+        {jp:'iru',pl:{niedokonany:'potrzebować',dokonany:'potrzebować'},particle:{jp:'ga',pl:{txt:'',case:'B'}}},
+        {jp:'iku',pl:{niedokonany:'iść',dokonany:'pójść'},particle:{jp:'ni',pl:{txt:'do',case:'D'}}},
+        {jp:'oboeru',pl:{niedokonany:'zapamiętywać',dokonany:'zapamiętać'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+        {jp:'nakunaru',pl:{niedokonany:'gubić',dokonany:'zgubić'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+        {jp:'mitsukeru',pl:{niedokonany:'znajdować',dokonany:'znaleźć'},particle:{jp:'o',pl:{txt:'',case:'B'}}},
+    ]
+}
+
 export const wordList:WordList = {
     animals: [
         //kto co | kogo czego (nie ma) | komu czemu (się przyglądam) 

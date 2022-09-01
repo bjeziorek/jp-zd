@@ -1,6 +1,34 @@
+import { verbs } from './dictionary';
 import DataType from "../types/DataType.model";
 import { pickThemePool } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
+
+export function wantToDo(theme:string):DataType{
+    
+    function taiForm(verb:string){
+        //exceptions
+        if(verb==='suru'){
+            return 'shitai'
+        }
+        
+
+        if(verb.match(/iru$|eru$/)){
+            return verb.slice(0,-2)+'tai'
+        }else{
+            return verb.slice(0,-1)+'itai'
+        }
+        
+    }
+
+    const what = rand(pickThemePool(theme))
+    const verb = rand(verbs.pool1)
+    const bar = verb.particle.jp?'-':' '
+console.log(verb,what)
+    return {
+        romaji:/*what.jp + bar+ verb.particle.jp+' '+*/taiForm(verb.jp),
+        meaning:'Chcę '+verb.pl.dokonany/*+' '+verb.particle.pl.txt+' '+what.pl[verb.particle.pl.case]*/
+    }
+}
 
 export function give(theme:string):DataType{
 

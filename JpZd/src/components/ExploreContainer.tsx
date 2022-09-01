@@ -15,7 +15,7 @@ import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
 import { daysOfMonth } from "../data/calendar";
 import { hurts } from "../data/body";
 import rand from "../utils/randomArrayElement";
-import { give } from "../data/actions";
+import { give, wantToDo } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
 
 interface ContainerProps {
@@ -445,11 +445,15 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToThisAdverb() {
     setData(thisAdverb(theme));
   }
+  function changeToWantToDo() {
+    setData(wantToDo(theme));
+  }
   function changeToMuzyka() {
     setData(muzyka());
   }
   function setRandom() {
     const pool = [
+      wantToDo(theme),
       countingAnimals(),
       countingLongObjects(),
       countingPeople(),
@@ -499,6 +503,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToGive}> give/place</IonButton>
       <IonButton onClick={changeToAdverb}> adverb</IonButton>
       <IonButton onClick={changeToThisAdverb}> this adverb</IonButton>
+      <IonButton onClick={changeToWantToDo}> want to do</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
