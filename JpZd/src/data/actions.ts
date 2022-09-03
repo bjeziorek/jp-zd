@@ -30,26 +30,44 @@ console.log(verb,what)
     }
 }
 
-export function beGiven(theme:string):DataType{
+export function give2(theme:string):DataType{
 
     const thingsPool=[
-        {jp:['tabemono','kuremashita'],pl:['dał/a mi','jedzenie']},
-        {jp:['nomimono','kuremashita'],pl:['dał/a mi','picie']},
-        {jp:['mizu','kuremashita'],pl:['dał/a mi','wodę']},
-        {jp:['KOOHII','kuremashita'],pl:['dał/a mi','kawę']},
-        {jp:['koucha','kuremashita'],pl:['dał/a mi','czarną herbatę']},
-        {jp:['ocha','kuremashita'],pl:['dał/a mi','zieloną herbatę']},
-        {jp:['hana','kuremashita'],pl:['dał/a mi','kwiaty']},
-        {jp:['okurimono','kuremashita'],pl:['dał/a mi','prezent']},
+        {jp:['tabemono','kuremasu'],pl:['dał/a mi','jedzenie']},
+        {jp:['nomimono','kuremasu'],pl:['dał/a mi','picie']},
+        {jp:['mizu','kuremasu'],pl:['dał/a mi','wodę']},
+        {jp:['KOOHII','kuremasu'],pl:['dał/a mi','kawę']},
+        {jp:['koucha','kuremasu'],pl:['dał/a mi','czarną herbatę']},
+        {jp:['ocha','kuremasu'],pl:['dał/a mi','zieloną herbatę']},
+        {jp:['hana','kuremasu'],pl:['dał/a mi','kwiaty']},
+        {jp:['okurimono','kuremasu'],pl:['dał/a mi','prezent']},
     ]
 
-    const what = rand(thingsPool)
-    const animal1 = rand(pickThemePool(theme))//Math.random()>0.5?theme:'family'))
-   
-    return{
-        romaji:animal1.jp+'-wa watashi-ni '+what.jp[0]+'-o '+what.jp[1],
-        meaning:animal1.pl.M+' dał/a mi '+what.pl[1]
+    const uchi=rand(pickThemePool('myFamily'))
+    const soto = rand(pickThemePool('professions'))
+
+    function person(){
+        const isSoto=Math.random()>0.5?true:false
+        const who=isSoto?soto:uchi
+        return{
+            isSoto,
+            who
+        }
     }
+
+    const person1=person()
+    const person2=person()
+    const animal = rand(pickThemePool('animals'))//Math.random()>0.5?theme:'family'))
+   const verb=person2.isSoto?'agemasu':'kuremasu'
+
+    return{
+        romaji:person1.who.jp+'-wa '+person2.who.jp+'-ni '+animal.jp+'-o '+verb,
+        meaning:person1.who.pl.M+' daje '+person2.who.pl.C+' '+animal.pl.B
+    }
+    // return{
+    //     romaji:animal1.jp+'-wa watashi-ni '+what.jp[0]+'-o '+what.jp[1],
+    //     meaning:animal1.pl.M+' dał/a mi '+what.pl.B
+    // }
 
 }
 export function receive(theme:string):DataType{

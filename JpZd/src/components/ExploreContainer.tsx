@@ -15,8 +15,9 @@ import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
 import { daysOfMonth } from "../data/calendar";
 import { hurts } from "../data/body";
 import rand from "../utils/randomArrayElement";
-import { beGiven, give, receive, wantToDo } from "../data/actions";
+import { give2, give, receive, wantToDo } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
+import { basics } from "../data/basics";
 
 interface ContainerProps {
   name: string;
@@ -451,15 +452,19 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToReceive() {
     setData(receive(theme));
   }
-  function changeToBeGiven() {
-    setData(beGiven(theme));
+  function changeToGive2() {
+    setData(give2(theme));
+  }
+  function changeToBasics() {
+    setData(basics(theme));
   }
   function changeToMuzyka() {
     setData(muzyka());
   }
   function setRandom() {
     const pool = [
-      beGiven(theme),
+      basics(theme),
+      give2(theme),
       receive(theme),
       wantToDo(theme),
       countingAnimals(),
@@ -511,11 +516,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAdverb}> adverb</IonButton>
       <IonButton onClick={changeToThisAdverb}> this adverb</IonButton>
       <IonButton onClick={changeToWantToDo}> want to do</IonButton>
-      <IonButton onClick={changeToGive}> give</IonButton>
+      <IonButton onClick={changeToGive}> give teach</IonButton>
       <IonButton onClick={changeToReceive}>receive</IonButton>
-      <IonButton onClick={changeToBeGiven}>be given</IonButton>
+      <IonButton onClick={changeToGive2}>give2</IonButton>
       <IonButton onClick={changeToAll}>All</IonButton>
-      <IonButton onClick={changeToReceive}>==Muzyka==</IonButton>
+      <IonButton onClick={changeToReceive}>Receive</IonButton>
+      <IonButton onClick={changeToBasics}>Basics</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
