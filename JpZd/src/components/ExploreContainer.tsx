@@ -17,7 +17,7 @@ import { hurts } from "../data/body";
 import rand from "../utils/randomArrayElement";
 import { give2, give, receive, wantToDo } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
-import { basics } from "../data/basics";
+import { basics, which, whichOfAny } from "../data/basics";
 
 interface ContainerProps {
   name: string;
@@ -458,11 +458,19 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToBasics() {
     setData(basics(theme));
   }
+  function changeToWhich() {
+    setData(which(theme));
+  }
+  function changeToWhichOfAny() {
+    setData(whichOfAny(theme));
+  }
   function changeToMuzyka() {
     setData(muzyka());
   }
   function setRandom() {
     const pool = [
+      which(theme),
+      whichOfAny(theme),
       basics(theme),
       give2(theme),
       receive(theme),
@@ -522,6 +530,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAll}>All</IonButton>
       <IonButton onClick={changeToReceive}>Receive</IonButton>
       <IonButton onClick={changeToBasics}>Basics</IonButton>
+      <IonButton onClick={changeToWhich}>which</IonButton>
+      <IonButton onClick={changeToWhichOfAny}>which of any</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

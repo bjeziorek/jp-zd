@@ -85,7 +85,7 @@ let caseType = {
 }
 
 function caseDeclination(word: string): Case {
-    declineAdjective('','')
+   /// declineAdjective('', '')
     const vowel = /[aieouyęą]/;
     const lastLetter = word.slice(-1)
     const secondLastLetter = word.slice(-2, -1)
@@ -114,6 +114,14 @@ function caseDeclination(word: string): Case {
             N: word.slice(0, word.length - 1) + 'ą', //z ryb/-ą
             Msc: word.slice(0, word.length - 3) + EndMsc, //o ryb/-ie
             W: word.slice(0, word.length - 1) + 'o', //o! ryb/-o
+            M_pl: word.slice(0,-1)+'y',//są ryb/-y
+            D_pl: word,// nie ma ryb
+            C_pl: word.slice(0, word.length - 3) + 'om', //przyglądam się ryb/-om
+            B_pl: word.slice(0, word.length - 1) + 'y', //widzę ryb/-y
+            N_pl: word.slice(0, word.length - 1) + 'ami', //z ryb/-ami
+            Msc_pl: word.slice(0, word.length - 3) + 'ach', //o ryb/-ach
+            W_pl: word.slice(0, word.length - 1) + 'y', //o! ryb/-y
+        
         }
         console.log('typ1', wordObj)
         return wordObj
@@ -128,13 +136,21 @@ function caseDeclination(word: string): Case {
         word === 'wróbel') {
 
         const wordObj = {
-            M: word,//jest krokodyl
+            M: word,//jest krokodyl, niedźwiedź, łabędź, koń, wróbel
             D: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'a', // nie ma krokodyl-a
             C: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'owi', //przyglądam się krokodyl-owi
             B: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'a', //widzę krokodyl-a
             N: word.replace(/k$/, 'ki').replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'em', //z krokodyl-em
             Msc: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'u', //o krokodyl-u
             W: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'u', //o! krokodyl-u 
+            M_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl')+'e',//są krokodyl-e
+            D_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl')+'i',// nie ma krokodyli
+            C_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'om', //przyglądam się krokodyl/-om
+            B_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'e', //widzę krokodyl/-e
+            N_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'ami', //z krokodyl/-ami
+            Msc_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'ach', //o krokodyl/-ach
+            W_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'e', //o! krokodyl/-e
+        
         }
         console.log('typ2a', wordObj)
         return wordObj
@@ -155,6 +171,14 @@ function caseDeclination(word: string): Case {
             N: word.replace('orzeł', 'orł') + 'em', //z lis-em
             Msc: word.replace(/s$/, 'si').replace(/n$/, 'ni').replace(/r$/, 'rz').replace(/t$/, 'ci').replace('orzeł', 'orl') + 'e', //o lis-ie , komar-ze, pingwin-ie
             W: word.replace(/s$/, 'si').replace(/n$/, 'ni').replace(/r$/, 'rz').replace(/t$/, 'ci').replace('orzeł', 'orl') + 'e', //o! lis-ie 
+            M_pl: word+'y',//są lis/-y
+            D_pl: word+'ów',// nie ma lis-ów
+            C_pl: word + 'om', //przyglądam się lis/-om
+            B_pl: word + 'y', //widzę lis/-y
+            N_pl: word + 'ami', //z lis/-ami
+            Msc_pl: word + 'ach', //o lis/-ach
+            W_pl: word + 'y', //o! lis/-y
+        
         }
         console.log('typ2b ------ ', wordObj)
         return wordObj
@@ -172,6 +196,13 @@ function caseDeclination(word: string): Case {
             N: word.replace('lew', 'lw').replace('pies', 'ps') + 'em', //z kot-em
             Msc: word.replace('lew', 'lw').replace('pies', 'ps').replace(/t$/, 'c') + 'ie', //o ko/[c]-ie
             W: word.replace('lew', 'lw').replace('pies', 'ps').replace(/t$/, 'c') + 'ie', //o! ko/[c]-ie 
+            M_pl: word.replace('lew', 'lw').replace('pies', 'ps') +'y',//są kot/-y
+            D_pl: word.replace('lew', 'lw').replace('pies', 'ps') +'ów',// nie ma kot-ów
+            C_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'om', //przyglądam się kot/-om
+            B_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'y', //widzę kot/-y
+            N_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'ami', //z kot/-ami
+            Msc_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'ach', //o kot/-ach
+            W_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'y', //o! kot/-y
         }
         console.log('typ3', wordObj)
         return wordObj
@@ -189,6 +220,14 @@ function caseDeclination(word: string): Case {
             N: word.slice(0, -1) + 'ą', //ze owc/-ą
             Msc: word.slice(0, -1) + 'y', //o owc/-y
             W: word.slice(0, -1) + 'o', //o! owc/-o
+            M_pl: word.slice(0, -1)+'y',//są owc/-e
+            D_pl: word.slice(0, -1).replace(/c$/,'iec'),// nie ma ow(ie)c
+            C_pl: word.slice(0, -1) + 'om', //przyglądam się owc/-om
+            B_pl: word.slice(0, -1) + 'e', //widzę owc/-e
+            N_pl: word.slice(0, -1) + 'ami', //z owc/-ami
+            Msc_pl: word.slice(0, -1) + 'ach', //o owc/-ach
+            W_pl: word.slice(0, -1) + 'e', //o! owc/-e
+        
         }
         console.log('typ -ca', wordObj)
         return wordObj
@@ -207,6 +246,14 @@ function caseDeclination(word: string): Case {
             N: word.replace(/a$/, '') + 'ą', //ze świni/-ą
             Msc: word.replace(/a$/, ''), //o świni/
             W: word.replace(/a$/, '') + 'o', //o! świni/-o
+            M_pl: word.slice(0, -1)+'y',//są świni/-e
+            D_pl: word.slice(0, -2).replace(/n$/,'ń'),// nie ma świ(ń)/
+            C_pl: word.slice(0, -1) + 'om', //przyglądam się świni/-om
+            B_pl: word.slice(0, -1) + 'e', //widzę świni/-e
+            N_pl: word.slice(0, -1) + 'ami', //z świni/-ami
+            Msc_pl: word.slice(0, -1) + 'ach', //o świni/-ach
+            W_pl: word.slice(0, -1) + 'e', //o! świni/-e
+        
         }
         console.log('typ -nia/-yni', wordObj)
         return wordObj
@@ -224,6 +271,14 @@ function caseDeclination(word: string): Case {
             N: word + 'ą', //z mysz-ą
             Msc: word + 'y', //o mysz-y
             W: word + 'o', //o! mysz-o
+            M_pl: word+'y',//są mysz-y
+            D_pl: word+'y',// nie ma mysz+y
+            C_pl: word + 'om', //przyglądam się mysz-om
+            B_pl: word + 'e', //widzę mysz+y
+            N_pl: word + 'ami', //z mysz-ami
+            Msc_pl: word+ 'ach', //o mysz-ach
+            W_pl: word + 'y', //o! mysz-y
+        
         }
         console.log('typ mysz', wordObj)
         return wordObj
@@ -502,7 +557,7 @@ export function i_adjectivesTense(word: string, formal: boolean, tense: string, 
             } else {//present, future
                 return word + ' desu'
             }
-        }else{//negation
+        } else {//negation
             if (tense === 'past') {
                 return word.slice(0, -1) + 'kunakatta desu'
             } else {//present, future
@@ -515,11 +570,11 @@ export function na_adjectivesTense(word: string, formal: boolean, tense: string,
     if (formal) {
         if (!negation) {
             if (tense === 'past') {
-                return word.slice(0, -2)+' deshita'
+                return word.slice(0, -2) + ' deshita'
             } else {//present, future
-                return word.slice(0,-2)+' desu'
+                return word.slice(0, -2) + ' desu'
             }
-        }else{//negation
+        } else {//negation
             if (tense === 'past') {
                 return word.slice(0, -2) + ' dewa arimasen deshita'
             } else {//present, future
@@ -545,8 +600,8 @@ export const adjectives = [
     { jp: 'chiisai', pl: 'mały' },
     { jp: 'atsui', pl: 'gorący' },
     { jp: 'chikai', pl: 'bliski' },
-    { jp: 'yuumei', pl: 'słynny' },
-    { jp: 'yuumei', pl: 'sławny' },
+    { jp: 'yuumeina', pl: 'słynny' },
+    { jp: 'yuumeina', pl: 'sławny' },
     { jp: 'tooi', pl: 'odległy' },
     { jp: 'hayai', pl: 'szybki' },
     { jp: 'osoi', pl: 'powolny' },
@@ -563,27 +618,14 @@ export const adjectives = [
 ]
 
 
-export function declineAdjective(adjective: string, tense: string) {
-    
-    adjectives.forEach((item)=>{
-        const isIadj=(item.jp.match(/na$/))?false:true
-        if(isIadj){
-        console.log(item.jp,item.pl,
-            i_adjectivesTense(item.jp,true,'future',false),
-            i_adjectivesTense(item.jp,true,'past',false),
-            i_adjectivesTense(item.jp,true,'future',true),
-            i_adjectivesTense(item.jp,true,'past',true)
-            )
-        }else{
-            console.log(item.jp,item.pl,
-                na_adjectivesTense(item.jp,true,'future',false),
-                na_adjectivesTense(item.jp,true,'past',false),
-                na_adjectivesTense(item.jp,true,'future',true),
-                na_adjectivesTense(item.jp,true,'past',true)
-                )
-                
-        }
-    })
+export function declineAdjective(item: any, tense: string, negation: boolean, formal = true) {
+
+    const isIadj = (item.jp.match(/na$/)) ? false : true
+    if (isIadj) {
+        return i_adjectivesTense(item.jp, formal, tense, negation)
+    } else {
+        return na_adjectivesTense(item.jp, formal, tense, negation)
+    }
 }
 
 
