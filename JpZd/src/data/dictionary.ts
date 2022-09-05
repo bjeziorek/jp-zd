@@ -628,12 +628,38 @@ export function declineAdjective(item: any, tense: string, negation: boolean, fo
     }
 }
 
+export function teForm(verb:string){
+    let declined=verb
 
+    //exceptions
+    if(verb==='suru') return 'shite'
+    if(verb==='iru') return 'itte'
+    if(verb==='iku') return 'itte'
+    //ichidandoshi
+    if(verb.match(/iru$|eru$/)){
+        return verb.replace(/ru$/,'te')
+    }else{
+    //godandoshi
+        switch(verb.slice(-2)){
+            case 'bu': return verb.replace(/bu$/,'nde')
+            case 'mu': return verb.replace(/mu$/,'nde')
+            case 'nu': return verb.replace(/nu$/,'nde')
+            case 'ku': return verb.replace(/ku$/,'ite')
+            case 'su': return verb.replace(/su$/,'shite')
+            case 'tsu': return verb.replace(/tsu$/,'tte')
+            case 'ru': return verb.replace(/ru$/,'tte')
+            case 'au': return verb.replace(/u$/,'tte')
+            default:
+                console.log('unknown verb suffix: ',verb)
+                return verb
+        }
+    }
+}
 
 export const verbs = {
     pool1: [
         { jp: 'miru', pl: { niedokonany: 'widzieć', dokonany: 'zobaczyć' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'kau', pl: { niedokonany: 'kopować', dokonany: 'kupić' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'kau', pl: { niedokonany: 'kupować', dokonany: 'kupić' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'suru', pl: { niedokonany: 'robić', dokonany: 'zrobić' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'neru', pl: { niedokonany: 'spać', dokonany: 'wyspać' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'okiru', pl: { niedokonany: 'budzić', dokonany: 'obudzić' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
@@ -642,7 +668,8 @@ export const verbs = {
         { jp: 'iru', pl: { niedokonany: 'potrzebować', dokonany: 'potrzebować' }, particle: { jp: 'ga', pl: { txt: '', case: 'B' } } },
         { jp: 'iku', pl: { niedokonany: 'iść', dokonany: 'pójść' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
         { jp: 'oboeru', pl: { niedokonany: 'zapamiętywać', dokonany: 'zapamiętać' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'nakunaru', pl: { niedokonany: 'gubić', dokonany: 'zgubić' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'nakunaru', pl: { niedokonany: 'gubić się', dokonany: 'zgubić się' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'nakusu', pl: { niedokonany: 'gubić', dokonany: 'zgubić' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'mitsukeru', pl: { niedokonany: 'znajdować', dokonany: 'znaleźć' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
     ]
 }

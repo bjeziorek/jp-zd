@@ -1,7 +1,26 @@
-import { verbs } from './dictionary';
+import { teForm, verbs, wordList } from './dictionary';
 import DataType from "../types/DataType.model";
 import { pickThemePool } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
+
+export function twoVerbsAtOnce(theme:string):DataType{
+    const who = rand(wordList[theme])
+    const verb1 = rand(verbs.pool1)
+    const verb2 = rand(verbs.pool1)
+    return{
+        romaji:who.jp+'-wa '+teForm(verb1.jp)+', '+verb2.jp,
+        meaning:who.pl.M+ ' będzie '+verb1.pl.niedokonany+' i '+verb2.pl.niedokonany
+    }
+}
+export function twoVerbsOneByOne(theme:string):DataType{
+    const who = rand(wordList[theme])
+    const verb1 = rand(verbs.pool1)
+    const verb2 = rand(verbs.pool1)
+    return{
+        romaji:who.jp+'-wa '+teForm(verb1.jp)+'-kara, '+verb2.jp,
+        meaning:who.pl.M+ ' będzie '+verb1.pl.niedokonany+', a potem '+verb2.pl.niedokonany
+    }
+}
 
 export function wantToDo(theme:string):DataType{
     
