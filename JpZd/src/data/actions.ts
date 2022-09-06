@@ -22,6 +22,24 @@ export function twoVerbsOneByOne(theme:string):DataType{
     }
 }
 
+export function continues(theme:string):DataType{
+        const animal=rand(wordList.animals)
+        const verb=rand(verbs.pool1)
+        return{
+            romaji:'Ima, '+animal.jp+'-wa '+teForm(verb.jp)+"imasu",
+            meaning:'Teraz '+animal.pl.M+' '+verb.pl.os3
+        }
+}
+export function wayToDo(theme:string):DataType{
+        const verb=rand(verbs.pool1)
+        return{
+            romaji:verb.jp.replace(/u$/,'i')+" kata",
+            meaning:'Sposób '+verb.pl.imieslowNiedokonany.replace(/(e się)$/,'a się').replace(/(e)$/,'a')
+        }
+}
+
+
+
 export function wantToDo(theme:string):DataType{
     
     function taiForm(verb:string){

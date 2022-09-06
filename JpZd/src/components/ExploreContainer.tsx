@@ -15,7 +15,7 @@ import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
 import { daysOfMonth } from "../data/calendar";
 import { hurts } from "../data/body";
 import rand from "../utils/randomArrayElement";
-import { give2, give, receive, wantToDo, twoVerbsAtOnce, twoVerbsOneByOne } from "../data/actions";
+import { give2, give, receive, wantToDo, twoVerbsAtOnce, twoVerbsOneByOne, continues, wayToDo } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
 import { basics, which, whichOfAny } from "../data/basics";
 
@@ -477,8 +477,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeTo2VerbsOneByOne() {
     setData(twoVerbsOneByOne(theme));
   }
+  function changeToContinues() {
+    setData(continues(theme));
+  }
+  function changeToWayToDo() {
+    setData(wayToDo(theme));
+  }
   function setRandom() {
     const pool = [
+      continues(theme),
+      wayToDo(theme),
       twoVerbsAtOnce(theme),
       twoVerbsOneByOne(theme),
       which(theme),
@@ -546,6 +554,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToWhichOfAny}>which of any</IonButton>
       <IonButton onClick={changeTo2VerbsAtOnce}>2 verbs at once</IonButton>
       <IonButton onClick={changeTo2VerbsOneByOne}>2 verbs one by one</IonButton>
+      <IonButton onClick={changeToContinues}>continues</IonButton>
+      <IonButton onClick={changeToWayToDo}>way to do</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
