@@ -1,14 +1,30 @@
-import { teForm, verbs, wordList } from './dictionary';
+import { verbFormJp, verbForms, verbs, wordList } from './dictionary';
 import DataType from "../types/DataType.model";
 import { pickThemePool } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
+
+export function proposition1(theme:string):DataType{
+    const verb1 = rand(verbs.pool1)
+    return{
+        romaji:verbFormJp(verb1.jp,verbForms.shou)+'. Ee, sou shimashou.',
+        meaning:verb1.pl.rozkazujący+'! Dobrze, zróbmy to.'
+    }
+}
+export function proposition2(theme:string):DataType{
+    const verb1 = rand(verbs.pool1)
+    return{
+        romaji:verbFormJp(verb1.jp,verbForms.shou)+'ka. Ee, ii desu ne.',
+        meaning:'Może będziemy '+verb1.pl.niedokonany+'? Tak, dobrze.'
+    }
+}
+
 
 export function twoVerbsAtOnce(theme:string):DataType{
     const who = rand(wordList[theme])
     const verb1 = rand(verbs.pool1)
     const verb2 = rand(verbs.pool1)
     return{
-        romaji:who.jp+'-wa '+teForm(verb1.jp)+', '+verb2.jp,
+        romaji:who.jp+'-wa '+verbFormJp(verb1.jp,verbForms.te)+', '+verb2.jp,
         meaning:who.pl.M+ ' będzie '+verb1.pl.niedokonany+' i '+verb2.pl.niedokonany
     }
 }
@@ -17,7 +33,7 @@ export function twoVerbsOneByOne(theme:string):DataType{
     const verb1 = rand(verbs.pool1)
     const verb2 = rand(verbs.pool1)
     return{
-        romaji:who.jp+'-wa '+teForm(verb1.jp)+'-kara, '+verb2.jp,
+        romaji:who.jp+'-wa '+verbFormJp(verb1.jp,verbForms.te)+'-kara, '+verb2.jp,
         meaning:who.pl.M+ ' będzie '+verb1.pl.niedokonany+', a potem '+verb2.pl.niedokonany
     }
 }
@@ -26,14 +42,14 @@ export function continues(theme:string):DataType{
         const animal=rand(wordList.animals)
         const verb=rand(verbs.pool1)
         return{
-            romaji:'Ima, '+animal.jp+'-wa '+teForm(verb.jp)+"imasu",
+            romaji:'Ima, '+animal.jp+'-wa '+verbFormJp(verb.jp,verbForms.te)+"imasu",
             meaning:'Teraz '+animal.pl.M+' '+verb.pl.os3
         }
 }
 export function wayToDo(theme:string):DataType{
         const verb=rand(verbs.pool1)
         return{
-            romaji:verb.jp.replace(/u$/,'i')+" kata",
+            romaji:verbFormJp(verb.jp,verbForms.masuBase)+" kata",
             meaning:'Sposób '+verb.pl.imieslowNiedokonany.replace(/(e się)$/,'a się').replace(/(e)$/,'a')
         }
 }

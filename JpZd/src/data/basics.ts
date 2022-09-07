@@ -2,6 +2,17 @@ import { wordList, adjectives, declineAdjective } from './dictionary';
 import DataType from "../types/DataType.model"
 import rand from "../utils/randomArrayElement"
 
+export function chigaimasu(theme:string):DataType{ //chigaimasu
+    const a = rand(wordList[theme])
+    const b = rand(wordList[theme])
+    const neg = Math.random()>0.5?false:true
+    const answer = neg?{jp:'Iee, chigaimasu',pl:'Nie, mylisz się'}:{jp:'Hai, sou desu.',pl:'Tak, zgadza się'}
+    return {
+        romaji:a.jp+'-wa '+b.jp+' desuka? '+answer.jp,
+        meaning:'Czy '+a.pl.M+' jest '+b.pl.N+'? '+answer.pl
+    }
+}
+
 export function basics(theme: string): DataType {
     const no = [
         { jp: 'kono', pl: 'ten (koło mnie)' },

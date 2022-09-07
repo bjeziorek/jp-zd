@@ -85,7 +85,7 @@ let caseType = {
 }
 
 function caseDeclination(word: string): Case {
-   /// declineAdjective('', '')
+    /// declineAdjective('', '')
     const vowel = /[aieouyęą]/;
     const lastLetter = word.slice(-1)
     const secondLastLetter = word.slice(-2, -1)
@@ -114,14 +114,14 @@ function caseDeclination(word: string): Case {
             N: word.slice(0, word.length - 1) + 'ą', //z ryb/-ą
             Msc: word.slice(0, word.length - 3) + EndMsc, //o ryb/-ie
             W: word.slice(0, word.length - 1) + 'o', //o! ryb/-o
-            M_pl: word.slice(0,-1)+'y',//są ryb/-y
+            M_pl: word.slice(0, -1) + 'y',//są ryb/-y
             D_pl: word,// nie ma ryb
             C_pl: word.slice(0, word.length - 3) + 'om', //przyglądam się ryb/-om
             B_pl: word.slice(0, word.length - 1) + 'y', //widzę ryb/-y
             N_pl: word.slice(0, word.length - 1) + 'ami', //z ryb/-ami
             Msc_pl: word.slice(0, word.length - 3) + 'ach', //o ryb/-ach
             W_pl: word.slice(0, word.length - 1) + 'y', //o! ryb/-y
-        
+
         }
         console.log('typ1', wordObj)
         return wordObj
@@ -143,14 +143,14 @@ function caseDeclination(word: string): Case {
             N: word.replace(/k$/, 'ki').replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'em', //z krokodyl-em
             Msc: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'u', //o krokodyl-u
             W: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'u', //o! krokodyl-u 
-            M_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl')+'e',//są krokodyl-e
-            D_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl')+'i',// nie ma krokodyli
+            M_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'e',//są krokodyl-e
+            D_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'i',// nie ma krokodyli
             C_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'om', //przyglądam się krokodyl/-om
             B_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'e', //widzę krokodyl/-e
             N_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'ami', //z krokodyl/-ami
             Msc_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'ach', //o krokodyl/-ach
             W_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'e', //o! krokodyl/-e
-        
+
         }
         console.log('typ2a', wordObj)
         return wordObj
@@ -171,14 +171,14 @@ function caseDeclination(word: string): Case {
             N: word.replace('orzeł', 'orł') + 'em', //z lis-em
             Msc: word.replace(/s$/, 'si').replace(/n$/, 'ni').replace(/r$/, 'rz').replace(/t$/, 'ci').replace('orzeł', 'orl') + 'e', //o lis-ie , komar-ze, pingwin-ie
             W: word.replace(/s$/, 'si').replace(/n$/, 'ni').replace(/r$/, 'rz').replace(/t$/, 'ci').replace('orzeł', 'orl') + 'e', //o! lis-ie 
-            M_pl: word+'y',//są lis/-y
-            D_pl: word+'ów',// nie ma lis-ów
+            M_pl: word + 'y',//są lis/-y
+            D_pl: word + 'ów',// nie ma lis-ów
             C_pl: word + 'om', //przyglądam się lis/-om
             B_pl: word + 'y', //widzę lis/-y
             N_pl: word + 'ami', //z lis/-ami
             Msc_pl: word + 'ach', //o lis/-ach
             W_pl: word + 'y', //o! lis/-y
-        
+
         }
         console.log('typ2b ------ ', wordObj)
         return wordObj
@@ -196,13 +196,13 @@ function caseDeclination(word: string): Case {
             N: word.replace('lew', 'lw').replace('pies', 'ps') + 'em', //z kot-em
             Msc: word.replace('lew', 'lw').replace('pies', 'ps').replace(/t$/, 'c') + 'ie', //o ko/[c]-ie
             W: word.replace('lew', 'lw').replace('pies', 'ps').replace(/t$/, 'c') + 'ie', //o! ko/[c]-ie 
-            M_pl: word.replace('lew', 'lw').replace('pies', 'ps') +'y',//są kot/-y
-            D_pl: word.replace('lew', 'lw').replace('pies', 'ps') +'ów',// nie ma kot-ów
-            C_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'om', //przyglądam się kot/-om
-            B_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'y', //widzę kot/-y
-            N_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'ami', //z kot/-ami
-            Msc_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'ach', //o kot/-ach
-            W_pl: word.replace('lew', 'lw').replace('pies', 'ps')  + 'y', //o! kot/-y
+            M_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'y',//są kot/-y
+            D_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'ów',// nie ma kot-ów
+            C_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'om', //przyglądam się kot/-om
+            B_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'y', //widzę kot/-y
+            N_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'ami', //z kot/-ami
+            Msc_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'ach', //o kot/-ach
+            W_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'y', //o! kot/-y
         }
         console.log('typ3', wordObj)
         return wordObj
@@ -220,14 +220,14 @@ function caseDeclination(word: string): Case {
             N: word.slice(0, -1) + 'ą', //ze owc/-ą
             Msc: word.slice(0, -1) + 'y', //o owc/-y
             W: word.slice(0, -1) + 'o', //o! owc/-o
-            M_pl: word.slice(0, -1)+'y',//są owc/-e
-            D_pl: word.slice(0, -1).replace(/c$/,'iec'),// nie ma ow(ie)c
+            M_pl: word.slice(0, -1) + 'y',//są owc/-e
+            D_pl: word.slice(0, -1).replace(/c$/, 'iec'),// nie ma ow(ie)c
             C_pl: word.slice(0, -1) + 'om', //przyglądam się owc/-om
             B_pl: word.slice(0, -1) + 'e', //widzę owc/-e
             N_pl: word.slice(0, -1) + 'ami', //z owc/-ami
             Msc_pl: word.slice(0, -1) + 'ach', //o owc/-ach
             W_pl: word.slice(0, -1) + 'e', //o! owc/-e
-        
+
         }
         console.log('typ -ca', wordObj)
         return wordObj
@@ -246,14 +246,14 @@ function caseDeclination(word: string): Case {
             N: word.replace(/a$/, '') + 'ą', //ze świni/-ą
             Msc: word.replace(/a$/, ''), //o świni/
             W: word.replace(/a$/, '') + 'o', //o! świni/-o
-            M_pl: word.slice(0, -1)+'y',//są świni/-e
-            D_pl: word.slice(0, -2).replace(/n$/,'ń'),// nie ma świ(ń)/
+            M_pl: word.slice(0, -1) + 'y',//są świni/-e
+            D_pl: word.slice(0, -2).replace(/n$/, 'ń'),// nie ma świ(ń)/
             C_pl: word.slice(0, -1) + 'om', //przyglądam się świni/-om
             B_pl: word.slice(0, -1) + 'e', //widzę świni/-e
             N_pl: word.slice(0, -1) + 'ami', //z świni/-ami
             Msc_pl: word.slice(0, -1) + 'ach', //o świni/-ach
             W_pl: word.slice(0, -1) + 'e', //o! świni/-e
-        
+
         }
         console.log('typ -nia/-yni', wordObj)
         return wordObj
@@ -271,14 +271,14 @@ function caseDeclination(word: string): Case {
             N: word + 'ą', //z mysz-ą
             Msc: word + 'y', //o mysz-y
             W: word + 'o', //o! mysz-o
-            M_pl: word+'y',//są mysz-y
-            D_pl: word+'y',// nie ma mysz+y
+            M_pl: word + 'y',//są mysz-y
+            D_pl: word + 'y',// nie ma mysz+y
             C_pl: word + 'om', //przyglądam się mysz-om
             B_pl: word + 'e', //widzę mysz+y
             N_pl: word + 'ami', //z mysz-ami
-            Msc_pl: word+ 'ach', //o mysz-ach
+            Msc_pl: word + 'ach', //o mysz-ach
             W_pl: word + 'y', //o! mysz-y
-        
+
         }
         console.log('typ mysz', wordObj)
         return wordObj
@@ -628,50 +628,129 @@ export function declineAdjective(item: any, tense: string, negation: boolean, fo
     }
 }
 
-export function teForm(verb:string):string{
-    
+export function verbFormJp(verb: string, form: string): string {
+
+    const isIchidandoshi = verb.match(/iru$|eru$/) ? true : false
+
+    function extractTeTaBase(verb: string): string {
+        //exceptions
+        if (verb === 'iru') return 'it' //bo go wezmie jako ichidandoshi
+        if (verb === 'iku') return 'it' //jako godandoshi
+        if (verb.match(/suru$/)) return verb.replace(/suru$/,'shi')//jako godandoshi
+        if (isIchidandoshi) {
+            return verb.slice(0, -2)
+        } else {
+            if (verb.match(/tsu$/)) return verb.slice(0, -3)
+            if (verb.match(/au$/)) {
+                return verb.slice(0, -1)
+            } else {
+                return verb.slice(0, -2)
+            }
+        }
+    }
+
+    function extractTeTaSuffix(verb: string) {
+        if (verb === 'iru') return 't' //bo go wezmie jako ichidandoshi
+        if (verb === 'iku') return 't' //jako godandoshi
+        if (verb.match(/suru$/)) return 't'//jako godandoshi
+        
+        if (isIchidandoshi) {
+            return 't'
+        } else {
+            switch (verb.slice(-2)) {
+                case 'bu':
+                case 'mu':
+                case 'nu': return 'nd'
+                case 'ku': return 'it'
+                case 'su': return 'shit'
+                case 'tsu':
+                case 'ru':
+                case 'au': return 'tt'
+                default:
+                    console.log('unknown verb suffix: ', verb)
+                    return '?'
+            }
+        }
+    }
+
+    function extractMasuBase(verb: string): string {
+        //exceptions
+        if (verb.match(/suru$/))return verb.replace(/suru$/,'shi')
+        if (verb.match(/su$/))return verb.replace(/su$/,'shi')
+        if (verb === 'iru') return 'iri' //wzor pasuje, ale itnie 2 literu!
+        if (verb === 'iku') return 'iki' //jw
+        return isIchidandoshi ? verb.slice(0, -2) : verb.replace(/u$/, 'i')
+    }
+
+    switch (form) {
+        case 'te':
+            return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'e'
+        case 'ta':
+            return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'a'
+        case 'masu':
+            return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'a'
+        case 'shou':
+            return extractMasuBase(verb) + 'mashou'
+        case 'masuBase':
+            return extractMasuBase(verb)
+        default:
+            console.log('??? nieznana forma: ', form)
+            return verb
+    }
+
+}
+
+//deprecated
+export function teForm_deprecated(verb: string, form: string): string {
+
     //exceptions
-    if(verb==='suru') return 'shite'
-    if(verb==='iru') return 'itte'
-    if(verb==='iku') return 'itte'
+    if (verb === 'suru') return 'shite'
+    if (verb === 'iru') return 'itte'
+    if (verb === 'iku') return 'itte'
     //ichidandoshi
-    if(verb.match(/iru$|eru$/)){
-        return verb.replace(/ru$/,'te')
-    }else{
-    //godandoshi
-        switch(verb.slice(-2)){
-            case 'bu': return verb.replace(/bu$/,'nde')
-            case 'mu': return verb.replace(/mu$/,'nde')
-            case 'nu': return verb.replace(/nu$/,'nde')
-            case 'ku': return verb.replace(/ku$/,'ite')
-            case 'su': return verb.replace(/su$/,'shite')
-            case 'tsu': return verb.replace(/tsu$/,'tte')
-            case 'ru': return verb.replace(/ru$/,'tte')
-            case 'au': return verb.replace(/u$/,'tte')
+    if (verb.match(/iru$|eru$/)) {
+        return verb.replace(/ru$/, 'te')
+    } else {
+        //godandoshi
+        switch (verb.slice(-2)) {
+            case 'bu': return verb.replace(/bu$/, 'nde')
+            case 'mu': return verb.replace(/mu$/, 'nde')
+            case 'nu': return verb.replace(/nu$/, 'nde')
+            case 'ku': return verb.replace(/ku$/, 'ite')
+            case 'su': return verb.replace(/su$/, 'shite')
+            case 'tsu': return verb.replace(/tsu$/, 'tte')
+            case 'ru': return verb.replace(/ru$/, 'tte')
+            case 'au': return verb.replace(/u$/, 'tte')
             default:
-                console.log('unknown verb suffix: ',verb)
+                console.log('unknown verb suffix: ', verb)
                 return verb
         }
     }
 }
 
-
+export const verbForms = {
+    te: 'te',
+    ta: 'ta',
+    masu: 'masu',
+    shou: 'shou', //propozycja
+    masuBase: 'masuBase'
+}
 
 export const verbs = {
     pool1: [
-        { jp: 'miru', pl: { imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3:'widzi'}, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'kau', pl: { imieslowNiedokonany: 'kupowanie',  niedokonany: 'kupować', dokonany: 'kupić', os3:'kupuje'}, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'suru', pl: { imieslowNiedokonany: 'robienie',  niedokonany: 'robić', dokonany: 'zrobić', os3:'robi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'neru', pl: { imieslowNiedokonany: 'spanie',  niedokonany: 'spać', dokonany: 'wyspać', os3:'śpi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'okiru', pl: { imieslowNiedokonany: 'budzenie',  niedokonany: 'budzić', dokonany: 'obudzić' , os3:'budzi'}, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'okuru', pl: { imieslowNiedokonany: 'wysyłanie',  niedokonany: 'wysyłać', dokonany: 'wysłać', os3:'wysyła' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'deru', pl: { imieslowNiedokonany: 'wychodzenie',  niedokonany: 'wychodzić', dokonany: 'wyjść', os3:'wychodzi' }, particle: { jp: 'o', pl: { txt: 'od/z', case: 'D' } } },
-        { jp: 'iru', pl: { imieslowNiedokonany: 'potrzebowanie',  niedokonany: 'potrzebować', dokonany: 'potrzebować', os3:'potrzebuje' }, particle: { jp: 'ga', pl: { txt: '', case: 'B' } } },
-        { jp: 'iku', pl: { imieslowNiedokonany: 'pójście',  niedokonany: 'iść', dokonany: 'pójść', os3:'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
-        { jp: 'oboeru', pl: { imieslowNiedokonany: 'zapamiętywanie',  niedokonany: 'zapamiętywać', dokonany: 'zapamiętać', os3:'pamięta' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'nakunaru', pl: {  imieslowNiedokonany: 'gubienie się', niedokonany: 'gubić się', dokonany: 'zgubić się', os3:'gubi się' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'nakusu', pl: { imieslowNiedokonany: 'gubienie',  niedokonany: 'gubić', dokonany: 'zgubić', os3:'gubi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'mitsukeru', pl: {  imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3:'znajduje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'miru', pl: { rozkazujący:'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'kau', pl: { rozkazujący:'kupmy',imieslowNiedokonany: 'kupowanie', niedokonany: 'kupować', dokonany: 'kupić', os3: 'kupuje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'suru', pl: {rozkazujący:'zróbmy', imieslowNiedokonany: 'robienie', niedokonany: 'robić', dokonany: 'zrobić', os3: 'robi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'neru', pl: { rozkazujący:'śpijmy',imieslowNiedokonany: 'spanie', niedokonany: 'spać', dokonany: 'wyspać', os3: 'śpi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'okiru', pl: { rozkazujący:'budźmy',imieslowNiedokonany: 'budzenie', niedokonany: 'budzić', dokonany: 'obudzić', os3: 'budzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'okuru', pl: { rozkazujący:'wyślijmy',imieslowNiedokonany: 'wysyłanie', niedokonany: 'wysyłać', dokonany: 'wysłać', os3: 'wysyła' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'deru', pl: {rozkazujący:'wyjdźmy', imieslowNiedokonany: 'wychodzenie', niedokonany: 'wychodzić', dokonany: 'wyjść', os3: 'wychodzi' }, particle: { jp: 'o', pl: { txt: 'od/z', case: 'D' } } },
+        { jp: 'iru', pl: { rozkazujący:'potrzebujmy',imieslowNiedokonany: 'potrzebowanie', niedokonany: 'potrzebować', dokonany: 'potrzebować', os3: 'potrzebuje' }, particle: { jp: 'ga', pl: { txt: '', case: 'B' } } },
+        { jp: 'iku', pl: { rozkazujący:'chodźmy',imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
+        { jp: 'oboeru', pl: {rozkazujący:'zapamiętajmy', imieslowNiedokonany: 'zapamiętywanie', niedokonany: 'zapamiętywać', dokonany: 'zapamiętać', os3: 'pamięta' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'nakunaru', pl: {rozkazujący:'zgubmy się', imieslowNiedokonany: 'gubienie się', niedokonany: 'gubić się', dokonany: 'zgubić się', os3: 'gubi się' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'nakusu', pl: { rozkazujący:'zgubmy',imieslowNiedokonany: 'gubienie', niedokonany: 'gubić', dokonany: 'zgubić', os3: 'gubi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'mitsukeru', pl: { rozkazujący:'znajdźmy',imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3: 'znajduje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
     ]
 }
 
