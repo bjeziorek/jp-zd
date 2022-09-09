@@ -2,6 +2,7 @@ import { Case } from './../types/Case.model';
 import Dict from "../types/Dict.model"
 import Kanji from "../types/Kanji.model"
 import WordList from '../types/WordList.model';
+import Numbers from '../types/Numbers.model';
 
 export default function dictionary() {
     return 0
@@ -736,6 +737,195 @@ export const verbForms = {
     masuBase: 'masuBase'
 }
 
+export const numbers:Numbers={
+    general:{
+        '?':'nan',
+        '1':'ichi',
+        '2':'ni',
+        '3':'san',
+        '4':'shi',
+        '5':'go',
+        '6':'roku',
+        '7':'shichi',
+        '8':'hachi',
+        '9':'kyuu',
+        '10':'jyuu',
+    },
+    things:{//liczenie ogolne
+        '?':'ikutsu',
+        '1':'hitotsu',
+        '2':'futatsu',
+        '3':'mittsu',
+        '4':'yottsu',
+        '5':'itsutsu',
+        '6':'muttsu',
+        '7':'nanatsu',
+        '8':'yattsu',
+        '9':'kokonotsu',
+        '10':'too',
+    },
+    nin:{//ludzie
+        '?':'nannin',
+        '1':'hitori',
+        '2':'futari',
+        '3':'sannin',
+        '4':'yonin',
+        '5':'gonin',
+        '6':'rokunin',
+        '7':'shichi/nananin',
+        '8':'hachinin',
+        '9':'kyuunin/kunin',
+        '10':'jyuunin',
+    },
+    hon:{//dlugie obiekty
+        '?':'nanbon',
+        '1':'ippon',
+        '2':'nihon',
+        '3':'sanbon',
+        '4':'yonhon',
+        '5':'gohon',
+        '6':'roppon',
+        '7':'shichihon/nanahon',
+        '8':'hachihon',
+        '9':'kyuuhon',
+        '10':'jyuppon/jippon',
+    },
+    hiki:{//male zwierzeta
+        '?':'nanbiki',
+        '1':'ippiki',
+        '2':'nihiki',
+        '3':'sanbiki',
+        '4':'yonhiki',
+        '5':'gohiki',
+        '6':'roppiki',
+        '7':'shichihiki/nanahiki',
+        '8':'happiki',
+        '9':'kyuuhiki',
+        '10':'jyuuppiki/jippiki',
+
+    },
+    tou:{//duże zwierzeta, zwierzęta pracujące, inteligentne
+        '?':'nantou',
+        '1':'ittou',
+        '2':'nitou',
+        '3':'santou',
+        '4':'yontou',
+        '5':'gotou',
+        '6':'rokutou',
+        '7':'shichitou/nanatou',
+        '8':'hachitou/hattou',
+        '9':'kyuutou',
+        '10':'jyuttou/jittou',
+    },
+    wa:{//ptaki,nietoperze i króliki
+        '?':'nanwa/nanba',
+        '1':'ichiwa',
+        '2':'niwa',
+        '3':'sanwa/sanba',
+        '4':'yonwa/yonba/yowa',
+        '5':'gowa',
+        '6':'rokuwa/robba',
+        '7':'nanawa/shichiwa',
+        '8':'hachiwa/happa',
+        '9':'kyuuwa',
+        '10':'juuwa/jubba/jibba'
+    },
+    bai:{//kubki, filiżanki, kieliszki
+        '?':'nanbai',
+        '1':'ippai',
+        '2':'nihai',
+        '3':'sanbai',
+        '4':'yonhai',
+        '5':'gohai',
+        '6':'roppai',
+        '7':'shichihai/nanahai',
+        '8':'happai',
+        '9':'kyuuhai',
+        '10':'jyuppai/jippai',
+
+    },
+ //   sai:{//lata
+
+//    },
+   // ji:{//godziny
+
+    //},
+    
+    kai:{//piętra
+        '?':'nangai',
+        '1':'ikkai',
+        '2':'nikai',
+        '3':'sangai',
+        '4':'yonkai',
+        '5':'gokai',
+        '6':'rokkai',
+        '7':'shichikai/nanakai',
+        '8':'hakkai',
+        '9':'kyuukai',
+        '10':'jyukkai/jikkai',
+    },
+    dai:{//pojazdy (w tym rower), maszyny
+        '?':'nandai',
+        '1':'ichidai',
+        '2':'nidai',
+        '3':'sandai',
+        '4':'yondai',
+        '5':'godai',
+        '6':'rokudai',
+        '7':'shichidai/nanadai',
+        '8':'hachidai',
+        '9':'kyuudai',
+        '10':'jyuudai',
+    },
+    hun:{//minuty
+        '?':'nanpun',
+        '1':'ippun',
+        '2':'nihun',
+        '3':'sanbun',
+        '4':'yonpun',
+        '5':'gohun',
+        '6':'roppun',
+        '7':'shichihun/nanahun',
+        '8':'happun',
+        '9':'kyuuhun',
+        '10':'jyuuppun/jippun',
+
+    },
+//    en:{//yen
+        
+  //  },
+    //nen:{//lata
+
+    //},
+    satsu:{//tomy książek
+        '?':'nansatsu',
+        '1':'issatsu',
+        '2':'nisatsu',
+        '3':'sansatsu',
+        '4':'yonsatsu',
+        '5':'gosatsu',
+        '6':'rokusatsu',
+        '7':'shichisatsu/nanasatsu',
+        '8':'hassatsu',
+        '9':'kyuusatsu',
+        '10':'jyussatsu/jussatsu',
+    },
+    mai:{//płaskie rzeczy
+        '?':'nanmai',
+        '1':'ichimai',
+        '2':'nimai',
+        '3':'sanmai',
+        '4':'yonmai',
+        '5':'gomai',
+        '6':'rokumai',
+        '7':'shichimai/nanamai',
+        '8':'hachimai',
+        '9':'kyuumai',
+        '10':'jyuumai',
+
+    },
+}
+
 export const verbs = {
     pool1: [
         { jp: 'miru', pl: { rozkazujący:'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
@@ -778,7 +968,7 @@ export const wordList: WordList = {
         { jp: 'usagi', pl: caseDeclination('królik'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['królik', 'królika'] },
         { jp: 'hitsuji', pl: caseDeclination('owca'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false },//['owca', 'owcy'] },
         { jp: 'buta', pl: caseDeclination('świnia'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false },// ['świnia', 'świni'] },
-        { jp: 'jinchou', pl: caseDeclination('pingwin'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },//pl: ['pingwin', 'pingwina'] },
+        { jp: 'jinchou', pl: caseDeclination('pingwin'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },//pl: ['pingwin', 'pingwina'] },
         { jp: 'ookami', pl: caseDeclination('wilk'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },//['wilk', 'wilka'] },
         { jp: 'kuma', pl: caseDeclination('niedźwiedź'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },//['niedźwiedź', 'niedźwiedzia'] },
         { jp: 'risu', pl: caseDeclination('wiewiórka'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },//['wiewiórka', 'wiewiórka'] },
@@ -790,7 +980,7 @@ export const wordList: WordList = {
         { jp: 'hae', pl: caseDeclination('mucha'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },// ['mucha', 'muchy'] },
         { jp: 'kitsune', pl: caseDeclination('lis'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },// pl: ['lis', 'lisa'] },
         { jp: 'harinezumi', pl: caseDeclination('jeż'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },// ['jeż', 'jeża'] },
-        { jp: 'hiso', pl: caseDeclination('nietoperz'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },// ['nietoperz', 'nietoperza'] },
+        { jp: 'hiso', pl: caseDeclination('nietoperz'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['nietoperz', 'nietoperza'] },
         { jp: 'tonbo', pl: caseDeclination('ważka'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },// ['ważka', 'ważki'] },
         { jp: 'kame', pl: caseDeclination('żółw'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },//  ['żółw', 'żółwia'] },
         { jp: 'hakuchou', pl: caseDeclination('łabędź'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['łabędź'] },
@@ -850,7 +1040,14 @@ export const wordList: WordList = {
         { jp: "enpitsu", pl: caseDeclination('ołówek'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false },
         { jp: "mannenhitsu", pl: caseDeclination('pióro'), counter: 'hon', plGender: 'n', isAlive: false, isHuman: false },
         { jp: "BOORUPEN", pl: caseDeclination('długopis'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false },
-
+        { jp: "kitte", pl: caseDeclination('znaczek'), counter: 'mai', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "kasa", pl: caseDeclination('parasol'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "KAPPU", pl: caseDeclination('kubek'), counter: 'bai', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "GURASU", pl: caseDeclination('szklanka'), counter: 'bai', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "kuruma", pl: caseDeclination('samochód'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "jitensha", pl: caseDeclination('rower'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "KONPYUUTA", pl: caseDeclination('komputer'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
+        
     ],
     places: [
         { jp: "basho", pl: caseDeclination('miejsce'), counter: '?', plGender: 'n', isAlive: false, isHuman: false },

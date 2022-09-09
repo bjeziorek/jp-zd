@@ -3,6 +3,23 @@ import DataType from "../types/DataType.model";
 import { pickThemePool } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
 
+export function also(theme:string):DataType{
+    const whom = rand(wordList.professions)
+    const who = rand(wordList.animals)
+    return{
+        romaji:who.jp+'-mo '+whom.jp+' desu',
+        meaning:who.pl.M+' też jest '+whom.pl.N
+    }
+}
+export function AandB(theme:string):DataType{
+    const whom = rand(wordList.professions)
+    const whoA = rand(wordList.animals)
+    const whoB = rand(wordList.animals)
+    return{
+        romaji:whoA.jp+'-to '+whoB.jp+'-wa '+whom.jp+' desu',
+        meaning:whoA.pl.M+' i '+whoB.pl.M+' są '+whom.pl.N_pl
+    }
+}
 export function proposition1(theme:string):DataType{
     const verb1 = rand(verbs.pool1)
     return{

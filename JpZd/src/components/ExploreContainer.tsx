@@ -7,6 +7,7 @@ import {
   countingAnimals,
   countingLongObjects,
   countingPeople,
+  generalCounting,
 } from "../data/numbers";
 import { kanjiDict } from "../data/dictionary";
 import { comparasion, more, theMost, whichOf } from "../data/comparasionSizes";
@@ -15,7 +16,20 @@ import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
 import { daysOfMonth } from "../data/calendar";
 import { hurts } from "../data/body";
 import rand from "../utils/randomArrayElement";
-import { give2, give, receive, wantToDo, twoVerbsAtOnce, twoVerbsOneByOne, continues, wayToDo, proposition1, proposition2 } from "../data/actions";
+import {
+  give2,
+  give,
+  receive,
+  wantToDo,
+  twoVerbsAtOnce,
+  twoVerbsOneByOne,
+  continues,
+  wayToDo,
+  proposition1,
+  proposition2,
+  also,
+  AandB,
+} from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
 import { chigaimasu, basics, which, whichOfAny } from "../data/basics";
 
@@ -41,46 +55,63 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   }
 
   function muzyka(): DataType {
-  
-    const pool=[
-      {pyt:'Gdzie leżą C',odp:'Na dodatkowej lini na dole oraz na 4 polu'},
-      {pyt:'Gdzie leżą D',odp:'Na polu pod pięciolinią oraz na 4 linii'},
-      {pyt:'Gdzie leżą E',odp:'Na 1 lini oraz na 4 polu'},
-      {pyt:'Gdzie leżą F',odp:'Na 1 polu oraz na 5 linii'},
-      {pyt:'Gdzie leżą G',odp:'Na 2 lini oraz na polu nad pięciolinią'},
-      {pyt:'Gdzie leżą A',odp:'Na 2 polu oraz na dodatkowej linii na górze'},
-      {pyt:'Gdzie leżą H',odp:'Na 3 lini oraz na polu nad dodatkową linią na górze'},
-      {pyt:'Co leży na 1 linii?',odp:'e1'},
-      {pyt:'Co leży na 2 linii?',odp:'g1'},
-      {pyt:'Co leży na 3 linii?',odp:'h1'},
-      {pyt:'Co leży na 4 linii?',odp:'d2'},
-      {pyt:'Co leży na 5 linii?',odp:'f2'},
-      {pyt:'Co leży na dodatkowej dolnej linii?',odp:'c1'},
-      {pyt:'Co leży na dodatkowej górnej linii?',odp:'a2'},
-      {pyt:'Co leży na 1 polu?',odp:'f1'},
-      {pyt:'Co leży na 2 polu?',odp:'a1'},
-      {pyt:'Co leży na 3 polu?',odp:'c2'},
-      {pyt:'Co leży na 4 polu?',odp:'e2'},
-      {pyt:'Co leży na polu nad dodatkową kreską nad pięciolinią?',odp:'h2'},
-      {pyt:'Co leży na polu nad pięciolinią?',odp:'g2'},
-      {pyt:'Co leży na polu pod pięciolinią?',odp:'d1'},
-      {pyt:'Który dźwięk gra klawisz na lewo od dwóch czarnych?',odp:'c'},
-      {pyt:'Który dźwięk gra klawisz pomiędzy dwoma czarnymi?',odp:'d'},
-      {pyt:'Który dźwięk gra klawisz na prawo od dwóch czarnych?',odp:'e'},
-      {pyt:'Który dźwięk gra klawisz na prawo od trzech czarnych?',odp:'f'},
-      {pyt:'Który dźwięk gra klawisz piewszy pomiędzy trzema czarnymi?',odp:'g'},
-      {pyt:'Który dźwięk gra klawisz drugi pomiędzy trzema czarnymi?',odp:'a'},
-      {pyt:'Który dźwięk gra klawisz na lewo od trzech czarnych?',odp:'h'},
-  ]
+    const pool = [
+      { pyt: "Gdzie leżą C", odp: "Na dodatkowej lini na dole oraz na 4 polu" },
+      { pyt: "Gdzie leżą D", odp: "Na polu pod pięciolinią oraz na 4 linii" },
+      { pyt: "Gdzie leżą E", odp: "Na 1 lini oraz na 4 polu" },
+      { pyt: "Gdzie leżą F", odp: "Na 1 polu oraz na 5 linii" },
+      { pyt: "Gdzie leżą G", odp: "Na 2 lini oraz na polu nad pięciolinią" },
+      {
+        pyt: "Gdzie leżą A",
+        odp: "Na 2 polu oraz na dodatkowej linii na górze",
+      },
+      {
+        pyt: "Gdzie leżą H",
+        odp: "Na 3 lini oraz na polu nad dodatkową linią na górze",
+      },
+      { pyt: "Co leży na 1 linii?", odp: "e1" },
+      { pyt: "Co leży na 2 linii?", odp: "g1" },
+      { pyt: "Co leży na 3 linii?", odp: "h1" },
+      { pyt: "Co leży na 4 linii?", odp: "d2" },
+      { pyt: "Co leży na 5 linii?", odp: "f2" },
+      { pyt: "Co leży na dodatkowej dolnej linii?", odp: "c1" },
+      { pyt: "Co leży na dodatkowej górnej linii?", odp: "a2" },
+      { pyt: "Co leży na 1 polu?", odp: "f1" },
+      { pyt: "Co leży na 2 polu?", odp: "a1" },
+      { pyt: "Co leży na 3 polu?", odp: "c2" },
+      { pyt: "Co leży na 4 polu?", odp: "e2" },
+      {
+        pyt: "Co leży na polu nad dodatkową kreską nad pięciolinią?",
+        odp: "h2",
+      },
+      { pyt: "Co leży na polu nad pięciolinią?", odp: "g2" },
+      { pyt: "Co leży na polu pod pięciolinią?", odp: "d1" },
+      { pyt: "Który dźwięk gra klawisz na lewo od dwóch czarnych?", odp: "c" },
+      { pyt: "Który dźwięk gra klawisz pomiędzy dwoma czarnymi?", odp: "d" },
+      { pyt: "Który dźwięk gra klawisz na prawo od dwóch czarnych?", odp: "e" },
+      {
+        pyt: "Który dźwięk gra klawisz na prawo od trzech czarnych?",
+        odp: "f",
+      },
+      {
+        pyt: "Który dźwięk gra klawisz piewszy pomiędzy trzema czarnymi?",
+        odp: "g",
+      },
+      {
+        pyt: "Który dźwięk gra klawisz drugi pomiędzy trzema czarnymi?",
+        odp: "a",
+      },
+      { pyt: "Który dźwięk gra klawisz na lewo od trzech czarnych?", odp: "h" },
+    ];
 
-    const x = rand(pool)
+    const x = rand(pool);
 
-    return{
-    romaji:x.pyt,
-    meaning:x.odp
+    return {
+      romaji: x.pyt,
+      meaning: x.odp,
+    };
   }
-  }
-    function days(): DataType {
+  function days(): DataType {
     //this const is recreated every time the function is called so new random values are assigned
     const dayList: Array<DataType> = [
       {
@@ -246,6 +277,10 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
         romaji: "Ohayou gozaimasu",
         meaning: "Dzień dobry (przed południem).",
       },
+
+      { romaji: "Nan pun?", meaning: "Ile minut?" },
+      { romaji: "Nan kai?", meaning: "Ile pięter?" },
+
       {
         romaji: "Konnichi-wa",
         meaning: "Dzień dobry (po południu).",
@@ -276,7 +311,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       },
       {
         romaji: "Okaerinasai",
-        meaning: "Dobrze, że jesteś (powitanie osoby wracającej do swojego domu)",
+        meaning:
+          "Dobrze, że jesteś (powitanie osoby wracającej do swojego domu)",
       },
       {
         romaji: "Itadakimasu",
@@ -306,8 +342,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
         romaji: "Are-wa nan desuka",
         meaning: "Co tam jest",
       },
-
-
 
       ///liczby!!!!
     ];
@@ -492,8 +526,18 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToProposition2() {
     setData(proposition2(theme));
   }
+  function changeToAlso() {
+    setData(also(theme));
+  }
+  function changeToAandB() {
+    setData(AandB(theme));
+  }
+  function changeToGeneralCounting() {
+    setData(generalCounting(theme));
+  }
   function setRandom() {
     const pool = [
+      generalCounting(theme),
       proposition1(theme),
       proposition2(theme),
       chigaimasu(theme),
@@ -526,8 +570,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       thisAdverb(theme),
     ];
 
-    console.log(pool)
-    setData(rand(pool))
+    console.log(pool);
+    setData(rand(pool));
   }
 
   function changeToKanji() {
@@ -571,6 +615,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAisBchigaimasu}>A is B right/wrong</IonButton>
       <IonButton onClick={changeToProposition1}>proposition 1</IonButton>
       <IonButton onClick={changeToProposition2}>proposition 2</IonButton>
+      <IonButton onClick={changeToAlso}>also</IonButton>
+      <IonButton onClick={changeToAandB}>A and B</IonButton>
+      <IonButton onClick={changeToGeneralCounting}>general counting</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
