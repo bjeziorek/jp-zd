@@ -45,6 +45,7 @@ export function generalCounting(theme: string): DataType {
 
   let what_counter:string=what.counter
   let number_string:string=number.toString()
+  console.log(what.pl)
 
   return {
     romaji: numbers[what_counter]['?']+'? '+numbers[what_counter][number_string]+'-no '+what.jp,

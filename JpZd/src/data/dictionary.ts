@@ -86,6 +86,7 @@ let caseType = {
 }
 
 function caseDeclination(word: string): Case {
+    console.log('......................',word)
     /// declineAdjective('', '')
     const vowel = /[aieouyęą]/;
     const lastLetter = word.slice(-1)
@@ -295,6 +296,13 @@ function caseDeclination(word: string): Case {
         N: word,
         Msc: word,
         W: word,
+        M_pl: word,
+        D_pl: word,
+        C_pl: word,
+        B_pl: word,
+        N_pl: word,
+        Msc_pl: word,
+        W_pl: word,
     }
     console.log('unknown case pattern for: ' + word, wordObj2)
     return wordObj2
@@ -584,8 +592,6 @@ export function na_adjectivesTense(word: string, formal: boolean, tense: string,
         }
     }
 }
-
-
 export const adjectives = [
     { jp: 'se-ga takai', pl: 'wzrostem wysoki' },
     { jp: 'takai', pl: 'wysoki' },
@@ -618,7 +624,6 @@ export const adjectives = [
     { jp: 'himana', pl: 'w sensie czasu wolny' },
 ]
 
-
 export function declineAdjective(item: any, tense: string, negation: boolean, formal = true) {
 
     const isIadj = (item.jp.match(/na$/)) ? false : true
@@ -637,7 +642,7 @@ export function verbFormJp(verb: string, form: string): string {
         //exceptions
         if (verb === 'iru') return 'it' //bo go wezmie jako ichidandoshi
         if (verb === 'iku') return 'it' //jako godandoshi
-        if (verb.match(/suru$/)) return verb.replace(/suru$/,'shi')//jako godandoshi
+        if (verb.match(/suru$/)) return verb.replace(/suru$/, 'shi')//jako godandoshi
         if (isIchidandoshi) {
             return verb.slice(0, -2)
         } else {
@@ -654,7 +659,7 @@ export function verbFormJp(verb: string, form: string): string {
         if (verb === 'iru') return 't' //bo go wezmie jako ichidandoshi
         if (verb === 'iku') return 't' //jako godandoshi
         if (verb.match(/suru$/)) return 't'//jako godandoshi
-        
+
         if (isIchidandoshi) {
             return 't'
         } else {
@@ -676,8 +681,8 @@ export function verbFormJp(verb: string, form: string): string {
 
     function extractMasuBase(verb: string): string {
         //exceptions
-        if (verb.match(/suru$/))return verb.replace(/suru$/,'shi')
-        if (verb.match(/su$/))return verb.replace(/su$/,'shi')
+        if (verb.match(/suru$/)) return verb.replace(/suru$/, 'shi')
+        if (verb.match(/su$/)) return verb.replace(/su$/, 'shi')
         if (verb === 'iru') return 'iri' //wzor pasuje, ale itnie 2 literu!
         if (verb === 'iku') return 'iki' //jw
         return isIchidandoshi ? verb.slice(0, -2) : verb.replace(/u$/, 'i')
@@ -737,210 +742,210 @@ export const verbForms = {
     masuBase: 'masuBase'
 }
 
-export const numbers:Numbers={
-    general:{
-        '?':'nan',
-        '1':'ichi',
-        '2':'ni',
-        '3':'san',
-        '4':'shi',
-        '5':'go',
-        '6':'roku',
-        '7':'shichi',
-        '8':'hachi',
-        '9':'kyuu',
-        '10':'jyuu',
+export const numbers: Numbers = {
+    general: {
+        '?': 'nan',
+        '1': 'ichi',
+        '2': 'ni',
+        '3': 'san',
+        '4': 'shi',
+        '5': 'go',
+        '6': 'roku',
+        '7': 'shichi',
+        '8': 'hachi',
+        '9': 'kyuu',
+        '10': 'jyuu',
     },
-    things:{//liczenie ogolne
-        '?':'ikutsu',
-        '1':'hitotsu',
-        '2':'futatsu',
-        '3':'mittsu',
-        '4':'yottsu',
-        '5':'itsutsu',
-        '6':'muttsu',
-        '7':'nanatsu',
-        '8':'yattsu',
-        '9':'kokonotsu',
-        '10':'too',
+    things: {//liczenie ogolne
+        '?': 'ikutsu',
+        '1': 'hitotsu',
+        '2': 'futatsu',
+        '3': 'mittsu',
+        '4': 'yottsu',
+        '5': 'itsutsu',
+        '6': 'muttsu',
+        '7': 'nanatsu',
+        '8': 'yattsu',
+        '9': 'kokonotsu',
+        '10': 'too',
     },
-    nin:{//ludzie
-        '?':'nannin',
-        '1':'hitori',
-        '2':'futari',
-        '3':'sannin',
-        '4':'yonin',
-        '5':'gonin',
-        '6':'rokunin',
-        '7':'shichi/nananin',
-        '8':'hachinin',
-        '9':'kyuunin/kunin',
-        '10':'jyuunin',
+    nin: {//ludzie
+        '?': 'nannin',
+        '1': 'hitori',
+        '2': 'futari',
+        '3': 'sannin',
+        '4': 'yonin',
+        '5': 'gonin',
+        '6': 'rokunin',
+        '7': 'shichi/nananin',
+        '8': 'hachinin',
+        '9': 'kyuunin/kunin',
+        '10': 'jyuunin',
     },
-    hon:{//dlugie obiekty
-        '?':'nanbon',
-        '1':'ippon',
-        '2':'nihon',
-        '3':'sanbon',
-        '4':'yonhon',
-        '5':'gohon',
-        '6':'roppon',
-        '7':'shichihon/nanahon',
-        '8':'hachihon',
-        '9':'kyuuhon',
-        '10':'jyuppon/jippon',
+    hon: {//dlugie obiekty
+        '?': 'nanbon',
+        '1': 'ippon',
+        '2': 'nihon',
+        '3': 'sanbon',
+        '4': 'yonhon',
+        '5': 'gohon',
+        '6': 'roppon',
+        '7': 'shichihon/nanahon',
+        '8': 'hachihon',
+        '9': 'kyuuhon',
+        '10': 'jyuppon/jippon',
     },
-    hiki:{//male zwierzeta
-        '?':'nanbiki',
-        '1':'ippiki',
-        '2':'nihiki',
-        '3':'sanbiki',
-        '4':'yonhiki',
-        '5':'gohiki',
-        '6':'roppiki',
-        '7':'shichihiki/nanahiki',
-        '8':'happiki',
-        '9':'kyuuhiki',
-        '10':'jyuuppiki/jippiki',
+    hiki: {//male zwierzeta
+        '?': 'nanbiki',
+        '1': 'ippiki',
+        '2': 'nihiki',
+        '3': 'sanbiki',
+        '4': 'yonhiki',
+        '5': 'gohiki',
+        '6': 'roppiki',
+        '7': 'shichihiki/nanahiki',
+        '8': 'happiki',
+        '9': 'kyuuhiki',
+        '10': 'jyuuppiki/jippiki',
 
     },
-    tou:{//duże zwierzeta, zwierzęta pracujące, inteligentne
-        '?':'nantou',
-        '1':'ittou',
-        '2':'nitou',
-        '3':'santou',
-        '4':'yontou',
-        '5':'gotou',
-        '6':'rokutou',
-        '7':'shichitou/nanatou',
-        '8':'hachitou/hattou',
-        '9':'kyuutou',
-        '10':'jyuttou/jittou',
+    tou: {//duże zwierzeta, zwierzęta pracujące, inteligentne
+        '?': 'nantou',
+        '1': 'ittou',
+        '2': 'nitou',
+        '3': 'santou',
+        '4': 'yontou',
+        '5': 'gotou',
+        '6': 'rokutou',
+        '7': 'shichitou/nanatou',
+        '8': 'hachitou/hattou',
+        '9': 'kyuutou',
+        '10': 'jyuttou/jittou',
     },
-    wa:{//ptaki,nietoperze i króliki
-        '?':'nanwa/nanba',
-        '1':'ichiwa',
-        '2':'niwa',
-        '3':'sanwa/sanba',
-        '4':'yonwa/yonba/yowa',
-        '5':'gowa',
-        '6':'rokuwa/robba',
-        '7':'nanawa/shichiwa',
-        '8':'hachiwa/happa',
-        '9':'kyuuwa',
-        '10':'juuwa/jubba/jibba'
+    wa: {//ptaki,nietoperze i króliki
+        '?': 'nanwa/nanba',
+        '1': 'ichiwa',
+        '2': 'niwa',
+        '3': 'sanwa/sanba',
+        '4': 'yonwa/yonba/yowa',
+        '5': 'gowa',
+        '6': 'rokuwa/robba',
+        '7': 'nanawa/shichiwa',
+        '8': 'hachiwa/happa',
+        '9': 'kyuuwa',
+        '10': 'juuwa/jubba/jibba'
     },
-    bai:{//kubki, filiżanki, kieliszki
-        '?':'nanbai',
-        '1':'ippai',
-        '2':'nihai',
-        '3':'sanbai',
-        '4':'yonhai',
-        '5':'gohai',
-        '6':'roppai',
-        '7':'shichihai/nanahai',
-        '8':'happai',
-        '9':'kyuuhai',
-        '10':'jyuppai/jippai',
+    bai: {//kubki, filiżanki, kieliszki
+        '?': 'nanbai',
+        '1': 'ippai',
+        '2': 'nihai',
+        '3': 'sanbai',
+        '4': 'yonhai',
+        '5': 'gohai',
+        '6': 'roppai',
+        '7': 'shichihai/nanahai',
+        '8': 'happai',
+        '9': 'kyuuhai',
+        '10': 'jyuppai/jippai',
 
     },
- //   sai:{//lata
+    //   sai:{//lata
 
-//    },
-   // ji:{//godziny
+    //    },
+    // ji:{//godziny
 
     //},
-    
-    kai:{//piętra
-        '?':'nangai',
-        '1':'ikkai',
-        '2':'nikai',
-        '3':'sangai',
-        '4':'yonkai',
-        '5':'gokai',
-        '6':'rokkai',
-        '7':'shichikai/nanakai',
-        '8':'hakkai',
-        '9':'kyuukai',
-        '10':'jyukkai/jikkai',
+
+    kai: {//piętra
+        '?': 'nangai',
+        '1': 'ikkai',
+        '2': 'nikai',
+        '3': 'sangai',
+        '4': 'yonkai',
+        '5': 'gokai',
+        '6': 'rokkai',
+        '7': 'shichikai/nanakai',
+        '8': 'hakkai',
+        '9': 'kyuukai',
+        '10': 'jyukkai/jikkai',
     },
-    dai:{//pojazdy (w tym rower), maszyny
-        '?':'nandai',
-        '1':'ichidai',
-        '2':'nidai',
-        '3':'sandai',
-        '4':'yondai',
-        '5':'godai',
-        '6':'rokudai',
-        '7':'shichidai/nanadai',
-        '8':'hachidai',
-        '9':'kyuudai',
-        '10':'jyuudai',
+    dai: {//pojazdy (w tym rower), maszyny
+        '?': 'nandai',
+        '1': 'ichidai',
+        '2': 'nidai',
+        '3': 'sandai',
+        '4': 'yondai',
+        '5': 'godai',
+        '6': 'rokudai',
+        '7': 'shichidai/nanadai',
+        '8': 'hachidai',
+        '9': 'kyuudai',
+        '10': 'jyuudai',
     },
-    hun:{//minuty
-        '?':'nanpun',
-        '1':'ippun',
-        '2':'nihun',
-        '3':'sanbun',
-        '4':'yonpun',
-        '5':'gohun',
-        '6':'roppun',
-        '7':'shichihun/nanahun',
-        '8':'happun',
-        '9':'kyuuhun',
-        '10':'jyuuppun/jippun',
+    hun: {//minuty
+        '?': 'nanpun',
+        '1': 'ippun',
+        '2': 'nihun',
+        '3': 'sanbun',
+        '4': 'yonpun',
+        '5': 'gohun',
+        '6': 'roppun',
+        '7': 'shichihun/nanahun',
+        '8': 'happun',
+        '9': 'kyuuhun',
+        '10': 'jyuuppun/jippun',
 
     },
-//    en:{//yen
-        
-  //  },
+    //    en:{//yen
+
+    //  },
     //nen:{//lata
 
     //},
-    satsu:{//tomy książek
-        '?':'nansatsu',
-        '1':'issatsu',
-        '2':'nisatsu',
-        '3':'sansatsu',
-        '4':'yonsatsu',
-        '5':'gosatsu',
-        '6':'rokusatsu',
-        '7':'shichisatsu/nanasatsu',
-        '8':'hassatsu',
-        '9':'kyuusatsu',
-        '10':'jyussatsu/jussatsu',
+    satsu: {//tomy książek
+        '?': 'nansatsu',
+        '1': 'issatsu',
+        '2': 'nisatsu',
+        '3': 'sansatsu',
+        '4': 'yonsatsu',
+        '5': 'gosatsu',
+        '6': 'rokusatsu',
+        '7': 'shichisatsu/nanasatsu',
+        '8': 'hassatsu',
+        '9': 'kyuusatsu',
+        '10': 'jyussatsu/jussatsu',
     },
-    mai:{//płaskie rzeczy
-        '?':'nanmai',
-        '1':'ichimai',
-        '2':'nimai',
-        '3':'sanmai',
-        '4':'yonmai',
-        '5':'gomai',
-        '6':'rokumai',
-        '7':'shichimai/nanamai',
-        '8':'hachimai',
-        '9':'kyuumai',
-        '10':'jyuumai',
+    mai: {//płaskie rzeczy
+        '?': 'nanmai',
+        '1': 'ichimai',
+        '2': 'nimai',
+        '3': 'sanmai',
+        '4': 'yonmai',
+        '5': 'gomai',
+        '6': 'rokumai',
+        '7': 'shichimai/nanamai',
+        '8': 'hachimai',
+        '9': 'kyuumai',
+        '10': 'jyuumai',
 
     },
 }
 
 export const verbs = {
     pool1: [
-        { jp: 'miru', pl: { rozkazujący:'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'kau', pl: { rozkazujący:'kupmy',imieslowNiedokonany: 'kupowanie', niedokonany: 'kupować', dokonany: 'kupić', os3: 'kupuje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'suru', pl: {rozkazujący:'zróbmy', imieslowNiedokonany: 'robienie', niedokonany: 'robić', dokonany: 'zrobić', os3: 'robi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'neru', pl: { rozkazujący:'śpijmy',imieslowNiedokonany: 'spanie', niedokonany: 'spać', dokonany: 'wyspać', os3: 'śpi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'okiru', pl: { rozkazujący:'budźmy',imieslowNiedokonany: 'budzenie', niedokonany: 'budzić', dokonany: 'obudzić', os3: 'budzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'okuru', pl: { rozkazujący:'wyślijmy',imieslowNiedokonany: 'wysyłanie', niedokonany: 'wysyłać', dokonany: 'wysłać', os3: 'wysyła' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'deru', pl: {rozkazujący:'wyjdźmy', imieslowNiedokonany: 'wychodzenie', niedokonany: 'wychodzić', dokonany: 'wyjść', os3: 'wychodzi' }, particle: { jp: 'o', pl: { txt: 'od/z', case: 'D' } } },
-        { jp: 'iru', pl: { rozkazujący:'potrzebujmy',imieslowNiedokonany: 'potrzebowanie', niedokonany: 'potrzebować', dokonany: 'potrzebować', os3: 'potrzebuje' }, particle: { jp: 'ga', pl: { txt: '', case: 'B' } } },
-        { jp: 'iku', pl: { rozkazujący:'chodźmy',imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
-        { jp: 'oboeru', pl: {rozkazujący:'zapamiętajmy', imieslowNiedokonany: 'zapamiętywanie', niedokonany: 'zapamiętywać', dokonany: 'zapamiętać', os3: 'pamięta' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'nakunaru', pl: {rozkazujący:'zgubmy się', imieslowNiedokonany: 'gubienie się', niedokonany: 'gubić się', dokonany: 'zgubić się', os3: 'gubi się' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'nakusu', pl: { rozkazujący:'zgubmy',imieslowNiedokonany: 'gubienie', niedokonany: 'gubić', dokonany: 'zgubić', os3: 'gubi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
-        { jp: 'mitsukeru', pl: { rozkazujący:'znajdźmy',imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3: 'znajduje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'miru', pl: { rozkazujący: 'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'kau', pl: { rozkazujący: 'kupmy', imieslowNiedokonany: 'kupowanie', niedokonany: 'kupować', dokonany: 'kupić', os3: 'kupuje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'suru', pl: { rozkazujący: 'zróbmy', imieslowNiedokonany: 'robienie', niedokonany: 'robić', dokonany: 'zrobić', os3: 'robi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'neru', pl: { rozkazujący: 'śpijmy', imieslowNiedokonany: 'spanie', niedokonany: 'spać', dokonany: 'wyspać', os3: 'śpi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'okiru', pl: { rozkazujący: 'budźmy', imieslowNiedokonany: 'budzenie', niedokonany: 'budzić', dokonany: 'obudzić', os3: 'budzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'okuru', pl: { rozkazujący: 'wyślijmy', imieslowNiedokonany: 'wysyłanie', niedokonany: 'wysyłać', dokonany: 'wysłać', os3: 'wysyła' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'deru', pl: { rozkazujący: 'wyjdźmy', imieslowNiedokonany: 'wychodzenie', niedokonany: 'wychodzić', dokonany: 'wyjść', os3: 'wychodzi' }, particle: { jp: 'o', pl: { txt: 'od/z', case: 'D' } } },
+        { jp: 'iru', pl: { rozkazujący: 'potrzebujmy', imieslowNiedokonany: 'potrzebowanie', niedokonany: 'potrzebować', dokonany: 'potrzebować', os3: 'potrzebuje' }, particle: { jp: 'ga', pl: { txt: '', case: 'B' } } },
+        { jp: 'iku', pl: { rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
+        { jp: 'oboeru', pl: { rozkazujący: 'zapamiętajmy', imieslowNiedokonany: 'zapamiętywanie', niedokonany: 'zapamiętywać', dokonany: 'zapamiętać', os3: 'pamięta' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'nakunaru', pl: { rozkazujący: 'zgubmy się', imieslowNiedokonany: 'gubienie się', niedokonany: 'gubić się', dokonany: 'zgubić się', os3: 'gubi się' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'nakusu', pl: { rozkazujący: 'zgubmy', imieslowNiedokonany: 'gubienie', niedokonany: 'gubić', dokonany: 'zgubić', os3: 'gubi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
+        { jp: 'mitsukeru', pl: { rozkazujący: 'znajdźmy', imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3: 'znajduje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
     ]
 }
 
@@ -1047,7 +1052,7 @@ export const wordList: WordList = {
         { jp: "kuruma", pl: caseDeclination('samochód'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
         { jp: "jitensha", pl: caseDeclination('rower'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
         { jp: "KONPYUUTA", pl: caseDeclination('komputer'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
-        
+
     ],
     places: [
         { jp: "basho", pl: caseDeclination('miejsce'), counter: '?', plGender: 'n', isAlive: false, isHuman: false },
