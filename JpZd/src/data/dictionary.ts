@@ -4,6 +4,10 @@ import Kanji from "../types/Kanji.model"
 import WordList from '../types/WordList.model';
 import Numbers from '../types/Numbers.model';
 
+export function testowa(x:number,y:number):number{
+    return x+y
+}
+
 export default function dictionary() {
     return 0
 }
@@ -85,8 +89,8 @@ let caseType = {
     '(ie->x) a u a em ie ie': '(ie->x) a u a em ie ie',
 }
 
-function caseDeclination(word: string): Case {
-    console.log('......................',word)
+export function caseDeclination(word: string): Case {
+//    console.log('......................',word)
     /// declineAdjective('', '')
     const vowel = /[aieouyęą]/;
     const lastLetter = word.slice(-1)
@@ -101,7 +105,7 @@ function caseDeclination(word: string): Case {
             : word.slice(-3, -1) + 'ie'
     const EndMsc = endC
 
-    console.log(word, lastLetter, secondLastLetter, endD)
+ //   console.log(word, lastLetter, secondLastLetter, endD)
 
     let wordObj: Case;
     //typ 1
@@ -125,7 +129,7 @@ function caseDeclination(word: string): Case {
             W_pl: word.slice(0, word.length - 1) + 'y', //o! ryb/-y
 
         }
-        console.log('typ1', wordObj)
+   //     console.log('typ1', wordObj)
         return wordObj
     }
     //typ 2
@@ -154,7 +158,7 @@ function caseDeclination(word: string): Case {
             W_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'e', //o! krokodyl/-e
 
         }
-        console.log('typ2a', wordObj)
+     //   console.log('typ2a', wordObj)
         return wordObj
     }
     //typ 2b
@@ -182,7 +186,7 @@ function caseDeclination(word: string): Case {
             W_pl: word + 'y', //o! lis/-y
 
         }
-        console.log('typ2b ------ ', wordObj)
+       // console.log('typ2b ------ ', wordObj)
         return wordObj
     }
     //typ 3
@@ -206,7 +210,7 @@ function caseDeclination(word: string): Case {
             Msc_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'ach', //o kot/-ach
             W_pl: word.replace('lew', 'lw').replace('pies', 'ps') + 'y', //o! kot/-y
         }
-        console.log('typ3', wordObj)
+        //console.log('typ3', wordObj)
         return wordObj
     }
 
@@ -231,7 +235,7 @@ function caseDeclination(word: string): Case {
             W_pl: word.slice(0, -1) + 'e', //o! owc/-e
 
         }
-        console.log('typ -ca', wordObj)
+        //console.log('typ -ca', wordObj)
         return wordObj
     }
 
@@ -257,7 +261,7 @@ function caseDeclination(word: string): Case {
             W_pl: word.slice(0, -1) + 'e', //o! świni/-e
 
         }
-        console.log('typ -nia/-yni', wordObj)
+        //console.log('typ -nia/-yni', wordObj)
         return wordObj
     }
 
@@ -282,7 +286,7 @@ function caseDeclination(word: string): Case {
             W_pl: word + 'y', //o! mysz-y
 
         }
-        console.log('typ mysz', wordObj)
+        //console.log('typ mysz', wordObj)
         return wordObj
     }
 
@@ -304,7 +308,7 @@ function caseDeclination(word: string): Case {
         Msc_pl: word,
         W_pl: word,
     }
-    console.log('unknown case pattern for: ' + word, wordObj2)
+//    console.log('unknown case pattern for: ' + word, wordObj2)
     return wordObj2
 }
 
