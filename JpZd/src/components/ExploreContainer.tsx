@@ -13,7 +13,7 @@ import { kanjiDict } from "../data/dictionary";
 import { comparasion, more, theMost, whichOf } from "../data/comparasionSizes";
 import Kanji from "../types/Kanji.model";
 import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
-import { daysOfMonth } from "../data/calendar";
+import { daysOfMonth, hours } from "../data/calendar";
 import { hurts } from "../data/body";
 import rand from "../utils/randomArrayElement";
 import {
@@ -535,8 +535,13 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToGeneralCounting() {
     setData(generalCounting(theme));
   }
+  function changeToHours() {
+    setData(hours(theme));
+  }
   function setRandom() {
     const pool = [
+      hours(theme),
+      daysOfMonth(),
       generalCounting(theme),
       proposition1(theme),
       proposition2(theme),
@@ -618,6 +623,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAlso}>also</IonButton>
       <IonButton onClick={changeToAandB}>A and B</IonButton>
       <IonButton onClick={changeToGeneralCounting}>general counting</IonButton>
+      <IonButton onClick={changeToHours}>hours</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

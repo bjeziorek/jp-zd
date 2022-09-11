@@ -4,11 +4,13 @@ import { pickThemePool } from '../utils/pickTheme';
 import rand from '../utils/randomArrayElement';
 import { dict, wordList, numbers } from './dictionary';
 
+
+
 export function generalCounting(theme: string): DataType {
 
   const currentTheme = (() => {
     const pool = ['nin', 'mai', 'hon', 'hiki', 'bai', 'satsu', 'kai', 'dai', 'hun']
-    const r=rand(pool)
+    const r = rand(pool)
     switch (r) {
       case 'nin': return wordList.professions
       case 'mai':
@@ -20,15 +22,15 @@ export function generalCounting(theme: string): DataType {
       case 'kai': //todo
       case 'hun': //todo
       default:
-        console.log('unknown counter: ',r)
+        console.log('unknown counter: ', r)
         return wordList.animals
     }
   })()
   const what = rand(currentTheme)
-  const number=Math.ceil(Math.random()*10)
-  const n = (()=>{
-    switch(number){
-      case 1:return 'M'
+  const number = Math.ceil(Math.random() * 10)
+  const n = (() => {
+    switch (number) {
+      case 1: return 'M'
       case 2:
       case 3:
       case 4: return 'B_pl'
@@ -37,19 +39,19 @@ export function generalCounting(theme: string): DataType {
       case 8:
       case 9:
       case 10: return 'D_pl'
-      default: 
-      console.log('unknown number: ',number)
-      return 'M'
+      default:
+        console.log('unknown number: ', number)
+        return 'M'
     }
   })()
 
-  let what_counter:string=what.counter
-  let number_string:string=number.toString()
+  let what_counter: string = what.counter
+  let number_string: string = number.toString()
   console.log(what.pl)
 
   return {
-    romaji: numbers[what_counter]['?']+'? '+numbers[what_counter][number_string]+'-no '+what.jp,
-    meaning: 'Ile '+what.pl.D_pl+'? '+number+ ' '+what.pl[n]
+    romaji: numbers[what_counter]['?'] + '? ' + numbers[what_counter][number_string] + '-no ' + what.jp,
+    meaning: 'Ile ' + what.pl.D_pl + '? ' + number + ' ' + what.pl[n]
   }
 }
 

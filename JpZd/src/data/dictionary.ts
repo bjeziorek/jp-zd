@@ -900,6 +900,21 @@ export const numbers: Numbers = {
         '10': 'jyuuppun/jippun',
 
     },
+    ji: {//godziny
+        '?': 'nanji',
+        '1': 'ichiji',
+        '2': 'niji',
+        '3': 'sanji',
+        '4': 'yoji',
+        '5': 'goji',
+        '6': 'rokuji',
+        '7': 'shichiji',
+        '8': 'hachiji',
+        '9': 'kuji',
+        '10': 'jyuuji',
+
+    },
+
     //    en:{//yen
 
     //  },
