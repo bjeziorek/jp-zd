@@ -38,24 +38,21 @@ export function years():DataType{
     let yearJp=''
     if(year>999){
         const nen= numbers.nen[year.toString().slice(3)]?numbers.nen[year.toString().slice(3)]:'nen'
-        yearJp= ''+
-        numbers.sen[year.toString().slice(0,1)]+' '+
-        numbers.hyaku[year.toString().slice(1,2)]+' '+
-        numbers.juu[year.toString().slice(2,3)]+' '+
-       nen
-
+        const ten= numbers.juu[year.toString().slice(2,3)]?numbers.juu[year.toString().slice(2,3)]:''
+        const hundred= numbers.hyaku[year.toString().slice(1,2)]?numbers.hyaku[year.toString().slice(1,2)]:''
+        const thousand= numbers.sen[year.toString().slice(0,1)]?numbers.sen[year.toString().slice(0,1)]:''
+        yearJp= thousand+' '+hundred+' '+ten+' '+nen
     }else{
         if(year>99){
             const nen= numbers.nen[year.toString().slice(2)]?numbers.nen[year.toString().slice(2)]:'nen'
-            yearJp= ''+numbers.hyaku[year.toString().slice(0,1)]+' '+
-            numbers.juu[year.toString().slice(1,2)]+' '+
-           nen
+            const ten= numbers.juu[year.toString().slice(1,2)]?numbers.juu[year.toString().slice(1,2)]:''
+            const hundred= numbers.hyaku[year.toString().slice(0,1)]?numbers.hyaku[year.toString().slice(0,1)]:''
+            yearJp= hundred+' '+ten+' '+nen
         }else{
             if(year>9){
-                const nen=
-                numbers.nen[year.toString().slice(1)]?numbers.nen[year.toString().slice(1)]:'nen'
-                yearJp=''+numbers.juu[year.toString().slice(0,1)]+' '+
-                nen
+                const nen=numbers.nen[year.toString().slice(1)]?numbers.nen[year.toString().slice(1)]:'nen'
+                const ten=numbers.juu[year.toString().slice(0,1)]?numbers.juu[year.toString().slice(0,1)]:''
+                yearJp=ten+' '+nen
             }else{
                 yearJp=''+numbers.nen[year.toString().slice(0)]?numbers.nen[year.toString().slice(0)]:'nen'
             }
