@@ -773,6 +773,46 @@ export const numbers: Numbers = {
         '9': 'kokonotsu',
         '10': 'too',
     },
+    juu:{//dziesiatki
+        '?':'nanjuu',
+        '1':'juu',
+        '2':'nijuu',
+        '3':'sanjuu',
+        '4':'yonjuu',
+        '5':'gojuu',
+        '6':'rokujuu',
+        '7':'nanajuu',
+        '8':'hachijuu',
+        '9':'kyuujuu', 
+        '10':'hyaku'   
+    },
+    hyaku:{//setki
+        '?':'nanhyaku',
+        '1':'hyaku',
+        '2':'nihyaku',
+        '3':'sanbyaku',
+        '4':'yonhyaku',
+        '5':'gohyaku',
+        '6':'roppyaku',
+        '7':'nanahyaku',
+        '8':'happyaku',
+        '9':'kyuuhyaku',    
+        '10':'sen',    
+    },
+    sen:{//tysiace
+        '?':'nansen',
+        '1':'sen',
+        '2':'nisen',
+        '3':'sansen',
+        '4':'yonsen',
+        '5':'gosen',
+        '6':'rokusen',
+        '7':'nanasen',
+        '8':'hachisen',
+        '9':'kyuusen',    
+        '10':'man',    
+    },
+
     nin: {//ludzie
         '?': 'nannin',
         '1': 'hitori',
@@ -853,12 +893,20 @@ export const numbers: Numbers = {
         '10': 'jyuppai/jippai',
 
     },
-    //   sai:{//lata
-
-    //    },
-    // ji:{//godziny
-
-    //},
+      sai:{//lata
+        '?': 'nansai',
+        '1': 'issai',
+        '2': 'nisai',
+        '3': 'sansai',
+        '4': 'yonsai',
+        '5': 'gosai',
+        '6': 'rokusai',
+        '7': 'nanasai',
+        '8': 'hassai',
+        '9': 'kyuusai',
+        '10': 'juussai',
+    
+        },
 
     kai: {//piętra
         '?': 'nangai',
@@ -918,9 +966,19 @@ export const numbers: Numbers = {
     //    en:{//yen
 
     //  },
-    //nen:{//lata
-
-    //},
+    nen:{//lata
+        '?': 'nannen',
+        '1': 'ichinen',
+        '2': 'ninen',
+        '3': 'sannen',
+        '4': 'yonen',
+        '5': 'gonen',
+        '6': 'rokunen',
+        '7': 'nananen',
+        '8': 'hachinen',
+        '9': 'kyuunen',
+        '10': 'juunen',
+    },
     satsu: {//tomy książek
         '?': 'nansatsu',
         '1': 'issatsu',

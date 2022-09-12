@@ -31,6 +31,42 @@ export function months() {
 
 }
 
+export function years():DataType{
+    const year=Math.floor(Math.random()*10000)
+
+    console.log(year, year.toString().slice(0,1))
+    let yearJp=''
+    if(year>999){
+        const nen= numbers.nen[year.toString().slice(3)]?numbers.nen[year.toString().slice(3)]:'nen'
+        yearJp= ''+
+        numbers.sen[year.toString().slice(0,1)]+' '+
+        numbers.hyaku[year.toString().slice(1,2)]+' '+
+        numbers.juu[year.toString().slice(2,3)]+' '+
+       nen
+
+    }else{
+        if(year>99){
+            const nen= numbers.nen[year.toString().slice(2)]?numbers.nen[year.toString().slice(2)]:'nen'
+            yearJp= ''+numbers.hyaku[year.toString().slice(0,1)]+' '+
+            numbers.juu[year.toString().slice(1,2)]+' '+
+           nen
+        }else{
+            if(year>9){
+                const nen=
+                numbers.nen[year.toString().slice(1)]?numbers.nen[year.toString().slice(1)]:'nen'
+                yearJp=''+numbers.juu[year.toString().slice(0,1)]+' '+
+                nen
+            }else{
+                yearJp=''+numbers.nen[year.toString().slice(0)]?numbers.nen[year.toString().slice(0)]:'nen'
+            }
+        }
+    }
+    return{
+        romaji:yearJp,
+        meaning:year+' r.'
+    }
+}
+
 export function dates() {
     //cale daty
 }
