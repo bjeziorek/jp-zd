@@ -698,8 +698,14 @@ export function verbFormJp(verb: string, form: string): string {
         case 'ta':
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'a'
         case 'masu':
-            return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'a'
-        case 'shou':
+            return extractMasuBase(verb) + 'masu'
+        case 'masen':
+            return extractMasuBase(verb) + 'masen'
+        case 'mashita':
+            return extractMasuBase(verb) + 'mashita'
+        case 'masendeshita':
+            return extractMasuBase(verb) + 'masen deshita'
+        case 'mashou':
             return extractMasuBase(verb) + 'mashou'
         case 'masuBase':
             return extractMasuBase(verb)
@@ -742,6 +748,9 @@ export const verbForms = {
     te: 'te',
     ta: 'ta',
     masu: 'masu',
+    masen: 'masen',
+    mashita: 'mashita',
+    masendeshita: 'masendeshita',
     shou: 'shou', //propozycja
     masuBase: 'masuBase'
 }

@@ -31,7 +31,7 @@ import {
   AandB,
 } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
-import { chigaimasu, basics, which, whichOfAny } from "../data/basics";
+import { chigaimasu, basics, which, whichOfAny, polite } from "../data/basics";
 
 interface ContainerProps {
   name: string;
@@ -541,9 +541,13 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToYears() {
     setData(years());
   }
+  function changeToPolite() {
+    setData(polite(theme));
+  }
   function setRandom() {
     const pool = [
       years(),
+      polite(theme),
       hours(theme),
       daysOfMonth(),
       generalCounting(theme),
@@ -629,6 +633,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToGeneralCounting}>general counting</IonButton>
       <IonButton onClick={changeToHours}>hours</IonButton>
       <IonButton onClick={changeToYears}>years</IonButton>
+      <IonButton onClick={changeToPolite}>polite</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
