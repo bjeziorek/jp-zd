@@ -1,7 +1,7 @@
 import { IonButton } from "@ionic/react";
 import { useState } from "react";
 import DataType from "../types/DataType.model";
-import "./ExploreContainer.css";
+import "./Ua.css";
 import {
   age,
   countingAnimals,
@@ -595,6 +595,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   }
   return (
     <div className="container">
+      <p>ua !!!!!!!!!!</p>
       <IonButton onClick={changeToKanji}>Kanji</IonButton>
       <IonButton onClick={changeToCountingAnimals}>Animals</IonButton>
       <IonButton onClick={changeToCountingLongObjects}>LongObjects</IonButton>
