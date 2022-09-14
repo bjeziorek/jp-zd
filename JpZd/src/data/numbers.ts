@@ -4,6 +4,66 @@ import { pickThemePool } from '../utils/pickTheme';
 import rand from '../utils/randomArrayElement';
 import { dict, wordList, numbers } from './dictionary';
 
+export function displayNumberLegible(num:number):string{
+  let n=num.toString().split('').reverse().join('')
+  n=n.replaceAll(/(.).\d/g, m=>  m+"'").replace(/'$/,'')
+  n=n.toString().split('').reverse().join('')
+  return n
+
+}
+export function convertNumberToText(num:number,classifier:string):string{
+  let text =''
+  if(num>999999){
+      const digit= numbers.nen[num.toString().slice(3)]?numbers[classifier][num.toString().slice(6)]:classifier
+      const ten= numbers.juu[num.toString().slice(2,3)]?numbers.juu[num.toString().slice(5,6)]:''
+      const hundred= numbers.hyaku[num.toString().slice(1,2)]?numbers.hyaku[num.toString().slice(4,5)]:''
+      const thousand= numbers.sen[num.toString().slice(0,1)]?numbers.sen[num.toString().slice(3,4)]:''
+      const tenthousand= numbers.man[num.toString().slice(0,1)]?numbers.man[num.toString().slice(2,3)]:'man'
+      const tententhousand= numbers.man[num.toString().slice(0,1)]?numbers.juu[num.toString().slice(1,2)]:''
+      const hundredtenthousand= numbers.man[num.toString().slice(0,1)]?numbers.hyaku[num.toString().slice(0,1)]:''
+      text= hundredtenthousand+' '+tententhousand+' '+ tenthousand+' '+ thousand+' '+hundred+' '+ten+' '+digit
+  }else
+  if(num>99999){
+      const digit= numbers.nen[num.toString().slice(3)]?numbers[classifier][num.toString().slice(5)]:classifier
+      const ten= numbers.juu[num.toString().slice(2,3)]?numbers.juu[num.toString().slice(4,5)]:''
+      const hundred= numbers.hyaku[num.toString().slice(1,2)]?numbers.hyaku[num.toString().slice(3,4)]:''
+      const thousand= numbers.sen[num.toString().slice(0,1)]?numbers.sen[num.toString().slice(2,3)]:''
+      const tenthousand= numbers.man[num.toString().slice(0,1)]?numbers.man[num.toString().slice(1,2)]:''
+      const tententhousand= numbers.man[num.toString().slice(0,1)]?numbers.juu[num.toString().slice(0,1)]:''
+     text= tententhousand+ ' '+tenthousand+' '+ thousand+' '+hundred+' '+ten+' '+digit
+  }else
+  if(num>9999){
+      const digit= numbers.nen[num.toString().slice(3)]?numbers[classifier][num.toString().slice(4)]:classifier
+      const ten= numbers.juu[num.toString().slice(2,3)]?numbers.juu[num.toString().slice(3,4)]:''
+      const hundred= numbers.hyaku[num.toString().slice(1,2)]?numbers.hyaku[num.toString().slice(2,3)]:''
+      const thousand= numbers.sen[num.toString().slice(0,1)]?numbers.sen[num.toString().slice(1,2)]:''
+      const tenthousand= numbers.man[num.toString().slice(0,1)]?numbers.man[num.toString().slice(0,1)]:''
+      text= tenthousand+ ' '+thousand+' '+hundred+' '+ten+' '+digit
+  }else
+  if(num>999){
+      const digit= numbers.nen[num.toString().slice(3)]?numbers[classifier][num.toString().slice(3)]:classifier
+      const ten= numbers.juu[num.toString().slice(2,3)]?numbers.juu[num.toString().slice(2,3)]:''
+      const hundred= numbers.hyaku[num.toString().slice(1,2)]?numbers.hyaku[num.toString().slice(1,2)]:''
+      const thousand= numbers.sen[num.toString().slice(0,1)]?numbers.sen[num.toString().slice(0,1)]:''
+      text= thousand+' '+hundred+' '+ten+' '+digit
+  }else{
+      if(num>99){
+          const digit= numbers.nen[num.toString().slice(2)]?numbers[classifier][num.toString().slice(2)]:classifier
+          const ten= numbers.juu[num.toString().slice(1,2)]?numbers.juu[num.toString().slice(1,2)]:''
+          const hundred= numbers.hyaku[num.toString().slice(0,1)]?numbers.hyaku[num.toString().slice(0,1)]:''
+          text= hundred+' '+ten+' '+digit
+      }else{
+          if(num>9){
+              const nen=numbers.nen[num.toString().slice(1)]?numbers[classifier][num.toString().slice(1)]:[classifier]
+              const ten=numbers.juu[num.toString().slice(0,1)]?numbers.juu[num.toString().slice(0,1)]:''
+              text=ten+' '+nen
+          }else{
+              text=''+numbers.nen[num.toString().slice(0)]?numbers[classifier][num.toString().slice(0)]:classifier
+          }
+      }
+  }
+  return text
+}
 
 
 export function generalCounting(theme: string): DataType {
@@ -52,6 +112,16 @@ export function generalCounting(theme: string): DataType {
   return {
     romaji: numbers[what_counter]['?'] + '? ' + numbers[what_counter][number_string] + '-no ' + what.jp,
     meaning: 'Ile ' + what.pl.D_pl + '? ' + number + ' ' + what.pl[n]
+  }
+}
+
+export function prices(theme:string):DataType{
+  const obj = rand(wordList[theme])
+  const price = Math.floor(Math.random()*9999000+100)
+
+  return{
+    romaji:obj.jp+'-wa '+convertNumberToText(price,'en'),
+    meaning:obj.pl.M+' kosztuje '+displayNumberLegible(price)+' jenów'
   }
 }
 

@@ -1,6 +1,7 @@
 import DataType from "../types/DataType.model"
 import rand from "../utils/randomArrayElement"
 import { numbers } from "./dictionary"
+import { convertNumberToText } from "./numbers"
 
 export function daysOfMonth() {
     const days = [
@@ -31,33 +32,13 @@ export function months() {
 
 }
 
+
 export function years():DataType{
     const year=Math.floor(Math.random()*10000)
 
     console.log(year, year.toString().slice(0,1))
-    let yearJp=''
-    if(year>999){
-        const nen= numbers.nen[year.toString().slice(3)]?numbers.nen[year.toString().slice(3)]:'nen'
-        const ten= numbers.juu[year.toString().slice(2,3)]?numbers.juu[year.toString().slice(2,3)]:''
-        const hundred= numbers.hyaku[year.toString().slice(1,2)]?numbers.hyaku[year.toString().slice(1,2)]:''
-        const thousand= numbers.sen[year.toString().slice(0,1)]?numbers.sen[year.toString().slice(0,1)]:''
-        yearJp= thousand+' '+hundred+' '+ten+' '+nen
-    }else{
-        if(year>99){
-            const nen= numbers.nen[year.toString().slice(2)]?numbers.nen[year.toString().slice(2)]:'nen'
-            const ten= numbers.juu[year.toString().slice(1,2)]?numbers.juu[year.toString().slice(1,2)]:''
-            const hundred= numbers.hyaku[year.toString().slice(0,1)]?numbers.hyaku[year.toString().slice(0,1)]:''
-            yearJp= hundred+' '+ten+' '+nen
-        }else{
-            if(year>9){
-                const nen=numbers.nen[year.toString().slice(1)]?numbers.nen[year.toString().slice(1)]:'nen'
-                const ten=numbers.juu[year.toString().slice(0,1)]?numbers.juu[year.toString().slice(0,1)]:''
-                yearJp=ten+' '+nen
-            }else{
-                yearJp=''+numbers.nen[year.toString().slice(0)]?numbers.nen[year.toString().slice(0)]:'nen'
-            }
-        }
-    }
+    let yearJp=convertNumberToText(year,'nen')
+   
     return{
         romaji:yearJp,
         meaning:year+' r.'

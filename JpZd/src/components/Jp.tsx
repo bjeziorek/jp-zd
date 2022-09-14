@@ -8,6 +8,7 @@ import {
   countingLongObjects,
   countingPeople,
   generalCounting,
+  prices,
 } from "../data/numbers";
 import { kanjiDict } from "../data/dictionary";
 import { comparasion, more, theMost, whichOf } from "../data/comparasionSizes";
@@ -544,8 +545,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToPolite() {
     setData(polite(theme));
   }
+  function changeToPrices() {
+    setData(prices(theme));
+  }
   function setRandom() {
     const pool = [
+      prices(theme),
       years(),
       polite(theme),
       hours(theme),
@@ -634,6 +639,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToHours}>hours</IonButton>
       <IonButton onClick={changeToYears}>years</IonButton>
       <IonButton onClick={changeToPolite}>polite</IonButton>
+      <IonButton onClick={changeToPrices}>prices</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

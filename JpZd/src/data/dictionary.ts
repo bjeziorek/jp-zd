@@ -4,8 +4,8 @@ import Kanji from "../types/Kanji.model"
 import WordList from '../types/WordList.model';
 import Numbers from '../types/Numbers.model';
 
-export function testowa(x:number,y:number):number{
-    return x+y
+export function testowa(x: number, y: number): number {
+    return x + y
 }
 
 export default function dictionary() {
@@ -90,7 +90,7 @@ let caseType = {
 }
 
 export function caseDeclination(word: string): Case {
-//    console.log('......................',word)
+    //    console.log('......................',word)
     /// declineAdjective('', '')
     const vowel = /[aieouyęą]/;
     const lastLetter = word.slice(-1)
@@ -105,7 +105,7 @@ export function caseDeclination(word: string): Case {
             : word.slice(-3, -1) + 'ie'
     const EndMsc = endC
 
- //   console.log(word, lastLetter, secondLastLetter, endD)
+    //   console.log(word, lastLetter, secondLastLetter, endD)
 
     let wordObj: Case;
     //typ 1
@@ -129,7 +129,7 @@ export function caseDeclination(word: string): Case {
             W_pl: word.slice(0, word.length - 1) + 'y', //o! ryb/-y
 
         }
-   //     console.log('typ1', wordObj)
+        //     console.log('typ1', wordObj)
         return wordObj
     }
     //typ 2
@@ -158,7 +158,7 @@ export function caseDeclination(word: string): Case {
             W_pl: word.replace(/ąb$/, 'ębi').replace(/w$/, 'wi').replace(/dź$/, 'dzi').replace(/ń$/, 'ni').replace(/^wróbel/, 'wróbl') + 'e', //o! krokodyl/-e
 
         }
-     //   console.log('typ2a', wordObj)
+        //   console.log('typ2a', wordObj)
         return wordObj
     }
     //typ 2b
@@ -186,7 +186,7 @@ export function caseDeclination(word: string): Case {
             W_pl: word + 'y', //o! lis/-y
 
         }
-       // console.log('typ2b ------ ', wordObj)
+        // console.log('typ2b ------ ', wordObj)
         return wordObj
     }
     //typ 3
@@ -308,7 +308,7 @@ export function caseDeclination(word: string): Case {
         Msc_pl: word,
         W_pl: word,
     }
-//    console.log('unknown case pattern for: ' + word, wordObj2)
+    //    console.log('unknown case pattern for: ' + word, wordObj2)
     return wordObj2
 }
 
@@ -782,46 +782,71 @@ export const numbers: Numbers = {
         '9': 'kokonotsu',
         '10': 'too',
     },
-    juu:{//dziesiatki
-        '?':'nanjuu',
-        '1':'juu',
-        '2':'nijuu',
-        '3':'sanjuu',
-        '4':'yonjuu',
-        '5':'gojuu',
-        '6':'rokujuu',
-        '7':'nanajuu',
-        '8':'hachijuu',
-        '9':'kyuujuu', 
-        '10':'hyaku'   
+    juu: {//dziesiatki
+        '?': 'nanjuu',
+        '1': 'juu',
+        '2': 'nijuu',
+        '3': 'sanjuu',
+        '4': 'yonjuu',
+        '5': 'gojuu',
+        '6': 'rokujuu',
+        '7': 'nanajuu',
+        '8': 'hachijuu',
+        '9': 'kyuujuu',
+        '10': 'hyaku'
     },
-    hyaku:{//setki
-        '?':'nanhyaku',
-        '1':'hyaku',
-        '2':'nihyaku',
-        '3':'sanbyaku',
-        '4':'yonhyaku',
-        '5':'gohyaku',
-        '6':'roppyaku',
-        '7':'nanahyaku',
-        '8':'happyaku',
-        '9':'kyuuhyaku',    
-        '10':'sen',    
+    hyaku: {//setki
+        '?': 'nanhyaku',
+        '1': 'hyaku',
+        '2': 'nihyaku',
+        '3': 'sanbyaku',
+        '4': 'yonhyaku',
+        '5': 'gohyaku',
+        '6': 'roppyaku',
+        '7': 'nanahyaku',
+        '8': 'happyaku',
+        '9': 'kyuuhyaku',
+        '10': 'sen',
     },
-    sen:{//tysiace
-        '?':'nansen',
-        '1':'sen',
-        '2':'nisen',
-        '3':'sansen',
-        '4':'yonsen',
-        '5':'gosen',
-        '6':'rokusen',
-        '7':'nanasen',
-        '8':'hachisen',
-        '9':'kyuusen',    
-        '10':'man',    
+    sen: {//tysiace
+        '?': 'nansen',
+        '1': 'sen',
+        '2': 'nisen',
+        '3': 'sansen',
+        '4': 'yonsen',
+        '5': 'gosen',
+        '6': 'rokusen',
+        '7': 'nanasen',
+        '8': 'hachisen',
+        '9': 'kyuusen',
+        '10': 'ichi man',
     },
-
+      man:{//10 000
+        '?': 'nan man',
+        '1': 'ichi man',
+        '2': 'ni man',
+        '3': 'san man',
+        '4': 'yon man',
+        '5': 'go man',
+        '6': 'roku man',
+        '7': 'nana man',
+        '8': 'hachi man',
+        '9': 'kyuu man',
+        '10': 'juu man',
+      },
+    en:{//yen
+        '?': "nan'en",
+        '1': 'ichi en',
+        '2': 'ni en',
+        '3': 'san en',
+        '4': 'yon en',
+        '5': 'go en',
+        '6': 'roku en',
+        '7': 'nana en',
+        '8': 'hachi en',
+        '9': 'kyuu en',
+        '10': 'juu en',
+      },
     nin: {//ludzie
         '?': 'nannin',
         '1': 'hitori',
@@ -902,7 +927,7 @@ export const numbers: Numbers = {
         '10': 'jyuppai/jippai',
 
     },
-      sai:{//lata
+    sai: {//lata
         '?': 'nansai',
         '1': 'issai',
         '2': 'nisai',
@@ -914,8 +939,8 @@ export const numbers: Numbers = {
         '8': 'hassai',
         '9': 'kyuusai',
         '10': 'juussai',
-    
-        },
+
+    },
 
     kai: {//piętra
         '?': 'nangai',
@@ -972,10 +997,7 @@ export const numbers: Numbers = {
 
     },
 
-    //    en:{//yen
-
-    //  },
-    nen:{//lata
+    nen: {//lata
         '?': 'nannen',
         '1': 'ichinen',
         '2': 'ninen',
