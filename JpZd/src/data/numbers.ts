@@ -28,7 +28,7 @@ export function convertNumberToText(num:number,classifier:string):string{
       const ten= numbers.juu[num.toString().slice(2,3)]?numbers.juu[num.toString().slice(4,5)]:''
       const hundred= numbers.hyaku[num.toString().slice(1,2)]?numbers.hyaku[num.toString().slice(3,4)]:''
       const thousand= numbers.sen[num.toString().slice(0,1)]?numbers.sen[num.toString().slice(2,3)]:''
-      const tenthousand= numbers.man[num.toString().slice(0,1)]?numbers.man[num.toString().slice(1,2)]:''
+      const tenthousand= numbers.man[num.toString().slice(0,1)]?numbers.man[num.toString().slice(1,2)]:'man'
       const tententhousand= numbers.man[num.toString().slice(0,1)]?numbers.juu[num.toString().slice(0,1)]:''
      text= tententhousand+ ' '+tenthousand+' '+ thousand+' '+hundred+' '+ten+' '+digit
   }else
@@ -37,7 +37,7 @@ export function convertNumberToText(num:number,classifier:string):string{
       const ten= numbers.juu[num.toString().slice(2,3)]?numbers.juu[num.toString().slice(3,4)]:''
       const hundred= numbers.hyaku[num.toString().slice(1,2)]?numbers.hyaku[num.toString().slice(2,3)]:''
       const thousand= numbers.sen[num.toString().slice(0,1)]?numbers.sen[num.toString().slice(1,2)]:''
-      const tenthousand= numbers.man[num.toString().slice(0,1)]?numbers.man[num.toString().slice(0,1)]:''
+      const tenthousand= numbers.man[num.toString().slice(0,1)]?numbers.man[num.toString().slice(0,1)]:'man'
       text= tenthousand+ ' '+thousand+' '+hundred+' '+ten+' '+digit
   }else
   if(num>999){

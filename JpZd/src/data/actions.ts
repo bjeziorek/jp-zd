@@ -3,6 +3,16 @@ import DataType from "../types/DataType.model";
 import { pickThemePool } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
 
+export function goToWith(theme:string):DataType{
+    const where = rand(wordList[theme])
+    const moveVerb = rand(verbs.move)
+    const who = rand(wordList[theme])
+    const who2 = rand(wordList[theme])
+    return{
+        romaji:who.jp+'-wa '+who2.jp+'-to '+where.jp+'-e '+verbFormJp(moveVerb.jp,verbForms.masu),
+        meaning:who.pl.M+' z(ze) '+who2.pl.N+' '+moveVerb.pl.os3+' do '+where.pl.D
+    }
+}
 export function also(theme:string):DataType{
     const whom = rand(wordList.professions)
     const who = rand(wordList.animals)

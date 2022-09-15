@@ -821,7 +821,7 @@ export const numbers: Numbers = {
         '9': 'kyuusen',
         '10': 'ichi man',
     },
-      man:{//10 000
+    man: {//10 000
         '?': 'nan man',
         '1': 'ichi man',
         '2': 'ni man',
@@ -833,8 +833,8 @@ export const numbers: Numbers = {
         '8': 'hachi man',
         '9': 'kyuu man',
         '10': 'juu man',
-      },
-    en:{//yen
+    },
+    en: {//yen
         '?': "nan'en",
         '1': 'ichi en',
         '2': 'ni en',
@@ -846,7 +846,7 @@ export const numbers: Numbers = {
         '8': 'hachi en',
         '9': 'kyuu en',
         '10': 'juu en',
-      },
+    },
     nin: {//ludzie
         '?': 'nannin',
         '1': 'hitori',
@@ -1040,6 +1040,11 @@ export const numbers: Numbers = {
 }
 
 export const verbs = {
+    move: [
+        { jp: 'iku', pl: { rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
+        { jp: 'kaeru', pl: { rozkazujący: 'wróćmy', imieslowNiedokonany: 'wracanie', niedokonany: 'wracać', dokonany: 'warócić', os3: 'wraca' }, particle: { jp: 'e', pl: { txt: '', case: 'D' } } },
+        { jp: 'hashiru', pl: { rozkazujący: 'biegnijmy', imieslowNiedokonany: 'bieganie', niedokonany: 'biegać', dokonany: 'biec', os3: 'biegnie' }, particle: { jp: 'e', pl: { txt: '', case: 'D' } } },
+    ],
     pool1: [
         { jp: 'miru', pl: { rozkazujący: 'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'kau', pl: { rozkazujący: 'kupmy', imieslowNiedokonany: 'kupowanie', niedokonany: 'kupować', dokonany: 'kupić', os3: 'kupuje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
@@ -1049,7 +1054,6 @@ export const verbs = {
         { jp: 'okuru', pl: { rozkazujący: 'wyślijmy', imieslowNiedokonany: 'wysyłanie', niedokonany: 'wysyłać', dokonany: 'wysłać', os3: 'wysyła' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'deru', pl: { rozkazujący: 'wyjdźmy', imieslowNiedokonany: 'wychodzenie', niedokonany: 'wychodzić', dokonany: 'wyjść', os3: 'wychodzi' }, particle: { jp: 'o', pl: { txt: 'od/z', case: 'D' } } },
         { jp: 'iru', pl: { rozkazujący: 'potrzebujmy', imieslowNiedokonany: 'potrzebowanie', niedokonany: 'potrzebować', dokonany: 'potrzebować', os3: 'potrzebuje' }, particle: { jp: 'ga', pl: { txt: '', case: 'B' } } },
-        { jp: 'iku', pl: { rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
         { jp: 'oboeru', pl: { rozkazujący: 'zapamiętajmy', imieslowNiedokonany: 'zapamiętywanie', niedokonany: 'zapamiętywać', dokonany: 'zapamiętać', os3: 'pamięta' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'nakunaru', pl: { rozkazujący: 'zgubmy się', imieslowNiedokonany: 'gubienie się', niedokonany: 'gubić się', dokonany: 'zgubić się', os3: 'gubi się' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'nakusu', pl: { rozkazujący: 'zgubmy', imieslowNiedokonany: 'gubienie', niedokonany: 'gubić', dokonany: 'zgubić', os3: 'gubi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
