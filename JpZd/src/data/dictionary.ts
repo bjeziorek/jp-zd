@@ -705,7 +705,7 @@ export function verbFormJp(verb: string, form: string): string {
             return extractMasuBase(verb) + 'mashita'
         case 'masendeshita':
             return extractMasuBase(verb) + 'masen deshita'
-        case 'mashou':
+        case 'shou':
             return extractMasuBase(verb) + 'mashou'
         case 'masuBase':
             return extractMasuBase(verb)
