@@ -2,6 +2,22 @@ import { verbFormJp, verbForms, verbs, wordList } from './dictionary';
 import DataType from "../types/DataType.model";
 import { pickThemePool } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
+import { convertNumberToText } from './numbers';
+
+export function doWith(theme:string):DataType{
+    console.log('in')
+    const r=Math.floor(Math.random()*12+1)
+    const hour={jp:convertNumberToText(r,'ji')+'-ni',pl:'o godzinie '+r+':00'}
+    const who = rand(wordList[theme])
+    const what = rand(wordList.items)
+    const what2 = rand(wordList.items)
+    const verb = rand(verbs.pool1)
+    console.log(who,what,verb)
+    return{
+        romaji:hour.jp+' '+who.jp+'-wa '+what.jp+'-de '+what2.jp+'-o '+verbFormJp(verb.jp,verbForms.masu)+' ne',
+        meaning:hour.pl +' '+who.pl.M+' '+verb.pl.os3+' '+what2.pl.B+' za pomocą '+what.pl.D+', prawda?'
+    }
+}
 
 export function goToWith(theme: string): DataType {
     const where = rand(wordList[theme])

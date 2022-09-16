@@ -31,6 +31,7 @@ import {
   also,
   AandB,
   goToWith,
+  doWith,
 } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
 import { chigaimasu, basics, which, whichOfAny, polite } from "../data/basics";
@@ -552,8 +553,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToGoToWith() {
     setData(goToWith(theme));
   }
+  function changeToDoWith() {
+    setData(doWith(theme));
+  }
   function setRandom() {
     const pool = [
+      doWith(theme),
       goToWith(theme),
       prices(theme),
       years(),
@@ -646,6 +651,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToPolite}>polite</IonButton>
       <IonButton onClick={changeToPrices}>prices</IonButton>
       <IonButton onClick={changeToGoToWith}>go to with</IonButton>
+      <IonButton onClick={changeToDoWith}>do with</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
