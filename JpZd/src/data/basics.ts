@@ -2,6 +2,25 @@ import { wordList, adjectives, declineAdjective, verbs, verbFormJp, verbForms } 
 import DataType from "../types/DataType.model"
 import rand from "../utils/randomArrayElement"
 
+export function genericPronoun(theme:string):DataType{
+    const what = rand(wordList[theme])
+    const adj = rand(adjectives)
+    const jaki=(()=>{
+        switch(what.plGender){
+            case 'm': return 'jaki'
+            case 'ż': return 'jaką'
+            case 'n': return 'jakie'
+            case 'mo': return (what.isHuman)? 'jakich':'jakie'
+            case 'nmo': return 'jakie'
+        }
+    })()
+
+    return{
+        romaji:'Donna '+what.jp+'-o kaimashitaka? '+adj.jp+'-no-o kaimashita ',
+        meaning:jaki+' '+what.pl.B+' kupiłeś? Kupiłem '+adj.pl
+    }
+}
+
 export function polite(theme: string): DataType {
 
     const tense = Math.random() > 0.5 ? 'present' : 'past'

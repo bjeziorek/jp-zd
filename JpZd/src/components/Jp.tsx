@@ -34,7 +34,7 @@ import {
   doWith,
 } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
-import { chigaimasu, basics, which, whichOfAny, polite } from "../data/basics";
+import { chigaimasu, basics, which, whichOfAny, polite, genericPronoun } from "../data/basics";
 
 interface ContainerProps {
   name: string;
@@ -556,8 +556,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToDoWith() {
     setData(doWith(theme));
   }
+  function changeToGenericPronoun() {
+    setData(genericPronoun(theme));
+  }
   function setRandom() {
     const pool = [
+      genericPronoun(theme),
       doWith(theme),
       goToWith(theme),
       prices(theme),
@@ -652,6 +656,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToPrices}>prices</IonButton>
       <IonButton onClick={changeToGoToWith}>go to with</IonButton>
       <IonButton onClick={changeToDoWith}>do with</IonButton>
+      <IonButton onClick={changeToGenericPronoun}>generic pronoun</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
