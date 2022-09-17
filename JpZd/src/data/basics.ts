@@ -7,7 +7,7 @@ export function genericPronoun(theme:string):DataType{
     const adj = rand(adjectives)
     const jaki=(()=>{
         switch(what.plGender){
-            case 'm': return 'jaki'
+            case 'm': return (what.isHuman)? 'jakiego':'jaki'
             case 'ż': return 'jaką'
             case 'n': return 'jakie'
             case 'mo': return (what.isHuman)? 'jakich':'jakie'

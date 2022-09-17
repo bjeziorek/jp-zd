@@ -232,7 +232,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
         meaning: "Ten kraj nie jest piękny (mniej formalnie).",
       },
       {
-        romaji: "Koko wa kirei-na basho dewa aremasen.",
+        romaji: "Koko wa kirei-na basho dewa arimasen.",
         meaning: "To (dosł. tu) nie jest ładne miejsce.",
       },
       {
