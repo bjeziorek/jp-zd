@@ -34,7 +34,7 @@ import {
   doWith,
 } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
-import { chigaimasu, basics, which, whichOfAny, polite, genericPronoun } from "../data/basics";
+import { chigaimasu, basics, which, whichOfAny, polite, genericPronoun, what, when, withWho, where } from "../data/basics";
 
 interface ContainerProps {
   name: string;
@@ -559,8 +559,24 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToGenericPronoun() {
     setData(genericPronoun(theme));
   }
+  function changeToWhere() {
+    setData(where(theme));
+  }
+  function changeToWithWho() {
+    setData(withWho(theme));
+  }
+  function changeToWhen() {
+    setData(when(theme));
+  }
+  function changeToWhat() {
+    setData(what(theme));
+  }
   function setRandom() {
     const pool = [
+      when(theme),
+      withWho(theme),
+      where(theme),
+      what(theme),
       genericPronoun(theme),
       doWith(theme),
       goToWith(theme),
@@ -656,6 +672,10 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToPrices}>prices</IonButton>
       <IonButton onClick={changeToGoToWith}>go to with</IonButton>
       <IonButton onClick={changeToDoWith}>do with</IonButton>
+      <IonButton onClick={changeToWhat}>what</IonButton>
+      <IonButton onClick={changeToWhen}>when</IonButton>
+      <IonButton onClick={changeToWithWho}>with who</IonButton>
+      <IonButton onClick={changeToWhere}>where</IonButton>
       <IonButton onClick={changeToGenericPronoun}>generic pronoun</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>

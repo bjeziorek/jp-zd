@@ -2,6 +2,56 @@ import { wordList, adjectives, declineAdjective, verbs, verbFormJp, verbForms } 
 import DataType from "../types/DataType.model"
 import rand from "../utils/randomArrayElement"
 
+const place=[
+    {jp:'koko',pl:'tu (obok mnie)'},
+    {jp:'soko',pl:'tu (obok ciebie)'},
+    {jp:'asoko',pl:'tam'},
+]
+
+export function where(theme:string):DataType{
+    const who=rand(wordList[theme])
+    const dayOfWeek = rand(wordList.week)
+    const verb=rand(verbs.move)
+    const where=rand(place)
+    return{
+        romaji:who.jp+'-wa '+dayOfWeek.jp+'-ni doko-e '+verbFormJp( verb.jp,'masu')+'ka? '+where.jp+'-e '+verbFormJp( verb.jp,'masu'),
+        meaning:'Gdzie '+verb.pl.os3+' '+who.pl.M+' w '+dayOfWeek.pl.B+'? '+verb.pl.os3+' '+where.pl
+    }
+}
+export function withWho(theme:string):DataType{
+    const who=rand(wordList[theme])
+    const dayOfWeek = rand(wordList.week)
+    const verb=rand(verbs.move)
+    const where=rand(place)
+    return{
+        romaji:'Dare-to '+who.jp+'-wa '+dayOfWeek.jp+'-ni '+verbFormJp( verb.jp,'masu')+'ka? '+where.jp+'-e '+verbFormJp( verb.jp,'masu'),
+        meaning:'Z kim '+verb.pl.os3+' '+who.pl.M+' w '+dayOfWeek.pl.B+'? '+verb.pl.os3+' '+where.pl
+    }
+}
+
+export function when(theme:string):DataType{
+    const who=rand(wordList[theme])
+    const verb=rand(verbs.pool1)
+    return{
+        romaji:'Itsu '+who.jp+'-wa '+verbFormJp( verb.jp,'masu')+'ka?',//tu mozna dodac date np 13 marca o 14:00
+        meaning:'Kiedy '+who.pl.M+' '+verb.pl.os3+'?'
+    }
+}
+export function what(theme:string):DataType{
+    const filteredVerbs=verbs.pool1.filter(el=>{
+        return el.particle.jp==='o'
+    })
+    console.log(verbs.pool1,filteredVerbs)
+    const who=rand(wordList[theme])
+    const verb=rand(filteredVerbs)
+    return{
+        romaji:'Nani-o '+who.jp+'-wa '+verbFormJp( verb.jp,'masu')+'ka?',//tu mozna dodac date np 13 marca o 14:00
+        meaning:'co '+verb.pl.os3+' '+who.pl.M+'?'
+    }
+}
+
+
+
 export function genericPronoun(theme:string):DataType{
     const what = rand(wordList[theme])
     const adj = rand(adjectives)

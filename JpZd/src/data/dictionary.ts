@@ -1035,7 +1035,19 @@ export const numbers: Numbers = {
         '8': 'hachimai',
         '9': 'kyuumai',
         '10': 'jyuumai',
-
+    },
+    ka: {//dni
+        '?': 'nannichi', 
+        '1': 'tsuitachi',
+        '2': 'futsuka',
+        '3': 'mikka',
+        '4': 'yokka',
+        '5': 'itsuka',
+        '6': 'muika',
+        '7': 'nanoka',
+        '8': 'youka',
+        '9': 'kokonoka',
+        '10': 'tooka',
     },
 }
 
@@ -1062,6 +1074,15 @@ export const verbs = {
 }
 
 export const wordList: WordList = {
+    week:[
+        {jp:'getsuyoubi',pl:caseDeclination('poniedziałek'),counter:'ka',plGender:'m',isAlive:false,isHuman:false},
+        {jp:'kayoubi',pl:caseDeclination('wtorek'),counter:'ka',plGender:'m',isAlive:false,isHuman:false},
+        {jp:'suiyoubi',pl:caseDeclination('środa'),counter:'ka',plGender:'ż',isAlive:false,isHuman:false},
+        {jp:'mokuyoubi',pl:caseDeclination('czwartek'),counter:'ka',plGender:'m',isAlive:false,isHuman:false},
+        {jp:'kinyoubi',pl:caseDeclination('piątek'),counter:'ka',plGender:'m',isAlive:false,isHuman:false},
+        {jp:'doyoubi',pl:caseDeclination('sobota'),counter:'ka',plGender:'ż',isAlive:false,isHuman:false},
+        {jp:'nichiyoubi',pl:caseDeclination('niedziela'),counter:'ka',plGender:'ż',isAlive:false,isHuman:false},
+    ],
     animals: [
         //kto co | kogo czego (nie ma) | komu czemu (się przyglądam) 
         // | kogo co (widzę) | z kim z czym (idę) | o kim o czym (mówię)
