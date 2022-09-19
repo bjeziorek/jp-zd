@@ -1,5 +1,5 @@
 import DataType from "../types/DataType.model";
-import { pickThemePool } from "../utils/pickTheme";
+import { pickTheme } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
 
 export function hurts(theme:string):DataType{
@@ -11,7 +11,7 @@ export function hurts(theme:string):DataType{
         {jp:'yubi',pl:'palec'},
     ]
 
-    const who = rand(pickThemePool(theme))
+    const who = rand(pickTheme(theme))
     const what = rand(bodyPartsPool)
 
     return{

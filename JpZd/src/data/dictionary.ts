@@ -1056,7 +1056,7 @@ export const plCasePool = {
 }
 
 function plVerbDeclination(verb: string, mode: string): string {
-
+///// todo
     switch (mode) {
         case 'infinitive': return verb
         case 'imperative': return verb //rozkazujacy

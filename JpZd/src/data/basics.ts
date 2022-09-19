@@ -1,6 +1,7 @@
 import { wordList, adjectives, declineAdjective, verbs, verbFormJp, jpVerbFormsPool } from './dictionary';
 import DataType from "../types/DataType.model"
 import rand from "../utils/randomArrayElement"
+import { pickVerb } from '../utils/pickTheme';
 
 const place=[
     {jp:'koko',pl:'tu (obok mnie)'},
@@ -14,7 +15,7 @@ export function where(theme:string):DataType{
     const verb=rand(verbs.move)
     const where=rand(place)
     return{
-        romaji:who.jp+'-wa '+dayOfWeek.jp+'-ni doko-e '+verbFormJp( verb.jp,'masu')+'ka? '+where.jp+'-e '+verbFormJp( verb.jp,'masu'),
+        romaji:who.jp+'-wa '+dayOfWeek.jp+'-ni doko-e '+verbFormJp( verb.jp.dictionaryForm,'masu')+'ka? '+where.jp+'-e '+verbFormJp( verb.jp.dictionaryForm,'masu'),
         meaning:'Gdzie '+verb.pl.os3+' '+who.pl.M+' w '+dayOfWeek.pl.B+'? '+verb.pl.os3+' '+where.pl
     }
 }
@@ -24,27 +25,27 @@ export function withWho(theme:string):DataType{
     const verb=rand(verbs.move)
     const where=rand(place)
     return{
-        romaji:'Dare-to '+who.jp+'-wa '+dayOfWeek.jp+'-ni '+verbFormJp( verb.jp,'masu')+'ka? '+where.jp+'-e '+verbFormJp( verb.jp,'masu'),
+        romaji:'Dare-to '+who.jp+'-wa '+dayOfWeek.jp+'-ni '+verbFormJp( verb.jp.dictionaryForm,'masu')+'ka? '+where.jp+'-e '+verbFormJp( verb.jp.dictionaryForm,'masu'),
         meaning:'Z kim '+verb.pl.os3+' '+who.pl.M+' w '+dayOfWeek.pl.B+'? '+verb.pl.os3+' '+where.pl
     }
 }
 export function when(theme:string):DataType{
     const who=rand(wordList[theme])
-    const verb=rand(verbs.pool1)
+    const verb=rand(pickVerb('actions'))
     return{
-        romaji:'Itsu '+who.jp+'-wa '+verbFormJp( verb.jp,'masu')+'ka?',//tu mozna dodac date np 13 marca o 14:00
+        romaji:'Itsu '+who.jp+'-wa '+verbFormJp( verb.jp.dictionaryForm,'masu')+'ka?',//tu mozna dodac date np 13 marca o 14:00
         meaning:'Kiedy '+who.pl.M+' '+verb.pl.os3+'?'
     }
 }
 export function what(theme:string):DataType{
-    const filteredVerbs=verbs.pool1.filter(el=>{
+    const filteredVerbs=verbs.actions.filter(el=>{
         return el.jp.particle.includes('o')
     })
-    console.log(verbs.pool1,filteredVerbs)
+    console.log(verbs.actions,filteredVerbs)
     const who=rand(wordList[theme])
     const verb=rand(filteredVerbs)
     return{
-        romaji:'Nani-o '+who.jp+'-wa '+verbFormJp( verb.jp,'masu')+'ka?',//tu mozna dodac date np 13 marca o 14:00
+        romaji:'Nani-o '+who.jp+'-wa '+verbFormJp( verb.jp.dictionaryForm,'masu')+'ka?',//tu mozna dodac date np 13 marca o 14:00
         meaning:'co '+verb.pl.os3+' '+who.pl.M+'?'
     }
 }
@@ -71,19 +72,19 @@ export function polite(theme: string): DataType {
     const tense = Math.random() > 0.5 ? 'present' : 'past'
     const negation = Math.random() > 0.5 ? true : false
     const obj = rand(wordList[theme])
-    const verb = rand(verbs.pool1)
+    const verb = rand(verbs.actions)
     const form = (() => {
         if(tense==='present'){
             if(negation){
-                return verbFormJp(verb.jp,jpVerbFormsPool.masen)
+                return verbFormJp(verb.jp.dictionaryForm,jpVerbFormsPool.masen)
             }else{
-                return verbFormJp(verb.jp,jpVerbFormsPool.masu)
+                return verbFormJp(verb.jp.dictionaryForm,jpVerbFormsPool.masu)
             }
         }else{
             if(negation){
-                return verbFormJp(verb.jp,jpVerbFormsPool.masendeshita)
+                return verbFormJp(verb.jp.dictionaryForm,jpVerbFormsPool.masendeshita)
             }else{
-                return verbFormJp(verb.jp,jpVerbFormsPool.mashita)
+                return verbFormJp(verb.jp.dictionaryForm,jpVerbFormsPool.mashita)
             }
         }
     })()

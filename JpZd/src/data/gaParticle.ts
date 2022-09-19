@@ -1,5 +1,5 @@
 import DataType from '../types/DataType.model';
-import { pickThemePool } from '../utils/pickTheme';
+import { pickTheme } from '../utils/pickTheme';
 import rand from '../utils/randomArrayElement';
 
 let whatPool = [
@@ -20,13 +20,13 @@ export function likeDislike(theme: string): DataType {
         { jp: 'suki', pl: 'lubi' },
         { jp: 'kirai', pl: 'nie lubi' },
     ]
-    const obj1 = rand(pickThemePool(theme))
-    const obj2 = rand(pickThemePool(theme))
+    const obj1 = rand(pickTheme(theme))
+    const obj2 = rand(pickTheme(theme))
     const verb = rand(verbList)
 
     return {
-        romaji: obj1.jp + '-wa ' + obj2.jp + '-ga ' + verb.jp + ' desu',
-        meaning: `${obj1.pl.M} ${verb.pl} ${(verb.jp === 'suki') ? obj2.pl.B : obj2.pl.D}`
+        romaji: obj1.jp + '-wa ' + obj2.jp + '-ga ' + verb.jp.dictionaryForm + ' desu',
+        meaning: `${obj1.pl.M} ${verb.pl} ${(verb.jp.dictionaryForm === 'suki') ? obj2.pl.B : obj2.pl.D}`
     }
 }
 
@@ -46,12 +46,12 @@ export function goodBadAt(theme: string): DataType {
 
     }
 
-    const obj1 = rand(pickThemePool(theme))
+    const obj1 = rand(pickTheme(theme))
     const what = rand(whatPool)
     const verb = rand(verbList)
 
     return {
-        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp + ' desu',
+        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp.dictionaryForm + ' desu',
         meaning: obj1.pl.M + ' jest ' + genderSetter(obj1.plGender, verb.pl) + ' w ' + what.pl
     }
 }
@@ -71,7 +71,7 @@ export function needWantHave(theme: string): DataType {
 
 
 
-    let randAnimal = rand(pickThemePool(theme))
+    let randAnimal = rand(pickTheme(theme))
     const whatWantPool = [
         { jp: 'neko', pl: ['kot', 'kotem'] },
         { jp: 'PIANO', pl: { potrzebuje: 'pianina', chce: 'pianino', ma: 'pianino' } },
@@ -108,16 +108,16 @@ export function needWantHave(theme: string): DataType {
     ]
 
     for (let i = 0; i < 9; i++) {
-        randAnimal = rand(pickThemePool(theme))
+        randAnimal = rand(pickTheme(theme))
         whatWantPool.push({ jp: randAnimal.jp, pl: { potrzebuje: randAnimal.pl.D, chce: randAnimal.pl.B, ma: randAnimal.pl.B } },)
     }
 
-    const obj1 = rand(pickThemePool(theme))
+    const obj1 = rand(pickTheme(theme))
     const what = rand(whatWantPool)
     const verb = rand(verbList)
 
     return {
-        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp,
+        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp.dictionaryForm,
         meaning: obj1.pl.M + ' ' + verb.pl + ' ' + what.pl[verb.pl]
     }
 }
@@ -145,12 +145,12 @@ export function can(theme: string): DataType {
 
     ]
 
-    const obj1 = rand(pickThemePool(theme))
+    const obj1 = rand(pickTheme(theme))
     const what = rand(whatCanPool)
     const verb = rand(dekiruPool)
 
     return {
-        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp,
+        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp.dictionaryForm,
         meaning: obj1.pl.M + ' ' + verb.pl + ' ' + what.pl
     }
 }

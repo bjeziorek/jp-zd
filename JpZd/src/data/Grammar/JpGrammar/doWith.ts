@@ -14,7 +14,7 @@ export function doWith(theme:string):DataType{
     const verb = rand(pickVerb('actions'))
     console.log(who,what,verb)
     return{
-        romaji:hour.jp+' '+who.jp+'-wa '+what.jp+'-de '+what2.jp+'-o '+verbFormJp(verb.jp,jpVerbFormsPool.masu)+' ne',
+        romaji:hour.jp+' '+who.jp+'-wa '+what.jp+'-de '+what2.jp+'-o '+verbFormJp(verb.jp.dictionaryForm,jpVerbFormsPool.masu)+' ne',
         meaning:hour.pl +' '+who.pl.M+' '+verb.pl.os3+' '+what2.pl.B+' za pomocą '+what.pl.D+', prawda?'
     }
 }

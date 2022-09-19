@@ -1,6 +1,6 @@
 import { stringify } from 'querystring';
 import DataType from '../types/DataType.model';
-import { pickThemePool } from '../utils/pickTheme';
+import { pickTheme } from '../utils/pickTheme';
 import rand from '../utils/randomArrayElement';
 import { dict, wordList, numbers } from './dictionary';
 
@@ -372,8 +372,8 @@ export function age(theme: string) {
     { jp: 'roku-juu-kyuu-sai', pl: '69 lat' },
   ]
 
-  const animal = rand(pickThemePool(theme))
-  const person = rand(pickThemePool(theme))
+  const animal = rand(pickTheme(theme))
+  const person = rand(pickTheme(theme))
   const age = rand(agePool)
 
   return {

@@ -1,7 +1,7 @@
 import DataType from "../types/DataType.model"
 import Tense, { TimePool } from "../types/Tense.model"
 import { TenseSet } from "../types/Tense.model"
-import { pickThemePool } from "../utils/pickTheme"
+import { pickTheme } from "../utils/pickTheme"
 import rand from "../utils/randomArrayElement"
 
 const timePool: Array<TimePool> = [
@@ -129,7 +129,7 @@ const thatPool: Array<TenseSet> = [
 export function thisAdverb(theme: string) {
     //todo s 93 - podpunkt 5
 
-    const animal = rand(pickThemePool(theme))
+    const animal = rand(pickTheme(theme))
     const time: TimePool = rand(timePool)
     const adj = rand(adjectivePool)
     const that = rand(thatPool)
@@ -141,7 +141,7 @@ export function thisAdverb(theme: string) {
 }
 
 export function adverb(theme: string): DataType {
-    const animal = rand(pickThemePool(theme))
+    const animal = rand(pickTheme(theme))
     const time: TimePool = rand(timePool)
     const adverb = rand(adverbsPool)
     const adj = rand(adjectivePool)
