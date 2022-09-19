@@ -1,17 +1,15 @@
 import { Case } from './../types/Case.model';
-import Dict from "../types/Dict.model"
 import Kanji from "../types/Kanji.model"
-import WordList from '../types/WordList.model';
+import Noun from '../types/WordList.model';
 import Numbers from '../types/Numbers.model';
+import Verb from '../types/Verb.model';
 
 export function testowa(x: number, y: number): number {
     return x + y
 }
-
 export default function dictionary() {
     return 0
 }
-
 function dictOutput(dict: any, key: string, trans: string) {
     const filtered = (dict).filter((el: any) => { return el.key === key && el.translation.pl === trans })
     if (filtered[0]) {
@@ -24,7 +22,6 @@ function dictOutput(dict: any, key: string, trans: string) {
         return "brak wyniku dla: " + key + " i " + trans
     }
 }
-
 export function kanjiDict(meaning: string) {
 
     const kanji: Array<Kanji> = [
@@ -63,7 +60,6 @@ export function kanjiDict(meaning: string) {
     //console.log(result)
     return result[0]
 }
-
 let caseType = {
     'nie ma | przyglądam się | widzę | z | o | o!': '',
     'a u a em /cie /cie': 'a u a em /cie /cie',
@@ -88,7 +84,6 @@ let caseType = {
     '()()((l)) a owi a em e e': '()()((l)) a owi a em e e',
     '(ie->x) a u a em ie ie': '(ie->x) a u a em ie ie',
 }
-
 export function caseDeclination(word: string): Case {
     //    console.log('......................',word)
     /// declineAdjective('', '')
@@ -311,7 +306,6 @@ export function caseDeclination(word: string): Case {
     //    console.log('unknown case pattern for: ' + word, wordObj2)
     return wordObj2
 }
-
 function caseDeclination_deprecated(type: number | string, word: string): Case {
     //jak kot
     switch (type) {
@@ -561,7 +555,6 @@ function caseDeclination_deprecated(type: number | string, word: string): Case {
             }
     }
 }
-
 export function i_adjectivesTense(word: string, formal: boolean, tense: string, negation: boolean) {
     if (formal) {
         if (!negation) {
@@ -627,7 +620,6 @@ export const adjectives = [
     { jp: 'isogashii', pl: 'zajęty' },
     { jp: 'himana', pl: 'w sensie czasu wolny' },
 ]
-
 export function declineAdjective(item: any, tense: string, negation: boolean, formal = true) {
 
     const isIadj = (item.jp.match(/na$/)) ? false : true
@@ -637,7 +629,6 @@ export function declineAdjective(item: any, tense: string, negation: boolean, fo
         return na_adjectivesTense(item.jp, formal, tense, negation)
     }
 }
-
 export function verbFormJp(verb: string, form: string): string {
 
     const isIchidandoshi = verb.match(/iru$|eru$/) ? true : false
@@ -715,7 +706,6 @@ export function verbFormJp(verb: string, form: string): string {
     }
 
 }
-
 //deprecated
 export function teForm_deprecated(verb: string, form: string): string {
 
@@ -743,8 +733,7 @@ export function teForm_deprecated(verb: string, form: string): string {
         }
     }
 }
-
-export const verbForms = {
+export const jpVerbFormsPool = {
     te: 'te',
     ta: 'ta',
     masu: 'masu',
@@ -754,7 +743,6 @@ export const verbForms = {
     shou: 'shou', //propozycja
     masuBase: 'masuBase'
 }
-
 export const numbers: Numbers = {
     general: {
         '?': 'nan',
@@ -1037,7 +1025,7 @@ export const numbers: Numbers = {
         '10': 'jyuumai',
     },
     ka: {//dni
-        '?': 'nannichi', 
+        '?': 'nannichi',
         '1': 'tsuitachi',
         '2': 'futsuka',
         '3': 'mikka',
@@ -1050,14 +1038,316 @@ export const numbers: Numbers = {
         '10': 'tooka',
     },
 }
+export const plCasePool = {
+    M: 'M',
+    D: 'D',
+    C: 'C',
+    B: 'B',
+    N: 'N',
+    Msc: 'Msc',
+    W: 'W',
+    M_pl: 'M_pl',
+    D_pl: 'D_pl',
+    C_pl: 'C_pl',
+    B_pl: 'B_pl',
+    N_pl: 'N_pl',
+    Msc_pl: 'Msc_pl',
+    W_pl: 'W_pl',
+}
 
-export const verbs = {
+function plVerbDeclination(verb: string, mode: string): string {
+
+    switch (mode) {
+        case 'infinitive': return verb
+        case 'imperative': return verb //rozkazujacy
+        case 'gerund': return verb //rzeczownik odczasownikowy np robienie
+        default: console.log('unkknown mode: ', mode)
+            return verb
+    }
+
+}
+
+export const verbs: Verb = {
+    move: [
+        {
+            jp: {
+                dictionaryForm: 'iku',
+                particle: ['e', 'ni']
+            },
+            pl: {
+                inifinitive: 'iść',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: 'do', case: plCasePool.D },
+                    { preposition: 'z', case: plCasePool.D },
+                ],
+                rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie'
+            },
+            tags: ['move'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'kaeru',
+                particle: ['e', 'ni'] //???
+            },
+            pl: {
+                inifinitive: 'wracać',
+                isPerfective: false,
+                isReflexive: true,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: 'do', case: plCasePool.D },
+                    { preposition: 'z', case: plCasePool.D },
+                ],
+                rozkazujący: 'wróćmy', imieslowNiedokonany: 'wracanie', niedokonany: 'wracać', dokonany: 'warócić', os3: 'wraca'
+            },
+            tags: ['move'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'hashiru',
+                particle: ['e', 'ni'] //???
+            },
+            pl: {
+                inifinitive: 'biegać',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: 'do', case: plCasePool.D },
+                    { preposition: 'z', case: plCasePool.D },
+                ],
+                rozkazujący: 'biegnijmy', imieslowNiedokonany: 'bieganie', niedokonany: 'biegać', dokonany: 'biec', os3: 'biegnie'
+            },
+            tags: ['move'],
+        },
+    ],
+    actions: [
+        {
+            jp: {
+                dictionaryForm: 'miru',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'widzieć',
+                isPerfective: false,
+                isReflexive: true,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi'
+            },
+            tags: ['idle'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'kau',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'kupować',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'kupmy', imieslowNiedokonany: 'kupowanie', niedokonany: 'kupować', dokonany: 'kupić', os3: 'kupuje'
+            },
+            tags: ['item'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'suru',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'robić',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'zróbmy', imieslowNiedokonany: 'robienie', niedokonany: 'robić', dokonany: 'zrobić', os3: 'robi'
+            },
+            tags: ['item', 'action'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'tsukuru',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'przygotować',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'przygotujmy', imieslowNiedokonany: 'przygotowywanie', niedokonany: 'przygotowywać', dokonany: 'przygotować', os3: 'przygotowuje'
+            },
+            tags: ['item', 'action'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'neru',
+                particle: []
+            },
+            pl: {
+                inifinitive: 'spać',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [],
+                rozkazujący: 'śpijmy', imieslowNiedokonany: 'spanie', niedokonany: 'spać', dokonany: 'wyspać', os3: 'śpi'
+            },
+            tags: ['idle'],
+        },
+
+        {
+            jp: {
+                dictionaryForm: 'okiru',
+                particle: []
+            },
+            pl: {
+                inifinitive: 'budzić',
+                isPerfective: false,
+                isReflexive: true,
+                isNonReflexive: true,
+                prepositions: [],
+                rozkazujący: 'budźmy', imieslowNiedokonany: 'budzenie', niedokonany: 'budzić', dokonany: 'obudzić', os3: 'budzi'
+            },
+            tags: ['idle'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'okuru',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'wysyłać',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'wyślijmy', imieslowNiedokonany: 'wysyłanie', niedokonany: 'wysyłać', dokonany: 'wysłać', os3: 'wysyła'
+            },
+            tags: ['item'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'deru',
+                particle: []
+            },
+            pl: {
+                inifinitive: 'wychodzić',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [],
+                rozkazujący: 'wyjdźmy', imieslowNiedokonany: 'wychodzenie', niedokonany: 'wychodzić', dokonany: 'wyjść', os3: 'wychodzi'
+            },
+            tags: ['item'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'iru',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'potrzebować',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'potrzebujmy', imieslowNiedokonany: 'potrzebowanie', niedokonany: 'potrzebować', dokonany: 'potrzebować', os3: 'potrzebuje'
+            },
+            tags: ['item'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'oboemasu',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'pamiętać',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'zapamiętajmy', imieslowNiedokonany: 'zapamiętywanie', niedokonany: 'zapamiętywać', dokonany: 'zapamiętać', os3: 'pamięta'
+            },
+            tags: ['item'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'nakunaru',
+                particle: []
+            },
+            pl: {
+                inifinitive: 'zgubić',//się
+                isPerfective: false,
+                isReflexive: true,
+                isNonReflexive: true,
+                prepositions: [],
+                rozkazujący: 'zgubmy się', imieslowNiedokonany: 'gubienie się', niedokonany: 'gubić się', dokonany: 'zgubić się', os3: 'gubi się'
+            },
+            tags: ['idle'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'nakusu',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'zgubić',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'zgubmy', imieslowNiedokonany: 'gubienie', niedokonany: 'gubić', dokonany: 'zgubić', os3: 'gubi'
+            },
+            tags: ['item'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'mitsukeru',
+                particle: ['o']
+            },
+            pl: {
+                inifinitive: 'znaleźć',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący: 'znajdźmy', imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3: 'znajduje'
+            },
+            tags: ['item'],
+        },
+    ]
+}
+export const verbs_deprecated = {
     move: [
         { jp: 'iku', pl: { rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
         { jp: 'kaeru', pl: { rozkazujący: 'wróćmy', imieslowNiedokonany: 'wracanie', niedokonany: 'wracać', dokonany: 'warócić', os3: 'wraca' }, particle: { jp: 'e', pl: { txt: '', case: 'D' } } },
         { jp: 'hashiru', pl: { rozkazujący: 'biegnijmy', imieslowNiedokonany: 'bieganie', niedokonany: 'biegać', dokonany: 'biec', os3: 'biegnie' }, particle: { jp: 'e', pl: { txt: '', case: 'D' } } },
     ],
-    pool1: [
+    actions: [
         { jp: 'miru', pl: { rozkazujący: 'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'kau', pl: { rozkazujący: 'kupmy', imieslowNiedokonany: 'kupowanie', niedokonany: 'kupować', dokonany: 'kupić', os3: 'kupuje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
         { jp: 'suru', pl: { rozkazujący: 'zróbmy', imieslowNiedokonany: 'robienie', niedokonany: 'robić', dokonany: 'zrobić', os3: 'robi' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
@@ -1072,152 +1362,150 @@ export const verbs = {
         { jp: 'mitsukeru', pl: { rozkazujący: 'znajdźmy', imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3: 'znajduje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
     ]
 }
-
-export const wordList: WordList = {
-    week:[
-        {jp:'getsuyoubi',pl:caseDeclination('poniedziałek'),counter:'ka',plGender:'m',isAlive:false,isHuman:false},
-        {jp:'kayoubi',pl:caseDeclination('wtorek'),counter:'ka',plGender:'m',isAlive:false,isHuman:false},
-        {jp:'suiyoubi',pl:caseDeclination('środa'),counter:'ka',plGender:'ż',isAlive:false,isHuman:false},
-        {jp:'mokuyoubi',pl:caseDeclination('czwartek'),counter:'ka',plGender:'m',isAlive:false,isHuman:false},
-        {jp:'kinyoubi',pl:caseDeclination('piątek'),counter:'ka',plGender:'m',isAlive:false,isHuman:false},
-        {jp:'doyoubi',pl:caseDeclination('sobota'),counter:'ka',plGender:'ż',isAlive:false,isHuman:false},
-        {jp:'nichiyoubi',pl:caseDeclination('niedziela'),counter:'ka',plGender:'ż',isAlive:false,isHuman:false},
+export const wordList: Noun = {
+    week: [
+        { jp: 'getsuyoubi', pl: caseDeclination('poniedziałek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
+        { jp: 'kayoubi', pl: caseDeclination('wtorek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
+        { jp: 'suiyoubi', pl: caseDeclination('środa'), counter: 'ka', plGender: 'ż', isAlive: false, isHuman: false, tags: ['week'] },
+        { jp: 'mokuyoubi', pl: caseDeclination('czwartek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
+        { jp: 'kinyoubi', pl: caseDeclination('piątek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
+        { jp: 'doyoubi', pl: caseDeclination('sobota'), counter: 'ka', plGender: 'ż', isAlive: false, isHuman: false, tags: ['week'] },
+        { jp: 'nichiyoubi', pl: caseDeclination('niedziela'), counter: 'ka', plGender: 'ż', isAlive: false, isHuman: false, tags: ['week'] },
     ],
     animals: [
         //kto co | kogo czego (nie ma) | komu czemu (się przyglądam) 
         // | kogo co (widzę) | z kim z czym (idę) | o kim o czym (mówię)
         // o! 
-        { jp: 'neko', pl: caseDeclination('kot'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },//[{M:'kot'},{D:'kota'},{C:'kotu'},{B:'kota'},{N:'kotem'},{Msc:'o kocie'},{W:'kocie'}]},
-        { jp: 'sakana', pl: caseDeclination('ryba'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },//[{ M: 'ryba' }, { D: 'ryby' }, { C: 'rybie' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
-        { jp: 'nezumi', pl: caseDeclination('mysz'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },//[{ M: 'mysz' }, { D: 'myszy' }, { C: 'myszy' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
-        { jp: 'ka', pl: caseDeclination('komar'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },// ['komar', 'komara', 'komarowi', ''] },
-        { jp: 'hato', pl: caseDeclination('gołąb'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },//['gołąb', 'gołębia'] },
-        { jp: 'suzume', pl: caseDeclination('wróbel'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['wróbel', 'wróbla'] },
-        { jp: 'sou', pl: caseDeclination('słoń'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },//['słoń', 'słonia'] },
-        { jp: 'tori', pl: caseDeclination('ptak'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },//['ptak', 'ptaka'] },
-        { jp: 'HAMUSUTAA', pl: caseDeclination('chomik'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },//['chomik', 'chomika'] },
-        { jp: 'uma', pl: caseDeclination('koń'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },//['koń', 'konia'] },
-        { jp: 'ushi', pl: caseDeclination('krowa'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false },// ['krowa', 'krowy'] },
-        { jp: 'niwatori', pl: caseDeclination('kura'), counter: 'wa', plGender: 'ż', isAlive: true, isHuman: false },// ['kura', 'kury'] },
-        { jp: 'ari', pl: caseDeclination('mrówka'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },// ['mrówka', 'mrówki'] },
-        { jp: 'shishiko', pl: caseDeclination('lew'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },// ['lew', 'lwa'] },
-        { jp: 'inu', pl: caseDeclination('pies'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },
-        { jp: 'saru', pl: caseDeclination('małpa'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },// ['małpa', 'małpy'] },
-        { jp: 'usagi', pl: caseDeclination('królik'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['królik', 'królika'] },
-        { jp: 'hitsuji', pl: caseDeclination('owca'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false },//['owca', 'owcy'] },
-        { jp: 'buta', pl: caseDeclination('świnia'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false },// ['świnia', 'świni'] },
-        { jp: 'jinchou', pl: caseDeclination('pingwin'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },//pl: ['pingwin', 'pingwina'] },
-        { jp: 'ookami', pl: caseDeclination('wilk'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },//['wilk', 'wilka'] },
-        { jp: 'kuma', pl: caseDeclination('niedźwiedź'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },//['niedźwiedź', 'niedźwiedzia'] },
-        { jp: 'risu', pl: caseDeclination('wiewiórka'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },//['wiewiórka', 'wiewiórka'] },
-        { jp: 'washi', pl: caseDeclination('orzeł'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['orzeł', 'orła'] },
-        { jp: 'taka', pl: caseDeclination('jastrząb'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['jastrząb', 'jastrzębia'] },
-        { jp: 'wani', pl: caseDeclination('krokodyl'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },//['krokodyl', 'krokodyla'] },
-        { jp: 'shika', pl: caseDeclination('sarna'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false },// ['sarna', 'sarny'] },
-        { jp: 'inoshishi', pl: caseDeclination('dzik'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false },//  ['dzik', 'dzika'] },
-        { jp: 'hae', pl: caseDeclination('mucha'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },// ['mucha', 'muchy'] },
-        { jp: 'kitsune', pl: caseDeclination('lis'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },// pl: ['lis', 'lisa'] },
-        { jp: 'harinezumi', pl: caseDeclination('jeż'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },// ['jeż', 'jeża'] },
-        { jp: 'hiso', pl: caseDeclination('nietoperz'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['nietoperz', 'nietoperza'] },
-        { jp: 'tonbo', pl: caseDeclination('ważka'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false },// ['ważka', 'ważki'] },
-        { jp: 'kame', pl: caseDeclination('żółw'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false },//  ['żółw', 'żółwia'] },
-        { jp: 'hakuchou', pl: caseDeclination('łabędź'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false },// ['łabędź'] },
-        { jp: 'kamo', pl: caseDeclination('kaczka'), counter: 'wa', plGender: 'ż', isAlive: true, isHuman: false },// ['kaczka'] },
-        { jp: 'fukurou', pl: caseDeclination('sowa'), counter: 'wa', plGender: 'ż', isAlive: true, isHuman: false },//['sowa'] },
+        { jp: 'neko', pl: caseDeclination('kot'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//[{M:'kot'},{D:'kota'},{C:'kotu'},{B:'kota'},{N:'kotem'},{Msc:'o kocie'},{W:'kocie'}]},
+        { jp: 'sakana', pl: caseDeclination('ryba'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },//[{ M: 'ryba' }, { D: 'ryby' }, { C: 'rybie' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
+        { jp: 'nezumi', pl: caseDeclination('mysz'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },//[{ M: 'mysz' }, { D: 'myszy' }, { C: 'myszy' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
+        { jp: 'ka', pl: caseDeclination('komar'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['komar', 'komara', 'komarowi', ''] },
+        { jp: 'hato', pl: caseDeclination('gołąb'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['gołąb', 'gołębia'] },
+        { jp: 'suzume', pl: caseDeclination('wróbel'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['wróbel', 'wróbla'] },
+        { jp: 'sou', pl: caseDeclination('słoń'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['słoń', 'słonia'] },
+        { jp: 'tori', pl: caseDeclination('ptak'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['ptak', 'ptaka'] },
+        { jp: 'HAMUSUTAA', pl: caseDeclination('chomik'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['chomik', 'chomika'] },
+        { jp: 'uma', pl: caseDeclination('koń'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['koń', 'konia'] },
+        { jp: 'ushi', pl: caseDeclination('krowa'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['krowa', 'krowy'] },
+        { jp: 'niwatori', pl: caseDeclination('kura'), counter: 'wa', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['kura', 'kury'] },
+        { jp: 'ari', pl: caseDeclination('mrówka'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['mrówka', 'mrówki'] },
+        { jp: 'shishiko', pl: caseDeclination('lew'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['lew', 'lwa'] },
+        { jp: 'inu', pl: caseDeclination('pies'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },
+        { jp: 'saru', pl: caseDeclination('małpa'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['małpa', 'małpy'] },
+        { jp: 'usagi', pl: caseDeclination('królik'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['królik', 'królika'] },
+        { jp: 'hitsuji', pl: caseDeclination('owca'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },//['owca', 'owcy'] },
+        { jp: 'buta', pl: caseDeclination('świnia'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['świnia', 'świni'] },
+        { jp: 'jinchou', pl: caseDeclination('pingwin'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//pl: ['pingwin', 'pingwina'] },
+        { jp: 'ookami', pl: caseDeclination('wilk'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['wilk', 'wilka'] },
+        { jp: 'kuma', pl: caseDeclination('niedźwiedź'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['niedźwiedź', 'niedźwiedzia'] },
+        { jp: 'risu', pl: caseDeclination('wiewiórka'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },//['wiewiórka', 'wiewiórka'] },
+        { jp: 'washi', pl: caseDeclination('orzeł'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['orzeł', 'orła'] },
+        { jp: 'taka', pl: caseDeclination('jastrząb'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['jastrząb', 'jastrzębia'] },
+        { jp: 'wani', pl: caseDeclination('krokodyl'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['krokodyl', 'krokodyla'] },
+        { jp: 'shika', pl: caseDeclination('sarna'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['sarna', 'sarny'] },
+        { jp: 'inoshishi', pl: caseDeclination('dzik'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//  ['dzik', 'dzika'] },
+        { jp: 'hae', pl: caseDeclination('mucha'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['mucha', 'muchy'] },
+        { jp: 'kitsune', pl: caseDeclination('lis'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// pl: ['lis', 'lisa'] },
+        { jp: 'harinezumi', pl: caseDeclination('jeż'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['jeż', 'jeża'] },
+        { jp: 'hiso', pl: caseDeclination('nietoperz'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['nietoperz', 'nietoperza'] },
+        { jp: 'tonbo', pl: caseDeclination('ważka'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['ważka', 'ważki'] },
+        { jp: 'kame', pl: caseDeclination('żółw'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//  ['żółw', 'żółwia'] },
+        { jp: 'hakuchou', pl: caseDeclination('łabędź'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['łabędź'] },
+        { jp: 'kamo', pl: caseDeclination('kaczka'), counter: 'wa', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },// ['kaczka'] },
+        { jp: 'fukurou', pl: caseDeclination('sowa'), counter: 'wa', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },//['sowa'] },
     ],
     myFamily: [
-        { jp: "ani", pl: caseDeclination('starszy braciszek'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "otouto", pl: caseDeclination('młodszy braciszek'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "ane", pl: caseDeclination('starsza siostrzyczka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "imouto", pl: caseDeclination('młodsza siostrzyczka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "haha", pl: caseDeclination('mama'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "chichi", pl: caseDeclination('tata'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "kodomo", pl: caseDeclination('dzieciak'), counter: 'nin', plGender: 'n', isAlive: true, isHuman: true },
-        { jp: "musuko", pl: caseDeclination('synek'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "musume", pl: caseDeclination('córcia'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "kanai", pl: caseDeclination('żonka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "shujin", pl: caseDeclination('mężuś'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "ani", pl: caseDeclination('starszy braciszek'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "otouto", pl: caseDeclination('młodszy braciszek'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "ane", pl: caseDeclination('starsza siostrzyczka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "imouto", pl: caseDeclination('młodsza siostrzyczka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "haha", pl: caseDeclination('mama'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "chichi", pl: caseDeclination('tata'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "kodomo", pl: caseDeclination('dzieciak'), counter: 'nin', plGender: 'n', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "musuko", pl: caseDeclination('synek'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "musume", pl: caseDeclination('córcia'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "kanai", pl: caseDeclination('żonka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
+        { jp: "shujin", pl: caseDeclination('mężuś'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'myFamily'] },
 
     ],
     anotherFamily: [
-        { jp: "oniisan", pl: caseDeclination('starszy brat'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "otoutosan", pl: caseDeclination('młodszy brat'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "oneesan", pl: caseDeclination('starsza siostra'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "imoutosan", pl: caseDeclination('młodsza siostra'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "okaasan", pl: caseDeclination('matka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "otoosan", pl: caseDeclination('ojciec'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "okosan", pl: caseDeclination('dziecko'), counter: 'nin', plGender: 'n', isAlive: true, isHuman: true },
-        { jp: "musukosan", pl: caseDeclination('syn'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "musumesan", pl: caseDeclination('córa'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "okosan", pl: caseDeclination('żona'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "goshujin", pl: caseDeclination('mąż'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "oniisan", pl: caseDeclination('starszy brat'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "otoutosan", pl: caseDeclination('młodszy brat'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "oneesan", pl: caseDeclination('starsza siostra'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "imoutosan", pl: caseDeclination('młodsza siostra'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "okaasan", pl: caseDeclination('matka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "otoosan", pl: caseDeclination('ojciec'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "okosan", pl: caseDeclination('dziecko'), counter: 'nin', plGender: 'n', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "musukosan", pl: caseDeclination('syn'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "musumesan", pl: caseDeclination('córa'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "okosan", pl: caseDeclination('żona'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
+        { jp: "goshujin", pl: caseDeclination('mąż'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
 
     ],
     professions: [
-        { jp: "ban'nin", pl: caseDeclination('strażnik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: 'kangofu', pl: caseDeclination('pielęgniarka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: 'daigakusei', pl: caseDeclination('student'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: 'joshigakusei', pl: caseDeclination('studentka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: 'kyoushi', pl: caseDeclination('nauczyciel'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: 'isha', pl: caseDeclination('lekarz'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "kaisha'in", pl: caseDeclination('pracownik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "untenshu", pl: caseDeclination('kierowca'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "UEETORESU", pl: caseDeclination('kelnerka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "UEETAA", pl: caseDeclination('kelner'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "seibikou", pl: caseDeclination('mechanik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "ENJINIA", pl: caseDeclination('inżynier'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "shufu", pl: caseDeclination('gospodyni'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "hisho", pl: caseDeclination('sekretarka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true },
-        { jp: "keisatsukan", pl: caseDeclination('policjant'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "biyoushi", pl: caseDeclination('fryzjer'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
-        { jp: "ten'in", pl: caseDeclination('sprzedawca'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true },
+        { jp: "ban'nin", pl: caseDeclination('strażnik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: 'kangofu', pl: caseDeclination('pielęgniarka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: 'daigakusei', pl: caseDeclination('student'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: 'joshigakusei', pl: caseDeclination('studentka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: 'kyoushi', pl: caseDeclination('nauczyciel'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: 'isha', pl: caseDeclination('lekarz'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "kaisha'in", pl: caseDeclination('pracownik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "untenshu", pl: caseDeclination('kierowca'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "UEETORESU", pl: caseDeclination('kelnerka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "UEETAA", pl: caseDeclination('kelner'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "seibikou", pl: caseDeclination('mechanik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "ENJINIA", pl: caseDeclination('inżynier'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "shufu", pl: caseDeclination('gospodyni'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "hisho", pl: caseDeclination('sekretarka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "keisatsukan", pl: caseDeclination('policjant'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "biyoushi", pl: caseDeclination('fryzjer'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "ten'in", pl: caseDeclination('sprzedawca'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
     ],
     items: [
-        { jp: "hon", pl: caseDeclination('książka'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "NOOTOO", pl: caseDeclination('zeszyt'), counter: 'satsu', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "enpitsu", pl: caseDeclination('ołówek'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "mannenhitsu", pl: caseDeclination('pióro'), counter: 'hon', plGender: 'n', isAlive: false, isHuman: false },
-        { jp: "BOORUPEN", pl: caseDeclination('długopis'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "kitte", pl: caseDeclination('znaczek'), counter: 'mai', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "kasa", pl: caseDeclination('parasol'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "KAPPU", pl: caseDeclination('kubek'), counter: 'bai', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "GURASU", pl: caseDeclination('szklanka'), counter: 'bai', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "kuruma", pl: caseDeclination('samochód'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "jitensha", pl: caseDeclination('rower'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "KONPYUUTA", pl: caseDeclination('komputer'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "hon", pl: caseDeclination('książka'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "NOOTOO", pl: caseDeclination('zeszyt'), counter: 'satsu', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "enpitsu", pl: caseDeclination('ołówek'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "mannenhitsu", pl: caseDeclination('pióro'), counter: 'hon', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "BOORUPEN", pl: caseDeclination('długopis'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "kitte", pl: caseDeclination('znaczek'), counter: 'mai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "kasa", pl: caseDeclination('parasol'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "KAPPU", pl: caseDeclination('kubek'), counter: 'bai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "GURASU", pl: caseDeclination('szklanka'), counter: 'bai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "kuruma", pl: caseDeclination('samochód'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "jitensha", pl: caseDeclination('rower'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "KONPYUUTA", pl: caseDeclination('komputer'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
 
     ],
     places: [
-        { jp: "basho", pl: caseDeclination('miejsce'), counter: '?', plGender: 'n', isAlive: false, isHuman: false },
-        { jp: "tatemono", pl: caseDeclination('budynek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "ginkou", pl: caseDeclination('bank'), counter: '?', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "basho", pl: caseDeclination('miejsce'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "tatemono", pl: caseDeclination('budynek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "ginkou", pl: caseDeclination('bank'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
 
     ],
     food: [
-        { jp: "hachimitsu", pl: caseDeclination('miód'), counter: '?', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "SANDOITCHI", pl: caseDeclination('kanapka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "PIZA", pl: caseDeclination('pizza'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "mizu", pl: caseDeclination('woda'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "ORENJI", pl: caseDeclination('pomarańcza'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "CHOKOREETO", pl: caseDeclination('czekolada'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "KOORA", pl: caseDeclination('cola'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "KOOHII", pl: caseDeclination('kawa'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "koucha", pl: caseDeclination('czarna herbata'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "ocha", pl: caseDeclination('zielona herbata'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false },
-        { jp: "gyuunyuu", pl: caseDeclination('mleko'), counter: '?', plGender: 'n', isAlive: false, isHuman: false },
-        { jp: "ringo", pl: caseDeclination('jabłko'), counter: '?', plGender: 'n', isAlive: false, isHuman: false },
-        { jp: "KEEKI", pl: caseDeclination('ciasto'), counter: '?', plGender: 'n', isAlive: false, isHuman: false },
-        { jp: "BIIRU", pl: caseDeclination('piwo'), counter: '?', plGender: 'n', isAlive: false, isHuman: false },
-        { jp: "WAIN", pl: caseDeclination('wino'), counter: '?', plGender: 'n', isAlive: false, isHuman: false },
-        { jp: "AISUKURIIMU", pl: caseDeclination('lody'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false },
-        { jp: "BANANA", pl: caseDeclination('banan'), counter: '?', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "JUUSU", pl: caseDeclination('sok'), counter: '?', plGender: 'm', isAlive: false, isHuman: false },
-        { jp: "gohan", pl: caseDeclination('ryż'), counter: '?', plGender: 'm', isAlive: false, isHuman: false },
+        { jp: "hachimitsu", pl: caseDeclination('miód'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "SANDOITCHI", pl: caseDeclination('kanapka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "PIZA", pl: caseDeclination('pizza'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "mizu", pl: caseDeclination('woda'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "ORENJI", pl: caseDeclination('pomarańcza'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "CHOKOREETO", pl: caseDeclination('czekolada'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "KOORA", pl: caseDeclination('cola'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "KOOHII", pl: caseDeclination('kawa'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "koucha", pl: caseDeclination('czarna herbata'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "ocha", pl: caseDeclination('zielona herbata'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "gyuunyuu", pl: caseDeclination('mleko'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "ringo", pl: caseDeclination('jabłko'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "KEEKI", pl: caseDeclination('ciasto'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "BIIRU", pl: caseDeclination('piwo'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "WAIN", pl: caseDeclination('wino'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "AISUKURIIMU", pl: caseDeclination('lody'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "BANANA", pl: caseDeclination('banan'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
+        { jp: "JUUSU", pl: caseDeclination('sok'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
+        { jp: "gohan", pl: caseDeclination('ryż'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
 
     ]
 
 }
-
 export function dict(key: string, trans: string) {
     //plants
     //food

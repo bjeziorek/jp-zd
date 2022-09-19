@@ -27,12 +27,9 @@ export function daysOfMonth() {
         meaning: day.pl
     }
 }
-
 export function months() {
 
 }
-
-
 export function years():DataType{
     const year=Math.floor(Math.random()*10000)
 
@@ -44,15 +41,12 @@ export function years():DataType{
         meaning:year+' r.'
     }
 }
-
 export function dates() {
     //cale daty
 }
-
 export function hoursPrepareData(){
 //todo
 }
-
 export function hours(theme: string): DataType {
 //bugi: czasem wyskakuje np 010:23 - usunąć to 0, i uważać bo przy dziesiątkach 1 i jednościach 0 nie jest jeden zero tylko dziesięć
 
@@ -86,7 +80,6 @@ export function hours(theme: string): DataType {
     meaning: 'Która godzina? '+hour.pl+':'+minute.pl
   }
 }
-
 export function time() {
     //wczesniej pojutrze itp
 }

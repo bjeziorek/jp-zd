@@ -1,6 +1,6 @@
 import { Case } from "../types/Case.model";
 import DataType from "../types/DataType.model";
-import { pickThemePool } from "../utils/pickTheme";
+import { pickTheme } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
 import { wordList } from "./dictionary";
 
@@ -101,8 +101,8 @@ export function comparasion(theme:string):DataType{// yori
     
     //a-wa b-yori adj desu
 
-    const obj1 = rand(pickThemePool(theme))
-    const obj2 = rand(pickThemePool(theme))
+    const obj1 = rand(pickTheme(theme))
+    const obj2 = rand(pickTheme(theme))
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
@@ -118,7 +118,7 @@ export function more(theme:string):DataType{ //hou-ga
 
     //a-no ho-ga adj desu
 
-    const obj1 = rand(pickThemePool(theme))
+    const obj1 = rand(pickTheme(theme))
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
@@ -134,8 +134,8 @@ export function whichOf(theme:string):DataType{ //dochira-ga
 
     //a-to b-to dochira-ga adj desuka
 
-    const obj1 = rand(pickThemePool(theme))
-    const obj2 = rand(pickThemePool(theme))
+    const obj1 = rand(pickTheme(theme))
+    const obj2 = rand(pickTheme(theme))
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
@@ -150,9 +150,9 @@ export function theMost(theme:string):DataType{ //no naka de ichiban
 
     //a-to b-to c-no naka-de a/b/c-ga ichiban adj desuka
 
-    const obj1 = rand(pickThemePool(theme))
-    const obj2 = rand(pickThemePool(theme))
-    const obj3 = rand(pickThemePool(theme))
+    const obj1 = rand(pickTheme(theme))
+    const obj2 = rand(pickTheme(theme))
+    const obj3 = rand(pickTheme(theme))
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'

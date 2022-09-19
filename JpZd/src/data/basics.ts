@@ -1,4 +1,4 @@
-import { wordList, adjectives, declineAdjective, verbs, verbFormJp, verbForms } from './dictionary';
+import { wordList, adjectives, declineAdjective, verbs, verbFormJp, jpVerbFormsPool } from './dictionary';
 import DataType from "../types/DataType.model"
 import rand from "../utils/randomArrayElement"
 
@@ -28,7 +28,6 @@ export function withWho(theme:string):DataType{
         meaning:'Z kim '+verb.pl.os3+' '+who.pl.M+' w '+dayOfWeek.pl.B+'? '+verb.pl.os3+' '+where.pl
     }
 }
-
 export function when(theme:string):DataType{
     const who=rand(wordList[theme])
     const verb=rand(verbs.pool1)
@@ -39,7 +38,7 @@ export function when(theme:string):DataType{
 }
 export function what(theme:string):DataType{
     const filteredVerbs=verbs.pool1.filter(el=>{
-        return el.particle.jp==='o'
+        return el.jp.particle.includes('o')
     })
     console.log(verbs.pool1,filteredVerbs)
     const who=rand(wordList[theme])
@@ -49,9 +48,6 @@ export function what(theme:string):DataType{
         meaning:'co '+verb.pl.os3+' '+who.pl.M+'?'
     }
 }
-
-
-
 export function genericPronoun(theme:string):DataType{
     const what = rand(wordList[theme])
     const adj = rand(adjectives)
@@ -70,7 +66,6 @@ export function genericPronoun(theme:string):DataType{
         meaning:jaki+' '+what.pl.B+' kupiłeś? Kupiłem '+adj.pl
     }
 }
-
 export function polite(theme: string): DataType {
 
     const tense = Math.random() > 0.5 ? 'present' : 'past'
@@ -80,15 +75,15 @@ export function polite(theme: string): DataType {
     const form = (() => {
         if(tense==='present'){
             if(negation){
-                return verbFormJp(verb.jp,verbForms.masen)
+                return verbFormJp(verb.jp,jpVerbFormsPool.masen)
             }else{
-                return verbFormJp(verb.jp,verbForms.masu)
+                return verbFormJp(verb.jp,jpVerbFormsPool.masu)
             }
         }else{
             if(negation){
-                return verbFormJp(verb.jp,verbForms.masendeshita)
+                return verbFormJp(verb.jp,jpVerbFormsPool.masendeshita)
             }else{
-                return verbFormJp(verb.jp,verbForms.mashita)
+                return verbFormJp(verb.jp,jpVerbFormsPool.mashita)
             }
         }
     })()
@@ -100,7 +95,6 @@ export function polite(theme: string): DataType {
         meaning: obj.pl.M+ ' '+nie+' ' +verb.pl.os3+pastPl
     }
 }
-
 export function chigaimasu(theme: string): DataType { //chigaimasu
     const a = rand(wordList[theme])
     const b = rand(wordList[theme])
@@ -111,7 +105,6 @@ export function chigaimasu(theme: string): DataType { //chigaimasu
         meaning: 'Czy ' + a.pl.M + ' jest ' + b.pl.N + '? ' + answer.pl
     }
 }
-
 export function basics(theme: string): DataType {
     const no = [
         { jp: 'kono', pl: 'ten (koło mnie)' },
@@ -179,7 +172,6 @@ export function basics(theme: string): DataType {
         meaning: kore.pl + ' jest ' + noun.pl.M + '. ' + setKonoGender(kono.pl, noun.plGender) + ' ' + noun.pl.M + ' ' + neg + setBeGenderTense(tense, noun.plGender) + ' ' + adj.pl
     }
 }
-
 export function which(theme: string): DataType {
 
     const what = rand(wordList['animals'])
