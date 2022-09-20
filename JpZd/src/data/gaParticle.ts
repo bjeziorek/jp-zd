@@ -150,7 +150,7 @@ export function can(theme: string): DataType {
     const verb = rand(dekiruPool)
 
     return {
-        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp.dictionaryForm,
+        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp,
         meaning: obj1.pl.M + ' ' + verb.pl + ' ' + what.pl
     }
 }
