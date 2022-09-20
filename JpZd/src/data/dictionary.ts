@@ -1275,7 +1275,7 @@ export const verbs: Verb = {
         },
         {
             jp: {
-                dictionaryForm: 'oboemasu',
+                dictionaryForm: 'oboeru',
                 particle: ['o']
             },
             pl: {
@@ -1328,7 +1328,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'znaleźć',
+                inifinitive: 'znajdować',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
