@@ -35,6 +35,9 @@ import {
 } from "../data/actions";
 import { adverb, thisAdverb } from "../data/adverb";
 import { chigaimasu, basics, which, whichOfAny, polite, genericPronoun, what, when, withWho, where } from "../data/basics";
+import { tellMe } from "../data/Grammar/JpGrammar/tellMe/tellMe";
+import { youKnow } from "../data/Grammar/JpGrammar/youKnow/youKnow";
+import { youKnowIsAorB } from "../data/Grammar/JpGrammar/youKnowIsAorB/youKnowIsAorB";
 
 interface ContainerProps {
   name: string;
@@ -571,8 +574,20 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToWhat() {
     setData(what(theme));
   }
+  function changeToTellMe() {
+    setData(tellMe(theme));
+  }
+  function changeToYouKnow() {
+    setData(youKnow(theme));
+  }
+  function changeToYouKnowIsAorB() {
+    setData(youKnowIsAorB(theme));
+  }
   function setRandom() {
     const pool = [
+      youKnow(theme),
+      youKnowIsAorB(theme),
+      tellMe(theme),
       when(theme),
       withWho(theme),
       where(theme),
@@ -676,6 +691,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToWhen}>when</IonButton>
       <IonButton onClick={changeToWithWho}>with who</IonButton>
       <IonButton onClick={changeToWhere}>where</IonButton>
+      <IonButton onClick={changeToYouKnow}>y'know</IonButton>
+      <IonButton onClick={changeToYouKnowIsAorB}>y'know is A or B</IonButton>
+      <IonButton onClick={changeToTellMe}>tell me</IonButton>
       <IonButton onClick={changeToGenericPronoun}>generic pronoun</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>

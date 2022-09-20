@@ -1,8 +1,9 @@
-import DataType from "../../../types/DataType.model"
-import { pickTheme, pickVerb } from "../../../utils/pickTheme"
-import rand from "../../../utils/randomArrayElement"
-import { jpVerbFormsPool, verbFormJp } from "../../dictionary"
-import { convertNumberToText } from "../../numbers"
+
+import DataType from "../../../../types/DataType.model"
+import { pickTheme, pickVerb } from "../../../../utils/pickTheme"
+import rand from "../../../../utils/randomArrayElement"
+import { jpVerbFormsPool, verbFormJp } from "../../../dictionary"
+import { convertNumberToText } from "../../../numbers"
 
 export function doWith(theme:string):DataType{
     console.log('in')
