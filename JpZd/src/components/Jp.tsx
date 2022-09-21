@@ -38,6 +38,7 @@ import { chigaimasu, basics, which, whichOfAny, polite, genericPronoun, what, wh
 import { tellMe } from "../data/Grammar/JpGrammar/tellMe/tellMe";
 import { youKnow } from "../data/Grammar/JpGrammar/youKnow/youKnow";
 import { youKnowIsAorB } from "../data/Grammar/JpGrammar/youKnowIsAorB/youKnowIsAorB";
+import { howIs } from "../data/Grammar/JpGrammar/howIs/howIs";
 
 interface ContainerProps {
   name: string;
@@ -583,8 +584,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToYouKnowIsAorB() {
     setData(youKnowIsAorB(theme));
   }
+  function changeToHowIs() {
+    setData(howIs(theme));
+  }
   function setRandom() {
     const pool = [
+      howIs(theme),
       youKnow(theme),
       youKnowIsAorB(theme),
       tellMe(theme),
@@ -695,6 +700,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToYouKnowIsAorB}>y'know is A or B</IonButton>
       <IonButton onClick={changeToTellMe}>tell me</IonButton>
       <IonButton onClick={changeToGenericPronoun}>generic pronoun</IonButton>
+      <IonButton onClick={changeToHowIs}>how is</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
