@@ -596,7 +596,7 @@ export const adjectives = [
     { jp: 'se-ga hikui', pl: 'wzrostem niski' },
     { jp: 'hikui', pl: 'niski' },
     { jp: 'kireina', pl: 'fizycznie piękny' },
-    { jp: 'utsukishii', pl: 'wewnętrznie i fizycznie piękny' },
+    { jp: 'utsukushii', pl: 'wewnętrznie i fizycznie piękny' },
     { jp: 'minikui', pl: 'brzydki' },
     { jp: 'warui', pl: 'zły' },
     { jp: 'yasui', pl: 'tani' },
