@@ -39,6 +39,8 @@ import { tellMe } from "../data/Grammar/JpGrammar/tellMe/tellMe";
 import { youKnow } from "../data/Grammar/JpGrammar/youKnow/youKnow";
 import { youKnowIsAorB } from "../data/Grammar/JpGrammar/youKnowIsAorB/youKnowIsAorB";
 import { howIs } from "../data/Grammar/JpGrammar/howIs/howIs";
+import { but } from "../data/Grammar/JpGrammar/but/but";
+import { negativeQuestion } from "../data/Grammar/JpGrammar/negativeQuestion/negativeQuestion";
 
 interface ContainerProps {
   name: string;
@@ -587,8 +589,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToHowIs() {
     setData(howIs(theme));
   }
+  function changeToBut() {
+    setData(but(theme));
+  }
+  function changeToNegativeQuestion() {
+    setData(negativeQuestion(theme));
+  }
   function setRandom() {
     const pool = [
+      negativeQuestion(theme),
+      but(theme),
       howIs(theme),
       youKnow(theme),
       youKnowIsAorB(theme),
@@ -701,6 +711,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToTellMe}>tell me</IonButton>
       <IonButton onClick={changeToGenericPronoun}>generic pronoun</IonButton>
       <IonButton onClick={changeToHowIs}>how is</IonButton>
+      <IonButton onClick={changeToBut}>but</IonButton>
+      <IonButton onClick={changeToNegativeQuestion}>negativeQuestion</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
