@@ -41,6 +41,7 @@ import { youKnowIsAorB } from "../data/Grammar/JpGrammar/youKnowIsAorB/youKnowIs
 import { howIs } from "../data/Grammar/JpGrammar/howIs/howIs";
 import { but } from "../data/Grammar/JpGrammar/but/but";
 import { negativeQuestion } from "../data/Grammar/JpGrammar/negativeQuestion/negativeQuestion";
+import { substantivisator1 } from "../data/Grammar/JpGrammar/substantivisator1/substantivisator1";
 
 interface ContainerProps {
   name: string;
@@ -595,8 +596,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToNegativeQuestion() {
     setData(negativeQuestion(theme));
   }
+  function changeToSubstantivisator1() {
+    setData(substantivisator1(theme));
+  }
   function setRandom() {
     const pool = [
+      substantivisator1(theme),
       negativeQuestion(theme),
       but(theme),
       howIs(theme),
@@ -713,6 +718,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToHowIs}>how is</IonButton>
       <IonButton onClick={changeToBut}>but</IonButton>
       <IonButton onClick={changeToNegativeQuestion}>negativeQuestion</IonButton>
+      <IonButton onClick={changeToSubstantivisator1}>substantivisator1</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
