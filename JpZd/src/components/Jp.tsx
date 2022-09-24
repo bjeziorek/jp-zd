@@ -42,6 +42,9 @@ import { howIs } from "../data/Grammar/JpGrammar/howIs/howIs";
 import { but } from "../data/Grammar/JpGrammar/but/but";
 import { negativeQuestion } from "../data/Grammar/JpGrammar/negativeQuestion/negativeQuestion";
 import { substantivisator1 } from "../data/Grammar/JpGrammar/substantivisator1/substantivisator1";
+import { assuranceNoun } from "../data/Grammar/JpGrammar/assuranceNoun/assuranceNoun";
+import { assuranceAdj } from "../data/Grammar/JpGrammar/assuranceAdj/assuranceAdj";
+import { assuranceVerb } from "../data/Grammar/JpGrammar/assuranceVerb/assuranceVerb";
 
 interface ContainerProps {
   name: string;
@@ -599,8 +602,20 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToSubstantivisator1() {
     setData(substantivisator1(theme));
   }
+  function changeToAssuranceVerb() {
+    setData(assuranceVerb(theme));
+  }
+  function changeToAssuranceAdj() {
+    setData(assuranceAdj(theme));
+  }
+  function changeToAssuranceNoun() {
+    setData(assuranceNoun(theme));
+  }
   function setRandom() {
     const pool = [
+      assuranceAdj(theme),
+      assuranceNoun(theme),
+      assuranceVerb(theme),
       substantivisator1(theme),
       negativeQuestion(theme),
       but(theme),
@@ -717,6 +732,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToGenericPronoun}>generic pronoun</IonButton>
       <IonButton onClick={changeToHowIs}>how is</IonButton>
       <IonButton onClick={changeToBut}>but</IonButton>
+      <IonButton onClick={changeToAssuranceAdj}>as.adj</IonButton>
+      <IonButton onClick={changeToAssuranceNoun}>as.n</IonButton>
+      <IonButton onClick={changeToAssuranceVerb}>as.v</IonButton>
       <IonButton onClick={changeToNegativeQuestion}>negativeQuestion</IonButton>
       <IonButton onClick={changeToSubstantivisator1}>substantivisator1</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>

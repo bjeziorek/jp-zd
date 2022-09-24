@@ -1075,7 +1075,7 @@ export const verbs: Verb = {
                 particle: ['e', 'ni']
             },
             pl: {
-                inifinitive: 'iść',
+                infinitive: 'iść',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1093,7 +1093,7 @@ export const verbs: Verb = {
                 particle: ['e', 'ni'] //???
             },
             pl: {
-                inifinitive: 'wracać',
+                infinitive: 'wracać',
                 isPerfective: false,
                 isReflexive: true,
                 isNonReflexive: true,
@@ -1111,7 +1111,7 @@ export const verbs: Verb = {
                 particle: ['e', 'ni'] //???
             },
             pl: {
-                inifinitive: 'biegać',
+                infinitive: 'biegać',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1131,7 +1131,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'widzieć',
+                infinitive: 'widzieć',
                 isPerfective: false,
                 isReflexive: true,
                 isNonReflexive: true,
@@ -1148,7 +1148,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'kupować',
+                infinitive: 'kupować',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1165,7 +1165,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'robić',
+                infinitive: 'robić',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1182,7 +1182,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'przygotować',
+                infinitive: 'przygotować',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1199,7 +1199,7 @@ export const verbs: Verb = {
                 particle: []
             },
             pl: {
-                inifinitive: 'spać',
+                infinitive: 'spać',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1215,7 +1215,7 @@ export const verbs: Verb = {
                 particle: []
             },
             pl: {
-                inifinitive: 'budzić',
+                infinitive: 'budzić',
                 isPerfective: false,
                 isReflexive: true,
                 isNonReflexive: true,
@@ -1230,7 +1230,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'wysyłać',
+                infinitive: 'wysyłać',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1247,7 +1247,7 @@ export const verbs: Verb = {
                 particle: []
             },
             pl: {
-                inifinitive: 'wychodzić',
+                infinitive: 'wychodzić',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1262,7 +1262,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'potrzebować',
+                infinitive: 'potrzebować',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1279,7 +1279,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'pamiętać',
+                infinitive: 'pamiętać',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1296,7 +1296,7 @@ export const verbs: Verb = {
                 particle: []
             },
             pl: {
-                inifinitive: 'zgubić',//się
+                infinitive: 'zgubić',//się
                 isPerfective: false,
                 isReflexive: true,
                 isNonReflexive: true,
@@ -1311,7 +1311,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'zgubić',
+                infinitive: 'zgubić',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,
@@ -1328,7 +1328,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                inifinitive: 'znajdować',
+                infinitive: 'znajdować',
                 isPerfective: false,
                 isReflexive: false,
                 isNonReflexive: true,

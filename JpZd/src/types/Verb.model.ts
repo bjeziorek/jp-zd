@@ -5,13 +5,13 @@ interface Preposition {
     case: string
 }
 
-interface JapaneseVerb {
+export interface JapaneseVerb {
     dictionaryForm: string
     particle: Array<string>
 }
 
 interface PolishVerb {
-    inifinitive: string
+    infinitive: string
     isPerfective: boolean //dokonany
     isReflexive: boolean //zwrotny
     isNonReflexive: boolean 
