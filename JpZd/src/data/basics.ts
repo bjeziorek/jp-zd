@@ -52,6 +52,7 @@ export function what(theme:string):DataType{
 export function genericPronoun(theme:string):DataType{
     const what = rand(wordList[theme])
     const adj = rand(adjectives)
+    //uwaga tu z adjectivami - nie wiem jak uzyc z na-przym, czy odcinam czy co?
     const jaki=(()=>{
         switch(what.plGender){
             case 'm': return (what.isHuman)? 'jakiego':'jaki'

@@ -7,6 +7,6 @@ export function howIs(theme:string):DataType{
     const what=rand(pickTheme('items'))
     return{
         romaji:who.jp+'-no '+what.jp+'-wa donna '+what.jp+' desu-ka?',
-        meaning:'Jak wygląda '+what.pl.M+' '+who.pl.D+'?'
+        meaning:what.pl.M+' '+who.pl.D+' to jaki/a/e '+what.pl.M+'?'
     }
 }
