@@ -45,6 +45,8 @@ import { substantivisator1 } from "../data/Grammar/JpGrammar/substantivisator1/s
 import { assuranceNoun } from "../data/Grammar/JpGrammar/assuranceNoun/assuranceNoun";
 import { assuranceAdj } from "../data/Grammar/JpGrammar/assuranceAdj/assuranceAdj";
 import { assuranceVerb } from "../data/Grammar/JpGrammar/assuranceVerb/assuranceVerb";
+import { putOnClothes } from "../data/Grammar/JpGrammar/putOnClothes/putOnClothes";
+import { putOutClothes } from "../data/Grammar/JpGrammar/putOutClothes/putOutClothes";
 
 interface ContainerProps {
   name: string;
@@ -611,8 +613,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToAssuranceNoun() {
     setData(assuranceNoun(theme));
   }
+  function changeToPutOnClothes() {
+    setData(putOnClothes(theme));
+  }
+  function changeToPutOutClothes() {
+    setData(putOutClothes(theme));
+  }
   function setRandom() {
     const pool = [
+      putOnClothes(theme),
+      putOutClothes(theme),
       assuranceAdj(theme),
       assuranceNoun(theme),
       assuranceVerb(theme),
@@ -737,6 +747,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAssuranceVerb}>as.v</IonButton>
       <IonButton onClick={changeToNegativeQuestion}>negativeQuestion</IonButton>
       <IonButton onClick={changeToSubstantivisator1}>substantivisator1</IonButton>
+      <IonButton onClick={changeToPutOnClothes}>put on clothes</IonButton>
+      <IonButton onClick={changeToPutOutClothes}>put out clothes</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

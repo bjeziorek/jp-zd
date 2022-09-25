@@ -590,35 +590,35 @@ export function na_adjectivesTense(word: string, formal: boolean, tense: string,
     }
 }
 export const adjectives = [
-    { jp: 'se-ga takai', pl: 'wzrostem wysoki',rz:'wysokość wzrostu' },
-    { jp: 'takai', pl: 'wysoki',rz:'wysykość' },
-    { jp: 'takai', pl: 'drogi',rz:'drogość' },
-    { jp: 'se-ga hikui', pl: 'wzrostem niski',rz:'niskość wzrostu' },
-    { jp: 'hikui', pl: 'niski',rz:'niskość' },
-    { jp: 'kireina', pl: 'fizycznie piękny',rz:'piękność fizyczna' },
-    { jp: 'utsukushii', pl: 'wewnętrznie i fizycznie piękny',rz:'piękność wew i zew' },
-    { jp: 'minikui', pl: 'brzydki',rz:'brzydkość' },
-    { jp: 'warui', pl: 'zły',rz:'złość' },
-    { jp: 'yasui', pl: 'tani',rz:'taniość' },
-    { jp: 'ookii', pl: 'duży',rz:'wielkość' },
-    { jp: 'chiisai', pl: 'mały',rz:'małość' },
-    { jp: 'atsui', pl: 'gorący',rz:'gorącość' },
-    { jp: 'chikai', pl: 'bliski',rz:'bliskość' },
-    { jp: 'yuumeina', pl: 'słynny',rz:'słynność' },
-    { jp: 'yuumeina', pl: 'sławny',rz:'sławność' },
-    { jp: 'tooi', pl: 'odległy',rz:'odległość' },
-    { jp: 'hayai', pl: 'szybki',rz:'szybkość' },
-    { jp: 'osoi', pl: 'powolny',rz:'powolność' },
-    { jp: 'atatakai', pl: 'w dotyku ciepły' ,rz:'ciepłość'},
-    { jp: 'suzushii', pl: 'w dotyku zimny' ,rz:'zimność'},
-    { jp: 'omoi', pl: 'ciężki',rz:'ciężar' },
-    { jp: 'karui', pl: 'lekki',rz:'lekkość' },
-    { jp: 'nagai', pl: 'długi',rz:'długość' },
-    { jp: 'mijikai', pl: 'krótki',rz:'krótkość' },
-    { jp: 'amai', pl: 'w smaku słodki',rz:'skodycz smaku' },
-    { jp: 'karai', pl: 'w smaku ostry',rz:'ostrość smaku' },
-    { jp: 'isogashii', pl: 'zajęty',rz:'zajętość' },
-    { jp: 'himana', pl: 'w sensie czasu wolny',rz:'wolność czasu' },
+    { jp: 'se-ga takai', pl: 'wzrostem wysoki', rz: 'wysokość wzrostu' },
+    { jp: 'takai', pl: 'wysoki', rz: 'wysykość' },
+    { jp: 'takai', pl: 'drogi', rz: 'drogość' },
+    { jp: 'se-ga hikui', pl: 'wzrostem niski', rz: 'niskość wzrostu' },
+    { jp: 'hikui', pl: 'niski', rz: 'niskość' },
+    { jp: 'kireina', pl: 'fizycznie piękny', rz: 'piękność fizyczna' },
+    { jp: 'utsukushii', pl: 'wewnętrznie i fizycznie piękny', rz: 'piękność wew i zew' },
+    { jp: 'minikui', pl: 'brzydki', rz: 'brzydkość' },
+    { jp: 'warui', pl: 'zły', rz: 'złość' },
+    { jp: 'yasui', pl: 'tani', rz: 'taniość' },
+    { jp: 'ookii', pl: 'duży', rz: 'wielkość' },
+    { jp: 'chiisai', pl: 'mały', rz: 'małość' },
+    { jp: 'atsui', pl: 'gorący', rz: 'gorącość' },
+    { jp: 'chikai', pl: 'bliski', rz: 'bliskość' },
+    { jp: 'yuumeina', pl: 'słynny', rz: 'słynność' },
+    { jp: 'yuumeina', pl: 'sławny', rz: 'sławność' },
+    { jp: 'tooi', pl: 'odległy', rz: 'odległość' },
+    { jp: 'hayai', pl: 'szybki', rz: 'szybkość' },
+    { jp: 'osoi', pl: 'powolny', rz: 'powolność' },
+    { jp: 'atatakai', pl: 'w dotyku ciepły', rz: 'ciepłość' },
+    { jp: 'suzushii', pl: 'w dotyku zimny', rz: 'zimność' },
+    { jp: 'omoi', pl: 'ciężki', rz: 'ciężar' },
+    { jp: 'karui', pl: 'lekki', rz: 'lekkość' },
+    { jp: 'nagai', pl: 'długi', rz: 'długość' },
+    { jp: 'mijikai', pl: 'krótki', rz: 'krótkość' },
+    { jp: 'amai', pl: 'w smaku słodki', rz: 'skodycz smaku' },
+    { jp: 'karai', pl: 'w smaku ostry', rz: 'ostrość smaku' },
+    { jp: 'isogashii', pl: 'zajęty', rz: 'zajętość' },
+    { jp: 'himana', pl: 'w sensie czasu wolny', rz: 'wolność czasu' },
 ]
 export function declineAdjective(item: any, tense: string, negation: boolean, formal = true) {
 
@@ -1056,7 +1056,7 @@ export const plCasePool = {
 }
 
 function plVerbDeclination(verb: string, mode: string): string {
-///// todo
+    ///// todo
     switch (mode) {
         case 'infinitive': return verb
         case 'imperative': return verb //rozkazujacy
@@ -1371,6 +1371,15 @@ export const wordList: Noun = {
         { jp: 'kinyoubi', pl: caseDeclination('piątek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
         { jp: 'doyoubi', pl: caseDeclination('sobota'), counter: 'ka', plGender: 'ż', isAlive: false, isHuman: false, tags: ['week'] },
         { jp: 'nichiyoubi', pl: caseDeclination('niedziela'), counter: 'ka', plGender: 'ż', isAlive: false, isHuman: false, tags: ['week'] },
+    ],
+    clothes: [
+        { jp: 'boushi', pl: caseDeclination('czapka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'kaburu',meaning:'zakładać', particle: '-o', tags: ['dedicated','in'] },{ verb: 'nugu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] },{ verb: 'toru',meaning:'ściągać', particle: '-o', tags: ['general','out'] }] },
+        { jp: 'megane', pl: caseDeclination('okulary'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'kakeru',meaning:'zakładać', particle: '-o', tags: ['dedicated','in'] },{ verb: 'toru',meaning:'ściągać', particle: '-o', tags: ['general','out'] },{ verb: 'hazusu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] }] },
+        { jp: 'MAFURAA', pl: caseDeclination('szalik'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'suru',meaning:'ubierać', particle: '-o', tags: ['general','in'] }, { verb: 'maku',meaning:'zakładać', particle: '-o', tags: ['dedicated','in'] },{ verb: 'toru',meaning:'ściągać', particle: '-o', tags: ['general','out'] }] },
+        { jp: 'tebukuro', pl: caseDeclination('rękawiczki'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'suru',meaning:'ubierać', particle: '-o', tags: ['general','in'] }, { verb: 'hameru',meaning:'zakładać', particle: '-o', tags: ['dedecated','in'] },{ verb: 'hazusu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] },{ verb: 'toru',meaning:'ściągać', particle: '-o', tags: ['general','out'] }] },
+        { jp: 'kutsu', pl: caseDeclination('buty'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [ { verb: 'haku',meaning:'wkładać', particle: '-o', tags: ['dedecated','in'] },{ verb: 'nugu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] }] },
+        { jp: 'KOOTO', pl: caseDeclination('kurtka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [ { verb: 'kiru',meaning:'', particle: '-o', tags: ['dedecated','in'] },{ verb: 'nugu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] }] },
+
     ],
     animals: [
         //kto co | kogo czego (nie ma) | komu czemu (się przyglądam) 
