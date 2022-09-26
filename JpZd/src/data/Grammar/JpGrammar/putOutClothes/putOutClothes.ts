@@ -18,6 +18,6 @@ export function putOutClothes(theme:string):DataType{
     })()
     return{
         romaji:who.jp+'-wa '+what.jp+'-o '+verbJp.replace(/\/$/,''),
-        meaning:who.pl.M+ ' ubiera '+what.pl.B
+        meaning:who.pl.M+ ' ściąga '+what.pl.B
     }
 }
