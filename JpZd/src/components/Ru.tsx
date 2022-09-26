@@ -4,7 +4,7 @@ import DataType from "../types/DataType.model";
 import "./Ru.css";
 import {
   age,
-  countingAnimals,
+  countingAnimals_deprecated as countingAnimals,
   countingLongObjects,
   countingPeople,
   generalCounting,

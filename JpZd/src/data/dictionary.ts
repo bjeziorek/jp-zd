@@ -1362,6 +1362,23 @@ export const verbs_deprecated = {
         { jp: 'mitsukeru', pl: { rozkazujący: 'znajdźmy', imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3: 'znajduje' }, particle: { jp: 'o', pl: { txt: '', case: 'B' } } },
     ]
 }
+
+export const prepositions = {
+    location: [
+        { jp: "naka", pl: {preposition:"w",case:'Msc' }},
+        { jp: "ushiro", pl:  {preposition:"za",case:'N' } },
+        { jp: "mae", pl: {preposition:"przed",case:'N' } },
+        { jp: "shita", pl:  {preposition:"pod",case:'N' } },
+        { jp: "tonari", pl:  {preposition:"w sąsiedztwie",case:'D' } },
+        { jp: "soba", pl:  {preposition:"przy",case:'Msc' } },
+        { jp: "yoko", pl:  {preposition:"obok",case:'D' } },
+        { jp: "hidari", pl:  {preposition:"na lewo od",case:'D' } },
+        { jp: "migi", pl:  {preposition:"na prawo od",case:'D' } },
+        { jp: "ue", pl:  {preposition:"na",case:'N' }}
+    ],
+}
+
+
 export const wordList: Noun = {
     week: [
         { jp: 'getsuyoubi', pl: caseDeclination('poniedziałek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
@@ -1373,12 +1390,12 @@ export const wordList: Noun = {
         { jp: 'nichiyoubi', pl: caseDeclination('niedziela'), counter: 'ka', plGender: 'ż', isAlive: false, isHuman: false, tags: ['week'] },
     ],
     clothes: [
-        { jp: 'boushi', pl: caseDeclination('czapka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'kaburu',meaning:'zakładać', particle: '-o', tags: ['dedicated','in'] },{ verb: 'nugu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] },{ verb: 'toru',meaning:'ściągać', particle: '-o', tags: ['general','out'] }] },
-        { jp: 'megane', pl: caseDeclination('okulary'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'kakeru',meaning:'zakładać', particle: '-o', tags: ['dedicated','in'] },{ verb: 'toru',meaning:'ściągać', particle: '-o', tags: ['general','out'] },{ verb: 'hazusu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] }] },
-        { jp: 'MAFURAA', pl: caseDeclination('szalik'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'suru',meaning:'ubierać', particle: '-o', tags: ['general','in'] }, { verb: 'maku',meaning:'zakładać', particle: '-o', tags: ['dedicated','in'] },{ verb: 'toru',meaning:'ściągać', particle: '-o', tags: ['general','out'] }] },
-        { jp: 'tebukuro', pl: caseDeclination('rękawiczki'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'suru',meaning:'ubierać', particle: '-o', tags: ['general','in'] }, { verb: 'hameru',meaning:'zakładać', particle: '-o', tags: ['dedecated','in'] },{ verb: 'hazusu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] },{ verb: 'toru',meaning:'ściągać', particle: '-o', tags: ['general','out'] }] },
-        { jp: 'kutsu', pl: caseDeclination('buty'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [ { verb: 'haku',meaning:'wkładać', particle: '-o', tags: ['dedecated','in'] },{ verb: 'nugu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] }] },
-        { jp: 'KOOTO', pl: caseDeclination('kurtka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [ { verb: 'kiru',meaning:'', particle: '-o', tags: ['dedecated','in'] },{ verb: 'nugu',meaning:'ściągać', particle: '-o', tags: ['dedicated','out'] }] },
+        { jp: 'boushi', pl: caseDeclination('czapka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'kaburu', meaning: 'zakładać', particle: '-o', tags: ['dedicated', 'in'] }, { verb: 'nugu', meaning: 'ściągać', particle: '-o', tags: ['dedicated', 'out'] }, { verb: 'toru', meaning: 'ściągać', particle: '-o', tags: ['general', 'out'] }] },
+        { jp: 'megane', pl: caseDeclination('okulary'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'kakeru', meaning: 'zakładać', particle: '-o', tags: ['dedicated', 'in'] }, { verb: 'toru', meaning: 'ściągać', particle: '-o', tags: ['general', 'out'] }, { verb: 'hazusu', meaning: 'ściągać', particle: '-o', tags: ['dedicated', 'out'] }] },
+        { jp: 'MAFURAA', pl: caseDeclination('szalik'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'suru', meaning: 'ubierać', particle: '-o', tags: ['general', 'in'] }, { verb: 'maku', meaning: 'zakładać', particle: '-o', tags: ['dedicated', 'in'] }, { verb: 'toru', meaning: 'ściągać', particle: '-o', tags: ['general', 'out'] }] },
+        { jp: 'tebukuro', pl: caseDeclination('rękawiczki'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'suru', meaning: 'ubierać', particle: '-o', tags: ['general', 'in'] }, { verb: 'hameru', meaning: 'zakładać', particle: '-o', tags: ['dedecated', 'in'] }, { verb: 'hazusu', meaning: 'ściągać', particle: '-o', tags: ['dedicated', 'out'] }, { verb: 'toru', meaning: 'ściągać', particle: '-o', tags: ['general', 'out'] }] },
+        { jp: 'kutsu', pl: caseDeclination('buty'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'haku', meaning: 'wkładać', particle: '-o', tags: ['dedecated', 'in'] }, { verb: 'nugu', meaning: 'ściągać', particle: '-o', tags: ['dedicated', 'out'] }] },
+        { jp: 'KOOTO', pl: caseDeclination('kurtka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['clothes'], collocations: [{ verb: 'kiru', meaning: '', particle: '-o', tags: ['dedecated', 'in'] }, { verb: 'nugu', meaning: 'ściągać', particle: '-o', tags: ['dedicated', 'out'] }] },
 
     ],
     animals: [
@@ -1483,13 +1500,21 @@ export const wordList: Noun = {
         { jp: "kuruma", pl: caseDeclination('samochód'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "jitensha", pl: caseDeclination('rower'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "KONPYUUTA", pl: caseDeclination('komputer'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
-
+        { jp: "hana", pl: caseDeclination('kwiatek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
     ],
     places: [
         { jp: "basho", pl: caseDeclination('miejsce'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['places'] },
         { jp: "tatemono", pl: caseDeclination('budynek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
         { jp: "ginkou", pl: caseDeclination('bank'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
-
+        { jp: "ie", pl: caseDeclination('dom'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "tsukue", pl: caseDeclination('biurko'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "hako", pl: caseDeclination('pudełko'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "gakko", pl: caseDeclination('szkoła'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "daigaku", pl: caseDeclination('uniwersytet'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "yuubinkyoku", pl: caseDeclination('urząd pocztowy'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "toshokan", pl: caseDeclination('biblioteka'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "kyoushitsu", pl: caseDeclination('sala lekcyjna'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'] },
+        { jp: "kaigishitsu", pl: caseDeclination('sala konferencyjna'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'] },
     ],
     food: [
         { jp: "hachimitsu", pl: caseDeclination('miód'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
@@ -1511,7 +1536,7 @@ export const wordList: Noun = {
         { jp: "BANANA", pl: caseDeclination('banan'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
         { jp: "JUUSU", pl: caseDeclination('sok'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
         { jp: "gohan", pl: caseDeclination('ryż'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
-
+        { jp: "hachimitsu", pl: caseDeclination('miód'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
     ]
 
 }

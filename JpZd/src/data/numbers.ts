@@ -125,7 +125,7 @@ export function prices(theme:string):DataType{
   }
 }
 
-export function countingAnimals(): DataType {
+export function countingAnimals_deprecated(): DataType {
 
   const whosePool = [
     { jp: "watashi", pl: "mój" },
@@ -155,7 +155,9 @@ export function countingAnimals(): DataType {
     { jp: "mae", pl: "przed" },
     { jp: "shita", pl: "pod" },
 
-    { jp: "tonari", pl: "obok" },
+    { jp: "tonari", pl: "w sąsiedztwie" },
+    { jp: "soba", pl: "przy" },
+    { jp: "yoko", pl: "obok" },
     { jp: "hidari", pl: "na lewo od" },
     { jp: "migi", pl: "na prawo od" },
 

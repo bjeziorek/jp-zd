@@ -4,7 +4,7 @@ import DataType from "../types/DataType.model";
 import "./Jp.css";
 import {
   age,
-  countingAnimals,
+ // countingAnimals,
   countingLongObjects,
   countingPeople,
   generalCounting,
@@ -47,6 +47,7 @@ import { assuranceAdj } from "../data/Grammar/JpGrammar/assuranceAdj/assuranceAd
 import { assuranceVerb } from "../data/Grammar/JpGrammar/assuranceVerb/assuranceVerb";
 import { putOnClothes } from "../data/Grammar/JpGrammar/putOnClothes/putOnClothes";
 import { putOutClothes } from "../data/Grammar/JpGrammar/putOutClothes/putOutClothes";
+import { placementAndCounting } from "../data/Grammar/JpGrammar/placementAndCounting/placementAndCounting";
 
 interface ContainerProps {
   name: string;
@@ -54,7 +55,7 @@ interface ContainerProps {
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   const [data, setData] = useState<DataType>(days());
-  const [theme, setTheme] = useState<string>("professions"); //potem podmieniać na przycisku
+  const [theme, setTheme] = useState<string>("animals"); //potem podmieniać na przycisku
   const [dataKanji, setDataKanji] = useState<Kanji>(kanjiDict("kwiat"));
   const [showToggleRomaji, setShowToggleRomaji] = useState("show");
   function romajiVisibility() {
@@ -446,7 +447,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   }
 
   function changeToCountingAnimals() {
-    setData(countingAnimals());
+  //  setData(countingAnimals());
   }
   function changeToCountingLongObjects() {
     setData(countingLongObjects());
@@ -619,8 +620,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToPutOutClothes() {
     setData(putOutClothes(theme));
   }
+  function changeToPlacementAndCounting() {
+    setData(placementAndCounting(theme));
+  }
   function setRandom() {
     const pool = [
+      placementAndCounting(theme),
       putOnClothes(theme),
       putOutClothes(theme),
       assuranceAdj(theme),
@@ -659,7 +664,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       give2(theme),
       receive(theme),
       wantToDo(theme),
-      countingAnimals(),
+     // countingAnimals(),
       countingLongObjects(),
       countingPeople(),
       comparasion(theme),
@@ -691,7 +696,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   return (
     <div className="container">
       <IonButton onClick={changeToKanji}>Kanji</IonButton>
-      <IonButton onClick={changeToCountingAnimals}>Animals</IonButton>
+      <IonButton onClick={changeToCountingAnimals}>....Animals</IonButton>
       <IonButton onClick={changeToCountingLongObjects}>LongObjects</IonButton>
       <IonButton onClick={changeToCountingPeople}>People</IonButton>
       <IonButton onClick={changeToComparasion}>Comparasion</IonButton>
@@ -749,6 +754,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToSubstantivisator1}>substantivisator1</IonButton>
       <IonButton onClick={changeToPutOnClothes}>put on clothes</IonButton>
       <IonButton onClick={changeToPutOutClothes}>put out clothes</IonButton>
+      <IonButton onClick={changeToPlacementAndCounting}>placement and counting</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
