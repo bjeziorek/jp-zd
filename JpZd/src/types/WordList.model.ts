@@ -8,7 +8,7 @@ export interface Collocations {
 }
 
 
-interface NounStructure {
+export interface NounStructure {
     jp: string,
     pl: Case,
     counter: string,

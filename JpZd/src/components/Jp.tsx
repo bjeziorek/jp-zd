@@ -48,6 +48,9 @@ import { assuranceVerb } from "../data/Grammar/JpGrammar/assuranceVerb/assurance
 import { putOnClothes } from "../data/Grammar/JpGrammar/putOnClothes/putOnClothes";
 import { putOutClothes } from "../data/Grammar/JpGrammar/putOutClothes/putOutClothes";
 import { placementAndCounting } from "../data/Grammar/JpGrammar/placementAndCounting/placementAndCounting";
+import { AIsButBIsnt } from "../data/Grammar/JpGrammar/AIsButBIsnt/AIsButBIsnt";
+import { ACanEtcButBCantEtc } from "../data/Grammar/JpGrammar/ACanEtcButBCantEtc/ACanEtcButBCantEtc";
+import { ADoButBDoesnt } from "../data/Grammar/JpGrammar/ADoButBDoesnt/ADoButBDoesnt";
 
 interface ContainerProps {
   name: string;
@@ -623,8 +626,20 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToPlacementAndCounting() {
     setData(placementAndCounting(theme));
   }
+  function changeToAIsButBIsnt() {
+    setData(AIsButBIsnt(theme));
+  }
+  function changeToACanEtcButBCantEtc() {
+    setData(ACanEtcButBCantEtc(theme));
+  }
+  function changeToADoButBDoesnt() {
+    setData(ADoButBDoesnt(theme));
+  }
   function setRandom() {
     const pool = [
+      ADoButBDoesnt(theme),
+      ACanEtcButBCantEtc(theme),
+      AIsButBIsnt(theme),
       placementAndCounting(theme),
       putOnClothes(theme),
       putOutClothes(theme),
@@ -755,6 +770,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToPutOnClothes}>put on clothes</IonButton>
       <IonButton onClick={changeToPutOutClothes}>put out clothes</IonButton>
       <IonButton onClick={changeToPlacementAndCounting}>placement and counting</IonButton>
+      <IonButton onClick={changeToAIsButBIsnt}>A is but B isnt</IonButton>
+      <IonButton onClick={changeToACanEtcButBCantEtc}>A can but B cant</IonButton>
+      <IonButton onClick={changeToADoButBDoesnt}>A do but B doesnt</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
