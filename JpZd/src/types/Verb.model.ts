@@ -23,7 +23,7 @@ interface PolishVerb {
     os3?: string
 }
 
-interface VerbStructure {
+export interface VerbStructure {
     jp: JapaneseVerb,
     pl: PolishVerb,
     tags: Array<string>,

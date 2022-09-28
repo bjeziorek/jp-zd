@@ -51,6 +51,7 @@ import { placementAndCounting } from "../data/Grammar/JpGrammar/placementAndCoun
 import { AIsButBIsnt } from "../data/Grammar/JpGrammar/AIsButBIsnt/AIsButBIsnt";
 import { ACanEtcButBCantEtc } from "../data/Grammar/JpGrammar/ACanEtcButBCantEtc/ACanEtcButBCantEtc";
 import { ADoButBDoesnt } from "../data/Grammar/JpGrammar/ADoButBDoesnt/ADoButBDoesnt";
+import { including } from "../data/Grammar/JpGrammar/including/including";
 
 interface ContainerProps {
   name: string;
@@ -635,8 +636,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToADoButBDoesnt() {
     setData(ADoButBDoesnt(theme));
   }
+  function changeToIncluding() {
+    setData(including(theme));
+  }
   function setRandom() {
     const pool = [
+      including(theme),
       ADoButBDoesnt(theme),
       ACanEtcButBCantEtc(theme),
       AIsButBIsnt(theme),
@@ -773,6 +778,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAIsButBIsnt}>A is but B isnt</IonButton>
       <IonButton onClick={changeToACanEtcButBCantEtc}>A can but B cant</IonButton>
       <IonButton onClick={changeToADoButBDoesnt}>A do but B doesnt</IonButton>
+      <IonButton onClick={changeToIncluding}>including</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
