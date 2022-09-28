@@ -7,6 +7,6 @@ export function tellMe(theme:string):DataType{
 
     return{
         romaji:'Dare-ga '+verb.jp.dictionaryForm+'-ka oshiete kudasai',
-        meaning:'Powiedz mi kto będzie '+verb.pl.inifinitive
+        meaning:'Powiedz mi kto będzie '+verb.pl.infinitive
     }
 }
