@@ -1,8 +1,8 @@
-import { wordList,time} from './../../../dictionary';
+import { wordList,time} from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
 
-export function thinkThatNounNaAdj(theme:string):DataType{
+export function thinkThatNoun(theme:string):DataType{
     const tense = Math.random()>0.33?'past':(Math.random()>0.5?'present':'future')
     const when = rand(time[tense])
     const weather = rand(wordList.weather)

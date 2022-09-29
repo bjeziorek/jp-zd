@@ -52,7 +52,10 @@ import { AIsButBIsnt } from "../data/Grammar/JpGrammar/AIsButBIsnt/AIsButBIsnt";
 import { ACanEtcButBCantEtc } from "../data/Grammar/JpGrammar/ACanEtcButBCantEtc/ACanEtcButBCantEtc";
 import { ADoButBDoesnt } from "../data/Grammar/JpGrammar/ADoButBDoesnt/ADoButBDoesnt";
 import { including } from "../data/Grammar/JpGrammar/including/including";
-import { thinkThatNounNaAdj } from "../data/Grammar/JpGrammar/thinkThatNounNaAdj/thinkThatNounNaAdj";
+import { thinkThatNoun } from "../data/Grammar/JpGrammar/thinkThatNoun/thinkThatNoun";
+import { thinkThatNaAdj } from "../data/Grammar/JpGrammar/thinkThatNaAdj/thinkThatNaAdj";
+import { thinkThatIAdj } from "../data/Grammar/JpGrammar/thinkThatIAdj/thinkThatIAdj";
+import { thinkThatVerb } from "../data/Grammar/JpGrammar/thinkThatVerb/thinkThatVerb";
 
 interface ContainerProps {
   name: string;
@@ -640,12 +643,24 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToIncluding() {
     setData(including(theme));
   }
-  function changeToThinkThatNounNaAdj() {
-    setData(thinkThatNounNaAdj(theme));
+  function changeToThinkThatNoun() {
+    setData(thinkThatNoun(theme));
+  }
+  function changeToThinkThatNaAdj() {
+    setData(thinkThatNaAdj(theme));
+  }
+  function changeToThinkThatIAdj() {
+    setData(thinkThatIAdj(theme));
+  }
+  function changeToThinkThatVerb() {
+    setData(thinkThatVerb(theme));
   }
   function setRandom() {
     const pool = [
-      thinkThatNounNaAdj(theme),
+      thinkThatNoun(theme),
+      thinkThatVerb(theme),
+      thinkThatIAdj(theme),
+      thinkThatNaAdj(theme),
       including(theme),
       ADoButBDoesnt(theme),
       ACanEtcButBCantEtc(theme),
@@ -784,7 +799,10 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToACanEtcButBCantEtc}>A can but B cant</IonButton>
       <IonButton onClick={changeToADoButBDoesnt}>A do but B doesnt</IonButton>
       <IonButton onClick={changeToIncluding}>including</IonButton>
-      <IonButton onClick={changeToThinkThatNounNaAdj}>think that n/-na</IonButton>
+      <IonButton onClick={changeToThinkThatNoun}>think that n</IonButton>
+      <IonButton onClick={changeToThinkThatVerb}>think that v</IonButton>
+      <IonButton onClick={changeToThinkThatIAdj}>think that -i</IonButton>
+      <IonButton onClick={changeToThinkThatNaAdj}>think that -na</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
