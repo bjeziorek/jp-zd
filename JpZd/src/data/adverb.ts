@@ -4,7 +4,7 @@ import { TenseSet } from "../types/Tense.model"
 import { pickTheme } from "../utils/pickTheme"
 import rand from "../utils/randomArrayElement"
 
-const timePool: Array<TimePool> = [
+const timePool: Array<TimePool> = [ //podobna struktura jest w dictiopnary, ale tu na razie zostawiam
     //present
     { jp: 'kyou', pl: 'dzisiaj', time: 'present' },
     //past

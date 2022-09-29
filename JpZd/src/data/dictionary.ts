@@ -3,6 +3,7 @@ import Kanji from "../types/Kanji.model"
 import Noun from '../types/WordList.model';
 import Numbers from '../types/Numbers.model';
 import Verb from '../types/Verb.model';
+import { TimePool } from '../types/Tense.model';
 
 export function testowa(x: number, y: number): number {
     return x + y
@@ -1363,23 +1364,49 @@ export const verbs_deprecated = {
     ]
 }
 
+export const time: { [key: string]: Array<TimePool> } = {
+    present: [  //present
+        { jp: 'kyou', pl: 'dzisiaj', time: 'present' },
+        { jp: 'ima', pl: 'teraz', time: 'present' },
+    ],
+    past: [  //past
+        { jp: 'kinou', pl: 'wczoraj', time: 'past' },
+        { jp: 'ototoi', pl: 'przedwczoraj', time: 'past' },
+        { jp: 'mae-no shuu', pl: 'w zeszłym tygodniu', time: 'past' },
+        { jp: 'zengetsu', pl: 'w zeszłym miesiącu', time: 'past' },
+        { jp: 'zennen', pl: 'w zeszłym roku', time: 'past' },
+    ],
+    future: [  //future
+        { jp: 'ashita', pl: 'jutro', time: 'future' },
+        { jp: 'asatte', pl: 'pojutrze', time: 'future' },
+        { jp: 'raishuu', pl: 'w przyszłym tygodniu', time: 'future' },
+        { jp: 'raigetsu', pl: 'w przyszłym miesiącu', time: 'future' },
+        { jp: 'rainen', pl: 'w przyszłym roku', time: 'future' },
+    ]
+}
+
 export const prepositions = {
     location: [
-        { jp: "naka", pl: {preposition:"w",case:'Msc' }},
-        { jp: "ushiro", pl:  {preposition:"za",case:'N' } },
-        { jp: "mae", pl: {preposition:"przed",case:'N' } },
-        { jp: "shita", pl:  {preposition:"pod",case:'N' } },
-        { jp: "tonari", pl:  {preposition:"w sąsiedztwie",case:'D' } },
-        { jp: "soba", pl:  {preposition:"przy",case:'Msc' } },
-        { jp: "yoko", pl:  {preposition:"obok",case:'D' } },
-        { jp: "hidari", pl:  {preposition:"na lewo od",case:'D' } },
-        { jp: "migi", pl:  {preposition:"na prawo od",case:'D' } },
-        { jp: "ue", pl:  {preposition:"na",case:'N' }}
+        { jp: "naka", pl: { preposition: "w", case: 'Msc' } },
+        { jp: "ushiro", pl: { preposition: "za", case: 'N' } },
+        { jp: "mae", pl: { preposition: "przed", case: 'N' } },
+        { jp: "shita", pl: { preposition: "pod", case: 'N' } },
+        { jp: "tonari", pl: { preposition: "w sąsiedztwie", case: 'D' } },
+        { jp: "soba", pl: { preposition: "przy", case: 'Msc' } },
+        { jp: "yoko", pl: { preposition: "obok", case: 'D' } },
+        { jp: "hidari", pl: { preposition: "na lewo od", case: 'D' } },
+        { jp: "migi", pl: { preposition: "na prawo od", case: 'D' } },
+        { jp: "ue", pl: { preposition: "na", case: 'N' } }
     ],
 }
 
-
 export const wordList: Noun = {
+    weather: [
+        { jp: 'ame', pl: caseDeclination('deszcz'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
+        { jp: 'yuki', pl: caseDeclination('śnieg'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
+        { jp: 'kumori', pl: caseDeclination('zachmurzenie'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
+        { jp: 'kaze', pl: caseDeclination('wiatr'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
+    ],
     week: [
         { jp: 'getsuyoubi', pl: caseDeclination('poniedziałek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
         { jp: 'kayoubi', pl: caseDeclination('wtorek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
