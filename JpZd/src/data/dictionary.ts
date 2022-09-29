@@ -594,7 +594,7 @@ export const adjectives = [
     { jp: 'hiroi', pl: 'szeroki', rz: 'szerokość' },
     { jp: 'kudaranai', pl: 'trywialny', rz: 'trywialność' },
     { jp: 'bakarashii', pl: 'absurdalny', rz: 'absurd' },
-    { jp: 'orokana', pl: 'głupi', rz: 'głupota' },
+    { jp: 'orokana', pl: 'głupiutki', rz: 'głupotka' },
     { jp: 'jouhinna', pl: 'elegancki', rz: 'elegancja' },
     { jp: 'kashikoi', pl: 'mądry', rz: 'mądrość' },
     { jp: 'bimyouna', pl: 'delikatny', rz: 'delikatność' },
