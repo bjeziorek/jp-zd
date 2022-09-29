@@ -52,6 +52,7 @@ import { AIsButBIsnt } from "../data/Grammar/JpGrammar/AIsButBIsnt/AIsButBIsnt";
 import { ACanEtcButBCantEtc } from "../data/Grammar/JpGrammar/ACanEtcButBCantEtc/ACanEtcButBCantEtc";
 import { ADoButBDoesnt } from "../data/Grammar/JpGrammar/ADoButBDoesnt/ADoButBDoesnt";
 import { including } from "../data/Grammar/JpGrammar/including/including";
+import { thinkThatNounNaAdj } from "../data/Grammar/JpGrammar/thinkThatNounNaAdj/thinkThatNounNaAdj";
 
 interface ContainerProps {
   name: string;
@@ -639,8 +640,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToIncluding() {
     setData(including(theme));
   }
+  function changeToThinkThatNounNaAdj() {
+    setData(thinkThatNounNaAdj(theme));
+  }
   function setRandom() {
     const pool = [
+      thinkThatNounNaAdj(theme),
       including(theme),
       ADoButBDoesnt(theme),
       ACanEtcButBCantEtc(theme),
@@ -779,6 +784,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToACanEtcButBCantEtc}>A can but B cant</IonButton>
       <IonButton onClick={changeToADoButBDoesnt}>A do but B doesnt</IonButton>
       <IonButton onClick={changeToIncluding}>including</IonButton>
+      <IonButton onClick={changeToThinkThatNounNaAdj}>think that n/-na</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
