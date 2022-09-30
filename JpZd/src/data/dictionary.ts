@@ -4,6 +4,7 @@ import Noun from '../types/WordList.model';
 import Numbers from '../types/Numbers.model';
 import Verb from '../types/Verb.model';
 import { TimePool } from '../types/Tense.model';
+import { init } from '../init/init';
 
 export function testowa(x: number, y: number): number {
     return x + y
@@ -1052,6 +1053,7 @@ export const numbers: Numbers = {
         '10': 'tooka',
     },
 }
+export const numbersKeyMatrix=init(numbers)
 export const plCasePool = {
     M: 'M',
     D: 'D',
@@ -1355,6 +1357,7 @@ export const verbs: Verb = {
         },
     ]
 }
+export const verbsKeyMatrix=init(verbs)
 export const verbs_deprecated = {
     move: [
         { jp: 'iku', pl: { rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
@@ -1397,6 +1400,7 @@ export const time: { [key: string]: Array<TimePool> } = {
         { jp: 'rainen', pl: 'w przyszłym roku', time: 'future' },
     ]
 }
+export const timeKeyMatrix=init(time)
 
 export const prepositions = {
     location: [
@@ -1412,8 +1416,8 @@ export const prepositions = {
         { jp: "ue", pl: { preposition: "na", case: 'N' } }
     ],
 }
-
-export const wordList: Noun = {
+export const prepositionsKeyMatrix=init(prepositions)
+export const nouns: Noun = {
     weather: [
         { jp: 'ame', pl: caseDeclination('deszcz'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
         { jp: 'yuki', pl: caseDeclination('śnieg'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
@@ -1580,6 +1584,7 @@ export const wordList: Noun = {
     ]
 
 }
+export const nounsKeyMatrix=init(nouns)
 export function dict(key: string, trans: string) {
     //plants
     //food

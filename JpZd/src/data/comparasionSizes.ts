@@ -2,7 +2,7 @@ import { Case } from "../types/Case.model";
 import DataType from "../types/DataType.model";
 import { pickTheme } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
-import { wordList } from "./dictionary";
+import { nouns } from "./dictionary";
 
 export function comparasionSizes(theme:string) {
   
@@ -82,7 +82,7 @@ const adjectivesPool=[
 ]
 
 function listCases(){
-    wordList.animals.forEach(element => {
+    nouns.animals.forEach(element => {
         console.log(
             "jest "+element.pl.M+", "+
             "nie ma "+element.pl.D+", "+

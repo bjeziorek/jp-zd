@@ -56,6 +56,8 @@ import { thinkThatNoun } from "../data/Grammar/JpGrammar/thinkThatNoun/thinkThat
 import { thinkThatNaAdj } from "../data/Grammar/JpGrammar/thinkThatNaAdj/thinkThatNaAdj";
 import { thinkThatIAdj } from "../data/Grammar/JpGrammar/thinkThatIAdj/thinkThatIAdj";
 import { thinkThatVerb } from "../data/Grammar/JpGrammar/thinkThatVerb/thinkThatVerb";
+import { inPlace } from "../data/Grammar/JpGrammar/inPlace/inPlace";
+import { or } from "../data/Grammar/JpGrammar/Or/Or";
 
 interface ContainerProps {
   name: string;
@@ -655,8 +657,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToThinkThatVerb() {
     setData(thinkThatVerb(theme));
   }
+  function changeToInPlace() {
+    setData(inPlace(theme));
+  }
+  function changeToOr() {
+    setData(or(theme));
+  }
   function setRandom() {
     const pool = [
+      or(theme),
+      inPlace(theme),
       thinkThatNoun(theme),
       thinkThatVerb(theme),
       thinkThatIAdj(theme),
@@ -803,6 +813,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToThinkThatVerb}>think that v</IonButton>
       <IonButton onClick={changeToThinkThatIAdj}>think that -i</IonButton>
       <IonButton onClick={changeToThinkThatNaAdj}>think that -na</IonButton>
+      <IonButton onClick={changeToInPlace}>in place</IonButton>
+      <IonButton onClick={changeToOr}>or</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

@@ -1,4 +1,4 @@
-import { verbFormJp, jpVerbFormsPool, verbs, wordList } from './dictionary';
+import { verbFormJp, jpVerbFormsPool, verbs, nouns } from './dictionary';
 import DataType from "../types/DataType.model";
 import { pickTheme, pickVerb } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
@@ -21,27 +21,27 @@ export function doWith(theme: string): DataType {
 }
 
 export function goToWith(theme: string): DataType {
-    const where = rand(wordList[theme])
+    const where = rand(nouns[theme])
     const moveVerb = rand(verbs.move)
-    const who = rand(wordList[theme])
-    const who2 = rand(wordList[theme])
+    const who = rand(nouns[theme])
+    const who2 = rand(nouns[theme])
     return {
         romaji: who.jp + '-wa ' + who2.jp + '-to ' + where.jp + '-e ' + verbFormJp(moveVerb.jp.dictionaryForm, jpVerbFormsPool.masu),
         meaning: who.pl.M + ' z(ze) ' + who2.pl.N + ' ' + moveVerb.pl.os3 + ' do ' + where.pl.D
     }
 }
 export function also(theme: string): DataType {
-    const whom = rand(wordList.professions)
-    const who = rand(wordList.animals)
+    const whom = rand(nouns.professions)
+    const who = rand(nouns.animals)
     return {
         romaji: who.jp + '-mo ' + whom.jp + ' desu',
         meaning: who.pl.M + ' też jest ' + whom.pl.N
     }
 }
 export function AandB(theme: string): DataType {
-    const whom = rand(wordList.professions)
-    const whoA = rand(wordList.animals)
-    const whoB = rand(wordList.animals)
+    const whom = rand(nouns.professions)
+    const whoA = rand(nouns.animals)
+    const whoB = rand(nouns.animals)
     return {
         romaji: whoA.jp + '-to ' + whoB.jp + '-wa ' + whom.jp + ' desu',
         meaning: whoA.pl.M + ' i ' + whoB.pl.M + ' są ' + whom.pl.N_pl
@@ -62,7 +62,7 @@ export function proposition2(theme: string): DataType {
     }
 }
 export function twoVerbsAtOnce(theme: string): DataType {
-    const who = rand(wordList[theme])
+    const who = rand(nouns[theme])
     const verb1 = rand(pickVerb('actions'))
     const verb2 = rand(pickVerb('actions'))
     return {
@@ -71,7 +71,7 @@ export function twoVerbsAtOnce(theme: string): DataType {
     }
 }
 export function twoVerbsOneByOne(theme: string): DataType {
-    const who = rand(wordList[theme])
+    const who = rand(nouns[theme])
     const verb1 = rand(pickVerb('actions'))
     const verb2 = rand(pickVerb('actions'))
     return {
@@ -80,7 +80,7 @@ export function twoVerbsOneByOne(theme: string): DataType {
     }
 }
 export function continues(theme: string): DataType {
-    const animal = rand(wordList.animals)
+    const animal = rand(nouns.animals)
     const verb = rand(pickVerb('actions'))
     return {
         romaji: 'Ima, ' + animal.jp + '-wa ' + verbFormJp(verb.jp.dictionaryForm, jpVerbFormsPool.te) + "imasu",

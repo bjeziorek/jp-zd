@@ -1,5 +1,5 @@
 import { jpVerbFormsPool, verbFormJp, verbs } from './../../../dictionary';
-import { wordList,time} from '../../../dictionary';
+import { nouns,time} from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
 import { pickTheme } from '../../../../utils/pickTheme';

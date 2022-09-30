@@ -2,7 +2,7 @@ import { stringify } from 'querystring';
 import DataType from '../types/DataType.model';
 import { pickTheme } from '../utils/pickTheme';
 import rand from '../utils/randomArrayElement';
-import { dict, wordList, numbers } from './dictionary';
+import { dict, nouns, numbers } from './dictionary';
 
 export function displayNumberLegible(num:number):string{
   let n=num.toString().split('').reverse().join('')
@@ -72,18 +72,18 @@ export function generalCounting(theme: string): DataType {
     const pool = ['nin', 'mai', 'hon', 'hiki', 'bai', 'satsu', 'kai', 'dai', 'hun']
     const r = rand(pool)
     switch (r) {
-      case 'nin': return wordList.professions
+      case 'nin': return nouns.professions
       case 'mai':
       case 'satsu':
       case 'hon':
       case 'bai':
-      case 'dai': return wordList.items
-      case 'hiki': return wordList.animals
+      case 'dai': return nouns.items
+      case 'hiki': return nouns.animals
       case 'kai': //todo
       case 'hun': //todo
       default:
         console.log('unknown counter: ', r)
-        return wordList.animals
+        return nouns.animals
     }
   })()
   const what = rand(currentTheme)
@@ -116,7 +116,7 @@ export function generalCounting(theme: string): DataType {
 }
 
 export function prices(theme:string):DataType{
-  const obj = rand(wordList[theme])
+  const obj = rand(nouns[theme])
   const price = Math.floor(Math.random()*9999000+100)
 
   return{

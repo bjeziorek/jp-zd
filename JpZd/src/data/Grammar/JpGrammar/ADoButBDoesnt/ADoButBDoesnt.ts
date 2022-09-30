@@ -1,4 +1,4 @@
-import { verbFormJp, wordList, jpVerbFormsPool } from './../../../dictionary';
+import { verbFormJp, nouns, jpVerbFormsPool } from './../../../dictionary';
 import { verbs } from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
@@ -7,8 +7,8 @@ import rand from "../../../../utils/randomArrayElement";
 export function ADoButBDoesnt(theme:string):DataType{
     const filteredVerbs=verbs.actions.filter(el=>el.jp.particle.includes('o'))
     const verb1 = rand(filteredVerbs)
-    const item = rand(wordList.items)
-    const item2 = rand(wordList.items)
+    const item = rand(nouns.items)
+    const item2 = rand(nouns.items)
     const who1 = rand(pickTheme(theme))
     
     return{
