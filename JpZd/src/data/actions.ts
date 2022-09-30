@@ -66,7 +66,7 @@ export function twoVerbsAtOnce(theme: string): DataType {
     const verb1 = rand(pickVerb('actions'))
     const verb2 = rand(pickVerb('actions'))
     return {
-        romaji: who.jp + '-wa ' + verbFormJp(verb1.jp.dictionaryForm, jpVerbFormsPool.te) + ', ' + verb2.jp,
+        romaji: who.jp + '-wa ' + verbFormJp(verb1.jp.dictionaryForm, jpVerbFormsPool.te) + ', ' + verb2.jp.dictionaryForm,
         meaning: who.pl.M + ' będzie ' + verb1.pl.niedokonany + ' i ' + verb2.pl.niedokonany
     }
 }
@@ -75,7 +75,7 @@ export function twoVerbsOneByOne(theme: string): DataType {
     const verb1 = rand(pickVerb('actions'))
     const verb2 = rand(pickVerb('actions'))
     return {
-        romaji: who.jp + '-wa ' + verbFormJp(verb1.jp.dictionaryForm, jpVerbFormsPool.te) + '-kara, ' + verb2.jp,
+        romaji: who.jp + '-wa ' + verbFormJp(verb1.jp.dictionaryForm, jpVerbFormsPool.te) + '-kara, ' + verb2.jp.dictionaryForm,
         meaning: who.pl.M + ' będzie ' + verb1.pl.niedokonany + ', a potem ' + verb2.pl.niedokonany
     }
 }

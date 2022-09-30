@@ -25,7 +25,7 @@ export function likeDislike(theme: string): DataType {
     const verb = rand(verbList)
 
     return {
-        romaji: obj1.jp + '-wa ' + obj2.jp + '-ga ' + verb.jp.dictionaryForm + ' desu',
+        romaji: obj1.jp + '-wa ' + obj2.jp + '-ga ' + verb.jp + ' desu',
         meaning: `${obj1.pl.M} ${verb.pl} ${(verb.jp.dictionaryForm === 'suki') ? obj2.pl.B : obj2.pl.D}`
     }
 }
@@ -117,7 +117,7 @@ export function needWantHave(theme: string): DataType {
     const verb = rand(verbList)
 
     return {
-        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp.dictionaryForm,
+        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp,
         meaning: obj1.pl.M + ' ' + verb.pl + ' ' + what.pl[verb.pl]
     }
 }
