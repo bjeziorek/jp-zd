@@ -51,7 +51,7 @@ export function goodBadAt(theme: string): DataType {
     const verb = rand(verbList)
 
     return {
-        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp.dictionaryForm + ' desu',
+        romaji: obj1.jp + '-wa ' + what.jp + '-ga ' + verb.jp + ' desu',
         meaning: obj1.pl.M + ' jest ' + genderSetter(obj1.plGender, verb.pl) + ' w ' + what.pl
     }
 }
