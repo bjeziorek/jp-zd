@@ -58,6 +58,8 @@ import { thinkThatIAdj } from "../data/Grammar/JpGrammar/thinkThatIAdj/thinkThat
 import { thinkThatVerb } from "../data/Grammar/JpGrammar/thinkThatVerb/thinkThatVerb";
 import { inPlace } from "../data/Grammar/JpGrammar/inPlace/inPlace";
 import { or } from "../data/Grammar/JpGrammar/Or/Or";
+import { howTo } from "../data/Grammar/JpGrammar/howTo/howTo";
+import { fromTo } from "../data/Grammar/JpGrammar/fromTo/fromTo";
 
 interface ContainerProps {
   name: string;
@@ -144,15 +146,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
         romaji: "Dono you-ni koko-e kimashitaka",
         meaning: "Jak tu przyszedłeś?",
       },
-      { romaji: "Dou yatte kore-o tabemasuka", meaning: "Jak to się je?" },
-      {
-        romaji: "Koko-kara gakko-made dono-kurai kakarimasuka",
-        meaning: "Ile zabiera [czasu przejście] stąd do szkoły?",
-      },
-      {
-        romaji: "Koko-kara gakko-made dono-gurai desu ka",
-        meaning: "Jak daleko [czas lub odległość] jest stąd do szkoły?",
-      },
       { romaji: "Anata-wa dare desu-ka", meaning: "Kim jesteś?" },
       {
         romaji: "Dare-to Nihon-ni ikimasu-ka",
@@ -163,7 +156,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
         meaning: "Kiedy przyjeżdżasz do Japonii?",
       },
       { romaji: "Doko-de kaimashita-ka", meaning: "Gdzie kupiłeś?" },
-      { romaji: "Doko-ee ikimasu-ka", meaning: "Gdzie idziesz?" },
+      { romaji: "Doko-e ikimasu-ka", meaning: "Gdzie idziesz?" },
       { romaji: "Nani-jin desu-ka", meaning: "Jakiej jesteś narodowości?" },
       { romaji: "Nan-jin desu-ka", meaning: "Ile jest osób?" },
       { romaji: "Nan desu-ka", meaning: "Co to jest?" },
@@ -663,8 +656,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToOr() {
     setData(or(theme));
   }
+  function changeToHowTo() {
+    setData(howTo(theme));
+  }
+  function changeToFromTo() {
+    setData(fromTo(theme));
+  }
   function setRandom() {
     const pool = [
+      fromTo(theme),
+      howTo(theme),
       or(theme),
       inPlace(theme),
       thinkThatNoun(theme),
@@ -815,6 +816,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToThinkThatNaAdj}>think that -na</IonButton>
       <IonButton onClick={changeToInPlace}>in place</IonButton>
       <IonButton onClick={changeToOr}>or</IonButton>
+      <IonButton onClick={changeToHowTo}>how to</IonButton>
+      <IonButton onClick={changeToFromTo}>from to</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
