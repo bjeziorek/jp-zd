@@ -1581,7 +1581,32 @@ export const nouns: Noun = {
         { jp: "JUUSU", pl: caseDeclination('sok'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food', 'drink'] },
         { jp: "gohan", pl: caseDeclination('ryż'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
         { jp: "hachimitsu", pl: caseDeclination('miód'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
-    ]
+    ],
+    body:[
+        { jp: "kami-no ke", pl: caseDeclination('włos'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "mayuge", pl: caseDeclination('brew'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "mimi", pl: caseDeclination('ucho'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "hige", pl: caseDeclination('broda [zarost]'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "kuchi", pl: caseDeclination('usta'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "kubi", pl: caseDeclination('szyja'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "kami", pl: caseDeclination('włosy'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "me", pl: caseDeclination('oko'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "hana", pl: caseDeclination('nos'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "mune", pl: caseDeclination('pierś [klatka piersiowa]'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "onaka/hara", pl: caseDeclination('brzuch'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "ashi", pl: caseDeclination('noga'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "hiza", pl: caseDeclination('kolano'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "kakato", pl: caseDeclination('pięta'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "atama", pl: caseDeclination('głowa'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "kata", pl: caseDeclination('ramię'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "ude", pl: caseDeclination('plecy'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "te", pl: caseDeclination('ręka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "yubi", pl: caseDeclination('palec'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "oshiri", pl: caseDeclination('pupa'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "shiri", pl: caseDeclination('dupa'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "momo", pl: caseDeclination('udo'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['body'] },
+        { jp: "fukurahagi", pl: caseDeclination('łydka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
+    ],
 
 }
 export const nounsKeyMatrix=init(nouns)

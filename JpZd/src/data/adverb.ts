@@ -49,7 +49,7 @@ const nounsPool = [
     { jp: 'zasshi', pl: 'czasopismo', gender: 'n' },
 ]
 
-function adjectiveConjugation(adj: any, noun: any, time: any, language: string) {
+function adjectiveConjugation(adj: any, noun: any, time: any, language: string,monoKoto:string) {
     if (language === 'pl') {
         switch (noun.gender) {
             case 'm': return adj.pl
@@ -64,15 +64,15 @@ function adjectiveConjugation(adj: any, noun: any, time: any, language: string) 
     } else {//jp
         if (adj.iOrNa === 'i') {
             if (time.time === 'past') {
-                return adj.jp.slice(0, adj.jp.length - 1) + 'katta desu'
+                return adj.jp.slice(0, adj.jp.length - 1) + 'katta '+monoKoto+ ' desu'
             } else {
-                return adj.jp + ' desu'
+                return adj.jp+' '+monoKoto + ' desu'
             }
         } else {
             if (time.time === 'past') {
-                return adj.jp + ' deshita'
+                return adj.jp + ' '+monoKoto+' deshita'
             } else {
-                return adj.jp + ' desu'
+                return adj.jp + ' '+monoKoto+ ' desu'
             }
         }
     }
@@ -133,10 +133,10 @@ export function thisAdverb(theme: string) {
     const time: TimePool = rand(timePool)
     const adj = rand(adjectivePool)
     const that = rand(thatPool)
-
+    const monoKoto=that.jp[time.time].match(/mono$/)?'mono':'koto'
     return {
-        romaji: animal.jp + '-ga ' + time.jp + ' ' + that.jp[time.time] + '-wa ' + adjectiveConjugation(adj, { gender: 'n' }, time, 'jp'),
-        meaning: that.pl[time.time] + ' ' + time.pl + ' ' + animal.pl.M + ' ' + be(time.time, 'n') + ' ' + adjectiveConjugation(adj, { gender: 'n' }, time, 'pl')
+        romaji: animal.jp + '-ga ' + time.jp + ' ' + that.jp[time.time] + '-wa ' + adjectiveConjugation(adj, { gender: 'n' }, time, 'jp',monoKoto),
+        meaning: that.pl[time.time] + ' ' + time.pl + ' ' + animal.pl.M + ' ' + be(time.time, 'n') + ' ' + adjectiveConjugation(adj, { gender: 'n' }, time, 'pl',monoKoto)
     }
 }
 
@@ -148,7 +148,7 @@ export function adverb(theme: string): DataType {
     const noun = rand(nounsPool)
 
     return {
-        romaji: animal.jp + '-ga ' + time.jp + ' ' + adverb.jp[time.time] + ' ' + noun.jp + '-wa ' + adjectiveConjugation(adj, noun, time, 'jp'),
-        meaning: noun.pl + ', ' + ktoryConj(noun.gender) + ' ' + time.pl + ' ' + verbGenderPl(adverb, animal, time) + ' ' + animal.pl.M + ' ' + be(time.time, noun.gender) + ' ' + adjectiveConjugation(adj, noun, time, 'pl')
+        romaji: animal.jp + '-ga ' + time.jp + ' ' + adverb.jp[time.time] + ' ' + noun.jp + '-wa ' + adjectiveConjugation(adj, noun, time, 'jp',''),
+        meaning: noun.pl + ', ' + ktoryConj(noun.gender) + ' ' + time.pl + ' ' + verbGenderPl(adverb, animal, time) + ' ' + animal.pl.M + ' ' + be(time.time, noun.gender) + ' ' + adjectiveConjugation(adj, noun, time, 'pl','')
     }
 }

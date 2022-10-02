@@ -15,7 +15,7 @@ import { comparasion, more, theMost, whichOf } from "../data/comparasionSizes";
 import Kanji from "../types/Kanji.model";
 import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
 import { daysOfMonth, hours, years } from "../data/calendar";
-import { hurts } from "../data/body";
+import { hurts } from "../data/Grammar/JpGrammar/hurts/hurts";
 import rand from "../utils/randomArrayElement";
 import {
   give2,
