@@ -1,5 +1,6 @@
+import { ktoryConj } from './dictionary';
 import DataType from "../types/DataType.model"
-import Tense, { TimePool } from "../types/Tense.model"
+import { TimePool } from "../types/Tense.model"
 import { TenseSet } from "../types/Tense.model"
 import { pickTheme } from "../utils/pickTheme"
 import rand from "../utils/randomArrayElement"
@@ -23,7 +24,6 @@ const timePool: Array<TimePool> = [ //podobna struktura jest w dictiopnary, ale 
 const adverbsPool: Array<TenseSet> = [
     { jp: { past: 'katta', present: 'kau', future: 'kau', }, pl: { past: 'kupił', present: 'kupuje', future: 'kupi', } },
     { jp: { past: 'mita', present: 'miru', future: 'miru', }, pl: { past: 'widział', present: 'widzi', future: 'zobaczy', } },
-
 ]
 
 function verbGenderPl(verb: any, animal: any, time: any) {
@@ -43,15 +43,9 @@ function verbGenderPl(verb: any, animal: any, time: any) {
     }
 }
 
-const nounsPool = [
-    { jp: 'hon', pl: 'książka', gender: 'ż' },
-    { jp: 'eiga', pl: 'film', gender: 'm' },
-    { jp: 'zasshi', pl: 'czasopismo', gender: 'n' },
-]
-
 function adjectiveConjugation(adj: any, noun: any, time: any, language: string,monoKoto:string) {
     if (language === 'pl') {
-        switch (noun.gender) {
+        switch (noun.plGender) {
             case 'm': return adj.pl
             case 'ż': return adj.pl.slice(0, adj.pl.length - 1) + 'a'
             case 'n': return adj.pl.slice(0, adj.pl.length - 1) + 'e'
@@ -90,14 +84,6 @@ const adjectivePool = [
     { jp: 'kanashii', pl: 'smutny', iOrNa: 'i' },
     { jp: 'aenai', pl: 'rozczarowujący', iOrNa: 'i' },
 ]
-
-function ktoryConj(gender: string) {
-    switch (gender) {
-        case 'ż': return 'którą'
-        case 'm': return 'który'
-        case 'n': return 'które'
-    }
-}
 
 function be(time: string, gender: string) {
     switch (time) {
@@ -145,10 +131,11 @@ export function adverb(theme: string): DataType {
     const time: TimePool = rand(timePool)
     const adverb = rand(adverbsPool)
     const adj = rand(adjectivePool)
-    const noun = rand(nounsPool)
+    const noun = rand(pickTheme('items'))
+    console.log(noun)
 
     return {
         romaji: animal.jp + '-ga ' + time.jp + ' ' + adverb.jp[time.time] + ' ' + noun.jp + '-wa ' + adjectiveConjugation(adj, noun, time, 'jp',''),
-        meaning: noun.pl + ', ' + ktoryConj(noun.gender) + ' ' + time.pl + ' ' + verbGenderPl(adverb, animal, time) + ' ' + animal.pl.M + ' ' + be(time.time, noun.gender) + ' ' + adjectiveConjugation(adj, noun, time, 'pl','')
+        meaning: noun.pl.M + ', ' + ktoryConj(noun.plGender)+ ' ' + time.pl + ' ' + verbGenderPl(adverb, animal, time) + ' ' + animal.pl.M + ' ' + be(time.time, noun.pl.gender) + ' ' + adjectiveConjugation(adj, noun, time, 'pl','')
     }
 }

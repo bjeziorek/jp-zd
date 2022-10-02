@@ -60,6 +60,8 @@ import { inPlace } from "../data/Grammar/JpGrammar/inPlace/inPlace";
 import { or } from "../data/Grammar/JpGrammar/Or/Or";
 import { howTo } from "../data/Grammar/JpGrammar/howTo/howTo";
 import { fromTo } from "../data/Grammar/JpGrammar/fromTo/fromTo";
+import { haveThingWhich } from "../data/Grammar/JpGrammar/haveThingWhich/haveThingWhich";
+import { nationality } from "../data/Grammar/JpGrammar/nationality/nationality";
 
 interface ContainerProps {
   name: string;
@@ -662,8 +664,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToFromTo() {
     setData(fromTo(theme));
   }
+  function changeToHaveThingWhich() {
+    setData(haveThingWhich(theme));
+  }
+  function changeToNationality() {
+    setData(nationality(theme));
+  }
   function setRandom() {
     const pool = [
+      nationality(theme),
+      haveThingWhich(theme),
       fromTo(theme),
       howTo(theme),
       or(theme),
@@ -818,6 +828,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToOr}>or</IonButton>
       <IonButton onClick={changeToHowTo}>how to</IonButton>
       <IonButton onClick={changeToFromTo}>from to</IonButton>
+      <IonButton onClick={changeToHaveThingWhich}>have thing which</IonButton>
+      <IonButton onClick={changeToNationality}>nationality</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

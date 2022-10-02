@@ -1,3 +1,4 @@
+import { Pronoun } from './../types/Pronoun.model';
 import { Case } from './../types/Case.model';
 import Kanji from "../types/Kanji.model"
 import Noun from '../types/WordList.model';
@@ -5,6 +6,7 @@ import Numbers from '../types/Numbers.model';
 import Verb from '../types/Verb.model';
 import { TimePool } from '../types/Tense.model';
 import { init } from '../init/init';
+import { WhichPl } from '../types/WhichPl.model';
 
 export function testowa(x: number, y: number): number {
     return x + y
@@ -1083,6 +1085,25 @@ function plVerbDeclination(verb: string, mode: string): string {
 
 }
 
+
+export const whichPl:WhichPl={m:'który',ż:'która',n:'które',mo:'którzy',nmo:'które'}
+export const pronouns:{[key:string]:Pronoun}={
+    which:{jp:'donna',pl:whichPl},
+
+}
+export function ktoryConj(gender: string) {
+    switch (gender) {
+        case 'ż': return 'którą'
+        case 'm': return 'który'
+        case 'n': return 'które'
+        case 'mo': return 'którzy'
+        case 'nmo': return 'które'
+        default:
+            console.log('unknown gender',gender)
+            return 'ktory'
+
+    }
+}
 export const verbs: Verb = {
     move: [
         {
@@ -1512,6 +1533,11 @@ export const nouns: Noun = {
         { jp: "goshujin", pl: caseDeclination('mąż'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
 
     ],
+    nationality: [
+        { jp: "POORANDO-jin", pl: caseDeclination('Polak'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+        { jp: 'Chuugoku-jin', pl: caseDeclination('Chińczyk'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+        { jp: 'Nihon-jin', pl: caseDeclination('Japończyk'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+    ],
     professions: [
         { jp: "ban'nin", pl: caseDeclination('strażnik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
         { jp: 'kangofu', pl: caseDeclination('pielęgniarka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['professions'] },
@@ -1532,6 +1558,8 @@ export const nouns: Noun = {
         { jp: "ten'in", pl: caseDeclination('sprzedawca'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
     ],
     items: [
+        { jp: "zasshi", pl: caseDeclination('czasopismo'), counter: 'satsu', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "shinbun", pl: caseDeclination('gazeta'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "hon", pl: caseDeclination('książka'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "NOOTOO", pl: caseDeclination('zeszyt'), counter: 'satsu', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "enpitsu", pl: caseDeclination('ołówek'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
