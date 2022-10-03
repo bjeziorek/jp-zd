@@ -7,7 +7,7 @@ export default function noun(theme:string){
         const noun:NounStructure=rand(pickTheme(theme))
         return{
             jp:noun.jp+'-de-wa ikemasen',
-            pl:'Nie możebyć '+noun.pl
+            pl:'Nie może być '+noun.pl.M
         }
     })()
 }
