@@ -8,7 +8,7 @@ export function haveThingWhich(theme:string):DataType{
     const adj=rand(adjectives)
     const body=rand(pickTheme('body'))
     return{
-        romaji:'ano '+body.jp+'-no '+adj.jp+' '+who.jp,
+        romaji:'ano '+body.jp+'-ga '+adj.jp+' '+who.jp,
         meaning:'Ten/ta/to '+who.pl.M+' o '+adj.pl+' '+body.pl.Msc
     }
 }

@@ -33,7 +33,6 @@ import {
   goToWith,
   doWith,
 } from "../data/actions";
-import { adverb, thisAdverb } from "../data/adverb";
 import { chigaimasu, basics, which, whichOfAny, polite, genericPronoun, what, when, withWho, where } from "../data/basics";
 import { tellMe } from "../data/Grammar/JpGrammar/tellMe/tellMe";
 import { youKnow } from "../data/Grammar/JpGrammar/youKnow/youKnow";
@@ -62,6 +61,9 @@ import { howTo } from "../data/Grammar/JpGrammar/howTo/howTo";
 import { fromTo } from "../data/Grammar/JpGrammar/fromTo/fromTo";
 import { haveThingWhich } from "../data/Grammar/JpGrammar/haveThingWhich/haveThingWhich";
 import { nationality } from "../data/Grammar/JpGrammar/nationality/nationality";
+import { thingWhich } from "../data/Grammar/JpGrammar/thingWhich/thingWhich";
+import { sthWhich } from "../data/Grammar/JpGrammar/sthWhich/sthWhich";
+import { thingILikeDislike } from "../data/Grammar/JpGrammar/thingI/thingI";
 
 interface ContainerProps {
   name: string;
@@ -369,91 +371,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
     return dayList[Math.floor(Math.random() * dayList.length)];
   }
 
-  function practiceNumbers(): DataType {
-    // gdzie ile_zwierzat jakie zwierze
-
-    const wherePool = [
-      { jp: "Watashi-no ie-ni", pl: "W moim domu" },
-      { jp: "Tsukue-no ushiro-ni", pl: "Za biurkiem" },
-      { jp: "Teburu-to beddo-no aida-ni", pl: "Między stołem a łóżkiem" },
-      { jp: "Hachimitsu-no tonari-ni", pl: "Obok miodu" },
-      { jp: "Hako-no naka-ni", pl: "W pudeku" },
-      { jp: "Kasa-no shita-ni", pl: "Pod parasolem" },
-      { jp: "Hana-no hidari-ni", pl: "Na lewo od kwiatka" },
-      { jp: "Konpyuta-no migi-ni", pl: "Na prawo od komputera" },
-    ];
-
-    const animalNumberPool = [
-      { jp: "ippiki", pl: "1" },
-      { jp: "nihiki", pl: "2" },
-      { jp: "sanbiki", pl: "3" },
-      { jp: "yonhiki", pl: "4" },
-      { jp: "gohiki", pl: "5" },
-      { jp: "roppiki", pl: "6" },
-      { jp: "nanahiki", pl: "7" },
-      { jp: "happiki", pl: "8" },
-      { jp: "kyuuhiki", pl: "9" },
-      { jp: "juuppiki", pl: "10" },
-    ];
-
-    const animalTypesPool = [
-      { jp: "neko", pl: ["kot", "koty", "kotów"] },
-      { jp: "inu", pl: ["pies", "psy", "psów"] },
-      { jp: "nazumi", pl: ["mysz", "myszy", "myszy"] },
-      { jp: "hato", pl: ["gołąb", "gołębie", "gołębi"] },
-      { jp: "suzume", pl: ["wróbel", "wróble", "wróbli"] },
-      { jp: "sakana", pl: ["ryba", "ryby", "ryb"] },
-      { jp: "ka / mosukiito", pl: ["komar", "komary", "komarów"] },
-      {
-        jp: "hachi",
-        pl: [
-          "osa / pszczoła/ szerszeń",
-          "osy / pszczoły / szerszenie",
-          "os / pszczół / szerszeni",
-        ],
-      },
-    ];
-
-    let where = rand(wherePool);
-    let animalNumber = rand(animalNumberPool);
-    let animalType = rand(animalTypesPool);
-    let jest_sa =
-      animalNumber.pl === "1" || parseInt(animalNumber.pl) > 4
-        ? " jest "
-        : " są ";
-    let declination = ((): string => {
-      if (animalNumber.pl === "1") {
-        console.log(animalType.pl[0]);
-        return animalType.pl[0];
-      } else if (parseInt(animalNumber.pl) > 4) {
-        console.log(animalType.pl[2]);
-        return animalType.pl[2];
-      } else {
-        console.log(animalType.pl[1]);
-        return animalType.pl[1];
-      }
-    })();
-
-    function rand(arr: any) {
-      return arr[Math.floor(Math.random() * arr.length)];
-    }
-
-    return {
-      romaji:
-        "" +
-        where.jp +
-        " " +
-        animalNumber.jp +
-        "-no " +
-        animalType.jp +
-        "-ga imasu",
-      meaning: "" + where.pl + jest_sa + animalNumber.pl + " " + declination,
-    };
-  }
-
-  function changeToCountingAnimals() {
-  //  setData(countingAnimals());
-  }
   function changeToCountingLongObjects() {
     setData(countingLongObjects());
   }
@@ -498,12 +415,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   }
   function changeToGive() {
     setData(give(theme));
-  }
-  function changeToAdverb() {
-    setData(adverb(theme));
-  }
-  function changeToThisAdverb() {
-    setData(thisAdverb(theme));
   }
   function changeToWantToDo() {
     setData(wantToDo(theme));
@@ -670,8 +581,20 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToNationality() {
     setData(nationality(theme));
   }
+  function changeToThingWhich() {
+    setData(thingWhich(theme));
+  }
+  function changeToSthWhich() {
+    setData(sthWhich(theme));
+  }
+  function changeToThingI() {
+    setData(thingILikeDislike(theme));
+  }
   function setRandom() {
     const pool = [
+      thingILikeDislike(theme),
+      sthWhich(theme),
+      thingWhich(theme),
       nationality(theme),
       haveThingWhich(theme),
       fromTo(theme),
@@ -740,8 +663,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       hurts(theme),
       age(theme),
       give(theme),
-      adverb(theme),
-      thisAdverb(theme),
     ];
 
     console.log(pool);
@@ -757,7 +678,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   return (
     <div className="container">
       <IonButton onClick={changeToKanji}>Kanji</IonButton>
-      <IonButton onClick={changeToCountingAnimals}>....Animals</IonButton>
       <IonButton onClick={changeToCountingLongObjects}>LongObjects</IonButton>
       <IonButton onClick={changeToCountingPeople}>People</IonButton>
       <IonButton onClick={changeToComparasion}>Comparasion</IonButton>
@@ -771,8 +691,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToHurts}>hurts</IonButton>
       <IonButton onClick={changeToNeedWantHave}> need want have</IonButton>
       <IonButton onClick={changeToAge}> Age</IonButton>
-      <IonButton onClick={changeToAdverb}> adverb</IonButton>
-      <IonButton onClick={changeToThisAdverb}> this adverb</IonButton>
       <IonButton onClick={changeToWantToDo}> want to do</IonButton>
       <IonButton onClick={changeToGive}> give teach</IonButton>
       <IonButton onClick={changeToReceive}>receive</IonButton>
@@ -830,6 +748,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToFromTo}>from to</IonButton>
       <IonButton onClick={changeToHaveThingWhich}>have thing which</IonButton>
       <IonButton onClick={changeToNationality}>nationality</IonButton>
+      <IonButton onClick={changeToThingWhich}>thing which</IonButton>
+      <IonButton onClick={changeToSthWhich}>sth which</IonButton>
+      <IonButton onClick={changeToThingI}>thing I</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

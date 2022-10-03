@@ -594,6 +594,8 @@ export function na_adjectivesTense(word: string, formal: boolean, tense: string,
     }
 }
 export const adjectives = [
+    { jp: 'sukina', pl: 'ulubiony', rz: 'lubienie' },
+    { jp: 'kiraina', pl: 'nielubiany', rz: 'nielubienie' },
     { jp: 'hiroi', pl: 'szeroki', rz: 'szerokość' },
     { jp: 'kudaranai', pl: 'trywialny', rz: 'trywialność' },
     { jp: 'bakarashii', pl: 'absurdalny', rz: 'absurd' },

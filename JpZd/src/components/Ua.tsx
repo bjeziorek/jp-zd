@@ -30,7 +30,6 @@ import {
   also,
   AandB,
 } from "../data/actions";
-import { adverb, thisAdverb } from "../data/adverb";
 import { chigaimasu, basics, which, whichOfAny, polite } from "../data/basics";
 import { cases, thisIs, UaType } from "../data/Grammar/UaGrammar/thisIs";
 

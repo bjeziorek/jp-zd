@@ -1,14 +1,15 @@
-import { adjectives } from './../../../dictionary';
+import { adjectives, ktoryConj, verbs } from './../../../dictionary';
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 import DataType from '../../../../types/DataType.model';
 
 export function thingWhich(theme: string): DataType {
-    const who = rand(pickTheme(theme))
     const adj = rand(adjectives)
-    const body = rand(pickTheme('body'))
+    const animal = rand(pickTheme(theme))
+    const verb = rand(verbs.actions.filter(el => { return el.jp.particle.includes('o') }))
+    const noun = rand(pickTheme('items'))
     return {
-        romaji: 'ano ' + body.jp + '-no ' + adj.jp + ' ' + who.jp,
-        meaning: 'Ten/ta/to ' + who.pl.M + ' o ' + adj.pl + ' ' + body.pl.Msc
+        romaji: animal.jp + '-ga kyou ' + verb.jp.dictionaryForm + ' ' + noun.jp + '-wa ' + adj.jp,
+        meaning: noun.pl.M + ', ' + ktoryConj(noun.plGender) + ' dzisiaj ' + verb.pl.os3 + ' ' + animal.pl.M + ' jest ' + adj.pl
     }
 }
