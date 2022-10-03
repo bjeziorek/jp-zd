@@ -707,6 +707,8 @@ export function verbFormJp(verb: string, form: string): string {
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'e'
         case 'ta':
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'a'
+        case 'nasai':
+            return extractMasuBase(verb) + 'nasai'
         case 'masu':
             return extractMasuBase(verb) + 'masu'
         case 'masen':
@@ -755,6 +757,7 @@ export function teForm_deprecated(verb: string, form: string): string {
 export const jpVerbFormsPool = {
     te: 'te',
     ta: 'ta',
+    nasai: 'nasai',
     masu: 'masu',
     masen: 'masen',
     mashita: 'mashita',
@@ -1057,7 +1060,7 @@ export const numbers: Numbers = {
         '10': 'tooka',
     },
 }
-export const numbersKeyMatrix=init(numbers)
+export const numbersKeyMatrix = init(numbers)
 export const plCasePool = {
     M: 'M',
     D: 'D',
@@ -1088,9 +1091,9 @@ function plVerbDeclination(verb: string, mode: string): string {
 }
 
 
-export const whichPl:WhichPl={m:'który',ż:'która',n:'które',mo:'którzy',nmo:'które'}
-export const pronouns:{[key:string]:Pronoun}={
-    which:{jp:'donna',pl:whichPl},
+export const whichPl: WhichPl = { m: 'który', ż: 'która', n: 'które', mo: 'którzy', nmo: 'które' }
+export const pronouns: { [key: string]: Pronoun } = {
+    which: { jp: 'donna', pl: whichPl },
 
 }
 export function ktoryConj(gender: string) {
@@ -1101,7 +1104,7 @@ export function ktoryConj(gender: string) {
         case 'mo': return 'którzy'
         case 'nmo': return 'które'
         default:
-            console.log('unknown gender',gender)
+            console.log('unknown gender', gender)
             return 'ktory'
 
     }
@@ -1122,7 +1125,7 @@ export const verbs: Verb = {
                     { preposition: 'do', case: plCasePool.D },
                     { preposition: 'z', case: plCasePool.D },
                 ],
-                rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie'
+                rozkazujący2os: 'idź', rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie'
             },
             tags: ['move'],
         },
@@ -1140,7 +1143,7 @@ export const verbs: Verb = {
                     { preposition: 'do', case: plCasePool.D },
                     { preposition: 'z', case: plCasePool.D },
                 ],
-                rozkazujący: 'wróćmy', imieslowNiedokonany: 'wracanie', niedokonany: 'wracać', dokonany: 'warócić', os3: 'wraca'
+                rozkazujący2os: 'wróć', rozkazujący: 'wróćmy', imieslowNiedokonany: 'wracanie', niedokonany: 'wracać', dokonany: 'warócić', os3: 'wraca'
             },
             tags: ['move'],
         },
@@ -1158,12 +1161,29 @@ export const verbs: Verb = {
                     { preposition: 'do', case: plCasePool.D },
                     { preposition: 'z', case: plCasePool.D },
                 ],
-                rozkazujący: 'biegnijmy', imieslowNiedokonany: 'bieganie', niedokonany: 'biegać', dokonany: 'biec', os3: 'biegnie'
+                rozkazujący2os: 'biegnij', rozkazujący: 'biegnijmy', imieslowNiedokonany: 'bieganie', niedokonany: 'biegać', dokonany: 'biec', os3: 'biegnie'
             },
             tags: ['move'],
         },
     ],
     actions: [
+        {
+            jp: {
+                dictionaryForm: 'naru',
+                particle: ['ni']
+            },
+            pl: {
+                infinitive: 'stać się',
+                isPerfective: true,
+                isReflexive: true,
+                isNonReflexive: false,
+                prepositions: [
+                    { preposition: '', case: plCasePool.N },
+                ],
+                rozkazujący2os: 'stań się', rozkazujący: 'stamy się', imieslowNiedokonany: 'stawanie się', niedokonany: 'stawać się', dokonany: 'stać się', os3: 'staje się'
+            },
+            tags: ['idle'],
+        },
         {
             jp: {
                 dictionaryForm: 'miru',
@@ -1177,7 +1197,7 @@ export const verbs: Verb = {
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
                 ],
-                rozkazujący: 'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi'
+                rozkazujący2os: 'zobacz', rozkazujący: 'zobaczmy', imieslowNiedokonany: 'widzenie', niedokonany: 'widzieć', dokonany: 'zobaczyć', os3: 'widzi'
             },
             tags: ['idle'],
         },
@@ -1194,7 +1214,7 @@ export const verbs: Verb = {
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
                 ],
-                rozkazujący: 'kupmy', imieslowNiedokonany: 'kupowanie', niedokonany: 'kupować', dokonany: 'kupić', os3: 'kupuje'
+                rozkazujący2os: 'kup', rozkazujący: 'kupmy', imieslowNiedokonany: 'kupowanie', niedokonany: 'kupować', dokonany: 'kupić', os3: 'kupuje'
             },
             tags: ['item'],
         },
@@ -1211,7 +1231,7 @@ export const verbs: Verb = {
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
                 ],
-                rozkazujący: 'zróbmy', imieslowNiedokonany: 'robienie', niedokonany: 'robić', dokonany: 'zrobić', os3: 'robi'
+                rozkazujący2os: 'zrób', rozkazujący: 'zróbmy', imieslowNiedokonany: 'robienie', niedokonany: 'robić', dokonany: 'zrobić', os3: 'robi'
             },
             tags: ['item', 'action'],
         },
@@ -1228,6 +1248,7 @@ export const verbs: Verb = {
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
                 ],
+                rozkazujący2os: 'przygotuj',
                 rozkazujący: 'przygotujmy', imieslowNiedokonany: 'przygotowywanie', niedokonany: 'przygotowywać', dokonany: 'przygotować', os3: 'przygotowuje'
             },
             tags: ['item', 'action'],
@@ -1243,6 +1264,7 @@ export const verbs: Verb = {
                 isReflexive: false,
                 isNonReflexive: true,
                 prepositions: [],
+                rozkazujący2os: 'śpij',
                 rozkazujący: 'śpijmy', imieslowNiedokonany: 'spanie', niedokonany: 'spać', dokonany: 'wyspać', os3: 'śpi'
             },
             tags: ['idle'],
@@ -1259,6 +1281,7 @@ export const verbs: Verb = {
                 isReflexive: true,
                 isNonReflexive: true,
                 prepositions: [],
+                rozkazujący2os: 'budź',
                 rozkazujący: 'budźmy', imieslowNiedokonany: 'budzenie', niedokonany: 'budzić', dokonany: 'obudzić', os3: 'budzi'
             },
             tags: ['idle'],
@@ -1276,6 +1299,7 @@ export const verbs: Verb = {
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
                 ],
+                rozkazujący2os: 'wyślij',
                 rozkazujący: 'wyślijmy', imieslowNiedokonany: 'wysyłanie', niedokonany: 'wysyłać', dokonany: 'wysłać', os3: 'wysyła'
             },
             tags: ['item'],
@@ -1291,6 +1315,7 @@ export const verbs: Verb = {
                 isReflexive: false,
                 isNonReflexive: true,
                 prepositions: [],
+                rozkazujący2os: 'wyjdź',
                 rozkazujący: 'wyjdźmy', imieslowNiedokonany: 'wychodzenie', niedokonany: 'wychodzić', dokonany: 'wyjść', os3: 'wychodzi'
             },
             tags: ['item'],
@@ -1308,6 +1333,7 @@ export const verbs: Verb = {
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
                 ],
+                rozkazujący2os: 'potrzebuj',
                 rozkazujący: 'potrzebujmy', imieslowNiedokonany: 'potrzebowanie', niedokonany: 'potrzebować', dokonany: 'potrzebować', os3: 'potrzebuje'
             },
             tags: ['item'],
@@ -1325,6 +1351,7 @@ export const verbs: Verb = {
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
                 ],
+                rozkazujący2os: 'pamiętaj',
                 rozkazujący: 'zapamiętajmy', imieslowNiedokonany: 'zapamiętywanie', niedokonany: 'zapamiętywać', dokonany: 'zapamiętać', os3: 'pamięta'
             },
             tags: ['item'],
@@ -1340,6 +1367,7 @@ export const verbs: Verb = {
                 isReflexive: true,
                 isNonReflexive: true,
                 prepositions: [],
+                rozkazujący2os: 'zgub się',
                 rozkazujący: 'zgubmy się', imieslowNiedokonany: 'gubienie się', niedokonany: 'gubić się', dokonany: 'zgubić się', os3: 'gubi się'
             },
             tags: ['idle'],
@@ -1357,6 +1385,7 @@ export const verbs: Verb = {
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
                 ],
+                rozkazujący2os: 'zgub',
                 rozkazujący: 'zgubmy', imieslowNiedokonany: 'gubienie', niedokonany: 'gubić', dokonany: 'zgubić', os3: 'gubi'
             },
             tags: ['item'],
@@ -1373,14 +1402,15 @@ export const verbs: Verb = {
                 isNonReflexive: true,
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
-                ],
+                ], 
+                rozkazujący2os: 'znajdź',
                 rozkazujący: 'znajdźmy', imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3: 'znajduje'
             },
             tags: ['item'],
         },
     ]
 }
-export const verbsKeyMatrix=init(verbs)
+export const verbsKeyMatrix = init(verbs)
 export const verbs_deprecated = {
     move: [
         { jp: 'iku', pl: { rozkazujący: 'chodźmy', imieslowNiedokonany: 'pójście', niedokonany: 'iść', dokonany: 'pójść', os3: 'idzie' }, particle: { jp: 'ni', pl: { txt: 'do', case: 'D' } } },
@@ -1423,7 +1453,7 @@ export const time: { [key: string]: Array<TimePool> } = {
         { jp: 'rainen', pl: 'w przyszłym roku', time: 'future' },
     ]
 }
-export const timeKeyMatrix=init(time)
+export const timeKeyMatrix = init(time)
 
 export const prepositions = {
     location: [
@@ -1439,7 +1469,7 @@ export const prepositions = {
         { jp: "ue", pl: { preposition: "na", case: 'N' } }
     ],
 }
-export const prepositionsKeyMatrix=init(prepositions)
+export const prepositionsKeyMatrix = init(prepositions)
 export const nouns: Noun = {
     weather: [
         { jp: 'ame', pl: caseDeclination('deszcz'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
@@ -1612,7 +1642,7 @@ export const nouns: Noun = {
         { jp: "gohan", pl: caseDeclination('ryż'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
         { jp: "hachimitsu", pl: caseDeclination('miód'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
     ],
-    body:[
+    body: [
         { jp: "kami-no ke", pl: caseDeclination('włos'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['body'] },
         { jp: "mayuge", pl: caseDeclination('brew'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['body'] },
         { jp: "mimi", pl: caseDeclination('ucho'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['body'] },
@@ -1639,7 +1669,7 @@ export const nouns: Noun = {
     ],
 
 }
-export const nounsKeyMatrix=init(nouns)
+export const nounsKeyMatrix = init(nouns)
 export function dict(key: string, trans: string) {
     //plants
     //food

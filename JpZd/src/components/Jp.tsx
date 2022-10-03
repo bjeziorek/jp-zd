@@ -64,6 +64,7 @@ import { nationality } from "../data/Grammar/JpGrammar/nationality/nationality";
 import { thingWhich } from "../data/Grammar/JpGrammar/thingWhich/thingWhich";
 import { sthWhich } from "../data/Grammar/JpGrammar/sthWhich/sthWhich";
 import { thingILikeDislike } from "../data/Grammar/JpGrammar/thingI/thingI";
+import { moveUntil } from "../data/Grammar/JpGrammar/moveUntil/moveUntil";
 
 interface ContainerProps {
   name: string;
@@ -587,11 +588,15 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToSthWhich() {
     setData(sthWhich(theme));
   }
-  function changeToThingI() {
+  function changeToThingILikeDislike() {
     setData(thingILikeDislike(theme));
+  }
+  function changeToMoveUntil() {
+    setData(moveUntil(theme));
   }
   function setRandom() {
     const pool = [
+      moveUntil(theme),
       thingILikeDislike(theme),
       sthWhich(theme),
       thingWhich(theme),
@@ -750,7 +755,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToNationality}>nationality</IonButton>
       <IonButton onClick={changeToThingWhich}>thing which</IonButton>
       <IonButton onClick={changeToSthWhich}>sth which</IonButton>
-      <IonButton onClick={changeToThingI}>thing I</IonButton>
+      <IonButton onClick={changeToThingILikeDislike}>thing I</IonButton>
+      <IonButton onClick={changeToMoveUntil}>move until</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

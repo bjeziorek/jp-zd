@@ -17,6 +17,7 @@ interface PolishVerb {
     isNonReflexive: boolean 
     prepositions: Array<Preposition>
     rozkazujący?: string
+    rozkazujący2os?: string
     imieslowNiedokonany?: string
     niedokonany?: string
     dokonany?: string
