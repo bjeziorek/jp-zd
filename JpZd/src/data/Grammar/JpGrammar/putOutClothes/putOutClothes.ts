@@ -1,4 +1,4 @@
-import { Collocations } from '../../../../types/WordList.model';
+import { Collocations } from '../../../../types/Noun.model';
 import { nouns } from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";

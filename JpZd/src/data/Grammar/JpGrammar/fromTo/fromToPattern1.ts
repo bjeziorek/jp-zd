@@ -1,4 +1,4 @@
-import { NounStructure } from './../../../../types/WordList.model';
+import { NounStructure } from '../../../../types/Noun.model';
 import DataType from "../../../../types/DataType.model";
 
 export function fromToPattern1(place1:NounStructure,place2:NounStructure): DataType {

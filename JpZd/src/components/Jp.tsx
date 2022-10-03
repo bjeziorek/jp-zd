@@ -65,6 +65,9 @@ import { thingWhich } from "../data/Grammar/JpGrammar/thingWhich/thingWhich";
 import { sthWhich } from "../data/Grammar/JpGrammar/sthWhich/sthWhich";
 import { thingILikeDislike } from "../data/Grammar/JpGrammar/thingI/thingI";
 import { moveUntil } from "../data/Grammar/JpGrammar/moveUntil/moveUntil";
+import { prohibition } from "../data/Grammar/JpGrammar/prohibition/prohibition";
+import { allowed } from "../data/Grammar/JpGrammar/allowed/allowed";
+import { noNeed } from "../data/Grammar/JpGrammar/noNeed/noNeed";
 
 interface ContainerProps {
   name: string;
@@ -594,8 +597,20 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToMoveUntil() {
     setData(moveUntil(theme));
   }
+  function changeToProhibition() {
+    setData(prohibition(theme));
+  }
+  function changeToAllowed() {
+    setData(allowed(theme));
+  }
+  function changeToNoNeed() {
+    setData(noNeed(theme));
+  }
   function setRandom() {
     const pool = [
+      noNeed(theme),
+      allowed(theme),
+      prohibition(theme),
       moveUntil(theme),
       thingILikeDislike(theme),
       sthWhich(theme),
@@ -757,6 +772,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToSthWhich}>sth which</IonButton>
       <IonButton onClick={changeToThingILikeDislike}>thing I</IonButton>
       <IonButton onClick={changeToMoveUntil}>move until</IonButton>
+      <IonButton onClick={changeToProhibition}>prohibition</IonButton>
+      <IonButton onClick={changeToAllowed}>allowed</IonButton>
+      <IonButton onClick={changeToNoNeed}>no need</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

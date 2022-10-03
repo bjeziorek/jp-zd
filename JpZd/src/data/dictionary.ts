@@ -1,7 +1,7 @@
 import { Pronoun } from './../types/Pronoun.model';
 import { Case } from './../types/Case.model';
 import Kanji from "../types/Kanji.model"
-import Noun from '../types/WordList.model';
+import Noun from '../types/Noun.model';
 import Numbers from '../types/Numbers.model';
 import Verb from '../types/Verb.model';
 import { TimePool } from '../types/Tense.model';
@@ -703,23 +703,27 @@ export function verbFormJp(verb: string, form: string): string {
     }
 
     switch (form) {
-        case 'te':
+        case jpVerbFormsPool.te:
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'e'
-        case 'ta':
+        case jpVerbFormsPool.ta:
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'a'
-        case 'nasai':
+        case jpVerbFormsPool.ikemasen:
+            return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'e-wa ikemasen'
+        case jpVerbFormsPool.nasai:
             return extractMasuBase(verb) + 'nasai'
-        case 'masu':
+        case jpVerbFormsPool.nakute:
+            return extractMasuBase(verb) + 'nakute'
+        case jpVerbFormsPool.masu:
             return extractMasuBase(verb) + 'masu'
-        case 'masen':
+        case jpVerbFormsPool.masen:
             return extractMasuBase(verb) + 'masen'
-        case 'mashita':
+        case jpVerbFormsPool.mashita:
             return extractMasuBase(verb) + 'mashita'
-        case 'masendeshita':
+        case jpVerbFormsPool.masendeshita:
             return extractMasuBase(verb) + 'masen deshita'
-        case 'shou':
+        case jpVerbFormsPool.shou:
             return extractMasuBase(verb) + 'mashou'
-        case 'masuBase':
+        case jpVerbFormsPool.masuBase:
             return extractMasuBase(verb)
         default:
             console.log('??? nieznana forma: ', form)
@@ -757,7 +761,9 @@ export function teForm_deprecated(verb: string, form: string): string {
 export const jpVerbFormsPool = {
     te: 'te',
     ta: 'ta',
+    ikemasen: 'ikemasen',
     nasai: 'nasai',
+    nakute: 'nakute',
     masu: 'masu',
     masen: 'masen',
     mashita: 'mashita',

@@ -1,4 +1,4 @@
-import { NounStructure } from './../../../../types/WordList.model';
+import { NounStructure } from '../../../../types/Noun.model';
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 

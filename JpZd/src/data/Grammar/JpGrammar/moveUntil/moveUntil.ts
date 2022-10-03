@@ -1,4 +1,4 @@
-import { NounStructure } from './../../../../types/WordList.model';
+import { NounStructure } from '../../../../types/Noun.model';
 import { VerbStructure } from './../../../../types/Verb.model';
 import { verbFormJp, verbs, jpVerbFormsPool } from './../../../dictionary';
 import DataType from "../../../../types/DataType.model";
