@@ -68,6 +68,7 @@ import { moveUntil } from "../data/Grammar/JpGrammar/moveUntil/moveUntil";
 import { prohibition } from "../data/Grammar/JpGrammar/prohibition/prohibition";
 import { allowed } from "../data/Grammar/JpGrammar/allowed/allowed";
 import { noNeed } from "../data/Grammar/JpGrammar/noNeed/noNeed";
+import inLocation from "../data/Grammar/JpGrammar/inLocation/inLocation";
 
 interface ContainerProps {
   name: string;
@@ -606,8 +607,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToNoNeed() {
     setData(noNeed(theme));
   }
+  function changeToInLocation() {
+    setData(inLocation(theme));
+  }
   function setRandom() {
     const pool = [
+      inLocation(theme),
       noNeed(theme),
       allowed(theme),
       prohibition(theme),
@@ -775,6 +780,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToProhibition}>prohibition</IonButton>
       <IonButton onClick={changeToAllowed}>allowed</IonButton>
       <IonButton onClick={changeToNoNeed}>no need</IonButton>
+      <IonButton onClick={changeToInLocation}>in location</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

@@ -7,7 +7,7 @@ export default function noun(theme:string){
         const noun:NounStructure=rand(pickTheme(theme))
         return{
             jp:noun.jp+'-de-nakute-mo ii desu',
-            pl:'Nie musu być '+noun.pl
+            pl:'Nie musu być '+noun.pl.N
         }
     })()
 }
