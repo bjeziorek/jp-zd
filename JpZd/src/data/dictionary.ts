@@ -1480,6 +1480,22 @@ export const prepositions = {
 }
 export const prepositionsKeyMatrix = init(prepositions)
 export const nouns: Noun = {
+    languages:[
+        { jp: 'POORANDO-go', pl: caseDeclination('język polski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'Nihon-go', pl: caseDeclination('język japoński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'Chuugoku-go', pl: caseDeclination('język chiński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'Eigo', pl: caseDeclination('język angielski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'DOITSU-go', pl: caseDeclination('język niemiecki'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'FURANSU-go', pl: caseDeclination('język francuski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'ITARIA-go', pl: caseDeclination('język włoski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'PORUTOGARU-go', pl: caseDeclination('język portugalski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'UKURAINA-go', pl: caseDeclination('język ukraiński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'ROSHIA-go', pl: caseDeclination('język rosyjski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'CHEKO-go', pl: caseDeclination('język czeski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'SUROBAKIA-go', pl: caseDeclination('język słowacki'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'HANGARII-go', pl: caseDeclination('język węgierski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+        { jp: 'kankoku-go', pl: caseDeclination('język koreański'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+    ],
     weather: [
         { jp: 'ame', pl: caseDeclination('deszcz'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
         { jp: 'yuki', pl: caseDeclination('śnieg'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
@@ -1573,6 +1589,12 @@ export const nouns: Noun = {
         { jp: "okosan", pl: caseDeclination('żona'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
         { jp: "goshujin", pl: caseDeclination('mąż'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
 
+    ],
+    countries:[
+        { jp: "POORANDO", pl: caseDeclination('Polska'), counter: '?', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+        { jp: "Chuugoku", pl: caseDeclination('Chiny'), counter: '?', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+        { jp: "Nihon", pl: caseDeclination('Japonia'), counter: '?', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+        
     ],
     nationality: [
         { jp: "POORANDO-jin", pl: caseDeclination('Polak'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },

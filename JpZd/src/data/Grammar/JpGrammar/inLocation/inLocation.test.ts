@@ -13,4 +13,10 @@ describe('test1',()=>{
      test('No calling in Japanese sentence non string object (=== no [object Object] results',()=>{
         expect(inLocation('animals').meaning).not.toMatch(/\[object Object\]/) 
      })
+     test('No undefined in Polish',()=>{
+      expect(inLocation('animals').romaji).not.toMatch(/undefined/)  
+   })
+   test('No undefined in Japanese',()=>{
+      expect(inLocation('animals').meaning).not.toMatch(/undefined/) 
+   })
 })
