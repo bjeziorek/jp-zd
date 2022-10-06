@@ -4,7 +4,6 @@ import Kanji from "../types/Kanji.model"
 import Noun from '../types/Noun.model';
 import Numbers from '../types/Numbers.model';
 import Verb from '../types/Verb.model';
-import { TimePool } from '../types/Tense.model';
 import { init } from '../init/init';
 import { WhichPl } from '../types/WhichPl.model';
 import { Time } from '../types/Time.model';
@@ -1461,21 +1460,30 @@ export const time:Time = {
     ],
     present: [  //present
         { jp: 'kyou', pl: 'dzisiaj', time: 'present' },
+        { jp: 'kotoshi', pl: 'w tym roku', time: 'present' },
+        { jp: 'konshuu', pl: 'w tym tygodniu', time: 'present' },
+        { jp: 'kongetsu', pl: 'w tym miesiącu', time: 'present' },
         { jp: 'ima', pl: 'teraz', time: 'present' },
     ],
     past: [  //past
         { jp: 'kinou', pl: 'wczoraj', time: 'past' },
         { jp: 'ototoi', pl: 'przedwczoraj', time: 'past' },
-        { jp: 'mae-no shuu', pl: 'w zeszłym tygodniu', time: 'past' },
-        { jp: 'zengetsu', pl: 'w zeszłym miesiącu', time: 'past' },
-        { jp: 'zennen', pl: 'w zeszłym roku', time: 'past' },
+        { jp: 'mae-no shuu / senshuu', pl: 'w zeszłym tygodniu', time: 'past' },
+        { jp: 'sensenshuu ', pl: ' dwa tygodnie temu', time: 'past' },
+        { jp: 'sengetsu', pl: 'w zeszłym miesiącu', time: 'past' },
+        { jp: 'sensengetsu', pl: 'dwa miesiące temu', time: 'past' },
+        { jp: 'kyonen', pl: 'w zeszłym roku', time: 'past' },
+        { jp: 'ototoshi', pl: 'dwa lata temu', time: 'past' },
     ],
     future: [  //future
         { jp: 'ashita', pl: 'jutro', time: 'future' },
         { jp: 'asatte', pl: 'pojutrze', time: 'future' },
         { jp: 'raishuu', pl: 'w przyszłym tygodniu', time: 'future' },
+        { jp: 'saraishuu', pl: 'za dwa tygodnie', time: 'future' },
         { jp: 'raigetsu', pl: 'w przyszłym miesiącu', time: 'future' },
+        { jp: 'saraigetsu', pl: 'za dwa miesiące', time: 'future' },
         { jp: 'rainen', pl: 'w przyszłym roku', time: 'future' },
+        { jp: 'sarainen', pl: 'za dwa lata', time: 'future' },
     ]
 }
 export const timeKeyMatrix = init(time)
