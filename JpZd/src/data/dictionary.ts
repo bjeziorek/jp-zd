@@ -7,6 +7,7 @@ import Verb from '../types/Verb.model';
 import { TimePool } from '../types/Tense.model';
 import { init } from '../init/init';
 import { WhichPl } from '../types/WhichPl.model';
+import { Time } from '../types/Time.model';
 
 export function testowa(x: number, y: number): number {
     return x + y
@@ -1442,7 +1443,22 @@ export const verbs_deprecated = {
     ]
 }
 
-export const time: { [key: string]: Array<TimePool> } = {
+export const time:Time = {
+    daysOfMonth:[
+        { jp: "tsuitachi", pl: "1 dzień miesiąca" },
+        { jp: "futsu-ka", pl: "2 dzień miesiąca" },
+        { jp: "mik-ka", pl: "3 dzień miesiąca" },
+        { jp: "yok-ka", pl: "4 dzień miesiąca" },
+        { jp: "itsu-ka", pl: "5 dzień miesiąca" },
+        { jp: "mui-ka", pl: "6 dzień miesiąca" },
+        { jp: "nano-ka", pl: "7 dzień miesiąca" },
+        { jp: "you-ka", pl: "8 dzień miesiąca" },
+        { jp: "kokono-ka", pl: "9 dzień miesiąca" },
+        { jp: "too-ka", pl: "10 dzień miesiąca" },
+        { jp: "jyu-yok-ka", pl: "14 dzień miesiąca" },
+        { jp: "hatsu-ka", pl: "20 dzień miesiąca" },
+        { jp: "ni-jyu-yok-ka", pl: "24 dzień miesiąca" },
+    ],
     present: [  //present
         { jp: 'kyou', pl: 'dzisiaj', time: 'present' },
         { jp: 'ima', pl: 'teraz', time: 'present' },
@@ -1501,6 +1517,21 @@ export const nouns: Noun = {
         { jp: 'yuki', pl: caseDeclination('śnieg'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
         { jp: 'kumori', pl: caseDeclination('zachmurzenie'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
         { jp: 'kaze', pl: caseDeclination('wiatr'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
+    ],
+    month:[
+        { jp: 'ichigatsu', pl: caseDeclination('styczeń'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'nigatsu', pl: caseDeclination('luty'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'sangatsu', pl: caseDeclination('marzec'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'shigatsu', pl: caseDeclination('kwiecień'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'gogatsu', pl: caseDeclination('maj'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'rokugatsu', pl: caseDeclination('czerwiec'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'shichigatsu', pl: caseDeclination('lipiec'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'hachigatsu', pl: caseDeclination('sierpień'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'kugatsu', pl: caseDeclination('wrzesień'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'juugatsu', pl: caseDeclination('październik'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'juuichigatsu', pl: caseDeclination('listopad'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+        { jp: 'juunigatsu', pl: caseDeclination('grudzień'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
+      
     ],
     week: [
         { jp: 'getsuyoubi', pl: caseDeclination('poniedziałek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },

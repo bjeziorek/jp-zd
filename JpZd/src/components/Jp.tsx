@@ -14,7 +14,7 @@ import { kanjiDict } from "../data/dictionary";
 import { comparasion, more, theMost, whichOf } from "../data/comparasionSizes";
 import Kanji from "../types/Kanji.model";
 import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
-import { daysOfMonth, hours, years } from "../data/calendar";
+import { hours } from "../data/Grammar/JpGrammar/hours/hours";
 import { hurts } from "../data/Grammar/JpGrammar/hurts/hurts";
 import rand from "../utils/randomArrayElement";
 import {
@@ -72,6 +72,9 @@ import inLocation from "../data/Grammar/JpGrammar/inLocation/inLocation";
 import { speakLanguage } from "../data/Grammar/JpGrammar/speakLanguage/speakLanguage";
 import { cost } from "../data/Grammar/JpGrammar/cost/cost";
 import { AdjNegation } from "../data/Grammar/JpGrammar/Adj/AdjNegation";
+import { daysOfMonth } from "../data/Grammar/JpGrammar/calendar/daysOfMonth";
+import { years } from "../data/Grammar/JpGrammar/calendar/years";
+import { calendar } from "../data/Grammar/JpGrammar/calendar/calendar";
 
 interface ContainerProps {
   name: string;
@@ -622,8 +625,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToAdjNegation() {
     setData(AdjNegation(theme));
   }
+  function changeToCalendar() {
+    setData(calendar(theme));
+  }
   function setRandom() {
     const pool = [
+      calendar(theme),
       AdjNegation(theme),
       cost(theme),
       speakLanguage(theme),
@@ -799,6 +806,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToSpeakLanguage}>speak language</IonButton>
       <IonButton onClick={changeToCost}>cost</IonButton>
       <IonButton onClick={changeToAdjNegation}>adj negation</IonButton>
+      <IonButton onClick={changeToCalendar}>calendar</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

@@ -13,7 +13,7 @@ import { kanjiDict } from "../data/dictionary";
 import { comparasion, more, theMost, whichOf } from "../data/comparasionSizes";
 import Kanji from "../types/Kanji.model";
 import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
-import { daysOfMonth, hours, years } from "../data/calendar";
+import { hours } from "../data/Grammar/JpGrammar/hours/hours";
 import { hurts } from "../data/Grammar/JpGrammar/hurts/hurts";
 import rand from "../utils/randomArrayElement";
 import {
@@ -31,6 +31,8 @@ import {
   AandB,
 } from "../data/actions";
 import { chigaimasu, basics, which, whichOfAny, polite } from "../data/basics";
+import { daysOfMonth } from "../data/Grammar/JpGrammar/calendar/daysOfMonth";
+import { years } from "../data/Grammar/JpGrammar/calendar/years";
 
 interface ContainerProps {
   name: string;

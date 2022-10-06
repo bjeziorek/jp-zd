@@ -12,5 +12,5 @@ export interface TenseSet{
 export interface TimePool{
     jp:string,
     pl:string,
-    time:string
+    time?:string
 }

@@ -1,37 +1,10 @@
 import { IonButton } from "@ionic/react";
 import { useState } from "react";
-import DataType from "../types/DataType.model";
 import "./Ua.css";
-import {
-  age,
-  countingAnimals_deprecated as countingAnimals,
-  countingLongObjects,
-  countingPeople,
-  generalCounting,
-} from "../data/numbers";
-import { kanjiDict } from "../data/dictionary";
-import { comparasion, more, theMost, whichOf } from "../data/comparasionSizes";
-import Kanji from "../types/Kanji.model";
-import { can, goodBadAt, likeDislike, needWantHave } from "../data/gaParticle";
-import { daysOfMonth, hours, years } from "../data/calendar";
-import { hurts } from "../data/Grammar/JpGrammar/hurts/hurts";
-import rand from "../utils/randomArrayElement";
-import {
-  give2,
-  give,
-  receive,
-  wantToDo,
-  twoVerbsAtOnce,
-  twoVerbsOneByOne,
-  continues,
-  wayToDo,
-  proposition1,
-  proposition2,
-  also,
-  AandB,
-} from "../data/actions";
-import { chigaimasu, basics, which, whichOfAny, polite } from "../data/basics";
 import { cases, thisIs, UaType } from "../data/Grammar/UaGrammar/thisIs";
+import Kanji from "../types/Kanji.model";
+import { kanjiDict } from "../data/dictionary";
+import rand from "../utils/randomArrayElement";
 
 interface ContainerProps {
   name: string;
