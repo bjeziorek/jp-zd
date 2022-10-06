@@ -71,6 +71,7 @@ import { noNeed } from "../data/Grammar/JpGrammar/noNeed/noNeed";
 import inLocation from "../data/Grammar/JpGrammar/inLocation/inLocation";
 import { speakLanguage } from "../data/Grammar/JpGrammar/speakLanguage/speakLanguage";
 import { cost } from "../data/Grammar/JpGrammar/cost/cost";
+import { AdjNegation } from "../data/Grammar/JpGrammar/Adj/AdjNegation";
 
 interface ContainerProps {
   name: string;
@@ -618,8 +619,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToCost() {
     setData(cost(theme));
   }
+  function changeToAdjNegation() {
+    setData(AdjNegation(theme));
+  }
   function setRandom() {
     const pool = [
+      AdjNegation(theme),
       cost(theme),
       speakLanguage(theme),
       inLocation(theme),
@@ -793,6 +798,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToInLocation}>in location</IonButton>
       <IonButton onClick={changeToSpeakLanguage}>speak language</IonButton>
       <IonButton onClick={changeToCost}>cost</IonButton>
+      <IonButton onClick={changeToAdjNegation}>adj negation</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
