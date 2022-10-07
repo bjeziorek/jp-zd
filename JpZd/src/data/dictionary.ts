@@ -1,3 +1,4 @@
+import { VerbStructure } from './../types/Verb.model';
 import { Pronoun } from './../types/Pronoun.model';
 import { Case } from './../types/Case.model';
 import Kanji from "../types/Kanji.model"
@@ -725,6 +726,8 @@ export function verbFormJp(verb: string, form: string): string {
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'e'
         case jpVerbFormsPool.ta:
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'a'
+        case jpVerbFormsPool.katta:
+            return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'akatta'
         case jpVerbFormsPool.ikemasen:
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'e-wa ikemasen'
         case jpVerbFormsPool.nasai:
@@ -741,6 +744,9 @@ export function verbFormJp(verb: string, form: string): string {
             return extractMasuBase(verb) + 'masen deshita'
         case jpVerbFormsPool.shou:
             return extractMasuBase(verb) + 'mashou'
+        case jpVerbFormsPool.nai:
+            const end=verb.match(/au$/)?verb.slice(0,-1)+'wanai': verb.slice(0,-2)+'anai'
+            return extractMasuBase(verb)+ end
         case jpVerbFormsPool.masuBase:
             return extractMasuBase(verb)
         default:
@@ -779,6 +785,7 @@ export function teForm_deprecated(verb: string, form: string): string {
 export const jpVerbFormsPool = {
     te: 'te',
     ta: 'ta',
+    katta:'katta',
     ikemasen: 'ikemasen',
     nasai: 'nasai',
     nakute: 'nakute',
@@ -787,6 +794,7 @@ export const jpVerbFormsPool = {
     mashita: 'mashita',
     masendeshita: 'masendeshita',
     shou: 'shou', //propozycja
+    nai: 'nai', 
     masuBase: 'masuBase'
 }
 export const numbers: Numbers = {
