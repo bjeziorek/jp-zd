@@ -593,6 +593,21 @@ export function na_adjectivesTense(word: string, formal: boolean, tense: string,
         }
     }
 }
+
+export const greetings=[
+    {jp:'Moshi moshi!',pl:'Halo!'},
+    {jp:'(Doumo) sumimasen!',pl:'Przepraszam!'},
+    {jp:'(Sore-wa) omedetou!',pl:'Gratulacje!'},
+    {jp:'(Aa) sou desu ka?',pl:'Ach, tak?'},
+    {jp:'(Aa) sou desu ka?',pl:'Ach, tak?'},
+    {jp:'Youkatta desu ne. / Sore-wa ii desu ne',pl:'To dobrze. (2 wersje)'},
+    {jp:'Onegai shimasu.',pl:'Proszę.'},
+    {jp:'Sore-wa tahen desu ne.',pl:'To straszne.'},
+    {jp:'Nani ka...',pl:'O co chodzi?'},
+    {jp:'Jaa, kore-de.',pl:'Na tym zakończę.'},
+    {jp:'Mata ashita.',pl:'Do jutra.'},
+]
+
 export const adjectives = [
     { jp: 'shiroi', pl: 'biały', rz: 'biel' },
     { jp: 'aoi', pl: 'niebieski', rz: 'niebieskość' },
