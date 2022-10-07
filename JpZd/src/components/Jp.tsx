@@ -75,6 +75,7 @@ import { AdjNegation } from "../data/Grammar/JpGrammar/Adj/AdjNegation";
 import { daysOfMonth } from "../data/Grammar/JpGrammar/calendar/daysOfMonth";
 import { years } from "../data/Grammar/JpGrammar/calendar/years";
 import { calendar } from "../data/Grammar/JpGrammar/calendar/calendar";
+import { become } from "../data/Grammar/JpGrammar/become/become";
 
 interface ContainerProps {
   name: string;
@@ -628,8 +629,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToCalendar() {
     setData(calendar(theme));
   }
+  function changeToBecome() {
+    setData(become(theme));
+  }
   function setRandom() {
     const pool = [
+      become(theme),
       calendar(theme),
       AdjNegation(theme),
       cost(theme),
@@ -807,6 +812,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToCost}>cost</IonButton>
       <IonButton onClick={changeToAdjNegation}>adj negation</IonButton>
       <IonButton onClick={changeToCalendar}>calendar</IonButton>
+      <IonButton onClick={changeToBecome}>become</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
