@@ -1,6 +1,5 @@
 import { TenseJp } from './../../../../types/TenseJp';
 import { jpVerbFormsPool, verbs as vrb } from './../../../dictionary';
-import { VerbStructure } from "../../../../types/Verb.model";
 import { verbFormJp } from "../../../dictionary";
 import DataType from '../../../../types/DataType.model';
 import rand from '../../../../utils/randomArrayElement';
@@ -44,9 +43,14 @@ export function verbs2(theme:string): DataType {
         }
     }
 
-    const p =rand( ['polite', 'simple'])as string
-    const t =rand( ['past', 'present', 'future'])
-    const n =rand(['positive', 'negative'])
+   // const p =rand( ['polite', 'simple'])as string
+   // const t =rand( ['past', 'present', 'future'])
+   // const n =rand(['positive', 'negative'])
+
+    const p ='simple'
+    const t = 'present'
+    const n = 'negative'
+
 
     return {
         romaji: verbDeclinationJpPool[p][t][n],

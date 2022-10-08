@@ -595,18 +595,18 @@ export function na_adjectivesTense(word: string, formal: boolean, tense: string,
     }
 }
 
-export const greetings=[
-    {jp:'Moshi moshi!',pl:'Halo!'},
-    {jp:'(Doumo) sumimasen!',pl:'Przepraszam!'},
-    {jp:'(Sore-wa) omedetou!',pl:'Gratulacje!'},
-    {jp:'(Aa) sou desu ka?',pl:'Ach, tak?'},
-    {jp:'(Aa) sou desu ka?',pl:'Ach, tak?'},
-    {jp:'Youkatta desu ne. / Sore-wa ii desu ne',pl:'To dobrze. (2 wersje)'},
-    {jp:'Onegai shimasu.',pl:'Proszę.'},
-    {jp:'Sore-wa tahen desu ne.',pl:'To straszne.'},
-    {jp:'Nani ka...',pl:'O co chodzi?'},
-    {jp:'Jaa, kore-de.',pl:'Na tym zakończę.'},
-    {jp:'Mata ashita.',pl:'Do jutra.'},
+export const greetings = [
+    { jp: 'Moshi moshi!', pl: 'Halo!' },
+    { jp: '(Doumo) sumimasen!', pl: 'Przepraszam!' },
+    { jp: '(Sore-wa) omedetou!', pl: 'Gratulacje!' },
+    { jp: '(Aa) sou desu ka?', pl: 'Ach, tak?' },
+    { jp: '(Aa) sou desu ka?', pl: 'Ach, tak?' },
+    { jp: 'Youkatta desu ne. / Sore-wa ii desu ne', pl: 'To dobrze. (2 wersje)' },
+    { jp: 'Onegai shimasu.', pl: 'Proszę.' },
+    { jp: 'Sore-wa tahen desu ne.', pl: 'To straszne.' },
+    { jp: 'Nani ka...', pl: 'O co chodzi?' },
+    { jp: 'Jaa, kore-de.', pl: 'Na tym zakończę.' },
+    { jp: 'Mata ashita.', pl: 'Do jutra.' },
 ]
 
 export const adjectives = [
@@ -688,6 +688,8 @@ export function verbFormJp(verb: string, form: string): string {
         }
     }
 
+
+
     function extractTeTaSuffix(verb: string) {
         if (verb === 'iru') return 't' //bo go wezmie jako ichidandoshi
         if (verb === 'iku') return 't' //jako godandoshi
@@ -712,6 +714,32 @@ export function verbFormJp(verb: string, form: string): string {
         }
     }
 
+    function extractNaiSuffix(verb: string) {
+        if (verb === 'iru') return 'anai' //bo go wezmie jako ichidandoshi
+        if (verb === 'iku') return 'anai' //jako godandoshi
+        if (verb.match(/suru$/)) return 'nai'//jako godandoshi
+
+        if (isIchidandoshi) {
+            return 'nai'
+        } else {
+            switch (verb.slice(-2)) {
+                case 'bu': //yobu
+                case 'mu': //nomu
+                case 'nu': //shinu
+                case 'ku': //kiku
+                case 'su': 
+                case 'tsu'://mitsu  //<--tu jest tsu a tam slice 2 on nigdy tunie wejdzie! i w teta tez
+                case 'ru': return 'anai'//tsukuru
+                case 'uu': return //suu 
+                case 'au': return 'wanai'//kau
+                default:
+                    console.log('unknown verb suffix: ', verb)
+                    return '?'
+            }
+        }
+    }
+
+
     function extractMasuBase(verb: string): string {
         //exceptions
         if (verb.match(/suru$/)) return verb.replace(/suru$/, 'shi')
@@ -720,6 +748,16 @@ export function verbFormJp(verb: string, form: string): string {
         if (verb === 'iku') return 'iki' //jw
         return isIchidandoshi ? verb.slice(0, -2) : verb.replace(/u$/, 'i')
     }
+
+    function extractBase(verb: string): string {
+        //exceptions
+        if (verb.match(/suru$/)) return verb.replace(/suru$/, 'shi')
+        if (verb.match(/su$/)) return verb.replace(/su$/, 'shi')
+        if (verb === 'iru') return 'ir' //wzor pasuje, ale itnie 2 literu!
+        if (verb === 'iku') return 'ik' //jw
+        return isIchidandoshi ? verb.slice(0, -2) : verb.slice(0,-1).replace(/ts$/,'t')
+    }
+
 
     switch (form) {
         case jpVerbFormsPool.te:
@@ -745,8 +783,8 @@ export function verbFormJp(verb: string, form: string): string {
         case jpVerbFormsPool.shou:
             return extractMasuBase(verb) + 'mashou'
         case jpVerbFormsPool.nai:
-            const end=verb.match(/au$/)?verb.slice(0,-1)+'wanai': verb.slice(0,-2)+'anai'
-            return extractMasuBase(verb)+ end
+            //const end = verb.match(/au$/) ? verb.slice(0, -1) + 'wanai' : verb.slice(0, -2) + 'anai'
+            return extractBase(verb) + extractNaiSuffix(verb)
         case jpVerbFormsPool.masuBase:
             return extractMasuBase(verb)
         default:
@@ -785,7 +823,7 @@ export function teForm_deprecated(verb: string, form: string): string {
 export const jpVerbFormsPool = {
     te: 'te',
     ta: 'ta',
-    katta:'katta',
+    katta: 'katta',
     ikemasen: 'ikemasen',
     nasai: 'nasai',
     nakute: 'nakute',
@@ -794,7 +832,7 @@ export const jpVerbFormsPool = {
     mashita: 'mashita',
     masendeshita: 'masendeshita',
     shou: 'shou', //propozycja
-    nai: 'nai', 
+    nai: 'nai',
     masuBase: 'masuBase'
 }
 export const numbers: Numbers = {
@@ -1434,7 +1472,7 @@ export const verbs: Verb = {
                 isNonReflexive: true,
                 prepositions: [
                     { preposition: '', case: plCasePool.B },
-                ], 
+                ],
                 rozkazujący2os: 'znajdź',
                 rozkazujący: 'znajdźmy', imieslowNiedokonany: 'znajdowanie', niedokonany: 'znajdować', dokonany: 'znaleźć', os3: 'znajduje'
             },
@@ -1465,8 +1503,8 @@ export const verbs_deprecated = {
     ]
 }
 
-export const time:Time = {
-    daysOfMonth:[
+export const time: Time = {
+    daysOfMonth: [
         { jp: "tsuitachi", pl: "1 dzień miesiąca" },
         { jp: "futsu-ka", pl: "2 dzień miesiąca" },
         { jp: "mik-ka", pl: "3 dzień miesiąca" },
@@ -1527,21 +1565,21 @@ export const prepositions = {
 }
 export const prepositionsKeyMatrix = init(prepositions)
 export const nouns: Noun = {
-    languages:[
-        { jp: 'POORANDO-go', pl: caseDeclination('język polski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'Nihon-go', pl: caseDeclination('język japoński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'Chuugoku-go', pl: caseDeclination('język chiński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'Eigo', pl: caseDeclination('język angielski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'DOITSU-go', pl: caseDeclination('język niemiecki'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'FURANSU-go', pl: caseDeclination('język francuski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'ITARIA-go', pl: caseDeclination('język włoski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'PORUTOGARU-go', pl: caseDeclination('język portugalski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'UKURAINA-go', pl: caseDeclination('język ukraiński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'ROSHIA-go', pl: caseDeclination('język rosyjski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'CHEKO-go', pl: caseDeclination('język czeski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'SUROBAKIA-go', pl: caseDeclination('język słowacki'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'HANGARII-go', pl: caseDeclination('język węgierski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
-        { jp: 'kankoku-go', pl: caseDeclination('język koreański'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },  
+    languages: [
+        { jp: 'POORANDO-go', pl: caseDeclination('język polski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'Nihon-go', pl: caseDeclination('język japoński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'Chuugoku-go', pl: caseDeclination('język chiński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'Eigo', pl: caseDeclination('język angielski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'DOITSU-go', pl: caseDeclination('język niemiecki'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'FURANSU-go', pl: caseDeclination('język francuski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'ITARIA-go', pl: caseDeclination('język włoski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'PORUTOGARU-go', pl: caseDeclination('język portugalski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'UKURAINA-go', pl: caseDeclination('język ukraiński'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'ROSHIA-go', pl: caseDeclination('język rosyjski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'CHEKO-go', pl: caseDeclination('język czeski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'SUROBAKIA-go', pl: caseDeclination('język słowacki'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'HANGARII-go', pl: caseDeclination('język węgierski'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
+        { jp: 'kankoku-go', pl: caseDeclination('język koreański'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['language'] },
     ],
     weather: [
         { jp: 'ame', pl: caseDeclination('deszcz'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
@@ -1549,7 +1587,7 @@ export const nouns: Noun = {
         { jp: 'kumori', pl: caseDeclination('zachmurzenie'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
         { jp: 'kaze', pl: caseDeclination('wiatr'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
     ],
-    month:[
+    month: [
         { jp: 'ichigatsu', pl: caseDeclination('styczeń'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
         { jp: 'nigatsu', pl: caseDeclination('luty'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
         { jp: 'sangatsu', pl: caseDeclination('marzec'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
@@ -1562,7 +1600,7 @@ export const nouns: Noun = {
         { jp: 'juugatsu', pl: caseDeclination('październik'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
         { jp: 'juuichigatsu', pl: caseDeclination('listopad'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
         { jp: 'juunigatsu', pl: caseDeclination('grudzień'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
-      
+
     ],
     week: [
         { jp: 'getsuyoubi', pl: caseDeclination('poniedziałek'), counter: 'ka', plGender: 'm', isAlive: false, isHuman: false, tags: ['week'] },
@@ -1652,11 +1690,11 @@ export const nouns: Noun = {
         { jp: "goshujin", pl: caseDeclination('mąż'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['family', 'anotherFamily'] },
 
     ],
-    countries:[
+    countries: [
         { jp: "POORANDO", pl: caseDeclination('Polska'), counter: '?', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
         { jp: "Chuugoku", pl: caseDeclination('Chiny'), counter: '?', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
         { jp: "Nihon", pl: caseDeclination('Japonia'), counter: '?', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
-        
+
     ],
     nationality: [
         { jp: "POORANDO-jin", pl: caseDeclination('Polak'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
