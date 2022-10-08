@@ -717,6 +717,7 @@ export function verbFormJp(verb: string, form: string): string {
     function extractNaiSuffix(verb: string) {
         if (verb === 'iru') return 'anai' //bo go wezmie jako ichidandoshi
         if (verb === 'iku') return 'anai' //jako godandoshi
+        if (verb === 'kuru') return 'konai' 
         if (verb.match(/suru$/)) return 'nai'//jako godandoshi
 
         if (isIchidandoshi) {
@@ -753,6 +754,7 @@ export function verbFormJp(verb: string, form: string): string {
         //exceptions
         if (verb.match(/suru$/)) return verb.replace(/suru$/, 'shi')
         if (verb.match(/su$/)) return verb.replace(/su$/, 'shi')
+        if (verb === 'kuru') return '' //tu puste, a w odmianie cale
         if (verb === 'iru') return 'ir' //wzor pasuje, ale itnie 2 literu!
         if (verb === 'iku') return 'ik' //jw
         return isIchidandoshi ? verb.slice(0, -2) : verb.slice(0,-1).replace(/ts$/,'t')

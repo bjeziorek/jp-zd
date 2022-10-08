@@ -79,6 +79,7 @@ import { become } from "../data/Grammar/JpGrammar/become/become";
 import { twoAdjectives } from "../data/Grammar/JpGrammar/twoAdjectives/twoAdjectives";
 import { greetings } from "../data/Grammar/JpGrammar/greetings/greetings";
 import { verbs2 } from "../data/Grammar/JpGrammar/verbs/verbs";
+import { probably } from "../data/Grammar/JpGrammar/probably/probably";
 
 interface ContainerProps {
   name: string;
@@ -644,8 +645,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToVerbs() {
     setData(verbs2(theme));
   }
+  function changeToProbably() {
+    setData(probably(theme));
+  }
   function setRandom() {
     const pool = [
+      probably(theme),
       verbs2(theme),
       greetings(theme),
       twoAdjectives(theme),
@@ -831,6 +836,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToTwoAdjectives}>2 adj</IonButton>
       <IonButton onClick={changeToGreetings}>greetings</IonButton>
       <IonButton onClick={changeToVerbs}>verbs</IonButton>
+      <IonButton onClick={changeToProbably}>probably</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
