@@ -1,4 +1,3 @@
-import { TenseJp } from './../../../../types/TenseJp';
 import { jpVerbFormsPool, verbs as vrb } from './../../../dictionary';
 import { verbFormJp } from "../../../dictionary";
 import DataType from '../../../../types/DataType.model';

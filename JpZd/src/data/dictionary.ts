@@ -603,7 +603,7 @@ export const greetings = [
     { jp: '(Aa) sou desu ka?', pl: 'Ach, tak?' },
     { jp: 'Youkatta desu ne. / Sore-wa ii desu ne', pl: 'To dobrze. (2 wersje)' },
     { jp: 'Onegai shimasu.', pl: 'Proszę.' },
-    { jp: 'Sore-wa tahen desu ne.', pl: 'To straszne.' },
+    { jp: 'Sore-wa taihen desu ne.', pl: 'To straszne.' },
     { jp: 'Nani ka...', pl: 'O co chodzi?' },
     { jp: 'Jaa, kore-de.', pl: 'Na tym zakończę.' },
     { jp: 'Mata ashita.', pl: 'Do jutra.' },
@@ -1589,6 +1589,14 @@ export const nouns: Noun = {
         { jp: 'kumori', pl: caseDeclination('zachmurzenie'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
         { jp: 'kaze', pl: caseDeclination('wiatr'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
     ],
+    seasons:[
+        { jp: "fuyu", pl: caseDeclination('zima'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','seasons'] },
+        { jp: "haru", pl: caseDeclination('wiosna'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','seasons'] },
+        { jp: "aki", pl: caseDeclination('jesień'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','seasons'] },
+        { jp: "natsu", pl: caseDeclination('lato'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','seasons'] },
+        { jp: "IISUTAA", pl: caseDeclination('Wielkanoc'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','holidays'] },
+        { jp: "KURISUMASU", pl: caseDeclination('Boże Narodzenie'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','holidays'] },
+    ],
     month: [
         { jp: 'ichigatsu', pl: caseDeclination('styczeń'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
         { jp: 'nigatsu', pl: caseDeclination('luty'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
@@ -1722,6 +1730,10 @@ export const nouns: Noun = {
         { jp: "biyoushi", pl: caseDeclination('fryzjer'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
         { jp: "ten'in", pl: caseDeclination('sprzedawca'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
     ],
+    events:[
+        { jp: "PAATII", pl: caseDeclination('przyjęcie'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events'] },
+        { jp: "yasumi", pl: caseDeclination('wakacje'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events'] },
+       ],
     items: [
         { jp: "zasshi", pl: caseDeclination('czasopismo'), counter: 'satsu', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "shinbun", pl: caseDeclination('gazeta'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
