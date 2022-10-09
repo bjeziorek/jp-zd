@@ -86,6 +86,10 @@ import { however } from "../data/Grammar/JpGrammar/however/however";
 import { so } from "../data/Grammar/JpGrammar/so/so";
 import { because } from "../data/Grammar/JpGrammar/because/because";
 import { goFor } from "../data/Grammar/JpGrammar/goFor/goFor";
+import { something } from "../data/Grammar/JpGrammar/something/something";
+import { somewhere } from "../data/Grammar/JpGrammar/somewhere/somewhere";
+import { someone } from "../data/Grammar/JpGrammar/someone/someone";
+import { anytime } from "../data/Grammar/JpGrammar/anytime/anytime";
 
 interface ContainerProps {
   name: string;
@@ -672,8 +676,24 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToGoFor() {
     setData(goFor(theme));
   }
+  function changeToSomething() {
+    setData(something(theme));
+  }
+  function changeToSomewhere() {
+    setData(somewhere(theme));
+  }
+  function changeToSomeone() {
+    setData(someone(theme));
+  }
+  function changeToAnytime() {
+    setData(anytime(theme));
+  }
   function setRandom() {
     const pool = [
+      anytime(theme),
+      someone(theme),
+      something(theme),
+      somewhere(theme),
       goFor(theme),
       because(theme),
       so(theme),
@@ -873,6 +893,10 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToSo}>so</IonButton>
       <IonButton onClick={changeToGoFor}>go for</IonButton>
       <IonButton onClick={changeToBecause}>because</IonButton>
+      <IonButton onClick={changeToSomeone}>someone</IonButton>
+      <IonButton onClick={changeToSomething}>something</IonButton>
+      <IonButton onClick={changeToSomewhere}>somewhere</IonButton>
+      <IonButton onClick={changeToAnytime}>anytime</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
