@@ -1,14 +1,29 @@
-import { adjectives } from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
-import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
+import { adj } from "./adj";
+import { aru } from "./aru";
+import { from } from "./from";
+import { inPlace } from "./inPlace";
+import { oVerb } from "./oVerb";
+import { toPlace } from "./toPlace";
+import { wakaru } from "./wakaru";
+import { when } from "./when";
+import { withSb } from "./withSb";
 
-export function but(theme:string):DataType{
-    const who=rand(pickTheme(theme))
-    const adj1=rand(adjectives)
-    const adj2=rand(adjectives)
-    return{
-        romaji:who.jp+'-wa '+adj1.jp.replace(/na$/,'')+' desu-ga '+adj2.jp.replace(/na$/,'')+' desu',
-        meaning:who.pl.M+' jest '+adj1.pl+', ale '+adj2.pl
-    }
+export function but(theme: string): DataType {
+    const sentence:DataType = rand([
+        adj(theme),
+        aru(theme),
+        from(theme),
+        inPlace(theme),
+        toPlace(theme),
+        oVerb(theme),
+        wakaru(theme),
+        when(theme),
+        withSb(theme),
+    ])
+    return {
+        romaji: sentence.romaji,
+        meaning: sentence.meaning
+     }
 }

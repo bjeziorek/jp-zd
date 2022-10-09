@@ -1739,6 +1739,7 @@ export const nouns: Noun = {
         { jp: "yasumi", pl: caseDeclination('wakacje'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events'] },
        ],
     items: [
+        { jp: "tegami", pl: caseDeclination('list'), counter: 'mai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "zasshi", pl: caseDeclination('czasopismo'), counter: 'satsu', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "shinbun", pl: caseDeclination('gazeta'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "hon", pl: caseDeclination('książka'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
