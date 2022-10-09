@@ -2,7 +2,7 @@ import { adjectives } from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
-
+//todo
 export function adj(theme:string):DataType{
     const who=rand(pickTheme(theme))
     const adj1=rand(adjectives)
