@@ -83,6 +83,8 @@ import { probably } from "../data/Grammar/JpGrammar/probably/probably";
 import { whichType } from "../data/Grammar/JpGrammar/whichType/whichType";
 import { request } from "../data/Grammar/JpGrammar/whichType/request/request";
 import { however } from "../data/Grammar/JpGrammar/however/however";
+import { so } from "../data/Grammar/JpGrammar/so/so";
+import { because } from "../data/Grammar/JpGrammar/because/because";
 
 interface ContainerProps {
   name: string;
@@ -660,8 +662,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToHowever() {
     setData(however(theme));
   }
+  function changeToSo() {
+    setData(so(theme));
+  }
+  function changeToBecause() {
+    setData(because(theme));
+  }
   function setRandom() {
     const pool = [
+      because(theme),
+      so(theme),
       however(theme),
       request(theme),
       whichType(theme),
@@ -855,6 +865,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToWhichType}>which type</IonButton>
       <IonButton onClick={changeToRequest}>request</IonButton>
       <IonButton onClick={changeToHowever}>however</IonButton>
+      <IonButton onClick={changeToSo}>so</IonButton>
+      <IonButton onClick={changeToBecause}>because</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
