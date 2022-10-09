@@ -90,6 +90,15 @@ import { something } from "../data/Grammar/JpGrammar/something/something";
 import { somewhere } from "../data/Grammar/JpGrammar/somewhere/somewhere";
 import { someone } from "../data/Grammar/JpGrammar/someone/someone";
 import { anytime } from "../data/Grammar/JpGrammar/anytime/anytime";
+import { sometimes } from "../data/Grammar/JpGrammar/sometimes/sometimes";
+import { often } from "../data/Grammar/JpGrammar/often/often";
+import { usually } from "../data/Grammar/JpGrammar/usually/usually";
+import { aLot } from "../data/Grammar/JpGrammar/aLot/aLot";
+import { aBit } from "../data/Grammar/JpGrammar/aBit/aBit";
+import { notYet } from "../data/Grammar/JpGrammar/notYet/notYet";
+import { still } from "../data/Grammar/JpGrammar/still/still";
+import { forAMoment } from "../data/Grammar/JpGrammar/forAMoment/forAMoment";
+import { already } from "../data/Grammar/JpGrammar/already/already";
 
 interface ContainerProps {
   name: string;
@@ -685,11 +694,46 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToSomeone() {
     setData(someone(theme));
   }
+  function changeToSometimes() {
+    setData(sometimes(theme));
+  }
   function changeToAnytime() {
     setData(anytime(theme));
   }
+  function changeToOften() {
+    setData(often(theme));
+  }
+  function changeToUsually() {
+    setData(usually(theme));
+  }
+  function changeToALot() {
+    setData(aLot(theme));
+  }
+  function changeToABit() {
+    setData(aBit(theme));
+  }
+  function changeToNotYet() {
+    setData(notYet(theme));
+  }
+  function changeToStill() {
+    setData(still(theme));
+  }
+  function changeToforAMoment() {
+    setData(forAMoment(theme));
+  }
+  function changeToAlready() {
+    setData(already(theme));
+  }
   function setRandom() {
     const pool = [
+      sometimes(theme),
+      often(theme),
+      aLot(theme),
+      aBit(theme),
+      notYet(theme),
+      forAMoment(theme),
+      still(theme),
+      already(theme),
       anytime(theme),
       someone(theme),
       something(theme),
@@ -897,6 +941,17 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToSomething}>something</IonButton>
       <IonButton onClick={changeToSomewhere}>somewhere</IonButton>
       <IonButton onClick={changeToAnytime}>anytime</IonButton>
+      <IonButton onClick={changeToNotYet}>not</IonButton>
+      <IonButton onClick={changeToStill}>still</IonButton>
+      <IonButton onClick={changeToSometimes}>sometimes</IonButton>
+      <IonButton onClick={changeToOften}>often</IonButton>
+      <IonButton onClick={changeToUsually}>usually</IonButton>
+      <IonButton onClick={changeToALot}>a lot</IonButton>
+      <IonButton onClick={changeToABit}>a bit</IonButton>
+      <IonButton onClick={changeToOften}>often</IonButton>
+      <IonButton onClick={changeToUsually}>usually</IonButton>
+      <IonButton onClick={changeToforAMoment}>for a moment</IonButton>
+      <IonButton onClick={changeToAlready}>already</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
