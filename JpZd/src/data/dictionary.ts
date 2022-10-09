@@ -787,6 +787,9 @@ export function verbFormJp(verb: string, form: string): string {
         case jpVerbFormsPool.nai:
             //const end = verb.match(/au$/) ? verb.slice(0, -1) + 'wanai' : verb.slice(0, -2) + 'anai'
             return extractBase(verb) + extractNaiSuffix(verb)
+        case jpVerbFormsPool.naide:
+            //const end = verb.match(/au$/) ? verb.slice(0, -1) + 'wanai' : verb.slice(0, -2) + 'anai'
+            return extractBase(verb) + extractNaiSuffix(verb)+'de'
         case jpVerbFormsPool.masuBase:
             return extractMasuBase(verb)
         default:
@@ -823,6 +826,7 @@ export function teForm_deprecated(verb: string, form: string): string {
     }
 }
 export const jpVerbFormsPool = {
+    naide:'naide',
     te: 'te',
     ta: 'ta',
     katta: 'katta',
