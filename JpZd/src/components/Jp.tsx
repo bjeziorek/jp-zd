@@ -82,6 +82,7 @@ import { verbs2 } from "../data/Grammar/JpGrammar/verbs/verbs";
 import { probably } from "../data/Grammar/JpGrammar/probably/probably";
 import { whichType } from "../data/Grammar/JpGrammar/whichType/whichType";
 import { request } from "../data/Grammar/JpGrammar/whichType/request/request";
+import { however } from "../data/Grammar/JpGrammar/however/however";
 
 interface ContainerProps {
   name: string;
@@ -656,8 +657,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToRequest() {
     setData(request(theme));
   }
+  function changeToHowever() {
+    setData(however(theme));
+  }
   function setRandom() {
     const pool = [
+      however(theme),
       request(theme),
       whichType(theme),
       probably(theme),
@@ -849,6 +854,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToProbably}>probably</IonButton>
       <IonButton onClick={changeToWhichType}>which type</IonButton>
       <IonButton onClick={changeToRequest}>request</IonButton>
+      <IonButton onClick={changeToHowever}>however</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
