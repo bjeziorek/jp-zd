@@ -99,6 +99,7 @@ import { notYet } from "../data/Grammar/JpGrammar/notYet/notYet";
 import { still } from "../data/Grammar/JpGrammar/still/still";
 import { forAMoment } from "../data/Grammar/JpGrammar/forAMoment/forAMoment";
 import { already } from "../data/Grammar/JpGrammar/already/already";
+import { before } from "../data/Grammar/JpGrammar/before/before";
 
 interface ContainerProps {
   name: string;
@@ -724,8 +725,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToAlready() {
     setData(already(theme));
   }
+  function changeToBefore() {
+    setData(before(theme));
+  }
   function setRandom() {
     const pool = [
+      before(theme),
       sometimes(theme),
       often(theme),
       aLot(theme),
@@ -952,6 +957,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToUsually}>usually</IonButton>
       <IonButton onClick={changeToforAMoment}>for a moment</IonButton>
       <IonButton onClick={changeToAlready}>already</IonButton>
+      <IonButton onClick={changeToBefore}>before</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
