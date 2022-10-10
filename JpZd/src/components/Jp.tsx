@@ -946,15 +946,13 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToSomething}>something</IonButton>
       <IonButton onClick={changeToSomewhere}>somewhere</IonButton>
       <IonButton onClick={changeToAnytime}>anytime</IonButton>
-      <IonButton onClick={changeToNotYet}>not</IonButton>
+      <IonButton onClick={changeToNotYet}>not yet</IonButton>
       <IonButton onClick={changeToStill}>still</IonButton>
       <IonButton onClick={changeToSometimes}>sometimes</IonButton>
       <IonButton onClick={changeToOften}>often</IonButton>
       <IonButton onClick={changeToUsually}>usually</IonButton>
       <IonButton onClick={changeToALot}>a lot</IonButton>
       <IonButton onClick={changeToABit}>a bit</IonButton>
-      <IonButton onClick={changeToOften}>often</IonButton>
-      <IonButton onClick={changeToUsually}>usually</IonButton>
       <IonButton onClick={changeToforAMoment}>for a moment</IonButton>
       <IonButton onClick={changeToAlready}>already</IonButton>
       <IonButton onClick={changeToBefore}>before</IonButton>
