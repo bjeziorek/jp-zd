@@ -11,6 +11,6 @@ export function whichPlace(theme:string):DataType{
 
     return {
         romaji:'Donna tokoro-e '+who.jp+'-wa '+verb.jp.dictionaryForm+'-ka.',
-        meaning:'W jakie miejsce '+who.pl.M+' '+verb.pl.os3+'?'
+        meaning:'W jakiego rodzaju miejsce '+who.pl.M+' '+verb.pl.os3+'?'
     }
 }

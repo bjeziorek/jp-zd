@@ -11,6 +11,6 @@ export function sometimes(theme:string):DataType{
     const oVerb:VerbStructure=rand(verbs.actions.filter(el=>{return el.jp.particle.includes('o')}))
     return{
         romaji:who.jp+'-wa tokodoki '+what.jp+'-o '+oVerb.jp.dictionaryForm,
-        meaning:who.pl.M+' często '+ oVerb.pl.os3 +' '+what.pl.B
+        meaning:who.pl.M+' czasem '+ oVerb.pl.os3 +' '+what.pl.B
     }
 }

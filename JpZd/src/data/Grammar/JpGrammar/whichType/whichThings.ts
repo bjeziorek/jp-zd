@@ -9,6 +9,6 @@ export function whichThings(theme:string):DataType{
 
     return {
         romaji:when.jp+'-ni donna koto-o ' +who.jp+'-wa shimasu-ka.',
-        meaning:'W '+when.pl.B+' co robi '+who.pl.M+'?'
+        meaning:'W '+when.pl.B+' jakiego rodzaju rzeczy robi '+who.pl.M+'?'
     }
 }

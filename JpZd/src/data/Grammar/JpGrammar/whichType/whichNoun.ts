@@ -12,6 +12,6 @@ export function whichNoun(theme:string):DataType{
 
     return {
         romaji:what.jp+'-no toki '+who.jp+'-wa donna tokoro-e '+verb.jp.dictionaryForm+'-ka.',
-        meaning:'W czasie '+what.pl.D+' gdzie '+who.pl.M+' '+verb.pl.os3+'?'
+        meaning:'W czasie '+what.pl.D+' w jaki rodzaj miejsca '+who.pl.M+' '+verb.pl.os3+'?'
     }
 }
