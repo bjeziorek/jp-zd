@@ -1,7 +1,8 @@
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model"
 import { numbers } from "../../../dictionary"
 
-export function hours(theme: string): DataType {
+export function hours(theme: Theme): DataType {
 //bugi: czasem wyskakuje np 010:23 - usunąć to 0, i uważać bo przy dziesiątkach 1 i jednościach 0 nie jest jeden zero tylko dziesięć
 
   const h1=Math.floor(Math.random()*2)//dziesiątki czyli 0 lub 1, bo 0-12

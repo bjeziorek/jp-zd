@@ -1,8 +1,11 @@
+import { AdjectiveStructure } from './../../../../types/Adjective.model';
+import { Theme } from './../../../../types/Theme.model';
+import { naAdjFilter } from './../../../../utils/filters/naAdjFilter';
 import rand from "../../../../utils/randomArrayElement"
-import { adjectives } from "../../../dictionary"
+import { pickTheme } from '../../../../utils/pickTheme';
 
-export function naAdj(theme:string):{jp:string,pl:string}{
-    const adj = rand(adjectives.filter(el=>{return el.jp.match(/na$/)}))
+export function naAdj(theme:Theme):{jp:string,pl:string}{
+    const adj:AdjectiveStructure = rand(pickTheme('a','all').filter(naAdjFilter))
     return{
         jp:adj.jp.replace(/na$/,'-de'),
         pl:adj.pl

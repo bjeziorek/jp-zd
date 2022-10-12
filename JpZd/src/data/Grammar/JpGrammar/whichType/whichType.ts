@@ -1,3 +1,4 @@
+import { Theme } from './../../../../types/Theme.model';
 import DataType from '../../../../types/DataType.model';
 import rand from '../../../../utils/randomArrayElement';
 import { whichThings } from './whichThings';
@@ -6,7 +7,7 @@ import { whichAdj } from './whichAdj';
 import { whichNoun } from './whichNoun';
 import { whichPlace } from './whichPlace';
 
-export function whichType(theme:string):DataType{
+export function whichType(theme:Theme):DataType{
     const which:DataType = rand([
         whichTime(theme),
         whichAdj(theme),

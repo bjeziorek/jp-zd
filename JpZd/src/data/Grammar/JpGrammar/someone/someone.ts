@@ -1,11 +1,12 @@
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
 import { pickTheme } from '../../../../utils/pickTheme';
 
-export function someone(theme: string): DataType {
+export function someone(theme: Theme): DataType {
 
-    const who = rand(pickTheme(theme))
-    const thing = rand(pickTheme('items'))
+    const who = rand(pickTheme('n',theme))
+    const thing = rand(pickTheme('n','items'))
     const answer = Math.random() > 0.5
         ? {
             jp: 'Hai, dare-ni-demo agemasu.',

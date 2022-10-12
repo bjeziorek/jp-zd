@@ -1,4 +1,4 @@
-import { stringify } from 'querystring';
+import { Theme } from './../types/Theme.model';
 import DataType from '../types/DataType.model';
 import { pickTheme } from '../utils/pickTheme';
 import rand from '../utils/randomArrayElement';
@@ -66,7 +66,7 @@ export function convertNumberToText(num:number,classifier:string):string{
 }
 
 
-export function generalCounting(theme: string): DataType {
+export function generalCounting(theme: Theme): DataType {
 
   const currentTheme = (() => {
     const pool = ['nin', 'mai', 'hon', 'hiki', 'bai', 'satsu', 'kai', 'dai', 'hun']
@@ -115,8 +115,8 @@ export function generalCounting(theme: string): DataType {
   }
 }
 
-export function prices(theme:string):DataType{
-  const obj = rand(nouns[theme])
+export function prices(theme:Theme):DataType{
+  const obj = rand(pickTheme('n',theme))
   const price = Math.floor(Math.random()*9999000+100)
 
   return{
@@ -337,7 +337,7 @@ export function countingPeople() {
   }
 }
 
-export function age(theme: string) {
+export function age(theme: Theme) {
   const agePool = [
     { jp: 'issai', pl: '1 rok' },
     { jp: 'ni-sai', pl: '2 lata' },
@@ -374,8 +374,8 @@ export function age(theme: string) {
     { jp: 'roku-juu-kyuu-sai', pl: '69 lat' },
   ]
 
-  const animal = rand(pickTheme(theme))
-  const person = rand(pickTheme(theme))
+  const animal = rand(pickTheme('n',theme))
+  const person = rand(pickTheme('n',theme))
   const age = rand(agePool)
 
   return {

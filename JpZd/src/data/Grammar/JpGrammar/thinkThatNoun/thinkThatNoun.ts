@@ -1,8 +1,9 @@
+import { Theme } from './../../../../types/Theme.model';
 import { nouns,time} from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
 
-export function thinkThatNoun(theme:string):DataType{
+export function thinkThatNoun(theme:Theme):DataType{
     const tense = Math.random()>0.33?'past':(Math.random()>0.5?'present':'future')
     const when = rand(time[tense])
     const weather = rand(nouns.weather)

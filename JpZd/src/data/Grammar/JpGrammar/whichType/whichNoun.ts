@@ -1,14 +1,14 @@
+import { Theme } from './../../../../types/Theme.model';
 import { VerbStructure } from '../../../../types/Verb.model';
 import { NounStructure } from '../../../../types/Noun.model';
 import DataType from '../../../../types/DataType.model';
 import { pickTheme } from '../../../../utils/pickTheme';
 import rand from '../../../../utils/randomArrayElement';
-import { verbs } from '../../../dictionary';
 
-export function whichNoun(theme:string):DataType{
-    const who:NounStructure=rand(pickTheme(theme))
-    const what:NounStructure=rand(pickTheme('events'))
-    const verb:VerbStructure=rand(verbs.move)
+export function whichNoun(theme:Theme):DataType{
+    const who:NounStructure=rand(pickTheme('n',theme))
+    const what:NounStructure=rand(pickTheme('n','events'))
+    const verb:VerbStructure=rand(pickTheme('v','move'))
 
     return {
         romaji:what.jp+'-no toki '+who.jp+'-wa donna tokoro-e '+verb.jp.dictionaryForm+'-ka.',

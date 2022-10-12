@@ -1,7 +1,7 @@
 export interface AdjectiveStructure {
     jp: string,
     pl: string,
-    noun: string,
+    rz: string,
     }
 
 export default interface Adjective {

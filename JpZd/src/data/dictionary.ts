@@ -1,3 +1,4 @@
+import Adjective, { AdjectiveStructure } from './../types/Adjective.model';
 import { VerbStructure } from './../types/Verb.model';
 import { Pronoun } from './../types/Pronoun.model';
 import { Case } from './../types/Case.model';
@@ -609,55 +610,57 @@ export const greetings = [
     { jp: 'Mata ashita.', pl: 'Do jutra.' },
 ]
 
-export const adjectives = [
-    { jp: 'shiroi', pl: 'biały', rz: 'biel' },
-    { jp: 'aoi', pl: 'niebieski', rz: 'niebieskość' },
-    { jp: 'akai', pl: 'czerwony', rz: 'czerwień' },
-    { jp: 'sukina', pl: 'ulubiony', rz: 'lubienie' },
-    { jp: 'kiraina', pl: 'nielubiany', rz: 'nielubienie' },
-    { jp: 'hiroi', pl: 'szeroki', rz: 'szerokość' },
-    { jp: 'kudaranai', pl: 'trywialny', rz: 'trywialność' },
-    { jp: 'bakarashii', pl: 'absurdalny', rz: 'absurd' },
-    { jp: 'orokana', pl: 'głupiutki', rz: 'głupotka' },
-    { jp: 'jouhinna', pl: 'elegancki', rz: 'elegancja' },
-    { jp: 'kashikoi', pl: 'mądry', rz: 'mądrość' },
-    { jp: 'bimyouna', pl: 'delikatny', rz: 'delikatność' },
-    { jp: 'futoi', pl: 'gruby', rz: 'grubość' },
-    { jp: 'semai', pl: 'wąski', rz: 'wąskość' },
-    { jp: 'isamashii', pl: 'odważny', rz: 'odwaga' },
-    { jp: 'anzenna', pl: 'bezpieczny', rz: 'bezpieczeństwo' },
-    { jp: 'abunai', pl: 'niebezpieczny', rz: 'niebezpieczeństwo' },
-    { jp: 'benrina', pl: 'wygodny', rz: 'wygoda' },
-    { jp: 'se-ga takai', pl: 'wzrostem wysoki', rz: 'wysokość wzrostu' },
-    { jp: 'takai', pl: 'wysoki', rz: 'wysykość' },
-    { jp: 'takai', pl: 'drogi', rz: 'drogość' },
-    { jp: 'se-ga hikui', pl: 'wzrostem niski', rz: 'niskość wzrostu' },
-    { jp: 'hikui', pl: 'niski', rz: 'niskość' },
-    { jp: 'kireina', pl: 'fizycznie piękny', rz: 'piękność fizyczna' },
-    { jp: 'utsukushii', pl: 'wewnętrznie i fizycznie piękny', rz: 'piękność wew i zew' },
-    { jp: 'minikui', pl: 'brzydki', rz: 'brzydkość' },
-    { jp: 'warui', pl: 'zły', rz: 'złość' },
-    { jp: 'yasui', pl: 'tani', rz: 'taniość' },
-    { jp: 'ookii', pl: 'duży', rz: 'wielkość' },
-    { jp: 'chiisai', pl: 'mały', rz: 'małość' },
-    { jp: 'atsui', pl: 'gorący', rz: 'gorącość' },
-    { jp: 'chikai', pl: 'bliski', rz: 'bliskość' },
-    { jp: 'yuumeina', pl: 'słynny', rz: 'słynność' },
-    { jp: 'yuumeina', pl: 'sławny', rz: 'sławność' },
-    { jp: 'tooi', pl: 'odległy', rz: 'odległość' },
-    { jp: 'hayai', pl: 'szybki', rz: 'szybkość' },
-    { jp: 'osoi', pl: 'powolny', rz: 'powolność' },
-    { jp: 'atatakai', pl: 'w dotyku ciepły', rz: 'ciepłość' },
-    { jp: 'suzushii', pl: 'w dotyku zimny', rz: 'zimność' },
-    { jp: 'omoi', pl: 'ciężki', rz: 'ciężar' },
-    { jp: 'karui', pl: 'lekki', rz: 'lekkość' },
-    { jp: 'nagai', pl: 'długi', rz: 'długość' },
-    { jp: 'mijikai', pl: 'krótki', rz: 'krótkość' },
-    { jp: 'amai', pl: 'w smaku słodki', rz: 'skodycz smaku' },
-    { jp: 'karai', pl: 'w smaku ostry', rz: 'ostrość smaku' },
-    { jp: 'isogashii', pl: 'zajęty', rz: 'zajętość' },
-    { jp: 'himana', pl: 'w sensie czasu wolny', rz: 'wolność czasu' },
-]
+export const adjectives:Adjective = {
+    all: [
+        { jp: 'shiroi', pl: 'biały', rz: 'biel' },
+        { jp: 'aoi', pl: 'niebieski', rz: 'niebieskość' },
+        { jp: 'akai', pl: 'czerwony', rz: 'czerwień' },
+        { jp: 'sukina', pl: 'ulubiony', rz: 'lubienie' },
+        { jp: 'kiraina', pl: 'nielubiany', rz: 'nielubienie' },
+        { jp: 'hiroi', pl: 'szeroki', rz: 'szerokość' },
+        { jp: 'kudaranai', pl: 'trywialny', rz: 'trywialność' },
+        { jp: 'bakarashii', pl: 'absurdalny', rz: 'absurd' },
+        { jp: 'orokana', pl: 'głupiutki', rz: 'głupotka' },
+        { jp: 'jouhinna', pl: 'elegancki', rz: 'elegancja' },
+        { jp: 'kashikoi', pl: 'mądry', rz: 'mądrość' },
+        { jp: 'bimyouna', pl: 'delikatny', rz: 'delikatność' },
+        { jp: 'futoi', pl: 'gruby', rz: 'grubość' },
+        { jp: 'semai', pl: 'wąski', rz: 'wąskość' },
+        { jp: 'isamashii', pl: 'odważny', rz: 'odwaga' },
+        { jp: 'anzenna', pl: 'bezpieczny', rz: 'bezpieczeństwo' },
+        { jp: 'abunai', pl: 'niebezpieczny', rz: 'niebezpieczeństwo' },
+        { jp: 'benrina', pl: 'wygodny', rz: 'wygoda' },
+        { jp: 'se-ga takai', pl: 'wzrostem wysoki', rz: 'wysokość wzrostu' },
+        { jp: 'takai', pl: 'wysoki', rz: 'wysykość' },
+        { jp: 'takai', pl: 'drogi', rz: 'drogość' },
+        { jp: 'se-ga hikui', pl: 'wzrostem niski', rz: 'niskość wzrostu' },
+        { jp: 'hikui', pl: 'niski', rz: 'niskość' },
+        { jp: 'kireina', pl: 'fizycznie piękny', rz: 'piękność fizyczna' },
+        { jp: 'utsukushii', pl: 'wewnętrznie i fizycznie piękny', rz: 'piękność wew i zew' },
+        { jp: 'minikui', pl: 'brzydki', rz: 'brzydkość' },
+        { jp: 'warui', pl: 'zły', rz: 'złość' },
+        { jp: 'yasui', pl: 'tani', rz: 'taniość' },
+        { jp: 'ookii', pl: 'duży', rz: 'wielkość' },
+        { jp: 'chiisai', pl: 'mały', rz: 'małość' },
+        { jp: 'atsui', pl: 'gorący', rz: 'gorącość' },
+        { jp: 'chikai', pl: 'bliski', rz: 'bliskość' },
+        { jp: 'yuumeina', pl: 'słynny', rz: 'słynność' },
+        { jp: 'yuumeina', pl: 'sławny', rz: 'sławność' },
+        { jp: 'tooi', pl: 'odległy', rz: 'odległość' },
+        { jp: 'hayai', pl: 'szybki', rz: 'szybkość' },
+        { jp: 'osoi', pl: 'powolny', rz: 'powolność' },
+        { jp: 'atatakai', pl: 'w dotyku ciepły', rz: 'ciepłość' },
+        { jp: 'suzushii', pl: 'w dotyku zimny', rz: 'zimność' },
+        { jp: 'omoi', pl: 'ciężki', rz: 'ciężar' },
+        { jp: 'karui', pl: 'lekki', rz: 'lekkość' },
+        { jp: 'nagai', pl: 'długi', rz: 'długość' },
+        { jp: 'mijikai', pl: 'krótki', rz: 'krótkość' },
+        { jp: 'amai', pl: 'w smaku słodki', rz: 'skodycz smaku' },
+        { jp: 'karai', pl: 'w smaku ostry', rz: 'ostrość smaku' },
+        { jp: 'isogashii', pl: 'zajęty', rz: 'zajętość' },
+        { jp: 'himana', pl: 'w sensie czasu wolny', rz: 'wolność czasu' },
+    ]
+}
 export function declineAdjective(item: any, tense: string, negation: boolean, formal = true) {
 
     const isIadj = (item.jp.match(/na$/)) ? false : true
@@ -688,7 +691,16 @@ export function verbFormJp(verb: string, form: string): string {
         }
     }
 
-
+    function can(verb:string){ //can
+        if (verb==='suru') return 'dekiru'
+        if (verb==='kuru') return 'korareru'
+        if (isIchidandoshi){
+            return verb.slice(0,-2)+ 'rareru'
+        } else{
+            if (verb.match(/tsu$/)) return verb.slice(0,-2)+'eru'
+            return verb.slice(0,-1) +'eru'
+        }
+    }
 
     function extractTeTaSuffix(verb: string) {
         if (verb === 'iru') return 't' //bo go wezmie jako ichidandoshi
@@ -717,7 +729,7 @@ export function verbFormJp(verb: string, form: string): string {
     function extractNaiSuffix(verb: string) {
         if (verb === 'iru') return 'anai' //bo go wezmie jako ichidandoshi
         if (verb === 'iku') return 'anai' //jako godandoshi
-        if (verb === 'kuru') return 'konai' 
+        if (verb === 'kuru') return 'konai'
         if (verb.match(/suru$/)) return 'nai'//jako godandoshi
 
         if (isIchidandoshi) {
@@ -728,7 +740,7 @@ export function verbFormJp(verb: string, form: string): string {
                 case 'mu': //nomu
                 case 'nu': //shinu
                 case 'ku': //kiku
-                case 'su': 
+                case 'su':
                 case 'tsu'://mitsu  //<--tu jest tsu a tam slice 2 on nigdy tunie wejdzie! i w teta tez
                 case 'ru': return 'anai'//tsukuru
                 case 'uu': return //suu 
@@ -757,11 +769,13 @@ export function verbFormJp(verb: string, form: string): string {
         if (verb === 'kuru') return '' //tu puste, a w odmianie cale
         if (verb === 'iru') return 'ir' //wzor pasuje, ale itnie 2 literu!
         if (verb === 'iku') return 'ik' //jw
-        return isIchidandoshi ? verb.slice(0, -2) : verb.slice(0,-1).replace(/ts$/,'t')
+        return isIchidandoshi ? verb.slice(0, -2) : verb.slice(0, -1).replace(/ts$/, 't')
     }
 
 
     switch (form) {
+        case jpVerbFormsPool.eru:
+            return can(verb)
         case jpVerbFormsPool.te:
             return extractTeTaBase(verb) + extractTeTaSuffix(verb) + 'e'
         case jpVerbFormsPool.ta:
@@ -789,7 +803,7 @@ export function verbFormJp(verb: string, form: string): string {
             return extractBase(verb) + extractNaiSuffix(verb)
         case jpVerbFormsPool.naide:
             //const end = verb.match(/au$/) ? verb.slice(0, -1) + 'wanai' : verb.slice(0, -2) + 'anai'
-            return extractBase(verb) + extractNaiSuffix(verb)+'de'
+            return extractBase(verb) + extractNaiSuffix(verb) + 'de'
         case jpVerbFormsPool.masuBase:
             return extractMasuBase(verb)
         default:
@@ -826,7 +840,8 @@ export function teForm_deprecated(verb: string, form: string): string {
     }
 }
 export const jpVerbFormsPool = {
-    naide:'naide',
+    eru:'eru',
+    naide: 'naide',
     te: 'te',
     ta: 'ta',
     katta: 'katta',
@@ -1593,13 +1608,13 @@ export const nouns: Noun = {
         { jp: 'kumori', pl: caseDeclination('zachmurzenie'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
         { jp: 'kaze', pl: caseDeclination('wiatr'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['weather'] },
     ],
-    seasons:[
-        { jp: "fuyu", pl: caseDeclination('zima'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','seasons'] },
-        { jp: "haru", pl: caseDeclination('wiosna'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','seasons'] },
-        { jp: "aki", pl: caseDeclination('jesień'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','seasons'] },
-        { jp: "natsu", pl: caseDeclination('lato'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','seasons'] },
-        { jp: "IISUTAA", pl: caseDeclination('Wielkanoc'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','holidays'] },
-        { jp: "KURISUMASU", pl: caseDeclination('Boże Narodzenie'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events','holidays'] },
+    seasons: [
+        { jp: "fuyu", pl: caseDeclination('zima'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events', 'seasons'] },
+        { jp: "haru", pl: caseDeclination('wiosna'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events', 'seasons'] },
+        { jp: "aki", pl: caseDeclination('jesień'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events', 'seasons'] },
+        { jp: "natsu", pl: caseDeclination('lato'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events', 'seasons'] },
+        { jp: "IISUTAA", pl: caseDeclination('Wielkanoc'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events', 'holidays'] },
+        { jp: "KURISUMASU", pl: caseDeclination('Boże Narodzenie'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events', 'holidays'] },
     ],
     month: [
         { jp: 'ichigatsu', pl: caseDeclination('styczeń'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['month'] },
@@ -1734,10 +1749,10 @@ export const nouns: Noun = {
         { jp: "biyoushi", pl: caseDeclination('fryzjer'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
         { jp: "ten'in", pl: caseDeclination('sprzedawca'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
     ],
-    events:[
+    events: [
         { jp: "PAATII", pl: caseDeclination('przyjęcie'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events'] },
         { jp: "yasumi", pl: caseDeclination('wakacje'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events'] },
-       ],
+    ],
     items: [
         { jp: "tegami", pl: caseDeclination('list'), counter: 'mai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "zasshi", pl: caseDeclination('czasopismo'), counter: 'satsu', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },

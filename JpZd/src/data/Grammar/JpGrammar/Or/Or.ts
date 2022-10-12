@@ -1,13 +1,16 @@
-import { nouns, nounsKeyMatrix, verbs, verbsKeyMatrix } from './../../../dictionary';
+import { oVerbFilter } from './../../../../utils/oVerbFilter';
+import { VerbStructure } from './../../../../types/Verb.model';
+import { NounStructure } from './../../../../types/Noun.model';
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 
-export function or(theme:string):DataType{
-    const week=rand(pickTheme('week'))
-    const who=rand(pickTheme(theme)) 
-    const item=rand(pickTheme('items'))
-    const verb=rand(verbs.actions.filter((el)=>{return el.jp.particle.includes('o')}))
+export function or(theme:Theme):DataType{
+    const week:NounStructure=rand(pickTheme('n','week'))
+    const who:NounStructure=rand(pickTheme('n',theme)) 
+    const item:NounStructure=rand(pickTheme('n','items'))
+    const verb:VerbStructure=rand(pickTheme('v','actions').filter(oVerbFilter))
     const hNumber1=Math.ceil( Math.random()*12).toString()
     const hNumber2=Math.ceil( Math.random()*12).toString()
 

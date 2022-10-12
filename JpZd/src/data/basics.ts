@@ -1,7 +1,10 @@
+import { VerbStructure } from './../types/Verb.model';
+import { NounStructure } from './../types/Noun.model';
+import { Theme } from './../types/Theme.model';
 import { nouns, adjectives, declineAdjective, verbs, verbFormJp, jpVerbFormsPool } from './dictionary';
 import DataType from "../types/DataType.model"
 import rand from "../utils/randomArrayElement"
-import { pickVerb } from '../utils/pickTheme';
+import { pickTheme } from '../utils/pickTheme';
 
 const place=[
     {jp:'koko',pl:'tu (obok mnie)'},
@@ -9,8 +12,8 @@ const place=[
     {jp:'asoko',pl:'tam'},
 ]
 
-export function where(theme:string):DataType{
-    const who=rand(nouns[theme])
+export function where(theme:Theme):DataType{
+    const who=rand(pickTheme('n',theme))
     const dayOfWeek = rand(nouns.week)
     const verb=rand(verbs.move)
     const where=rand(place)
@@ -19,8 +22,8 @@ export function where(theme:string):DataType{
         meaning:'Gdzie '+verb.pl.os3+' '+who.pl.M+' w '+dayOfWeek.pl.B+'? '+verb.pl.os3+' '+where.pl
     }
 }
-export function withWho(theme:string):DataType{
-    const who=rand(nouns[theme])
+export function withWho(theme:Theme):DataType{
+    const who=rand(pickTheme('n',theme))
     const dayOfWeek = rand(nouns.week)
     const verb=rand(verbs.move)
     const where=rand(place)
@@ -29,29 +32,29 @@ export function withWho(theme:string):DataType{
         meaning:'Z kim '+verb.pl.os3+' '+who.pl.M+' w '+dayOfWeek.pl.B+'? '+verb.pl.os3+' '+where.pl
     }
 }
-export function when(theme:string):DataType{
-    const who=rand(nouns[theme])
-    const verb=rand(pickVerb('actions'))
+export function when(theme:Theme):DataType{
+    const who=rand(pickTheme('n',theme))
+    const verb=rand(pickTheme('v','actions'))
     return{
         romaji:'Itsu '+who.jp+'-wa '+verbFormJp( verb.jp.dictionaryForm,'masu')+'ka?',//tu mozna dodac date np 13 marca o 14:00
         meaning:'Kiedy '+who.pl.M+' '+verb.pl.os3+'?'
     }
 }
-export function what(theme:string):DataType{
+export function what(theme:Theme):DataType{
     const filteredVerbs=verbs.actions.filter(el=>{
         return el.jp.particle.includes('o')
     })
     console.log(verbs.actions,filteredVerbs)
-    const who=rand(nouns[theme])
+    const who=rand(pickTheme('n',theme))
     const verb=rand(filteredVerbs)
     return{
         romaji:'Nani-o '+who.jp+'-wa '+verbFormJp( verb.jp.dictionaryForm,'masu')+'ka?',//tu mozna dodac date np 13 marca o 14:00
         meaning:'co '+verb.pl.os3+' '+who.pl.M+'?'
     }
 }
-export function genericPronoun(theme:string):DataType{
-    const what = rand(nouns[theme])
-    const adj = rand(adjectives)
+export function genericPronoun(theme:Theme):DataType{
+    const what = rand(pickTheme('n',theme))
+    const adj = rand(pickTheme('a','all'))
     //uwaga tu z adjectivami - nie wiem jak uzyc z na-przym, czy odcinam czy co?
     const jaki=(()=>{
         switch(what.plGender){
@@ -68,12 +71,12 @@ export function genericPronoun(theme:string):DataType{
         meaning:jaki+' '+what.pl.B+' kupiłeś? Kupiłem '+adj.pl
     }
 }
-export function polite(theme: string): DataType {
+export function polite(theme: Theme): DataType {
 
     const tense = Math.random() > 0.5 ? 'present' : 'past'
     const negation = Math.random() > 0.5 ? true : false
-    const obj = rand(nouns[theme])
-    const verb = rand(verbs.actions)
+    const obj:NounStructure = rand(pickTheme('n',theme))
+    const verb:VerbStructure = rand(verbs.actions)
     const form = (() => {
         if(tense==='present'){
             if(negation){
@@ -97,9 +100,9 @@ export function polite(theme: string): DataType {
         meaning: obj.pl.M+ ' '+nie+' ' +verb.pl.os3+pastPl
     }
 }
-export function chigaimasu(theme: string): DataType { //chigaimasu
-    const a = rand(nouns[theme])
-    const b = rand(nouns[theme])
+export function chigaimasu(theme: Theme): DataType { //chigaimasu
+    const a = rand(pickTheme('n',theme))
+    const b = rand(pickTheme('n',theme))
     const neg = Math.random() > 0.5 ? false : true
     const answer = neg ? { jp: 'Iee, chigaimasu', pl: 'Nie, mylisz się' } : { jp: 'Hai, sou desu.', pl: 'Tak, zgadza się' }
     return {
@@ -107,7 +110,7 @@ export function chigaimasu(theme: string): DataType { //chigaimasu
         meaning: 'Czy ' + a.pl.M + ' jest ' + b.pl.N + '? ' + answer.pl
     }
 }
-export function basics(theme: string): DataType {
+export function basics(theme: Theme): DataType {
     const no = [
         { jp: 'kono', pl: 'ten (koło mnie)' },
         { jp: 'sono', pl: 'ten (koło ciebie)' },
@@ -174,7 +177,7 @@ export function basics(theme: string): DataType {
         meaning: kore.pl + ' jest ' + noun.pl.M + '. ' + setKonoGender(kono.pl, noun.plGender) + ' ' + noun.pl.M + ' ' + neg + setBeGenderTense(tense, noun.plGender) + ' ' + adj.pl
     }
 }
-export function which(theme: string): DataType {
+export function which(theme: Theme): DataType {
 
     const what = rand(nouns['animals'])
 
@@ -183,7 +186,7 @@ export function which(theme: string): DataType {
         meaning: 'Który/a/e to ' + what.pl.M
     }
 }
-export function whichOfAny(theme: string): DataType {
+export function whichOfAny(theme: Theme): DataType {
 
     const animal = rand(nouns.animals)
     const profession = rand(nouns.professions)

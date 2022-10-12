@@ -1,3 +1,4 @@
+import { Theme } from './../types/Theme.model';
 import DataType from '../types/DataType.model';
 import { pickTheme } from '../utils/pickTheme';
 import rand from '../utils/randomArrayElement';
@@ -15,13 +16,13 @@ let whatPool = [
     { jp: 'e-o kaku', pl: 'rysowaniu obrazów' },
 ]
 
-export function likeDislike(theme: string): DataType {
+export function likeDislike(theme: Theme): DataType {
     const verbList = [
         { jp: 'suki', pl: 'lubi' },
         { jp: 'kirai', pl: 'nie lubi' },
     ]
-    const obj1 = rand(pickTheme(theme))
-    const obj2 = rand(pickTheme(theme))
+    const obj1 = rand(pickTheme('n',theme))
+    const obj2 = rand(pickTheme('n',theme))
     const verb = rand(verbList)
 
     return {
@@ -30,7 +31,7 @@ export function likeDislike(theme: string): DataType {
     }
 }
 
-export function goodBadAt(theme: string): DataType {
+export function goodBadAt(theme: Theme): DataType {
     const verbList = [
         { jp: 'jouzu', pl: 'dobry' },
         { jp: 'heta', pl: 'słaby' },
@@ -46,7 +47,7 @@ export function goodBadAt(theme: string): DataType {
 
     }
 
-    const obj1 = rand(pickTheme(theme))
+    const obj1 = rand(pickTheme('n',theme))
     const what = rand(whatPool)
     const verb = rand(verbList)
 
@@ -62,7 +63,7 @@ export function goodBadAt(theme: string): DataType {
 
 //wakaru
 
-export function needWantHave(theme: string): DataType {
+export function needWantHave(theme: Theme): DataType {
     const verbList = [
         { jp: 'irimasu', pl: 'potrzebuje' },
         { jp: 'hoshii', pl: 'chce' },
@@ -71,7 +72,7 @@ export function needWantHave(theme: string): DataType {
 
 
 
-    let randAnimal = rand(pickTheme(theme))
+    let randAnimal = rand(pickTheme('n',theme))
     const whatWantPool = [
         { jp: 'neko', pl: ['kot', 'kotem'] },
         { jp: 'PIANO', pl: { potrzebuje: 'pianina', chce: 'pianino', ma: 'pianino' } },
@@ -108,11 +109,11 @@ export function needWantHave(theme: string): DataType {
     ]
 
     for (let i = 0; i < 9; i++) {
-        randAnimal = rand(pickTheme(theme))
+        randAnimal = rand(pickTheme('n',theme))
         whatWantPool.push({ jp: randAnimal.jp, pl: { potrzebuje: randAnimal.pl.D, chce: randAnimal.pl.B, ma: randAnimal.pl.B } },)
     }
 
-    const obj1 = rand(pickTheme(theme))
+    const obj1 = rand(pickTheme('n',theme))
     const what = rand(whatWantPool)
     const verb = rand(verbList)
 
@@ -122,7 +123,7 @@ export function needWantHave(theme: string): DataType {
     }
 }
 
-export function can(theme: string): DataType {
+export function can(theme: Theme): DataType {
 
     const dekiruPool = [
         { jp: 'dekimasu', pl: 'potrafi [grz.]' },
@@ -145,7 +146,7 @@ export function can(theme: string): DataType {
 
     ]
 
-    const obj1 = rand(pickTheme(theme))
+    const obj1 = rand(pickTheme('n',theme))
     const what = rand(whatCanPool)
     const verb = rand(dekiruPool)
 

@@ -1,3 +1,4 @@
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
 import { adj } from "./adj";
@@ -10,7 +11,7 @@ import { wakaru } from "./wakaru";
 import { when } from "./when";
 import { withSb } from "./withSb";
 
-export function but(theme: string): DataType {
+export function but(theme: Theme): DataType {
     const sentence:DataType = rand([
         adj(theme),
         aru(theme),

@@ -1,8 +1,8 @@
+import { pickTheme } from "../../../../utils/pickTheme"
 import rand from "../../../../utils/randomArrayElement"
-import { time } from "../../../dictionary"
 
 export function daysOfMonth() {
-    const day = rand(time.daysOfMonth)
+    const day = rand(pickTheme('t','daysOfMonth'))
     return{
         romaji: day.jp,
         meaning: day.pl

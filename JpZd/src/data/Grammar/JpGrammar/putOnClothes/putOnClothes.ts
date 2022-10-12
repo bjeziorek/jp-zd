@@ -1,13 +1,13 @@
+import { Theme } from './../../../../types/Theme.model';
 import { Collocations } from '../../../../types/Noun.model';
-import { nouns } from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 
-export function putOnClothes(theme:string):DataType{
+export function putOnClothes(theme:Theme):DataType{
     
-    const who=rand(pickTheme(theme))
-    const what=rand(nouns.clothes)
+    const who=rand(pickTheme('n',theme))
+    const what=rand(pickTheme('n','clothes'))
     let verbJp=(()=>{
         let list=''
         const filteredIn = what.collocations.filter((el:Collocations)=>el.tags?.includes('in'))

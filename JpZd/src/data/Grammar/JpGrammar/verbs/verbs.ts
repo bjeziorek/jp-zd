@@ -1,10 +1,11 @@
+import { Theme } from './../../../../types/Theme.model';
 import { jpVerbFormsPool, verbs as vrb } from './../../../dictionary';
 import { verbFormJp } from "../../../dictionary";
 import DataType from '../../../../types/DataType.model';
 import rand from '../../../../utils/randomArrayElement';
 
 
-export function verbs2(theme:string): DataType {
+export function verbs2(theme:Theme): DataType {
     let verb =rand( vrb.actions)
     let v =verb.jp.dictionaryForm
 
@@ -45,6 +46,8 @@ export function verbs2(theme:string): DataType {
    // const p =rand( ['polite', 'simple'])as string
    // const t =rand( ['past', 'present', 'future'])
    // const n =rand(['positive', 'negative'])
+
+   //zamienic to z powrotem!!!
 
     const p ='simple'
     const t = 'present'

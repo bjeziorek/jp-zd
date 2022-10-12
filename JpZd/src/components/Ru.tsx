@@ -33,6 +33,7 @@ import {
 import { chigaimasu, basics, which, whichOfAny, polite } from "../data/basics";
 import { daysOfMonth } from "../data/Grammar/JpGrammar/calendar/daysOfMonth";
 import { years } from "../data/Grammar/JpGrammar/calendar/years";
+import { Theme } from "../types/Theme.model";
 
 interface ContainerProps {
   name: string;
@@ -40,7 +41,7 @@ interface ContainerProps {
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   const [data, setData] = useState<DataType>(days());
-  const [theme, setTheme] = useState<string>("professions"); //potem podmieniać na przycisku
+  const [theme, setTheme] = useState<Theme>("professions"); //potem podmieniać na przycisku
   const [dataKanji, setDataKanji] = useState<Kanji>(kanjiDict("kwiat"));
   const [showToggleRomaji, setShowToggleRomaji] = useState("show");
   function romajiVisibility() {

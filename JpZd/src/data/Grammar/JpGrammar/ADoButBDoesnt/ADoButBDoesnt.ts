@@ -1,15 +1,15 @@
-import { verbFormJp, nouns, jpVerbFormsPool } from './../../../dictionary';
-import { verbs } from '../../../dictionary';
+import { oVerbFilter } from '../../../../utils/oVerbFilter';
+import { Theme } from './../../../../types/Theme.model';
+import { verbFormJp, jpVerbFormsPool } from './../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 
-export function ADoButBDoesnt(theme:string):DataType{
-    const filteredVerbs=verbs.actions.filter(el=>el.jp.particle.includes('o'))
-    const verb1 = rand(filteredVerbs)
-    const item = rand(nouns.items)
-    const item2 = rand(nouns.items)
-    const who1 = rand(pickTheme(theme))
+export function ADoButBDoesnt(theme:Theme):DataType{
+    const verb1 = rand(pickTheme('v','actions').filter(oVerbFilter))
+    const item = rand(pickTheme('n','items'))
+    const item2 = rand(pickTheme('n','items'))
+    const who1 = rand(pickTheme('n',theme))
     
     return{
         romaji:who1.jp+'-wa '+item.jp+'-wa '+verbFormJp( verb1.jp.dictionaryForm,jpVerbFormsPool.masu)+'-ga '+item2.jp+'-wa '+verbFormJp( verb1.jp.dictionaryForm,jpVerbFormsPool.masen),

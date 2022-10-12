@@ -1,10 +1,11 @@
 import DataType from "../../../../types/DataType.model";
+import { Theme } from "../../../../types/Theme.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 
-export function AIsButBIsnt(theme:string):DataType{
-    const who1 = rand(pickTheme(theme))
-    const who2 = rand(pickTheme(theme))
+export function AIsButBIsnt(theme:Theme):DataType{
+    const who1 = rand(pickTheme('n',theme))
+    const who2 = rand(pickTheme('n',theme))
     const is1 = who1.isAlive?'imasu':'arimasu'
     const is2 = who2.isAlive?'imasen':'arimasen'
     return{

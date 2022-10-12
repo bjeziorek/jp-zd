@@ -1,9 +1,10 @@
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
-import { pickVerb } from "../../../../utils/pickTheme";
+import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 
-export function tellMe(theme:string):DataType{
-    const verb = rand(pickVerb('actions'))
+export function tellMe(theme:Theme):DataType{
+    const verb = rand(pickTheme('v','actions'))
 
     return{
         romaji:'Dare-ga '+verb.jp.dictionaryForm+'-ka oshiete kudasai',

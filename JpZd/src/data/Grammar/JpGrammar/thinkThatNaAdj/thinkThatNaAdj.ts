@@ -1,10 +1,14 @@
-import { nouns, adjectives} from '../../../dictionary';
+import { AdjectiveStructure } from './../../../../types/Adjective.model';
+import { NounStructure } from './../../../../types/Noun.model';
+import { naAdjFilter } from './../../../../utils/filters/naAdjFilter';
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
+import { pickTheme } from '../../../../utils/pickTheme';
 
-export function thinkThatNaAdj(theme:string):DataType{
-    const what = rand(nouns.items)
-    const naAdj = rand(adjectives.filter(el=>{return el.jp.match(/na$/)}))
+export function thinkThatNaAdj(theme:Theme):DataType{
+    const what:NounStructure = rand(pickTheme('n','items'))
+    const naAdj:AdjectiveStructure = rand(pickTheme('a','all').filter(naAdjFilter))
 
     return{
         romaji:what.jp+' '+naAdj.jp.replace(/na$/,'')+'-da to omoimasu',

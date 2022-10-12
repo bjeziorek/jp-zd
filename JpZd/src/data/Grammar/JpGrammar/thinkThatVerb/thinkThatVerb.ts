@@ -1,13 +1,12 @@
-import { verbs } from './../../../dictionary';
-import { time} from '../../../dictionary';
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
 import { pickTheme } from '../../../../utils/pickTheme';
 
-export function thinkThatVerb(theme:string):DataType{
-    const when = rand(time.future)
-    const verb=rand(verbs.actions)
-    const who = rand(pickTheme(theme))
+export function thinkThatVerb(theme:Theme):DataType{
+    const when = rand(pickTheme('t','future'))
+    const verb=rand(pickTheme('v','actions'))
+    const who = rand(pickTheme('n',theme))
            
     return{
         romaji:who.jp+'-wa '+when.jp+' '+verb.jp.dictionaryForm+'-to omoimasu',

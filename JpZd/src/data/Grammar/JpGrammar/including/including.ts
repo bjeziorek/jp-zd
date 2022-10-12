@@ -1,10 +1,12 @@
+import { NounStructure } from './../../../../types/Noun.model';
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
 import VerbStructure from "../../../../types/Verb.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 import { verbs } from "../../../dictionary";
 
-export function including(theme: string): DataType {
+export function including(theme: Theme): DataType {
     const verbPool = (() => {
         let pool: any =[]
         for (let key in verbs) {
@@ -29,9 +31,9 @@ export function including(theme: string): DataType {
 
     const verb =rand (verbPool.flat())
     console.log(verbPool,verb)
-    const el1=rand(pickTheme(theme))
-    const el2=rand(pickTheme(theme))
-    const el3=rand(pickTheme(theme))
+    const el1:NounStructure=rand(pickTheme('n',theme))
+    const el2:NounStructure=rand(pickTheme('n',theme))
+    const el3:NounStructure=rand(pickTheme('n',theme))
     return {
         romaji: el1.jp+'-ya '+el2.jp+'-ya '+el3.jp+'-nado-o '+verb.jp.dictionaryForm,
         meaning: verb.pl.os3+' między innymi '+el1.pl.B+', '+el2.pl.B+' i '+el3.pl.B

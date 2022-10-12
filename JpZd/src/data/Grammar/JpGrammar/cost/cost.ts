@@ -1,11 +1,13 @@
+import { Theme } from './../../../../types/Theme.model';
+import { NounStructure } from './../../../../types/Noun.model';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 import { convertNumberToText } from "../../../numbers";
 
-export function cost(theme:string):DataType{
-    const item1=rand(pickTheme(theme))
-    const item2=rand(pickTheme(theme))
+export function cost(theme:Theme):DataType{
+    const item1:NounStructure=rand(pickTheme('n',theme))
+    const item2:NounStructure=rand(pickTheme('n',theme))
     const n=Math.ceil(Math.random()*10)
     const en=Math.ceil(Math.random()*10000000)
     return{

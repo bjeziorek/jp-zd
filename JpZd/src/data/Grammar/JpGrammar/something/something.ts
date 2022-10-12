@@ -1,13 +1,17 @@
+import { oVerbFilter } from './../../../../utils/oVerbFilter';
+import { VerbStructure } from './../../../../types/Verb.model';
+import { NounStructure } from './../../../../types/Noun.model';
+import { Theme } from './../../../../types/Theme.model';
 import { jpVerbFormsPool, verbFormJp, verbs } from './../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
 import { pickTheme } from '../../../../utils/pickTheme';
 
-export function something(theme: string): DataType {
+export function something(theme: Theme): DataType {
 
-    const who = rand(pickTheme(theme))
-    const where = rand(pickTheme('places'))
-    const oVerb = rand(verbs.actions.filter(el => { return el.jp.particle.includes('o') }))
+    const who:NounStructure = rand(pickTheme('n',theme))
+    const where :NounStructure= rand(pickTheme('n','places'))
+    const oVerb :VerbStructure= rand(pickTheme('v','actions').filter(oVerbFilter))
     const answer = Math.random() > 0.5
         ? {
             jp: 'Hai, nan-de-mo ' + verbFormJp(oVerb.jp.dictionaryForm, jpVerbFormsPool.masu) + '.',

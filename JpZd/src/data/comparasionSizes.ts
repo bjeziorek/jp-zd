@@ -1,10 +1,11 @@
+import { Theme } from './../types/Theme.model';
 import { Case } from "../types/Case.model";
 import DataType from "../types/DataType.model";
 import { pickTheme } from "../utils/pickTheme";
 import rand from "../utils/randomArrayElement";
 import { nouns } from "./dictionary";
 
-export function comparasionSizes(theme:string) {
+export function comparasionSizes(theme:Theme) {
   
 }
 
@@ -95,14 +96,14 @@ function listCases(){
     })
 }
 
-export function comparasion(theme:string):DataType{// yori
+export function comparasion(theme:Theme):DataType{// yori
     
    // listCases()
     
     //a-wa b-yori adj desu
 
-    const obj1 = rand(pickTheme(theme))
-    const obj2 = rand(pickTheme(theme))
+    const obj1 = rand(pickTheme('n',theme))
+    const obj2 = rand(pickTheme('n',theme))
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
@@ -114,11 +115,11 @@ export function comparasion(theme:string):DataType{// yori
       }
 }
 
-export function more(theme:string):DataType{ //hou-ga 
+export function more(theme:Theme):DataType{ //hou-ga 
 
     //a-no ho-ga adj desu
 
-    const obj1 = rand(pickTheme(theme))
+    const obj1 = rand(pickTheme('n',theme))
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
@@ -130,12 +131,12 @@ return{
       }
 }
 
-export function whichOf(theme:string):DataType{ //dochira-ga
+export function whichOf(theme:Theme):DataType{ //dochira-ga
 
     //a-to b-to dochira-ga adj desuka
 
-    const obj1 = rand(pickTheme(theme))
-    const obj2 = rand(pickTheme(theme))
+    const obj1 = rand(pickTheme('n',theme))
+    const obj2 = rand(pickTheme('n',theme))
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'
@@ -146,13 +147,13 @@ export function whichOf(theme:string):DataType{ //dochira-ga
       }
 }
 
-export function theMost(theme:string):DataType{ //no naka de ichiban
+export function theMost(theme:Theme):DataType{ //no naka de ichiban
 
     //a-to b-to c-no naka-de a/b/c-ga ichiban adj desuka
 
-    const obj1 = rand(pickTheme(theme))
-    const obj2 = rand(pickTheme(theme))
-    const obj3 = rand(pickTheme(theme))
+    const obj1 = rand(pickTheme('n',theme))
+    const obj2 = rand(pickTheme('n',theme))
+    const obj3 = rand(pickTheme('n',theme))
     const adj = rand(adjectivesPool)
 
     const jest_ma = (adj.jp==='hima')?'ma':'jest'

@@ -1,12 +1,12 @@
-import { adjectives, verbs } from '../../../dictionary';
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
 import { things } from './things';
 import { actions } from './actions';
 
-export function thingILikeDislike(theme: string): DataType {
-    const adj = rand(adjectives.filter(el => { return el.jp.match(/sukina|kiraina/) }))
+export function thingILikeDislike(theme: Theme): DataType {
+    const adj = rand(pickTheme('a','all').filter(el => { return el.jp.match(/sukina|kiraina/) }))
     const monoKoto = Math.random() > 0.5 ? { jp: 'mono', pl: 'rzecz' } : { jp: 'koto', pl: 'czynność' }
     const what = (() => {
         switch (monoKoto.jp) {

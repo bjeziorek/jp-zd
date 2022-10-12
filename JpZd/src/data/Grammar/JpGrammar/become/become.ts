@@ -1,3 +1,5 @@
+import { NounStructure } from './../../../../types/Noun.model';
+import { Theme } from './../../../../types/Theme.model';
 import { adjectives } from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
@@ -6,8 +8,8 @@ import { iAdj } from './iAdj';
 import { naAdj } from './naAdj';
 import { noun } from './noun';
 
-export function become(theme:string):DataType{
-    const what = rand(pickTheme(theme))
+export function become(theme:Theme):DataType{
+    const what:NounStructure = rand(pickTheme('n',theme))
     const adj=(()=>{
         const r=Math.random()
         if(r<0.33){

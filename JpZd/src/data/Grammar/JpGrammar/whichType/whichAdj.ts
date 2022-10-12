@@ -1,16 +1,15 @@
-import { adjectives } from './../../../dictionary';
+import { Theme } from './../../../../types/Theme.model';
 import { AdjectiveStructure } from './../../../../types/Adjective.model';
 import { VerbStructure } from '../../../../types/Verb.model';
 import { NounStructure } from '../../../../types/Noun.model';
 import DataType from '../../../../types/DataType.model';
 import { pickTheme } from '../../../../utils/pickTheme';
 import rand from '../../../../utils/randomArrayElement';
-import { verbs } from '../../../dictionary';
 
-export function whichAdj(theme:string):DataType{
-    const who:NounStructure=rand(pickTheme(theme))
-    const adj:AdjectiveStructure=rand(adjectives)
-    const verb:VerbStructure=rand(verbs.move)
+export function whichAdj(theme:Theme):DataType{
+    const who:NounStructure=rand(pickTheme('n',theme))
+    const adj:AdjectiveStructure=rand( pickTheme('a', 'all'))
+    const verb:VerbStructure=rand(pickTheme('v','move'))
 
     return {
         romaji:adj.jp+' toki '+who.jp+'-wa '+verb.jp.dictionaryForm+'.',

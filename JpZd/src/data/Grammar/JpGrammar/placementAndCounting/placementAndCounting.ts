@@ -1,17 +1,24 @@
-import { nouns, numbers } from '../../../dictionary';
+import { PrepositionStructure } from './../../../../types/Preposition.model';
+import { NounStructure } from './../../../../types/Noun.model';
+import { Theme } from './../../../../types/Theme.model';
+import { numbers } from '../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
 import { prepositions } from "../../../dictionary";
 import { pickTheme } from '../../../../utils/pickTheme';
 
-export function placementAndCounting(theme: string): DataType {
+export function placementAndCounting(theme: Theme): DataType {
     const num = Math.ceil(Math.random() * 10).toString()
-    let place = rand(nouns.places)
-    let locationPreposition = rand(prepositions.location)
-    let who = rand(pickTheme(theme))
-    let jest_sa = (who.pl === '1' || parseInt(who.pl) > 4) ? " jest " : " są "
+    let place:NounStructure = rand(pickTheme('n','places'))
+    let locationPreposition:PrepositionStructure = rand(prepositions.location)  //////////////////////////!!!!
+    let who :NounStructure= rand(pickTheme('n',theme))
+    const n=Number(num)
+    let jest_sa =(()=>{
+        if(n===1) return 'jest'
+        if(n>1&&n<5) return 'są'
+        if(n>5) return 'jest'
+    })()
     const numCase=(()=>{
-        const n=Number(num)
         if(n===1) return 'M'
         if(n>1&&n<5) return 'M_pl'
         if(n>5) return 'D_pl'
@@ -20,6 +27,6 @@ export function placementAndCounting(theme: string): DataType {
     })()
     return {
         romaji: place.jp + "-no " + locationPreposition.jp + "-ni " + numbers[who.counter][num] + "-no " + who.jp + "-ga imasu. ",
-        meaning: locationPreposition.pl.preposition + " " + place.pl[locationPreposition.pl.case] + " " + jest_sa + " "+num+" " + who.pl[numCase]
+        meaning: locationPreposition.pl.preposition + " " + place.pl.Msc/*[locationPreposition.pl.case]*/ + " " + jest_sa + " "+num+" " + who.pl[numCase]
     }
 }

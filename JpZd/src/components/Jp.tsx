@@ -81,7 +81,7 @@ import { greetings } from "../data/Grammar/JpGrammar/greetings/greetings";
 import { verbs2 } from "../data/Grammar/JpGrammar/verbs/verbs";
 import { probably } from "../data/Grammar/JpGrammar/probably/probably";
 import { whichType } from "../data/Grammar/JpGrammar/whichType/whichType";
-import { request } from "../data/Grammar/JpGrammar/whichType/request/request";
+import { request } from "../data/Grammar/JpGrammar/request/request";
 import { however } from "../data/Grammar/JpGrammar/however/however";
 import { so } from "../data/Grammar/JpGrammar/so/so";
 import { because } from "../data/Grammar/JpGrammar/because/because";
@@ -101,6 +101,8 @@ import { forAMoment } from "../data/Grammar/JpGrammar/forAMoment/forAMoment";
 import { already } from "../data/Grammar/JpGrammar/already/already";
 import { before } from "../data/Grammar/JpGrammar/before/before";
 import { after } from "../data/Grammar/JpGrammar/after/after";
+import { Theme } from "../types/Theme.model";
+import { tooMuch } from "../data/Grammar/JpGrammar/tooMuch/tooMuch";
 
 interface ContainerProps {
   name: string;
@@ -108,7 +110,7 @@ interface ContainerProps {
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   const [data, setData] = useState<DataType>(days());
-  const [theme, setTheme] = useState<string>("animals"); //potem podmieniać na przycisku
+  const [theme, setTheme] = useState<Theme>("animals"); //potem podmieniać na przycisku
   const [dataKanji, setDataKanji] = useState<Kanji>(kanjiDict("kwiat"));
   const [showToggleRomaji, setShowToggleRomaji] = useState("show");
   function romajiVisibility() {
@@ -732,8 +734,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToAfter() {
     setData(after(theme));
   }
+  function changeToTooMuch() {
+    setData(tooMuch(theme));
+  }
   function setRandom() {
     const pool = [
+      tooMuch(theme),
       after(theme),
       before(theme),
       sometimes(theme),
@@ -803,7 +809,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       where(theme),
       what(theme),
       genericPronoun(theme),
-      doWith(theme),
+      //doWith(theme),//bo jest bug
       goToWith(theme),
       prices(theme),
       years(),
@@ -820,7 +826,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       twoVerbsOneByOne(theme),
       which(theme),
       whichOfAny(theme),
-      basics(theme),
+      //basics(theme),  //bo jest bug
       give2(theme),
       receive(theme),
       wantToDo(theme),
@@ -962,6 +968,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToAlready}>already</IonButton>
       <IonButton onClick={changeToBefore}>before</IonButton>
       <IonButton onClick={changeToAfter}>after</IonButton>
+      <IonButton onClick={changeToTooMuch}>too much</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

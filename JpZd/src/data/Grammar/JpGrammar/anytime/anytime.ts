@@ -1,12 +1,13 @@
+import { Theme } from './../../../../types/Theme.model';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
-import { jpVerbFormsPool, verbFormJp, verbs } from "../../../dictionary";
+import { jpVerbFormsPool, verbFormJp } from "../../../dictionary";
 
-export function anytime(theme:string):DataType{
-    const who = rand(pickTheme(theme))
-    const where = rand(pickTheme('places'))
-    const move = rand(verbs.move)
+export function anytime(theme:Theme):DataType{
+    const who = rand(pickTheme('n',theme))
+    const where = rand(pickTheme('n','places'))
+    const move = rand(pickTheme('v','move'))
     const answer = Math.random() > 0.5
         ? {
             jp: 'Hai, itsu-de-mo '+verbFormJp(move.jp.dictionaryForm,jpVerbFormsPool.masu)+'.',
