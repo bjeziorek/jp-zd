@@ -103,6 +103,7 @@ import { before } from "../data/Grammar/JpGrammar/before/before";
 import { after } from "../data/Grammar/JpGrammar/after/after";
 import { Theme } from "../types/Theme.model";
 import { tooMuch } from "../data/Grammar/JpGrammar/tooMuch/tooMuch";
+import { enter } from "../data/Grammar/JpGrammar/enter/enter";
 
 interface ContainerProps {
   name: string;
@@ -737,8 +738,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToTooMuch() {
     setData(tooMuch(theme));
   }
+  function changeToEnter() {
+    setData(enter(theme));
+  }
   function setRandom() {
     const pool = [
+      enter(theme),
       tooMuch(theme),
       after(theme),
       before(theme),
@@ -969,6 +974,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToBefore}>before</IonButton>
       <IonButton onClick={changeToAfter}>after</IonButton>
       <IonButton onClick={changeToTooMuch}>too much</IonButton>
+      <IonButton onClick={changeToEnter}>enter</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

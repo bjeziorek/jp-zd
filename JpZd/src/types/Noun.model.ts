@@ -1,9 +1,10 @@
-import { Case } from './Case.model';
+import { Case, CaseType } from './Case.model';
 
 export interface Collocations {
     verb: string,
     meaning: string,
-    particle: string
+    particle: string,
+    particlePl?:{particle:string,casePl:CaseType}
     tags?:Array<string>
 }
 

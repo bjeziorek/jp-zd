@@ -4,6 +4,7 @@ export type NounThemes =
 'seasons'|
 'month'|
 'week'|
+'vehicles'|
 'clothes'|
 'myFamily'|
 'animals'|

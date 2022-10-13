@@ -12,9 +12,10 @@ export function pickTheme(grammarElement:'a'|'n'|'v'|'t',theme:Theme){
             if(typeof theme==='string'){
                 return adjectives[theme]
             }else{
-                const arr:AdjectiveStructure[]=[]
+                
+                let arr:AdjectiveStructure[]=[]
                 theme.forEach(element => {
-                    arr.concat(adjectives[element])
+                    arr=arr.concat(adjectives[element])
                 })
                 return arr
             }
@@ -23,9 +24,9 @@ export function pickTheme(grammarElement:'a'|'n'|'v'|'t',theme:Theme){
             if(typeof theme==='string'){
                 return nouns[theme]
             }else{
-                const arr:NounStructure[]=[]
+                let arr:Array<NounStructure>=[]
                 theme.forEach(element => {
-                    arr.concat(nouns[element])
+                    arr=arr.concat(nouns[element])
                 })
                 return arr
             }
@@ -34,9 +35,9 @@ export function pickTheme(grammarElement:'a'|'n'|'v'|'t',theme:Theme){
             if(typeof theme==='string'){
                 return verbs[theme]
             }else{
-                const arr: VerbStructure[]=[]
+                let arr: VerbStructure[]=[]
                 theme.forEach(element => {
-                    arr.concat(verbs[element])
+                    arr=arr.concat(verbs[element])
                 })
                 return arr
             }
@@ -45,9 +46,9 @@ export function pickTheme(grammarElement:'a'|'n'|'v'|'t',theme:Theme){
             if(typeof theme==='string'){
                 return time[theme]
             }else{
-                const arr:any[]=[]
+                let arr:any[]=[]
                 theme.forEach(element => {
-                    arr.concat(time[element])
+                    arr=arr.concat(time[element])
                 })
                 return arr
             }

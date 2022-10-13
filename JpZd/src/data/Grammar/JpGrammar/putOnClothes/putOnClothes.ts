@@ -11,7 +11,6 @@ export function putOnClothes(theme:Theme):DataType{
     let verbJp=(()=>{
         let list=''
         const filteredIn = what.collocations.filter((el:Collocations)=>el.tags?.includes('in'))
-        console.log(filteredIn)
         filteredIn.forEach((el:Collocations) => {
             list+=el.verb+'/'
         })
