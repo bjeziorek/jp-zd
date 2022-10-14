@@ -610,7 +610,7 @@ export const greetings = [
     { jp: 'Mata ashita.', pl: 'Do jutra.' },
 ]
 
-export const adjectives:Adjective = {
+export const adjectives: Adjective = {
     all: [
         { jp: 'shiroi', pl: 'biały', rz: 'biel' },
         { jp: 'aoi', pl: 'niebieski', rz: 'niebieskość' },
@@ -691,14 +691,14 @@ export function verbFormJp(verb: string, form: string): string {
         }
     }
 
-    function can(verb:string){ //can
-        if (verb==='suru') return 'dekiru'
-        if (verb==='kuru') return 'korareru'
-        if (isIchidandoshi){
-            return verb.slice(0,-2)+ 'rareru'
-        } else{
-            if (verb.match(/tsu$/)) return verb.slice(0,-2)+'eru'
-            return verb.slice(0,-1) +'eru'
+    function can(verb: string) { //can
+        if (verb === 'suru') return 'dekiru'
+        if (verb === 'kuru') return 'korareru'
+        if (isIchidandoshi) {
+            return verb.slice(0, -2) + 'rareru'
+        } else {
+            if (verb.match(/tsu$/)) return verb.slice(0, -2) + 'eru'
+            return verb.slice(0, -1) + 'eru'
         }
     }
 
@@ -840,7 +840,7 @@ export function teForm_deprecated(verb: string, form: string): string {
     }
 }
 export const jpVerbFormsPool = {
-    eru:'eru',
+    eru: 'eru',
     naide: 'naide',
     te: 'te',
     ta: 'ta',
@@ -1769,31 +1769,81 @@ export const nouns: Noun = {
         { jp: "KONPYUUTA", pl: caseDeclination('komputer'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "hana", pl: caseDeclination('kwiatek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
     ],
-    vehicles:[
-        { jp: 'densha', pl: caseDeclination('pociąg'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni',particlePl:{particle:'do',casePl:'D'}, tags: ['dedicated', 'in'] }, ] },
-        { jp: 'TORAKKU', pl: caseDeclination('ciężarówka'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni',particlePl:{particle:'do',casePl:'D'}, tags: ['dedicated', 'in'] }, ] },
-        { jp: 'BAN', pl: caseDeclination('van'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni',particlePl:{particle:'do',casePl:'D'}, tags: ['dedicated', 'in'] }, ] },
-        { jp: 'BASU', pl: caseDeclination('autobus'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni',particlePl:{particle:'do',casePl:'D'}, tags: ['dedicated', 'in'] }, ] },
-        { jp: "kuruma", pl: caseDeclination('samochód'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni',particlePl:{particle:'do',casePl:'D'}, tags: ['dedicated', 'in'] }, ] },
-        { jp: "jitensha", pl: caseDeclination('rower'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'jechać', particle: '-ni',particlePl:{particle:'na',casePl:'N'}, tags: ['dedicated', 'in'] }, ] }, 
-        { jp: "uma", pl: caseDeclination('koń'), counter: 'tou', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'jechać', particle: '-ni',particlePl:{particle:'na',casePl:'N'}, tags: ['dedicated', 'in'] }, ] }, 
+    vehicles: [
+        { jp: 'densha', pl: caseDeclination('pociąg'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
+        { jp: 'TORAKKU', pl: caseDeclination('ciężarówka'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
+        { jp: 'BAN', pl: caseDeclination('van'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
+        { jp: 'BASU', pl: caseDeclination('autobus'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },{ verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
+        { jp: "kuruma", pl: caseDeclination('samochód'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },{ verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
+        { jp: "jitensha", pl: caseDeclination('rower'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'jechać', particle: '-ni', particlePl: { particle: 'na', casePl: 'N' }, tags: ['dedicated', 'in'] },{ verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
+        { jp: "uma", pl: caseDeclination('koń'), counter: 'tou', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'jechać', particle: '-ni', particlePl: { particle: 'na', casePl: 'N' }, tags: ['dedicated', 'in'] },] },
     ],
     places: [
-        { jp: "kyoushitsu", pl: caseDeclination('sala lekcyjna'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
-        { jp: 'yama', pl: caseDeclination('góra'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'noru', meaning: 'wspinać się', particle: '-ni', particlePl:{particle:'na',casePl:'N'},tags: ['dedicated', 'in'] }, ] },
-        { jp: 'HOTERU', pl: caseDeclination('hotel'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'tomaru', meaning: 'nocować', particle: '-ni', particlePl:{particle:'w',casePl:'Msc'},tags: ['dedicated', 'in'] }, ] },
-        { jp: 'konbini', pl: caseDeclination('sklep całodobowy'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
+        {
+            jp: "kyoushitsu", pl: caseDeclination('sala lekcyjna'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [
+                { verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+                { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
+        {
+            jp: 'yama', pl: caseDeclination('góra'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [
+                { verb: 'noru', meaning: 'wspinać się', particle: '-ni', particlePl: { particle: 'na', casePl: 'N' }, tags: ['dedicated', 'in'] },
+                { verb: 'deru', meaning: 'schodzić', particle: '-ni', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
+        {
+            jp: 'HOTERU', pl: caseDeclination('hotel'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'tomaru', meaning: 'nocować', particle: '-ni', particlePl: { particle: 'w', casePl: 'Msc' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
+        {
+            jp: 'konbini', pl: caseDeclination('sklep całodobowy'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
         { jp: "basho", pl: caseDeclination('miejsce'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['places'] },
-        { jp: "tatemono", pl: caseDeclination('budynek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
-        { jp: "ginkou", pl: caseDeclination('bank'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
-        { jp: "ie", pl: caseDeclination('dom'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] , collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
+        {
+            jp: "tatemono", pl: caseDeclination('budynek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
+        {
+            jp: "ginkou", pl: caseDeclination('bank'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
+        {
+            jp: "ie", pl: caseDeclination('dom'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
         { jp: "tsukue", pl: caseDeclination('biurko'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['places'] },
+        {
+            jp: "jimusho", pl: caseDeclination('biuro'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
         { jp: "hako", pl: caseDeclination('pudełko'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
-        { jp: "gakko", pl: caseDeclination('szkoła'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'] , collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
+        {
+            jp: "gakko", pl: caseDeclination('szkoła'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
         { jp: "daigaku", pl: caseDeclination('uniwersytet'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] },
-        { jp: "yuubinkyoku", pl: caseDeclination('urząd pocztowy'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] , collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
-        { jp: "toshokan", pl: caseDeclination('biblioteka'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'] , collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
-        { jp: "kaigishitsu", pl: caseDeclination('sala konferencyjna'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'] , collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl:{particle:'do',casePl:'D'},tags: ['dedicated', 'in'] }, ] },
+        {
+            jp: "yuubinkyoku", pl: caseDeclination('urząd pocztowy'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
+        {
+            jp: "toshokan", pl: caseDeclination('biblioteka'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
+        {
+            jp: "kaigishitsu", pl: caseDeclination('sala konferencyjna'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [{ verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            { verb: 'deru', meaning: 'wychodzić', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+            ]
+        },
     ],
     food: [
         { jp: "hachimitsu", pl: caseDeclination('miód'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['food'] },
