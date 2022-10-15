@@ -1222,6 +1222,40 @@ export const verbs: Verb = {
         },
         {
             jp: {
+                dictionaryForm: 'tobu',
+                particle: ['o']
+            },
+            pl: {
+                infinitive: 'latać',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: 'po', case: plCasePool.Msc },
+                    ],
+                rozkazujący2os: 'leć', rozkazujący: 'lećmy', imieslowNiedokonany: 'latanie', niedokonany: 'lecieć', dokonany: 'polecieć', os3: 'lata'
+            },
+            tags: ['move'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'aruku',
+                particle: ['o']
+            },
+            pl: {
+                infinitive: 'spacerować',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: 'po', case: plCasePool.Msc },
+                ],
+                rozkazujący2os: 'spaceruj', rozkazujący: 'spacerujmy', imieslowNiedokonany: 'spacerowanie', niedokonany: 'spacerować', dokonany: 'pospacerować', os3: 'spaceruje'
+            },
+            tags: ['move'],
+        },
+        {
+            jp: {
                 dictionaryForm: 'kaeru',
                 particle: ['e', 'ni'] //???
             },
@@ -1774,11 +1808,14 @@ export const nouns: Noun = {
         { jp: 'TORAKKU', pl: caseDeclination('ciężarówka'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
         { jp: 'BAN', pl: caseDeclination('van'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
         { jp: 'BASU', pl: caseDeclination('autobus'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },{ verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
+        { jp: 'shiden', pl: caseDeclination('tramwaj'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },{ verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
         { jp: "kuruma", pl: caseDeclination('samochód'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },{ verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
         { jp: "jitensha", pl: caseDeclination('rower'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'jechać', particle: '-ni', particlePl: { particle: 'na', casePl: 'N' }, tags: ['dedicated', 'in'] },{ verb: 'oriru', meaning: 'wysiadać', particle: '-o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
         { jp: "uma", pl: caseDeclination('koń'), counter: 'tou', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'jechać', particle: '-ni', particlePl: { particle: 'na', casePl: 'N' }, tags: ['dedicated', 'in'] },] },
     ],
     places: [
+        {
+            jp: "machi", pl: caseDeclination('starówka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], },
         {
             jp: "kyoushitsu", pl: caseDeclination('sala lekcyjna'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [
                 { verb: 'ireru', meaning: 'wchodzić', particle: '-ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },

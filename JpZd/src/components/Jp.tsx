@@ -106,6 +106,8 @@ import { tooMuch } from "../data/Grammar/JpGrammar/tooMuch/tooMuch";
 import { enter } from "../data/Grammar/JpGrammar/enterLeave/enter";
 import { exit } from "process";
 import { leave } from "../data/Grammar/JpGrammar/enterLeave/leave";
+import { walk } from "../data/Grammar/JpGrammar/walk/walk";
+import { changeVehicle } from "../data/Grammar/JpGrammar/changeVehicle/changeVehicle";
 
 interface ContainerProps {
   name: string;
@@ -746,8 +748,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToExit() {
     setData(leave(theme));
   }
+  function changeToWalk() {
+    setData(walk(theme));
+  }
+  function changeToChangeVehicle() {
+    setData(changeVehicle(theme));
+  }
   function setRandom() {
     const pool = [
+      changeVehicle(theme),
+      walk(theme),
       leave(theme),
       enter(theme),
       tooMuch(theme),
@@ -982,6 +992,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToTooMuch}>too much</IonButton>
       <IonButton onClick={changeToEnter}>enter</IonButton>
       <IonButton onClick={changeToExit}>exit</IonButton>
+      <IonButton onClick={changeToWalk}>walk</IonButton>
+      <IonButton onClick={changeToChangeVehicle}>change vehicle</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
