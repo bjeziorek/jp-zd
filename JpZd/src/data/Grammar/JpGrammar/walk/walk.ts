@@ -9,8 +9,9 @@ export function walk(theme:Theme):DataType{
     const verb:VerbStructure=rand(pickTheme('v','move').filter((el:VerbStructure)=>{return el.jp.particle.includes('o')}))
     const who:NounStructure=rand(pickTheme('n',theme))
     const where:NounStructure=rand(pickTheme('n','places'))
+    const hour=Math.ceil(Math.random()*12)
     return {
-        romaji:who.jp+'-wa '+where.jp+'-o '+verb.jp.dictionaryForm,
-        meaning:who.pl.M+' '+verb.pl.os3+' po '+where.pl.Msc
+        romaji:hour+'-ji-ni '+who.jp+'-wa '+where.jp+'-o '+verb.jp.dictionaryForm,
+        meaning:'O godzinie '+hour+':00 ' +who.pl.M+' '+verb.pl.os3+' po '+where.pl.Msc
     }
 }
