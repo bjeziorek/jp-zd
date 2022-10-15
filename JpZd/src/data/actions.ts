@@ -11,10 +11,10 @@ import { convertNumberToText } from './numbers';
 export function doWith(theme: Theme): DataType {
     const r = Math.floor(Math.random() * 12 + 1)
     const hour = { jp: convertNumberToText(r, 'ji') + '-ni', pl: 'o godzinie ' + r + ':00' }
-    const who:NounStructure = rand(pickTheme('n',theme))
-    const what:NounStructure = rand(pickTheme('n','items'))
-    const what2:NounStructure = rand(pickTheme('n','items'))
-    const verb:VerbStructure = rand(pickTheme('n','actions'))
+    const who: NounStructure = rand(pickTheme('n', theme))
+    const what: NounStructure = rand(pickTheme('n', 'items'))
+    const what2: NounStructure = rand(pickTheme('n', 'items'))
+    const verb: VerbStructure = rand(pickTheme('n', 'actions'))
     return {
         romaji: hour.jp + ' ' + who.jp + '-wa ' + what.jp + '-de ' + what2.jp + '-o ' + verbFormJp(verb.jp.dictionaryForm, jpVerbFormsPool.masu) + ' ne',
         meaning: hour.pl + ' ' + who.pl.M + ' ' + verb.pl.os3 + ' ' + what2.pl.B + ' za pomocą ' + what.pl.D + ', prawda?'
@@ -22,74 +22,74 @@ export function doWith(theme: Theme): DataType {
 }
 
 export function goToWith(theme: Theme): DataType {
-    const where:NounStructure = rand(pickTheme('n',theme))
-    const moveVerb:VerbStructure = rand(pickTheme('v','move'))
-    const who:NounStructure = rand(pickTheme('n',theme))
-    const who2:NounStructure = rand(pickTheme('n',theme))
+    const where: NounStructure = rand(pickTheme('n', theme))
+    const moveVerb: VerbStructure = rand(pickTheme('v', 'move'))
+    const who: NounStructure = rand(pickTheme('n', theme))
+    const who2: NounStructure = rand(pickTheme('n', theme))
     return {
         romaji: who.jp + '-wa ' + who2.jp + '-to ' + where.jp + '-e ' + verbFormJp(moveVerb.jp.dictionaryForm, jpVerbFormsPool.masu),
         meaning: who.pl.M + ' z(ze) ' + who2.pl.N + ' ' + moveVerb.pl.os3 + ' do ' + where.pl.D
     }
 }
 export function also(theme: Theme): DataType {
-    const whom:NounStructure = rand(pickTheme('n','professions'))
-    const who:NounStructure = rand(pickTheme('n','animals'))
+    const whom: NounStructure = rand(pickTheme('n', 'professions'))
+    const who: NounStructure = rand(pickTheme('n', 'animals'))
     return {
         romaji: who.jp + '-mo ' + whom.jp + ' desu',
         meaning: who.pl.M + ' też jest ' + whom.pl.N
     }
 }
 export function AandB(theme: Theme): DataType {
-    const whom:NounStructure = rand(pickTheme('n','professions'))
-    const whoA:NounStructure = rand(pickTheme('n','animals'))
-    const whoB:NounStructure = rand(pickTheme('n','animals'))
+    const whom: NounStructure = rand(pickTheme('n', 'professions'))
+    const whoA: NounStructure = rand(pickTheme('n', 'animals'))
+    const whoB: NounStructure = rand(pickTheme('n', 'animals'))
     return {
         romaji: whoA.jp + '-to ' + whoB.jp + '-wa ' + whom.jp + ' desu',
         meaning: whoA.pl.M + ' i ' + whoB.pl.M + ' są ' + whom.pl.N_pl
     }
 }
 export function proposition1(theme: Theme): DataType {
-    const verb1:VerbStructure = rand(pickTheme('v','actions'))
+    const verb1: VerbStructure = rand(pickTheme('v', 'actions'))
     return {
         romaji: verbFormJp(verb1.jp.dictionaryForm, jpVerbFormsPool.shou) + '. Ee, sou shimashou.',
         meaning: verb1.pl.rozkazujący + '! Dobrze, zróbmy to.'
     }
 }
 export function proposition2(theme: Theme): DataType {
-    const verb1:VerbStructure = rand(pickTheme('v','actions'))
+    const verb1: VerbStructure = rand(pickTheme('v', 'actions'))
     return {
         romaji: verbFormJp(verb1.jp.dictionaryForm, jpVerbFormsPool.shou) + 'ka. Ee, ii desu ne.',
         meaning: 'Może będziemy ' + verb1.pl.niedokonany + '? Tak, dobrze.'
     }
 }
 export function twoVerbsAtOnce(theme: Theme): DataType {
-    const who:NounStructure = rand(pickTheme('n',theme))
-    const verb1:VerbStructure = rand(pickTheme('v','actions'))
-    const verb2:VerbStructure = rand(pickTheme('v','actions'))
+    const who: NounStructure = rand(pickTheme('n', theme))
+    const verb1: VerbStructure = rand(pickTheme('v', 'actions'))
+    const verb2: VerbStructure = rand(pickTheme('v', 'actions'))
     return {
         romaji: who.jp + '-wa ' + verbFormJp(verb1.jp.dictionaryForm, jpVerbFormsPool.te) + ', ' + verb2.jp.dictionaryForm,
         meaning: who.pl.M + ' będzie ' + verb1.pl.niedokonany + ' i ' + verb2.pl.niedokonany
     }
 }
 export function twoVerbsOneByOne(theme: Theme): DataType {
-    const who = rand(pickTheme('n',theme))
-    const verb1 = rand(pickTheme('v','actions'))
-    const verb2 = rand(pickTheme('v','actions'))
+    const who = rand(pickTheme('n', theme))
+    const verb1 = rand(pickTheme('v', 'actions'))
+    const verb2 = rand(pickTheme('v', 'actions'))
     return {
         romaji: who.jp + '-wa ' + verbFormJp(verb1.jp.dictionaryForm, jpVerbFormsPool.te) + '-kara, ' + verb2.jp.dictionaryForm,
         meaning: who.pl.M + ' będzie ' + verb1.pl.niedokonany + ', a potem ' + verb2.pl.niedokonany
     }
 }
 export function continues(theme: Theme): DataType {
-    const animal:NounStructure = rand(pickTheme('n','animals'))
-    const verb:VerbStructure = rand(pickTheme('v','actions'))
+    const animal: NounStructure = rand(pickTheme('n', 'animals'))
+    const verb: VerbStructure = rand(pickTheme('v', 'actions'))
     return {
         romaji: 'Ima, ' + animal.jp + '-wa ' + verbFormJp(verb.jp.dictionaryForm, jpVerbFormsPool.te) + "imasu",
         meaning: 'Teraz ' + animal.pl.M + ' ' + verb.pl.os3
     }
 }
 export function wayToDo(theme: Theme): DataType {
-    const verb:VerbStructure = rand(pickTheme('v','actions'))
+    const verb: VerbStructure = rand(pickTheme('v', 'actions'))
     return {
         romaji: verbFormJp(verb.jp.dictionaryForm, jpVerbFormsPool.masuBase) + " kata",
         meaning: 'Sposób ' + (verb.pl.imieslowNiedokonany as string).replace(/(e się)$/, 'a się').replace(/(e)$/, 'a')
@@ -112,8 +112,7 @@ export function wantToDo(theme: Theme): DataType {
 
     }
 
-    const what:NounStructure = rand(pickTheme('n',theme))
-    const verb:VerbStructure = rand(pickTheme('v','actions'))
+    const verb: VerbStructure = rand(pickTheme('v', 'actions'))
     return {
         romaji:/*what.jp + bar+ verb.particle.jp+' '+*/taiForm(verb.jp.dictionaryForm),
         meaning: 'Chcę ' + verb.pl.dokonany/*+' '+verb.particle.pl.txt+' '+what.pl[verb.particle.pl.case]*/
@@ -121,31 +120,24 @@ export function wantToDo(theme: Theme): DataType {
 }
 export function give2(theme: Theme): DataType {
 
-    const uchi:NounStructure = rand(pickTheme('n','myFamily'))
-    const soto:NounStructure = rand(pickTheme('n','professions'))
+    const uchi: NounStructure = rand(pickTheme('n', 'myFamily'))
+    const soto: NounStructure = rand(pickTheme('n', 'professions'))
 
-    type Person={
-        isSoto:boolean,
-        who:NounStructure
-    }
-
-    function person():Person {
+    const person1: NounStructure = rand(pickTheme('n', theme))
+    const person2 = (() => {
         const isSoto = Math.random() > 0.5 ? true : false
         const who = isSoto ? soto : uchi
         return {
             isSoto,
             who
         }
-    }
-
-    const person1:Person = person()
-    const person2:Person = person()
-    const animal:NounStructure = rand(pickTheme('n','animals'))//Math.random()>0.5?theme:'family'))
+    })()
+    const what: NounStructure = rand(pickTheme('n', ['animals', 'items']))//Math.random()>0.5?theme:'family'))
     const verb = person2.isSoto ? 'agemasu' : 'kuremasu'
 
     return {
-        romaji: person1.who.jp + '-wa ' + person2.who.jp + '-ni ' + animal.jp + '-o ' + verb,
-        meaning: person1.who.pl.M + ' daje ' + person2.who.pl.C + ' ' + animal.pl.B
+        romaji: person1.jp + '-wa ' + person2.who.jp + '-ni ' + what.jp + '-o ' + verb,
+        meaning: person1.pl.M + ' daje ' + person2.who.pl.C + ' ' + what.pl.B
     }
     // return{
     //     romaji:animal1.jp+'-wa watashi-ni '+what.jp[0]+'-o '+what.jp[1],
@@ -167,7 +159,7 @@ export function receive(theme: Theme): DataType {
     ]
 
     const what = rand(thingsPool)
-    const animal1 = rand(pickTheme('n',theme))//Math.random()>0.5?theme:'family'))
+    const animal1 = rand(pickTheme('n', theme))//Math.random()>0.5?theme:'family'))
 
     return {
         romaji: 'Watashi-wa ' + animal1.jp + '-ni/kara ' + what.jp[0] + '-o ' + what.jp[1],
@@ -190,8 +182,8 @@ export function give(theme: Theme): DataType {
     // const giveOrplace = Math.random()>0.5?'give':'place'
     // const where = rand(giveOrplace==='give'?thingsPool:placePool)
     const what = rand(thingsPool)
-    const animal1 = rand(pickTheme('n',theme))//Math.random()>0.5?theme:'family'))
-    const animal2 = rand(pickTheme('n',theme))//Math.random()>0.5?theme:'family'))
+    const animal1 = rand(pickTheme('n', theme))//Math.random()>0.5?theme:'family'))
+    const animal2 = rand(pickTheme('n', theme))//Math.random()>0.5?theme:'family'))
 
     // słon daje kotu jedzenie
     // slon daje kota na stół
