@@ -1,0 +1,1 @@
+export type Particle='o'|'e'|'ni'|'kara'|'made'|'yori'|'wa'|'ga'|'de'|'to'

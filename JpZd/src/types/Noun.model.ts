@@ -1,13 +1,13 @@
+import { Particle } from './Particle.model';
 import { Case, CaseType } from './Case.model';
 
 export interface Collocations {
     verb: string,
     meaning: string,
-    particle: string,
+    particle: Particle,
     particlePl?:{particle:string,casePl:CaseType}
     tags?:Array<string>
 }
-
 
 export interface NounStructure {
     jp: string,
