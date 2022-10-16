@@ -5,6 +5,7 @@ import { cases, thisIs, UaType } from "../data/Grammar/UaGrammar/thisIs";
 import Kanji from "../types/Kanji.model";
 import { kanjiDict } from "../data/dictionary";
 import rand from "../utils/randomArrayElement";
+import { practiceVerbs } from "../data/Grammar/UaGrammar/verbs";
 
 interface ContainerProps {
   name: string;
@@ -30,13 +31,13 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToThisIs() {
     setData(thisIs(theme))
   }
-  function changeToCases() {
-    setData(cases(theme));
+  function changeToPracticeVerbs() {
+    setData(practiceVerbs());
   }
   
   function setRandom() {
     const pool = [
-      cases(theme),
+      practiceVerbs(),
       thisIs(theme),
     ];
 
@@ -49,7 +50,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
     <div className="container">
       <p>ua !!!!!!!!!!</p>
       <IonButton onClick={changeToThisIs}>this is</IonButton>
-      <IonButton onClick={changeToCases}>cases</IonButton>
+      <IonButton onClick={changeToPracticeVerbs}>verbs</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
       <p></p>
