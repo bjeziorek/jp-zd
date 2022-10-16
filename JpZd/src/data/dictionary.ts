@@ -9,6 +9,7 @@ import Verb from '../types/Verb.model';
 import { init } from '../init/init';
 import { WhichPl } from '../types/WhichPl.model';
 import { Time } from '../types/Time.model';
+import { VerbForm } from '../types/VerbForm.model';
 
 export function testowa(x: number, y: number): number {
     return x + y
@@ -670,7 +671,7 @@ export function declineAdjective(item: any, tense: string, negation: boolean, fo
         return na_adjectivesTense(item.jp, formal, tense, negation)
     }
 }
-export function verbFormJp(verb: string, form: string): string {
+export function verbFormJp(verb: string, form: VerbForm): string {
 
     const isIchidandoshi = verb.match(/iru$|eru$/) ? true : false
 
@@ -839,7 +840,7 @@ export function teForm_deprecated(verb: string, form: string): string {
         }
     }
 }
-export const jpVerbFormsPool = {
+export const jpVerbFormsPool:{[key:string]:VerbForm} = {
     eru: 'eru',
     naide: 'naide',
     te: 'te',
