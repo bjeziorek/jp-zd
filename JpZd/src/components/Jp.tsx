@@ -109,6 +109,7 @@ import { leave } from "../data/Grammar/JpGrammar/enterLeave/leave";
 import { walk } from "../data/Grammar/JpGrammar/walk/walk";
 import { changeVehicle } from "../data/Grammar/JpGrammar/changeVehicle/changeVehicle";
 import { goAnd } from "../data/Grammar/JpGrammar/goAnd/goAnd";
+import { bring } from "../data/Grammar/JpGrammar/bring/bring";
 
 interface ContainerProps {
   name: string;
@@ -758,8 +759,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToGoAnd() {
     setData(goAnd(theme));
   }
+  function changeToBring() {
+    setData(bring(theme));
+  }
   function setRandom() {
     const pool = [
+      bring(theme),
       goAnd(theme),
       changeVehicle(theme),
       walk(theme),
@@ -1000,6 +1005,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToWalk}>walk</IonButton>
       <IonButton onClick={changeToChangeVehicle}>change vehicle</IonButton>
       <IonButton onClick={changeToGoAnd}>go and</IonButton>
+      <IonButton onClick={changeToBring}>bring</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

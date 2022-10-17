@@ -1223,7 +1223,7 @@ export const verbs: Verb = {
         },
         {
             jp: {
-                dictionaryForm: 'latać',
+                dictionaryForm: 'tobu',
                 particle: ['o']
             },
             pl: {
