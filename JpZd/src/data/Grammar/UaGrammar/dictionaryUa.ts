@@ -36,7 +36,7 @@ export const persons=[
 {pl:'ty',ua:'ty'},
 {pl:'on',ua:'win'},
 {pl:'ona',ua:'wona'},
-{pl:'ono',ua:'???'},
+{pl:'ono',ua:'ce'},
 {pl:'my',ua:'my'},
 {pl:'wy',ua:'wy'},
 {pl:'oni',ua:'wony'},

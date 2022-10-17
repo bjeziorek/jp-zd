@@ -11,7 +11,6 @@ export function bring(theme:Theme):DataType{
     
 const what: NounStructure = rand(pickTheme('n', 'items'))
 const who: NounStructure = rand(pickTheme('n', theme))
-const move: Collocations = rand(where.collocations!.filter((element: { particle: string; })=>{return element.particle==='ni'}))
 const particlePl = where.collocations!.filter(el => { return el.particle === 'ni' })[0].particlePl || { particle: 'DO', casePl: 'D' }
 
 return {

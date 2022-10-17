@@ -19,9 +19,11 @@ interface Declination {
 interface Verbs {
     [key: string]: {
         ua:{
+            infinitive:string,
             declination:Declination
         }
         pl:{
+            infinitive:string,
             declination: Declination
         }
 
@@ -31,6 +33,7 @@ interface Verbs {
 export const verbs:Verbs = {
     toBe: {
         ua: {
+            infinitive:'buty',
             declination: {
                 past: {
                     ja_ż: 'byla',
@@ -47,7 +50,7 @@ export const verbs:Verbs = {
                     oni: '',
                     one: '',
                 },
-                present: {
+                future:{//present: {
                     ja_ż: 'je',
                     ja_m: 'je',
                     ty_ż: 'je',
@@ -62,7 +65,7 @@ export const verbs:Verbs = {
                     oni: 'je',
                     one: 'je',
                 },
-                future: {
+                present:{//future: {
                     ja_ż: 'budu',
                     ja_m: 'budu',
                     ty_ż: 'budesz',
@@ -81,6 +84,7 @@ export const verbs:Verbs = {
             }
         },
         pl: {
+            infinitive:'być',
             declination: {
                 past: {
                     ja_ż: 'byłam',
@@ -97,7 +101,7 @@ export const verbs:Verbs = {
                     oni: 'byli',
                     one: 'były',
                 },
-                present: {
+                future:{//present: {
                     ja_ż: 'jestem',
                     ja_m: 'jestem',
                     ty_ż: 'jesteś',
@@ -111,6 +115,109 @@ export const verbs:Verbs = {
                     wy_mo: 'jesteście',
                     oni: 'są',
                     one: 'są',
+                },
+                present:{//future: {
+                    ja_ż: 'będę',
+                    ja_m: 'będę',
+                    ty_ż: 'będziesz',
+                    ty_m: 'będziesz',
+                    on: 'będzie',
+                    ona: 'będzie',
+                    ono: 'będzie',
+                    my_nmo: 'będziemy',
+                    my_mo: 'będziemy',
+                    wy_nmo: 'będziecie',
+                    wy_mo: 'będziecie',
+                    oni: 'będą',
+                    one: 'będą',
+                }
+            }
+        }
+    },
+    toLearn: {
+        ua: {
+            infinitive:'wiwczaty',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'wiwczaju',
+                    ja_m: 'wiwczaju',
+                    ty_ż: 'wiwczajesz',
+                    ty_m: 'wiwczajesz',
+                    on: 'wiwczaje',
+                    ona: 'wiwczaje',
+                    ono: 'wiwczaje',
+                    my_nmo: 'wiwczajemo',
+                    my_mo: 'wiwczajemo',
+                    wy_nmo: 'wiwczajete',
+                    wy_mo: 'wiwczajete',
+                    oni: 'wiwczajut^',
+                    one: 'wiwczajut^',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+
+                }
+            }
+        },
+        pl: {
+            infinitive:'uczyć się',
+            declination: {
+                past: {
+                    ja_ż: 'uczyłam się',
+                    ja_m: 'uczyłem się',
+                    ty_ż: 'uczyłaś się',
+                    ty_m: 'uczyłeś się',
+                    on: 'uczył się',
+                    ona: 'uczyła się',
+                    ono: 'uczyło się',
+                    my_nmo: 'uczyłyśmy się',
+                    my_mo: 'uczyliśmy się',
+                    wy_nmo: 'uczyłyście się',
+                    wy_mo: 'uczyliście się',
+                    oni: 'uczyli się',
+                    one: 'uczyły się',
+                },
+                present: {
+                    ja_ż: 'uczę się',
+                    ja_m: 'uczę się',
+                    ty_ż: 'uczysz się',
+                    ty_m: 'uczysz się',
+                    on: 'uczy się',
+                    ona: 'uczy się',
+                    ono: 'uczy się',
+                    my_nmo: 'uczymy się',
+                    my_mo: 'uczymy się',
+                    wy_nmo: 'uczycie się',
+                    wy_mo: 'uczycie się',
+                    oni: 'uczą się',
+                    one: 'uczą się',
                 },
                 future: {
                     ja_ż: 'będę',
@@ -154,10 +261,18 @@ export function practiceVerbs() {
         return person.replace(/_m$/,'').replace(/_ż$/,'').replace(/_mo$/,'').replace(/_mno$/,'')
     })()
 
-    console.log(person,verbs.toBe.pl.declination.future)
+    const keyList: string[]=[]
+    for (const key in verbs) {
+        if (Object.prototype.hasOwnProperty.call(verbs, key)) {
+            keyList.push(key);
+            
+        }
+    }
 
-    const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verbs.toBe.ua.declination.future[person]
-    const plLatin = rightPerson + ' ' + verbs.toBe.pl.declination.future[person]
+    const verb=verbs[rand(keyList)]
+
+    const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verb.ua.declination.present[person]
+    const plLatin = rightPerson + ' ' + verb.pl.declination.present[person]
     return {
         uaLatin: uaLatin,
         uaCyrylic: transcription(uaLatin, latinToCyrylic),
