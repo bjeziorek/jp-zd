@@ -2,7 +2,6 @@ import { Time } from './../../../../types/Time.model';
 import { jpVerbFormsPool } from './../../../dictionary';
 import { NounStructure } from './../../../../types/Noun.model';
 import { VerbStructure } from './../../../../types/Verb.model';
-import { AdjectiveStructure } from './../../../../types/Adjective.model';
 import { oVerbFilter } from './../../../../utils/oVerbFilter';
 import DataType from '../../../../types/DataType.model';
 import { pickTheme } from '../../../../utils/pickTheme';

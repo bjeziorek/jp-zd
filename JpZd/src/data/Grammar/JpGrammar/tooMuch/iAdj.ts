@@ -15,6 +15,6 @@ export function iAdj(theme:Theme):DataType{
 
     return{
         romaji:'Kono '+n.jp+'-wa '+adj.jp.replace(/i$/,'-sugite')+', '+verbFormJp(verbFormJp(v.jp.dictionaryForm,jpVerbFormsPool.eru),jpVerbFormsPool.masen) +'.',
-        meaning:'Nie mogę '+v.pl.infinitive+' tego/tej '+n.pl.D+' ponieważ jest zbyt '+adj.pl+'.'
+        meaning:'Nie mogę '+v.pl.infinitive+' tego/tej '+n.pl.D+' [ponieważ] jest zbyt '+adj.pl+'.'
     }
 }
