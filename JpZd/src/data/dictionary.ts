@@ -1312,6 +1312,23 @@ export const verbs: Verb = {
         },
         {
             jp: {
+                dictionaryForm: 'yomu',
+                particle: ['o']
+            },
+            pl: {
+                infinitive: 'czytać',
+                isPerfective: true,
+                isReflexive: true,
+                isNonReflexive: false,
+                prepositions: [
+                    { preposition: '', case: plCasePool.B },
+                ],
+                rozkazujący2os: 'czytaj', rozkazujący: 'cxytajmy', imieslowNiedokonany: 'czytanie', niedokonany: 'czytać', dokonany: 'przeczytać', os3: 'czyta'
+            },
+            tags: ['action'],
+        },
+        {
+            jp: {
                 dictionaryForm: 'naru',
                 particle: ['ni']
             },
@@ -1598,6 +1615,7 @@ export const time: Time = {
         { jp: 'konshuu', pl: 'w tym tygodniu', time: 'present' },
         { jp: 'kongetsu', pl: 'w tym miesiącu', time: 'present' },
         { jp: 'ima', pl: 'teraz', time: 'present' },
+        { jp: 'shuumatsu', pl: 'w weekend', time: 'present' },
     ],
     past: [  //past
         { jp: 'kinou', pl: 'wczoraj', time: 'past' },
@@ -1807,6 +1825,7 @@ export const nouns: Noun = {
             {verb:'kaeru',meaning:'wracać',particle:'ni',particlePl:{particle:'na',casePl:'B'}},
             {verb:'kuru',meaning:'przyjść',particle:'ni',particlePl:{particle:'na',casePl:'B'}}
         ] },
+        { jp: "shuumatsu", pl: caseDeclination('weekend'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['events'] },
         { jp: "yasumi", pl: caseDeclination('wakacje'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['events'] ,collocations:[
             {verb:'iku',meaning:'iść',particle:'ni',particlePl:{particle:'na',casePl:'B'}},
             {verb:'kaeru',meaning:'wracać',particle:'ni',particlePl:{particle:'na',casePl:'B'}},
@@ -1814,6 +1833,8 @@ export const nouns: Noun = {
         ] },
     ],
     items: [
+        { jp: "sentaku", pl: caseDeclination('pranie'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "souji", pl: caseDeclination('porządki'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "tegami", pl: caseDeclination('list'), counter: 'mai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "zasshi", pl: caseDeclination('czasopismo'), counter: 'satsu', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "shinbun", pl: caseDeclination('gazeta'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
