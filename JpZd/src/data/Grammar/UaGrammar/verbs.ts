@@ -33,7 +33,7 @@ interface Verbs {
 export const verbs:Verbs = {
     toBe: {
         ua: {
-            infinitive:'buty',
+            infinitive:'bity',
             declination: {
                 past: {
                     ja_ż: 'byla',
@@ -79,7 +79,6 @@ export const verbs:Verbs = {
                     wy_mo: 'budete',
                     oni: 'budut^',
                     one: 'budut^',
-
                 }
             }
         },
@@ -237,6 +236,108 @@ export const verbs:Verbs = {
             }
         }
     },
+    toWant: {
+        ua: {
+            infinitive:'hotity',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'hoczu',
+                    ja_m: 'hoczu',
+                    ty_ż: 'hocesz',
+                    ty_m: 'hocesz',
+                    on: 'hocze',
+                    ona: 'hocze',
+                    ono: 'hocze',
+                    my_mo: 'hoczemo',
+                    my_nmo: 'hoczemo',
+                    wy_mo: 'hoczete',
+                    wy_nmo: 'hoczete',
+                    oni: 'hoczut',
+                    one: 'hoczut',
+                },
+                future: {
+                    ja_ż: 'budu',
+                    ja_m: 'budu',
+                    ty_ż: 'budesz',
+                    ty_m: 'budesz',
+                    on: 'bude',
+                    ona: 'bude',
+                    ono: 'bude',
+                    my_nmo: 'budemo',
+                    my_mo: 'budemo',
+                    wy_nmo: 'budete',
+                    wy_mo: 'budete',
+                    oni: 'budut^',
+                    one: 'budut^',
+                }
+            }
+        },
+        pl: {
+            infinitive:'być',
+            declination: {
+                past: {
+                    ja_ż: 'byłam',
+                    ja_m: 'byłem',
+                    ty_ż: 'byłaś',
+                    ty_m: 'byłeś',
+                    on: 'był',
+                    ona: 'była',
+                    ono: 'było',
+                    my_nmo: 'byłyśmy',
+                    my_mo: 'byliśmy',
+                    wy_nmo: 'byłyście',
+                    wy_mo: 'byliście',
+                    oni: 'byli',
+                    one: 'były',
+                },
+                present: {
+                    ja_ż: 'chcę',
+                    ja_m: 'chcę',
+                    ty_ż: 'chcesz',
+                    ty_m: 'chcesz',
+                    on: 'chce',
+                    ona: 'chce',
+                    ono: 'chce',
+                    my_nmo: 'chcemy',
+                    my_mo: 'chcemy',
+                    wy_nmo: 'chcecie',
+                    wy_mo: 'chcecie',
+                    oni: 'chcą',
+                    one: 'chcą',
+                },
+                future: {
+                    ja_ż: 'będę',
+                    ja_m: 'będę',
+                    ty_ż: 'będziesz',
+                    ty_m: 'będziesz',
+                    on: 'będzie',
+                    ona: 'będzie',
+                    ono: 'będzie',
+                    my_nmo: 'będziemy',
+                    my_mo: 'będziemy',
+                    wy_nmo: 'będziecie',
+                    wy_mo: 'będziecie',
+                    oni: 'będą',
+                    one: 'będą',
+                }
+            }
+        }
+    },
 }
 
 export function practiceVerbs() {
@@ -270,9 +371,10 @@ export function practiceVerbs() {
     }
 
     const verb=verbs[rand(keyList)]
+    const verb2=verbs[rand(keyList)]
 
-    const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verb.ua.declination.present[person]
-    const plLatin = rightPerson + ' ' + verb.pl.declination.present[person]
+    const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verb.ua.declination.present[person]+' '+verb2.ua.infinitive
+    const plLatin = rightPerson + ' ' + verb.pl.declination.present[person]+' '+verb2.pl.infinitive
     return {
         uaLatin: uaLatin,
         uaCyrylic: transcription(uaLatin, latinToCyrylic),
