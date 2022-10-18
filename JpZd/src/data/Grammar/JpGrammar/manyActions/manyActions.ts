@@ -17,6 +17,6 @@ export function manyActions(theme:Theme):DataType{
 
     return{
         romaji:who.jp+'-wa '+t.jp+'-wa '+n1.jp+'-o '+verbFormJp(v1.jp.dictionaryForm,'ta')+'-ri '+n2.jp+'-o '+verbFormJp(v2.jp.dictionaryForm,'ta')+'-ri shimasu.',
-        meaning:t.pl+' '+who.jp+' między innymi '+v1.pl.os3+' '+n1.pl.B+' [i] '+v2.pl.os3+' '+n2.pl.B
+        meaning:t.pl+' '+who.pl.M+' między innymi '+v1.pl.os3+' '+n1.pl.B+' [i] '+v2.pl.os3+' '+n2.pl.B
     }
 }
