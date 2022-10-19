@@ -9,7 +9,8 @@ export function enter(theme: Theme): DataType {
     const who: NounStructure = rand(pickTheme('n', theme))
     const where: NounStructure = rand(pickTheme('n', ['places', 'vehicles'])
     .filter(el=>{return el.collocations}))//sprawdza czy posiada jakiekolwiek kolokacje
-    let v=(where.collocations as Collocations[])[0];
+    let v=(where.collocations as Collocations[])[0];//tu jest [0] bo tak, ale to jest let
+    //i ja to nadpisuje ponizej
       //uwaga: nie zawsze kolokacja z -ni bedzie na indeksie 0! przefiltrowac kolokacje
     // i dostawac sie do nich z osobnej zmiennej czyli ulepszyc v i c
     // DONE below

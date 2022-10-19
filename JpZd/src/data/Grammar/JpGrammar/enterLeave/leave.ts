@@ -11,16 +11,22 @@ export function leave(theme: Theme): DataType {
     .filter(el=>{return el.collocations}))//sprawdza czy posiada jakiekolwiek kolokacje
     let v=(where.collocations as Collocations[])[0];
      
+    let updated=false
     for(let i=0;i<(where.collocations as Collocations[]).length;i++){
         if((where.collocations as Collocations[])[i].meaning==='wysiadać'||
-        (where.collocations as Collocations[])[i].meaning==='wychodzić'){
+        (where.collocations as Collocations[])[i].meaning==='wychodzić'||
+        (where.collocations as Collocations[])[i].meaning==='schodzić')
+        {
             v=(where.collocations as Collocations[])[i]
+            updated=true
             break
         }
     }
+    if(!updated) console.log('not updated!!!!')
+
     const c = (v.particlePl as {casePl:CaseType}).casePl as CaseType     
 return {
-    romaji: who.jp + '-wa ' + where.jp + '-ni ' + v.verb,
+    romaji: who.jp + '-wa ' + where.jp + '-o ' + v.verb,
     meaning: who.pl.M + ' będzie ' + v.meaning + ' '+v.particlePl?.particle+' ' + where.pl[c]
 }
 }

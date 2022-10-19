@@ -29,6 +29,7 @@ export const uaDictionary = [
     { pl: 'spodenki', plGender: 'nmo', ua: "szorty" },
     { pl: 'podkoszulek', plGender: 'm', ua: "majka" },
     { pl: 'skarpetki', plGender: 'nmo', ua: "szkarpetky" },
+    
 ]
 
 export const persons=[

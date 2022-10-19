@@ -236,6 +236,109 @@ export const verbs:Verbs = {
             }
         }
     },
+    toRead: {
+        ua: {
+            infinitive:'czytaty',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'czytaju',
+                    ja_m: 'czytaju',
+                    ty_ż: 'czytajesz',
+                    ty_m: 'czytajesz',
+                    on: 'czytaje',
+                    ona: 'czytaje',
+                    ono: 'czytaje',
+                    my_nmo: 'czytajemo',
+                    my_mo: 'czytajemo',
+                    wy_nmo: 'czytajete',
+                    wy_mo: 'czytajete',
+                    oni: 'czytajut^',
+                    one: 'czytajut^',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+
+                }
+            }
+        },
+        pl: {
+            infinitive:'czytać',
+            declination: {
+                past: {
+                    ja_ż: 'uczyłam się',
+                    ja_m: 'uczyłem się',
+                    ty_ż: 'uczyłaś się',
+                    ty_m: 'uczyłeś się',
+                    on: 'uczył się',
+                    ona: 'uczyła się',
+                    ono: 'uczyło się',
+                    my_nmo: 'uczyłyśmy się',
+                    my_mo: 'uczyliśmy się',
+                    wy_nmo: 'uczyłyście się',
+                    wy_mo: 'uczyliście się',
+                    oni: 'uczyli się',
+                    one: 'uczyły się',
+                },
+                present: {
+                    ja_ż: 'czytam',
+                    ja_m: 'czytam',
+                    ty_ż: 'czytasz',
+                    ty_m: 'czytasz',
+                    on: 'czyta',
+                    ona: 'czyta',
+                    ono: 'czyta',
+                    my_nmo: 'czytamy',
+                    my_mo: 'czytamy',
+                    wy_nmo: 'czytacie',
+                    wy_mo: 'czytacie',
+                    oni: 'czytają',
+                    one: 'czytają',
+                },
+                future: {
+                    ja_ż: 'będę',
+                    ja_m: 'będę',
+                    ty_ż: 'będziesz',
+                    ty_m: 'będziesz',
+                    on: 'będzie',
+                    ona: 'będzie',
+                    ono: 'będzie',
+                    my_nmo: 'będziemy',
+                    my_mo: 'będziemy',
+                    wy_nmo: 'będziecie',
+                    wy_mo: 'będziecie',
+                    oni: 'będą',
+                    one: 'będą',
+                }
+            }
+        }
+    },
     toWant: {
         ua: {
             infinitive:'hotity',
@@ -288,7 +391,7 @@ export const verbs:Verbs = {
             }
         },
         pl: {
-            infinitive:'być',
+            infinitive:'chcieć',
             declination: {
                 past: {
                     ja_ż: 'byłam',
@@ -338,6 +441,7 @@ export const verbs:Verbs = {
             }
         }
     },
+   
 }
 
 export function practiceVerbs() {
@@ -366,15 +470,15 @@ export function practiceVerbs() {
     for (const key in verbs) {
         if (Object.prototype.hasOwnProperty.call(verbs, key)) {
             keyList.push(key);
-            
         }
     }
 
     const verb=verbs[rand(keyList)]
-    const verb2=verbs[rand(keyList)]
+    const verb2=verbs[rand(verb.pl.infinitive==='być'?keyList.filter(el=>el!=='toBe'):keyList)]
+    const jak=verb.pl.infinitive==='czytać'?'jak ':''
 
-    const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verb.ua.declination.present[person]+' '+verb2.ua.infinitive
-    const plLatin = rightPerson + ' ' + verb.pl.declination.present[person]+' '+verb2.pl.infinitive
+    const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verb.ua.declination.present[person]+' '+jak+verb2.ua.infinitive
+    const plLatin = rightPerson + ' ' + verb.pl.declination.present[person]+' '+jak+verb2.pl.infinitive
     return {
         uaLatin: uaLatin,
         uaCyrylic: transcription(uaLatin, latinToCyrylic),

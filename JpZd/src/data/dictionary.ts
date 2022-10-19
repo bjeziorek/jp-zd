@@ -1875,8 +1875,8 @@ export const nouns: Noun = {
         },
         {
             jp: 'yama', pl: caseDeclination('góra'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [
-                { verb: 'noru', meaning: 'wspinać się', particle: 'ni', particlePl: { particle: 'na', casePl: 'N' }, tags: ['dedicated', 'in'] },
-                { verb: 'deru', meaning: 'schodzić', particle: 'ni', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+                { verb: 'noboru', meaning: 'wspinać się', particle: 'ni', particlePl: { particle: 'na', casePl: 'N' }, tags: ['dedicated', 'in'] },
+                { verb: 'deru', meaning: 'schodzić', particle: 'o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
                 {verb:'iku',meaning:'iść',particle:'ni',particlePl:{particle:'na',casePl:'B'}},
                 {verb:'kaeru',meaning:'wracać',particle:'ni',particlePl:{particle:'na',casePl:'B'}},
                 {verb:'kuru',meaning:'przyjść',particle:'ni',particlePl:{particle:'na',casePl:'B'}}

@@ -21,6 +21,6 @@ export function goAnd(theme: Theme): DataType {
 
     return {
         romaji: who.jp + '-wa ' + where.jp + '-ni, ' + what.jp + '-o ' + verbFormJp(verb.jp.dictionaryForm, 'te') + ' ' + move.verb,
-        meaning: who.pl.M + ' ' + particlePl.particle + ' ' + where.pl[particlePl.casePl] + ' będzie ' + move.meaning + ' i ' + verb.pl.niedokonany + ' ' + what.pl.B
+        meaning: who.pl.M + ' ' + particlePl.particle + ' ' + where.pl[particlePl.casePl] + ' będzie ' + move.meaning + ' ' + verb.pl.niedokonany + ' ' + what.pl.B
     }
 }

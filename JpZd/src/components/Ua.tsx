@@ -40,8 +40,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       practiceVerbs(),
       thisIs(theme),
     ];
-
-    console.log(pool);
     setData(rand(pool));
   }
 
