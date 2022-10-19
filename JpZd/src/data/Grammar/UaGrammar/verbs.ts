@@ -341,7 +341,7 @@ export const verbs:Verbs = {
     },
     toWant: {
         ua: {
-            infinitive:'hotity',
+            infinitive:'chotity',
             declination: {
                 past: {
                     ja_ż: '',
@@ -359,19 +359,19 @@ export const verbs:Verbs = {
                     one: '',
                 },
                 present: {
-                    ja_ż: 'hoczu',
-                    ja_m: 'hoczu',
-                    ty_ż: 'hocesz',
-                    ty_m: 'hocesz',
-                    on: 'hocze',
-                    ona: 'hocze',
-                    ono: 'hocze',
-                    my_mo: 'hoczemo',
-                    my_nmo: 'hoczemo',
-                    wy_mo: 'hoczete',
-                    wy_nmo: 'hoczete',
-                    oni: 'hoczut',
-                    one: 'hoczut',
+                    ja_ż: 'choczu',
+                    ja_m: 'choczu',
+                    ty_ż: 'chocesz',
+                    ty_m: 'chocesz',
+                    on: 'chocze',
+                    ona: 'chocze',
+                    ono: 'chocze',
+                    my_mo: 'choczemo',
+                    my_nmo: 'choczemo',
+                    wy_mo: 'choczete',
+                    wy_nmo: 'choczete',
+                    oni: 'choczut^',
+                    one: 'choczut^',
                 },
                 future: {
                     ja_ż: 'budu',
