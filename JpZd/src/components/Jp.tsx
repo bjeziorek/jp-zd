@@ -111,6 +111,7 @@ import { changeVehicle } from "../data/Grammar/JpGrammar/changeVehicle/changeVeh
 import { goAnd } from "../data/Grammar/JpGrammar/goAnd/goAnd";
 import { bring } from "../data/Grammar/JpGrammar/bring/bring";
 import { manyActions } from "../data/Grammar/JpGrammar/manyActions/manyActions";
+import { sbSaysThat } from "../data/Grammar/JpGrammar/sbSaysThat/sbSaysThat";
 
 interface ContainerProps {
   name: string;
@@ -766,8 +767,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToManyActions() {
     setData(manyActions(theme));
   }
+  function changeToSbSaysThat() {
+    setData(sbSaysThat(theme));
+  }
   function setRandom() {
     const pool = [
+      sbSaysThat(theme),
       manyActions(theme),
       bring(theme),
       goAnd(theme),
@@ -1012,6 +1017,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToGoAnd}>go and</IonButton>
       <IonButton onClick={changeToBring}>bring</IonButton>
       <IonButton onClick={changeToManyActions}>many actions</IonButton>
+      <IonButton onClick={changeToSbSaysThat}>sb says that</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
