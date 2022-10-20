@@ -20,7 +20,6 @@ import {
   give2,
   give,
   receive,
-  wantToDo,
   twoVerbsAtOnce,
   twoVerbsOneByOne,
   continues,
@@ -34,6 +33,7 @@ import { chigaimasu, basics, which, whichOfAny, polite } from "../data/basics";
 import { daysOfMonth } from "../data/Grammar/JpGrammar/calendar/daysOfMonth";
 import { years } from "../data/Grammar/JpGrammar/calendar/years";
 import { Theme } from "../types/Theme.model";
+import { wantToDo } from "../data/Grammar/JpGrammar/wantToDo/wantToDo";
 
 interface ContainerProps {
   name: string;

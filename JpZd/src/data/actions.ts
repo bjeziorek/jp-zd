@@ -95,29 +95,7 @@ export function wayToDo(theme: Theme): DataType {
         meaning: 'Sposób ' + (verb.pl.imieslowNiedokonany as string).replace(/(e się)$/, 'a się').replace(/(e)$/, 'a')
     }
 }
-export function wantToDo(theme: Theme): DataType {
 
-    function taiForm(verb: string) {
-        //exceptions
-        if (verb === 'suru') {
-            return 'shitai'
-        }
-
-
-        if (verb.match(/iru$|eru$/)) {
-            return verb.slice(0, -2) + 'tai'
-        } else {
-            return verb.slice(0, -1) + 'itai'
-        }
-
-    }
-
-    const verb: VerbStructure = rand(pickTheme('v', 'actions'))
-    return {
-        romaji:/*what.jp + bar+ verb.particle.jp+' '+*/taiForm(verb.jp.dictionaryForm),
-        meaning: 'Chcę ' + verb.pl.dokonany/*+' '+verb.particle.pl.txt+' '+what.pl[verb.particle.pl.case]*/
-    }
-}
 export function give2(theme: Theme): DataType {
 
     const uchi: NounStructure = rand(pickTheme('n', 'myFamily'))

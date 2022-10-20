@@ -21,7 +21,6 @@ import {
   give2,
   give,
   receive,
-  wantToDo,
   twoVerbsAtOnce,
   twoVerbsOneByOne,
   continues,
@@ -104,7 +103,6 @@ import { after } from "../data/Grammar/JpGrammar/after/after";
 import { Theme } from "../types/Theme.model";
 import { tooMuch } from "../data/Grammar/JpGrammar/tooMuch/tooMuch";
 import { enter } from "../data/Grammar/JpGrammar/enterLeave/enter";
-import { exit } from "process";
 import { leave } from "../data/Grammar/JpGrammar/enterLeave/leave";
 import { walk } from "../data/Grammar/JpGrammar/walk/walk";
 import { changeVehicle } from "../data/Grammar/JpGrammar/changeVehicle/changeVehicle";
@@ -112,6 +110,10 @@ import { goAnd } from "../data/Grammar/JpGrammar/goAnd/goAnd";
 import { bring } from "../data/Grammar/JpGrammar/bring/bring";
 import { manyActions } from "../data/Grammar/JpGrammar/manyActions/manyActions";
 import { sbSaysThat } from "../data/Grammar/JpGrammar/sbSaysThat/sbSaysThat";
+import { wantToDo } from "../data/Grammar/JpGrammar/wantToDo/wantToDo";
+import { wantToHave } from "../data/Grammar/JpGrammar/wantToDo/wantToHave";
+import { wantToDoNow } from "../data/Grammar/JpGrammar/wantToDo/wantToDoNow";
+import { wantToHaveNow } from "../data/Grammar/JpGrammar/wantToDo/wantToHaveNow";
 
 interface ContainerProps {
   name: string;
@@ -466,6 +468,15 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   }
   function changeToWantToDo() {
     setData(wantToDo(theme));
+  }
+  function changeToWantToDoNow() {
+    setData(wantToDoNow(theme));
+  }
+  function changeToWantToHave() {
+    setData(wantToHave(theme));
+  }
+  function changeToWantToHaveNow() {
+    setData(wantToHaveNow(theme));
   }
   function changeToReceive() {
     setData(receive(theme));
@@ -1018,6 +1029,10 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToBring}>bring</IonButton>
       <IonButton onClick={changeToManyActions}>many actions</IonButton>
       <IonButton onClick={changeToSbSaysThat}>sb says that</IonButton>
+      <IonButton onClick={changeToWantToDo}>want to do</IonButton>
+      <IonButton onClick={changeToWantToDoNow}>want to do now</IonButton>
+      <IonButton onClick={changeToWantToHave}>want to have</IonButton>
+      <IonButton onClick={changeToWantToHaveNow}>want to have now</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
