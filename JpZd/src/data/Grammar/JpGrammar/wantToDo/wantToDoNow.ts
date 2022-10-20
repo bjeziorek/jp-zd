@@ -27,6 +27,6 @@ export function wantToDoNow(theme: Theme): DataType {
     const verb: VerbStructure = rand(pickTheme('v', 'actions'))
     return {
         romaji:who.jp+'-wa '+taiImasuForm(verb.jp.dictionaryForm),
-        meaning: who.pl.M+'chce [w tej chwili] ' + verb.pl.niedokonany
+        meaning: who.pl.M+' chce [w tej chwili] ' + verb.pl.niedokonany
     }
 }

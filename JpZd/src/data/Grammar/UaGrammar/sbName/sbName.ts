@@ -9,6 +9,7 @@ export function sbName(theme: Theme): UaType{
     {ua:'joho',pl:'on',plV:'nazywa'},
     {ua:'was',pl:'Pan/Pani/wy',plV:'nazywa/nazywacie'},
     {ua:'meni',pl:'ja',plV:'nazywam'},
+    {ua:'tebe',pl:'ty',plV:'nazywasz'},
     ])
 
     
