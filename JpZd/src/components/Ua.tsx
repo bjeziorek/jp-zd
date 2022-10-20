@@ -1,19 +1,22 @@
 import { IonButton } from "@ionic/react";
 import { useState } from "react";
 import "./Ua.css";
-import { cases, thisIs, UaType } from "../data/Grammar/UaGrammar/thisIs";
+import {  thisIs, UaType } from "../data/Grammar/UaGrammar/thisIs/thisIs";
 import Kanji from "../types/Kanji.model";
 import { kanjiDict } from "../data/dictionary";
 import rand from "../utils/randomArrayElement";
 import { practiceVerbs } from "../data/Grammar/UaGrammar/verbs";
+import { sbName } from "../data/Grammar/UaGrammar/sbName/sbName";
+import { basicQuestion } from "../data/Grammar/UaGrammar/basicQuestions/basicQuestions";
+import { Theme } from "../types/Theme.model";
 
 interface ContainerProps {
   name: string;
 }
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
-  const [data, setData] = useState<UaType>(thisIs(''));
-  const [theme, setTheme] = useState<string>("professions"); //potem podmieniać na przycisku
+  const [data, setData] = useState<UaType>(thisIs('all'));
+  const [theme, setTheme] = useState<Theme>("professions"); //potem podmieniać na przycisku
   const [dataKanji, setDataKanji] = useState<Kanji>(kanjiDict("kwiat"));
   const [showToggleRomaji, setShowToggleRomaji] = useState("show");
   function romajiVisibility() {
@@ -34,9 +37,17 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToPracticeVerbs() {
     setData(practiceVerbs());
   }
+  function changeToName() {
+    setData(sbName(theme));
+  }
+  function changeToQuestions() {
+    setData(basicQuestion(theme));
+  }
   
   function setRandom() {
     const pool = [
+      basicQuestion(theme),
+      sbName(theme),
       practiceVerbs(),
       thisIs(theme),
     ];
@@ -49,6 +60,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <p>ua !!!!!!!!!!</p>
       <IonButton onClick={changeToThisIs}>this is</IonButton>
       <IonButton onClick={changeToPracticeVerbs}>verbs</IonButton>
+      <IonButton onClick={changeToName}>name</IonButton>
+      <IonButton onClick={changeToQuestions}>question</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
       <p></p>
