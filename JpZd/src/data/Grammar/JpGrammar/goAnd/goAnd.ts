@@ -1,4 +1,4 @@
-import { oVerbFilter } from '../../../../utils/oVerbFilter';
+import { oVerbFilter } from '../../../../utils/filters/oVerbFilter';
 import { VerbStructure } from '../../../../types/Verb.model';
 import { NounStructure, Collocations } from '../../../../types/Noun.model';
 import DataType from '../../../../types/DataType.model';

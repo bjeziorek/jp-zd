@@ -1,4 +1,4 @@
-import { oVerbFilter } from '../../../../utils/oVerbFilter';
+import { oVerbFilter } from '../../../../utils/filters/oVerbFilter';
 import { Theme } from './../../../../types/Theme.model';
 import { jpVerbFormsPool, verbFormJp } from './../../../dictionary';
 import DataType from "../../../../types/DataType.model";

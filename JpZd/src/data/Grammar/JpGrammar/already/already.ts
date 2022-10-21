@@ -5,7 +5,7 @@ import { verbFormJp, verbs, jpVerbFormsPool } from './../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import { pickTheme } from "../../../../utils/pickTheme";
 import rand from "../../../../utils/randomArrayElement";
-import { oVerbFilter } from '../../../../utils/oVerbFilter';
+import { oVerbFilter } from '../../../../utils/filters/oVerbFilter';
 
 export function already(theme:Theme):DataType{
     const who:NounStructure=rand(pickTheme('n', theme))

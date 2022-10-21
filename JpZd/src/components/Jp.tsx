@@ -114,6 +114,9 @@ import { wantToDo } from "../data/Grammar/JpGrammar/wantToDo/wantToDo";
 import { wantToHave } from "../data/Grammar/JpGrammar/wantToDo/wantToHave";
 import { wantToDoNow } from "../data/Grammar/JpGrammar/wantToDo/wantToDoNow";
 import { wantToHaveNow } from "../data/Grammar/JpGrammar/wantToDo/wantToHaveNow";
+import { beforeTime } from "../data/Grammar/JpGrammar/beforeTime/beforeTime";
+import { afterTime } from "../data/Grammar/JpGrammar/afterTime/afterTime";
+import { duringTime } from "../data/Grammar/JpGrammar/duringTime/duringTime";
 
 interface ContainerProps {
   name: string;
@@ -781,8 +784,19 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToSbSaysThat() {
     setData(sbSaysThat(theme));
   }
+  function changeToBeforeTime() {
+    setData(beforeTime(theme));
+  }
+  function changeToAfterTime() {
+    setData(afterTime(theme));
+  }
+  function changeToDuringTime() {
+    setData(duringTime(theme));
+  }
   function setRandom() {
     const pool = [
+      duringTime(theme),
+      afterTime(theme),
       sbSaysThat(theme),
       manyActions(theme),
       bring(theme),
@@ -1033,6 +1047,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToWantToDoNow}>want to do now</IonButton>
       <IonButton onClick={changeToWantToHave}>want to have</IonButton>
       <IonButton onClick={changeToWantToHaveNow}>want to have now</IonButton>
+      <IonButton onClick={changeToBeforeTime}>before time</IonButton>
+      <IonButton onClick={changeToAfterTime}>after time</IonButton>
+      <IonButton onClick={changeToDuringTime}>during time</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
