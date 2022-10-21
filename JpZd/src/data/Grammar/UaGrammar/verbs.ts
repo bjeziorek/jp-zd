@@ -15,22 +15,23 @@ interface Declination {
 }
 
 
-
-interface Verbs {
-    [key: string]: {
-        ua:{
-            infinitive:string,
-            declination:Declination
-        }
-        pl:{
-            infinitive:string,
-            declination: Declination
-        }
-
+export interface UaVerb{
+    ua:{
+        infinitive:string,
+        declination:Declination
     }
+    pl:{
+        infinitive:string,
+        declination: Declination
+    }
+
 }
 
-export const verbs:Verbs = {
+interface UaVerbs {
+    [key: string]: UaVerb
+}
+
+export const uaVerbs:UaVerbs = {
     toBe: {
         ua: {
             infinitive:'bity',
@@ -467,14 +468,14 @@ export function practiceVerbs() {
     })()
 
     const keyList: string[]=[]
-    for (const key in verbs) {
-        if (Object.prototype.hasOwnProperty.call(verbs, key)) {
+    for (const key in uaVerbs) {
+        if (Object.prototype.hasOwnProperty.call(uaVerbs, key)) {
             keyList.push(key);
         }
     }
 
-    const verb=verbs[rand(keyList)]
-    const verb2=verbs[rand(verb.pl.infinitive==='być'?keyList.filter(el=>el!=='toBe'):keyList)]
+    const verb=uaVerbs[rand(keyList)]
+    const verb2=uaVerbs[rand(verb.pl.infinitive==='być'?keyList.filter(el=>el!=='toBe'):keyList)]
     const jak=verb.pl.infinitive==='czytać'?'jak ':''
 
     const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verb.ua.declination.present[person]+' '+jak+verb2.ua.infinitive
