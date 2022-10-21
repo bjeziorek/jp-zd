@@ -20,6 +20,6 @@ export function afterTime(theme:Theme):DataType{
 
     return{
         romaji:who.jp+'-wa '+place1.jp+'-e '+verbFormJp(verb1.jp.dictionaryForm,'ta')+' toki, '+place2.jp+'-de '+adj.jp+' '+what.jp+'-o '+verbFormJp(verb2.jp.dictionaryForm,'mashita'),
-        meaning:who.pl.M+' po tym, gdy (po) '+verb1.pl.os3+' do '+place1.pl.D+', '+verb2.pl.os3+'ł(a) '+adj.pl+' '+what.pl.B+' w '+place2.pl.Msc
+        meaning:who.pl.M+' po tym, gdy (po) '+verb1.pl.os3+'ł(a) do '+place1.pl.D+', '+verb2.pl.os3+adj.pl+' '+what.pl.B+' w '+place2.pl.Msc
     }
 }
