@@ -117,6 +117,7 @@ import { wantToHaveNow } from "../data/Grammar/JpGrammar/wantToDo/wantToHaveNow"
 import { beforeTime } from "../data/Grammar/JpGrammar/beforeTime/beforeTime";
 import { afterTime } from "../data/Grammar/JpGrammar/afterTime/afterTime";
 import { duringTime } from "../data/Grammar/JpGrammar/duringTime/duringTime";
+import { hobby } from "../data/Grammar/JpGrammar/hobby/hobby";
 
 interface ContainerProps {
   name: string;
@@ -793,8 +794,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToDuringTime() {
     setData(duringTime(theme));
   }
+  function changeToHobby() {
+    setData(hobby(theme));
+  }
   function setRandom() {
     const pool = [
+      hobby(theme),
       duringTime(theme),
       afterTime(theme),
       sbSaysThat(theme),
@@ -1050,6 +1055,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToBeforeTime}>before time</IonButton>
       <IonButton onClick={changeToAfterTime}>after time</IonButton>
       <IonButton onClick={changeToDuringTime}>during time</IonButton>
+      <IonButton onClick={changeToHobby}>hobby</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
