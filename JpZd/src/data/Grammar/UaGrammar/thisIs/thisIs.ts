@@ -20,9 +20,14 @@ export function thisIs(theme: Theme): UaType {
         {ua:'ni',inUa:'ne',pl:'nie',inPl:'nie'},
     ])
     const who = rand(uaDictionary)
+    const what2 = rand(uaDictionary.filter(el=>{return el.pl!==who.pl}))
     const be = (who.plGender === 'mo' || who.plGender === 'nmo') ? 'są' : 'jest'
-    const uaLatin = 'ce ' + who.ua+'? '+yesNo.ua+', ce '+yesNo.inUa+' '+who.ua
-    const plLatin = 'to ' + be + ' ' + who.pl+'? '+yesNo.pl+', to '+yesNo.inPl+' '+be+' '+who.pl
+    const extraAnswerUa=(yesNo.ua==='ni')?(', ce '+what2.ua):''
+    const extraAnswerPl=(yesNo.ua==='ni')?(', to jest '+what2.pl):''
+    
+
+    const uaLatin = 'skażit^, bud^ laska, szczo ce? ce ' + who.ua+'? '+yesNo.ua+', ce '+yesNo.inUa+' '+who.ua+extraAnswerUa
+    const plLatin = 'powiedz proszę, co to jest? to ' + be + ' ' + who.pl+'? '+yesNo.pl+', to '+yesNo.inPl+' '+be+' '+who.pl+extraAnswerPl
 
     return {
         uaLatin: uaLatin,
