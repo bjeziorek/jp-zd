@@ -9,6 +9,6 @@ export function wantToHaveNow(theme: Theme): DataType {
     const what:NounStructure=rand(pickTheme('n','items'))
     return {
         romaji:who.jp+'-wa '+what.jp+'-o hoshigatte imasu',
-        meaning: who.pl.M+' chce mieć ' + what.pl.M
+        meaning: who.pl.M+' chce mieć [w tej chwili] ' + what.pl.M
     }
 }
