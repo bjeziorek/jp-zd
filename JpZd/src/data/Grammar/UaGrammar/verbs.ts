@@ -134,6 +134,516 @@ export const uaVerbs:UaVerbs = {
             }
         }
     },
+    toHave: {
+        ua: {
+            infinitive:'maty',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'maju',
+                    ja_m: 'maju',
+                    ty_ż: 'majesz',
+                    ty_m: 'majesz',
+                    on: 'maje',
+                    ona: 'maje',
+                    ono: 'maje',
+                    my_nmo: 'majemo',
+                    my_mo: 'majemo',
+                    wy_nmo: 'majete',
+                    wy_mo: 'majete',
+                    oni: 'majut^',
+                    one: 'majut^',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        },
+        pl: {
+            infinitive:'mieć',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'mam',
+                    ja_m: 'mam',
+                    ty_ż: 'masz',
+                    ty_m: 'masz',
+                    on: 'ma',
+                    ona: 'ma',
+                    ono: 'ma',
+                    my_nmo: 'mamy',
+                    my_mo: 'mamy',
+                    wy_nmo: 'macie',
+                    wy_mo: 'macie',
+                    oni: 'mają',
+                    one: 'mają',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        }
+    },
+    toDo: {
+        ua: {
+            infinitive:'robyty',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'roblju',
+                    ja_m: 'roblju',
+                    ty_ż: 'robysz',
+                    ty_m: 'robysz',
+                    on: 'robyt^',
+                    ona: 'robyt^',
+                    ono: 'robyt^',
+                    my_nmo: 'robymo',
+                    my_mo: 'robymo',
+                    wy_nmo: 'robyte',
+                    wy_mo: 'robyte',
+                    oni: 'robljat^',
+                    one: 'robljat^',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        },
+        pl: {
+            infinitive:'robić',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'robię',
+                    ja_m: 'robię',
+                    ty_ż: 'robisz',
+                    ty_m: 'robisz',
+                    on: 'robi',
+                    ona: 'robi',
+                    ono: 'robi',
+                    my_nmo: 'robimy',
+                    my_mo: 'robimy',
+                    wy_nmo: 'robicie',
+                    wy_mo: 'robicie',
+                    oni: 'robią',
+                    one: 'robią',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        }
+    },
+    toThink: {
+        ua: {
+            infinitive:'dumaty',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'dumayu',
+                    ja_m: 'dumaju',
+                    ty_ż: 'dumajesz',
+                    ty_m: 'dumajesz',
+                    on: 'dumaje',
+                    ona: 'dumaje',
+                    ono: 'dumaje',
+                    my_nmo: 'dumajemo',
+                    my_mo: 'dumajemo',
+                    wy_nmo: 'dumajete',
+                    wy_mo: 'dumajete',
+                    oni: 'dumajut^',
+                    one: 'dumajut^',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        },
+        pl: {
+            infinitive:'myśleć',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'myślę',
+                    ja_m: 'myślę',
+                    ty_ż: 'myślisz',
+                    ty_m: 'myślisz',
+                    on: 'myśli',
+                    ona: 'myśli',
+                    ono: 'myśli',
+                    my_nmo: 'myślimy',
+                    my_mo: 'myślimy',
+                    wy_nmo: 'myślicie',
+                    wy_mo: 'myślicie',
+                    oni: 'myślą',
+                    one: 'myślą',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        }
+    },
+    toGo: {
+        ua: {
+            infinitive:'jty',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'jdu',
+                    ja_m: 'jdu',
+                    ty_ż: 'jdy',
+                    ty_m: 'jdy',
+                    on: 'jde',
+                    ona: 'jde',
+                    ono: 'jde',
+                    my_nmo: 'jdemo',
+                    my_mo: 'jdemo',
+                    wy_nmo: 'jdete',
+                    wy_mo: 'jdete',
+                    oni: 'jdut^',
+                    one: 'jdut^',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        },
+        pl: {
+            infinitive:'iść',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'idę',
+                    ja_m: 'idę',
+                    ty_ż: 'idziesz',
+                    ty_m: 'idziesz',
+                    on: 'idzie',
+                    ona: 'idzie',
+                    ono: 'idzie',
+                    my_nmo: 'idziemy',
+                    my_mo: 'idziemy',
+                    wy_nmo: 'idziecie',
+                    wy_mo: 'idziecie',
+                    oni: 'idą',
+                    one: 'idą',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        }
+    },
+    toCan: {
+        ua: {
+            infinitive:"moht'y",
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'możu',
+                    ja_m: 'możu',
+                    ty_ż: 'możesz',
+                    ty_m: 'możesz',
+                    on: 'może',
+                    ona: 'może',
+                    ono: 'może',
+                    my_nmo: 'możemo',
+                    my_mo: 'możemo',
+                    wy_nmo: 'możete',
+                    wy_mo: 'możete',
+                    oni: 'możut^',
+                    one: 'możut^',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        },
+        pl: {
+            infinitive:'móc',
+            declination: {
+                past: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                },
+                present: {
+                    ja_ż: 'mogę',
+                    ja_m: 'mogę',
+                    ty_ż: 'możesz',
+                    ty_m: 'możesz',
+                    on: 'może',
+                    ona: 'może',
+                    ono: 'może',
+                    my_nmo: 'możemy',
+                    my_mo: 'możemy',
+                    wy_nmo: 'możecie',
+                    wy_mo: 'możecie',
+                    oni: 'mogą',
+                    one: 'mogą',
+                },
+                future: {
+                    ja_ż: '',
+                    ja_m: '',
+                    ty_ż: '',
+                    ty_m: '',
+                    on: '',
+                    ona: '',
+                    ono: '',
+                    my_nmo: '',
+                    my_mo: '',
+                    wy_nmo: '',
+                    wy_mo: '',
+                    oni: '',
+                    one: '',
+                }
+            }
+        }
+    },
     toLearn: {
         ua: {
             infinitive:'wiwczaty',
@@ -473,11 +983,25 @@ export function practiceVerbs() {
             keyList.push(key);
         }
     }
-
+let verb2
     const verb=uaVerbs[rand(keyList)]
-    const verb2=uaVerbs[rand(verb.pl.infinitive==='być'?keyList.filter(el=>el!=='toBe'):keyList)]
-    const jak=verb.pl.infinitive==='czytać'?'jak ':''
+    if(verb.pl.infinitive==='robić'
+    ||verb.pl.infinitive==='mieć'
+    ||verb.pl.infinitive==='robić'
+    ||verb.pl.infinitive==='myśleć'
+    ){
+        verb2={
+            ua:{infinitive:''},
+            pl:{infinitive:''}
+        }
+    }else{
+    verb2=uaVerbs[rand(verb.pl.infinitive==='być'?keyList
+    .filter(el=>el!=='toBe')
+    :keyList)]
+    }
 
+    let jak=verb.pl.infinitive==='czytać'?'jak ':''
+    
     const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verb.ua.declination.present[person]+' '+jak+verb2.ua.infinitive
     const plLatin = rightPerson + ' ' + verb.pl.declination.present[person]+' '+jak+verb2.pl.infinitive
     return {
