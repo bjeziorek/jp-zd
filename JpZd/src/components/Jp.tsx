@@ -119,6 +119,8 @@ import { afterTime } from "../data/Grammar/JpGrammar/afterTime/afterTime";
 import { duringTime } from "../data/Grammar/JpGrammar/duringTime/duringTime";
 import { hobby } from "../data/Grammar/JpGrammar/hobby/hobby";
 import { like } from "../data/Grammar/JpGrammar/like/like";
+import { youKnowSb } from "../data/Grammar/JpGrammar/youKnowSb/youKnowSb";
+import { youKnowThat } from "../data/Grammar/JpGrammar/youKnowThat/youKnowThat";
 
 interface ContainerProps {
   name: string;
@@ -801,8 +803,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToLikeF() {
     setData(like(theme));
   }
+  function changeToYouKnowSb() {
+    setData(youKnowSb(theme));
+  }
+  function changeToYouKnowThat() {
+    setData(youKnowThat(theme));
+  }
   function setRandom() {
     const pool = [
+      youKnowSb(theme),
+      youKnowThat(theme),
       like(theme),
       hobby(theme),
       duringTime(theme),
@@ -1062,6 +1072,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToDuringTime}>during time</IonButton>
       <IonButton onClick={changeToHobby}>hobby</IonButton>
       <IonButton onClick={changeToLikeF}>likeF</IonButton>
+      <IonButton onClick={changeToYouKnowSb}>you know sb</IonButton>
+      <IonButton onClick={changeToYouKnowThat}>you know that</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
