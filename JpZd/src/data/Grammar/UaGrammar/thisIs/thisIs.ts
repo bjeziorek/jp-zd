@@ -12,9 +12,7 @@ export interface UaType {
 }
 
 export function thisIs(theme: Theme): UaType {
-    uaDictionary.forEach(element => {
-      //  console.log(element.pl, transcription(element.pl, latinToCyrylic), element.ua, transcription(element.ua, latinToCyrylic))
-    });
+   
     const yesNo=rand([
         {ua:'tak',inUa:'',pl:'tak',inPl:''},
         {ua:'ni',inUa:'ne',pl:'nie',inPl:'nie'},

@@ -1,27 +1,28 @@
 import { persons } from './dictionaryUa';
 import transcription, { latinToCyrylic } from "../../../UaUtils/transcription";
 import rand from "../../../utils/randomArrayElement";
+import { getKeyList } from '../../../UaUtils/getKeyList';
 
 
 
 interface VerbPersons {
-    [key:string]: string,
+    [key: string]: string,
 }
 
 interface Declination {
-    past:VerbPersons,
-    present:VerbPersons,
-    future:VerbPersons
+    past: VerbPersons,
+    present: VerbPersons,
+    future: VerbPersons
 }
 
 
-export interface UaVerb{
-    ua:{
-        infinitive:string,
-        declination:Declination
+export interface UaVerb {
+    ua: {
+        infinitive: string,
+        declination: Declination
     }
-    pl:{
-        infinitive:string,
+    pl: {
+        infinitive: string,
         declination: Declination
     }
 
@@ -31,10 +32,10 @@ interface UaVerbs {
     [key: string]: UaVerb
 }
 
-export const uaVerbs:UaVerbs = {
+export const uaVerbs: UaVerbs = {
     toBe: {
         ua: {
-            infinitive:'bity',
+            infinitive: 'bity',
             declination: {
                 past: {
                     ja_ż: 'byla',
@@ -51,7 +52,7 @@ export const uaVerbs:UaVerbs = {
                     oni: '',
                     one: '',
                 },
-                future:{//present: {
+                future: {//present: {
                     ja_ż: 'je',
                     ja_m: 'je',
                     ty_ż: 'je',
@@ -66,7 +67,7 @@ export const uaVerbs:UaVerbs = {
                     oni: 'je',
                     one: 'je',
                 },
-                present:{//future: {
+                present: {//future: {
                     ja_ż: 'budu',
                     ja_m: 'budu',
                     ty_ż: 'budesz',
@@ -84,7 +85,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'być',
+            infinitive: 'być',
             declination: {
                 past: {
                     ja_ż: 'byłam',
@@ -101,7 +102,7 @@ export const uaVerbs:UaVerbs = {
                     oni: 'byli',
                     one: 'były',
                 },
-                future:{//present: {
+                future: {//present: {
                     ja_ż: 'jestem',
                     ja_m: 'jestem',
                     ty_ż: 'jesteś',
@@ -116,7 +117,7 @@ export const uaVerbs:UaVerbs = {
                     oni: 'są',
                     one: 'są',
                 },
-                present:{//future: {
+                present: {//future: {
                     ja_ż: 'będę',
                     ja_m: 'będę',
                     ty_ż: 'będziesz',
@@ -136,7 +137,7 @@ export const uaVerbs:UaVerbs = {
     },
     toHave: {
         ua: {
-            infinitive:'maty',
+            infinitive: 'maty',
             declination: {
                 past: {
                     ja_ż: '',
@@ -186,7 +187,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'mieć',
+            infinitive: 'mieć',
             declination: {
                 past: {
                     ja_ż: '',
@@ -238,7 +239,7 @@ export const uaVerbs:UaVerbs = {
     },
     toDo: {
         ua: {
-            infinitive:'robyty',
+            infinitive: 'robyty',
             declination: {
                 past: {
                     ja_ż: '',
@@ -288,7 +289,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'robić',
+            infinitive: 'robić',
             declination: {
                 past: {
                     ja_ż: '',
@@ -340,7 +341,7 @@ export const uaVerbs:UaVerbs = {
     },
     toThink: {
         ua: {
-            infinitive:'dumaty',
+            infinitive: 'dumaty',
             declination: {
                 past: {
                     ja_ż: '',
@@ -390,7 +391,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'myśleć',
+            infinitive: 'myśleć',
             declination: {
                 past: {
                     ja_ż: '',
@@ -442,7 +443,7 @@ export const uaVerbs:UaVerbs = {
     },
     toGo: {
         ua: {
-            infinitive:'jty',
+            infinitive: 'jty',
             declination: {
                 past: {
                     ja_ż: '',
@@ -492,7 +493,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'iść',
+            infinitive: 'iść',
             declination: {
                 past: {
                     ja_ż: '',
@@ -544,7 +545,7 @@ export const uaVerbs:UaVerbs = {
     },
     toCan: {
         ua: {
-            infinitive:"moht'y",
+            infinitive: "moht'y",
             declination: {
                 past: {
                     ja_ż: '',
@@ -594,7 +595,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'móc',
+            infinitive: 'móc',
             declination: {
                 past: {
                     ja_ż: '',
@@ -646,7 +647,7 @@ export const uaVerbs:UaVerbs = {
     },
     toLearn: {
         ua: {
-            infinitive:'wiwczaty',
+            infinitive: 'wiwczaty',
             declination: {
                 past: {
                     ja_ż: '',
@@ -697,7 +698,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'uczyć się',
+            infinitive: 'uczyć się',
             declination: {
                 past: {
                     ja_ż: 'uczyłam się',
@@ -749,7 +750,7 @@ export const uaVerbs:UaVerbs = {
     },
     toRead: {
         ua: {
-            infinitive:'czytaty',
+            infinitive: 'czytaty',
             declination: {
                 past: {
                     ja_ż: '',
@@ -800,7 +801,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'czytać',
+            infinitive: 'czytać',
             declination: {
                 past: {
                     ja_ż: 'uczyłam się',
@@ -852,7 +853,7 @@ export const uaVerbs:UaVerbs = {
     },
     toWant: {
         ua: {
-            infinitive:'chotity',
+            infinitive: 'chotity',
             declination: {
                 past: {
                     ja_ż: '',
@@ -902,7 +903,7 @@ export const uaVerbs:UaVerbs = {
             }
         },
         pl: {
-            infinitive:'chcieć',
+            infinitive: 'chcieć',
             declination: {
                 past: {
                     ja_ż: 'byłam',
@@ -952,7 +953,7 @@ export const uaVerbs:UaVerbs = {
             }
         }
     },
-   
+
 }
 
 export function practiceVerbs() {
@@ -973,37 +974,32 @@ export function practiceVerbs() {
         'one',
     ])
 
-    const rightPerson=(()=>{
-        return person.replace(/_m$/,'').replace(/_ż$/,'').replace(/_mo$/,'').replace(/_mno$/,'')
+    const rightPerson = (() => {
+        return person.replace(/_m$/, '').replace(/_ż$/, '').replace(/_mo$/, '').replace(/_mno$/, '')
     })()
 
-    const keyList: string[]=[]
-    for (const key in uaVerbs) {
-        if (Object.prototype.hasOwnProperty.call(uaVerbs, key)) {
-            keyList.push(key);
+    const keyList = getKeyList(uaVerbs)
+    let verb2
+    const verb = uaVerbs[rand(keyList)]
+    if (verb.pl.infinitive === 'robić'
+        || verb.pl.infinitive === 'mieć'
+        || verb.pl.infinitive === 'robić'
+        || verb.pl.infinitive === 'myśleć'
+    ) {
+        verb2 = {
+            ua: { infinitive: '' },
+            pl: { infinitive: '' }
         }
-    }
-let verb2
-    const verb=uaVerbs[rand(keyList)]
-    if(verb.pl.infinitive==='robić'
-    ||verb.pl.infinitive==='mieć'
-    ||verb.pl.infinitive==='robić'
-    ||verb.pl.infinitive==='myśleć'
-    ){
-        verb2={
-            ua:{infinitive:''},
-            pl:{infinitive:''}
-        }
-    }else{
-    verb2=uaVerbs[rand(verb.pl.infinitive==='być'?keyList
-    .filter(el=>el!=='toBe')
-    :keyList)]
+    } else {
+        verb2 = uaVerbs[rand(verb.pl.infinitive === 'być' ? keyList
+            .filter(el => el !== 'toBe')
+            : keyList)]
     }
 
-    let jak=verb.pl.infinitive==='czytać'?'jak ':''
-    
-    const uaLatin = persons.filter(el=>{return el.pl===rightPerson})[0].ua + ' '+verb.ua.declination.present[person]+' '+jak+verb2.ua.infinitive
-    const plLatin = rightPerson + ' ' + verb.pl.declination.present[person]+' '+jak+verb2.pl.infinitive
+    let jak = verb.pl.infinitive === 'czytać' ? 'jak ' : ''
+
+    const uaLatin = persons.filter(el => { return el.pl === rightPerson })[0].ua + ' ' + verb.ua.declination.present[person] + ' ' + jak + verb2.ua.infinitive
+    const plLatin = rightPerson + ' ' + verb.pl.declination.present[person] + ' ' + jak + verb2.pl.infinitive
     return {
         uaLatin: uaLatin,
         uaCyrylic: transcription(uaLatin, latinToCyrylic),

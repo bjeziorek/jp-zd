@@ -10,6 +10,7 @@ import { sbName } from "../data/Grammar/UaGrammar/sbName/sbName";
 import { basicQuestion } from "../data/Grammar/UaGrammar/basicQuestions/basicQuestions";
 import { Theme } from "../types/Theme.model";
 import { too } from "../data/Grammar/UaGrammar/too/too";
+import { together } from "../data/Grammar/UaGrammar/together/together";
 
 interface ContainerProps {
   name: string;
@@ -47,9 +48,13 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToToo() {
     setData(too(theme));
   }
+  function changeToTogether() {
+    setData(together(theme));
+  }
   
   function setRandom() {
     const pool = [
+      together(theme),
       too(theme),
       basicQuestion(theme),
       sbName(theme),
@@ -68,6 +73,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToPracticeVerbs}>verbs</IonButton>
       <IonButton onClick={changeToName}>name</IonButton>
       <IonButton onClick={changeToQuestions}>question</IonButton>
+      <IonButton onClick={changeToTogether}>together</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
       <p></p>
