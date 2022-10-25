@@ -613,6 +613,7 @@ export const greetings = [
 
 export const adjectives: Adjective = {
     all: [
+        { jp: 'tanoshii', pl: 'przyjemny', rz: 'przyjemność' },
         { jp: 'shiroi', pl: 'biały', rz: 'biel' },
         { jp: 'aoi', pl: 'niebieski', rz: 'niebieskość' },
         { jp: 'akai', pl: 'czerwony', rz: 'czerwień' },

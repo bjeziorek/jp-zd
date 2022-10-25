@@ -121,6 +121,8 @@ import { hobby } from "../data/Grammar/JpGrammar/hobby/hobby";
 import { like } from "../data/Grammar/JpGrammar/like/like";
 import { youKnowSb } from "../data/Grammar/JpGrammar/youKnowSb/youKnowSb";
 import { youKnowThat } from "../data/Grammar/JpGrammar/youKnowThat/youKnowThat";
+import { iDidntKnowSthIsAdj } from "../data/Grammar/JpGrammar/iDidntKnowSthIsAdj/iDidntKnowSthIsAdj";
+import { iDidntKnowYouDontLike } from "../data/Grammar/JpGrammar/iDidntKnowYouDontLike/iDidntKnowYouDontLike";
 
 interface ContainerProps {
   name: string;
@@ -809,8 +811,16 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToYouKnowThat() {
     setData(youKnowThat(theme));
   }
+  function changeToIDidntKnowSthIsAdj() {
+    setData(iDidntKnowSthIsAdj(theme));
+  }
+  function changeToIDidntKnowYouDontLike() {
+    setData(iDidntKnowYouDontLike(theme));
+  }
   function setRandom() {
     const pool = [
+      iDidntKnowYouDontLike(theme),
+      iDidntKnowSthIsAdj(theme),
       youKnowSb(theme),
       youKnowThat(theme),
       like(theme),
@@ -1074,6 +1084,8 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToLikeF}>likeF</IonButton>
       <IonButton onClick={changeToYouKnowSb}>you know sb</IonButton>
       <IonButton onClick={changeToYouKnowThat}>you know that</IonButton>
+      <IonButton onClick={changeToIDidntKnowSthIsAdj}>didnt know sth is x</IonButton>
+      <IonButton onClick={changeToIDidntKnowYouDontLike}>didnt know you dont like</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
