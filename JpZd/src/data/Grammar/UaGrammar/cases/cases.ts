@@ -19,6 +19,19 @@ export function cases(theme: Theme): UaType {
             W: str.replace(/.$/, 'o')
         }
     }
+    function uaCaseDeclination2(str: string) {
+        const x= {//zemlja - ziemia, stancija - stacja
+            M: str,
+            D: str.replace(/ija$/, 'iji').replace(/ja$/, 'i'),
+            C: str.replace(/ija$/, 'iji').replace(/ja$/, 'i'),
+            B: str.replace(/ija$/, 'iju').replace(/ja$/,'ju'),
+            N: str.replace(/ija$/, 'ieju').replace(/ja$/,'eju'),
+            Msc: str.replace(/ija$/, 'iji').replace(/ja$/, 'i'),
+            W: str.replace(/ija$/, 'ije').replace(/ja$/,'e')
+        }
+        console.log(x)
+        return x
+    }
 
     interface Declination{
         pl:Case,
@@ -36,9 +49,16 @@ export function cases(theme: Theme): UaType {
             pl: caseDeclination('siostra'),
             ua: uaCaseDeclination1('sestra')
         },
+        soil:{
+            pl: caseDeclination('ziemia'),
+            ua: uaCaseDeclination2('zemlja')
+        },
+        station:{
+            pl: caseDeclination('stacja'),
+            ua: uaCaseDeclination2('stancija')
+        }
     }
-console.log()
-    const n=nouns[rand(getKeyList(nouns))]
+    const n=nouns['station']//rand(getKeyList(nouns))]
     const c:CaseType=rand(['M','D','C','B','N','Msc','W']) as CaseType
     const uaLatin = n.ua[c] as string
     const plLatin =( n.pl[c] as string )+' ['+c+']'
