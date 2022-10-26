@@ -20,6 +20,6 @@ export function duringTime(theme:Theme):DataType{
 
     return{
         romaji:who.jp+'-wa, '+who2.jp+'-ga '+verbFormJp(verb1.jp.dictionaryForm,'te')+' iru toki, '+place1.jp+'-de '+adj.jp+' '+what.jp+'-o '+verbFormJp(verb2.jp.dictionaryForm,'masu'),
-        meaning:who.pl.M+' podczas, gdy '+who2.pl.M+' '+ verb1.pl.os3+', '+verb2.pl.os3+'ł(a) '+adj.pl+' '+what.pl.B+' w '+place1.pl.Msc
+        meaning:who.pl.M+' PODCZAS, gdy '+who2.pl.M+' '+ verb1.pl.os3+', '+verb2.pl.os3+'ł(a) '+adj.pl+' '+what.pl.B+' w '+place1.pl.Msc
     }
 }
