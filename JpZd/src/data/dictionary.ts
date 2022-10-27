@@ -1851,6 +1851,9 @@ export const nouns: Noun = {
         { jp: "KONPYUUTA", pl: caseDeclination('komputer'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "hana", pl: caseDeclination('kwiatek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
     ],
+    notMaterial:[
+        { jp: "oto", pl: caseDeclination('dźwięk'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
+    ],
     vehicles: [
         { jp: 'densha', pl: caseDeclination('pociąg'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: 'ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: 'o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
         { jp: 'TORAKKU', pl: caseDeclination('ciężarówka'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: 'ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: 'o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },

@@ -1,14 +1,14 @@
 import { oVerbFilter } from '../../../../utils/filters/oVerbFilter';
 import { VerbStructure } from './../../../../types/Verb.model';
 import { NounStructure } from './../../../../types/Noun.model';
-import { TimePool } from './../../../../types/Tense.model';
+import { TimeStructure } from './../../../../types/Tense.model';
 import DataType from '../../../../types/DataType.model';
 import { pickTheme } from '../../../../utils/pickTheme';
 import rand from '../../../../utils/randomArrayElement';
 import { Theme } from './../../../../types/Theme.model';
 import { verbFormJp } from '../../../dictionary';
 export function manyActions(theme:Theme):DataType{
-    const t:TimePool= rand(pickTheme('t',['present','future']))
+    const t:TimeStructure= rand(pickTheme('t',['present','future']))
     const n1:NounStructure= rand(pickTheme('n',['items']))
     const n2:NounStructure= rand(pickTheme('n',['items']))
     const who:NounStructure= rand(pickTheme('n',theme))

@@ -1,4 +1,4 @@
-import { TimePool } from './../types/Tense.model';
+import { TimeStructure } from './../types/Tense.model';
 import { AdjectiveStructure } from './../types/Adjective.model';
 import { adjectives, verbs, time } from './../data/dictionary';
 import { VerbStructure } from './../types/Verb.model';
@@ -8,7 +8,7 @@ import { nouns } from "../data/dictionary"
 import { Time } from '../types/Time.model';
 
 export function pickTheme(grammarElement:'a'|'n'|'v'|'t',theme:Theme):
-NounStructure[]|VerbStructure[]|AdjectiveStructure[]|TimePool[]|any[]
+NounStructure[]|VerbStructure[]|AdjectiveStructure[]|TimeStructure[]|any[]
 {
     
         switch(grammarElement){

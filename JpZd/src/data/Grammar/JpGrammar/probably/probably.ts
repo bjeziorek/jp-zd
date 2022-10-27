@@ -1,7 +1,7 @@
 import { Theme } from './../../../../types/Theme.model';
 import { VerbStructure } from './../../../../types/Verb.model';
 import { NounStructure } from './../../../../types/Noun.model';
-import { TimePool } from './../../../../types/Tense.model';
+import { TimeStructure } from './../../../../types/Tense.model';
 import { verbFormJp, jpVerbFormsPool } from './../../../dictionary';
 import DataType from "../../../../types/DataType.model";
 import rand from "../../../../utils/randomArrayElement";
@@ -9,7 +9,7 @@ import { pickTheme } from '../../../../utils/pickTheme';
 
 export function probably(theme:Theme):DataType{
 
-    const when:TimePool = rand(pickTheme('t','future'))
+    const when:TimeStructure = rand(pickTheme('t','future'))
     const who:NounStructure=rand(pickTheme('n',theme))
     const verb:VerbStructure=rand(pickTheme('v','move'))
     const probability:{jp:string,pl:string} = rand([{pl:'chyba',jp:'tabun'},{pl:'na pewno',jp:'kitto'},{pl:'prawdopodobnie',jp:'osora'}])

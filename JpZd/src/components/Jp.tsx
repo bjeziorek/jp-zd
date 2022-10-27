@@ -124,6 +124,9 @@ import { youKnowThat } from "../data/Grammar/JpGrammar/youKnowThat/youKnowThat";
 import { iDidntKnowSthIsAdj } from "../data/Grammar/JpGrammar/iDidntKnowSthIsAdj/iDidntKnowSthIsAdj";
 import { iDidntKnowYouDontLike } from "../data/Grammar/JpGrammar/iDidntKnowYouDontLike/iDidntKnowYouDontLike";
 import { borrow } from "../data/Grammar/JpGrammar/borrow/borrow";
+import { makeSthMore } from "../data/Grammar/JpGrammar/makeSthMore/makeSthMore";
+import { thisMuch } from "../data/Grammar/JpGrammar/thisMuch/thisMuch";
+import { onlyThatLittle } from "../data/Grammar/JpGrammar/onlyThatLittle/onlyThatLittle";
 
 interface ContainerProps {
   name: string;
@@ -821,8 +824,20 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToBorrow() {
     setData(borrow(theme));
   }
+  function changeToMakeSthMore() {
+    setData(makeSthMore(theme));
+  }
+  function changeToThisMuch() {
+    setData(thisMuch(theme));
+  }
+  function changeToOnlyThatLittle() {
+    setData(onlyThatLittle(theme));
+  }
   function setRandom() {
     const pool = [
+      makeSthMore(theme),
+      thisMuch(theme),
+      onlyThatLittle(theme),
       borrow(theme),
       iDidntKnowYouDontLike(theme),
       iDidntKnowSthIsAdj(theme),
@@ -1092,6 +1107,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToIDidntKnowSthIsAdj}>didnt know sth is x</IonButton>
       <IonButton onClick={changeToIDidntKnowYouDontLike}>didnt know you dont like</IonButton>
       <IonButton onClick={changeToBorrow}>borrow</IonButton>
+      <IonButton onClick={changeToOnlyThatLittle}>only that little</IonButton>
+      <IonButton onClick={changeToThisMuch}>this much</IonButton>
+      <IonButton onClick={changeToMakeSthMore}>make sth more</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 

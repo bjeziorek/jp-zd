@@ -1,5 +1,5 @@
-import { TimePool } from "./Tense.model";
+import { TimeStructure } from "./Tense.model";
 
 export interface Time {
-    [key: string]: Array<TimePool>
+    [key: string]: Array<TimeStructure>
 }

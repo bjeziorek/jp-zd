@@ -8,6 +8,7 @@ export type NounThemes =
 'clothes'|
 'myFamily'|
 'animals'|
+'notMaterial'|
 'anotherFamily'|
 'countries'|
 'nationality'|

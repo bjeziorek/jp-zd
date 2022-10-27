@@ -9,7 +9,7 @@ export interface TenseSet{
     pl:Tense
 }
 
-export interface TimePool{
+export interface TimeStructure{
     jp:string,
     pl:string,
     time?:string
