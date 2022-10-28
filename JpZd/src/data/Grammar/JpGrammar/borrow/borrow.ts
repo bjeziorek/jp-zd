@@ -10,6 +10,6 @@ export function borrow(theme:Theme):DataType{
     const what:NounStructure=rand(pickTheme('n','body'))
     return{
         romaji:who1.jp+'-wa '+who2.jp+'-kara '+what.jp+'-o kariru.',
-        meaning:who1.pl.M+' pożyczył od '+who2.pl.D+' '+what.pl.B
+        meaning:who1.pl.M+' pożycza od '+who2.pl.D+' '+what.pl.B
     }
 }

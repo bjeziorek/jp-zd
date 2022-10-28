@@ -15,6 +15,7 @@ export type NounThemes =
 'professions'|
 'events'|
 'items'|
+'people'|
 'places'|
 'food'|
 'body'

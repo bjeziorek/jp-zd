@@ -1,3 +1,8 @@
+import { Theme } from "../../../types/Theme.model"
+import { getKeyList } from "../../../UaUtils/getKeyList"
+import transcription, { latinToCyrylic } from "../../../UaUtils/transcription"
+import { UaType } from "./thisIs/thisIs"
+
 export const uaDictionary = [
     //zwierzątka
     { pl: 'kot', plGender: 'm', ua: 'kit' },
@@ -44,3 +49,17 @@ export const persons=[
 {pl:'one',ua:'wony'},
 
 ]
+
+export function listUaDictionary(theme: Theme): UaType {
+    let pl=''
+    let ua=''
+    uaDictionary.forEach(el=>{
+        ua+=transcription(el.ua,latinToCyrylic)+' '+el.pl+' ('+transcription(el.pl,latinToCyrylic)+')\n'
+    })
+    return{
+        plCyrylic:ua,
+        plLatin:'',
+        uaCyrylic:'',
+        uaLatin:''
+    }
+}

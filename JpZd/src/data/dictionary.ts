@@ -1800,9 +1800,13 @@ export const nouns: Noun = {
         { jp: "POORANDO-jin", pl: caseDeclination('Polak'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
         { jp: 'Chuugoku-jin', pl: caseDeclination('Chińczyk'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
         { jp: 'Nihon-jin', pl: caseDeclination('Japończyk'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+        { jp: 'BURAJIRU-jin', pl: caseDeclination('Brazylijczyk'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+        { jp: 'DITSU-jin', pl: caseDeclination('Niemiec'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
+        { jp: 'IGIRISU-jin', pl: caseDeclination('Anglik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['nationality'] },
     ],
     professions: [
         { jp: "ban'nin", pl: caseDeclination('strażnik'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
+        { jp: "ginkouin", pl: caseDeclination('bankowiec'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
         { jp: 'kangofu', pl: caseDeclination('pielęgniarka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['professions'] },
         { jp: 'daigakusei', pl: caseDeclination('student'), counter: 'nin', plGender: 'm', isAlive: true, isHuman: true, tags: ['professions'] },
         { jp: 'joshigakusei', pl: caseDeclination('studentka'), counter: 'nin', plGender: 'ż', isAlive: true, isHuman: true, tags: ['professions'] },
@@ -1834,13 +1838,15 @@ export const nouns: Noun = {
         ] },
     ],
     items: [
+        { jp: "TEEPU", pl: caseDeclination('taśma'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "KAADO", pl: caseDeclination('karta'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "sentaku", pl: caseDeclination('pranie'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "souji", pl: caseDeclination('porządki'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "tegami", pl: caseDeclination('list'), counter: 'mai', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "zasshi", pl: caseDeclination('czasopismo'), counter: 'satsu', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "shinbun", pl: caseDeclination('gazeta'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "hon", pl: caseDeclination('książka'), counter: 'satsu', plGender: 'ż', isAlive: false, isHuman: false, tags: ['items'] },
-        { jp: "NOOTOO", pl: caseDeclination('zeszyt'), counter: 'satsu', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
+        { jp: "NOOTO", pl: caseDeclination('zeszyt'), counter: 'satsu', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "enpitsu", pl: caseDeclination('ołówek'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "mannenhitsu", pl: caseDeclination('pióro'), counter: 'hon', plGender: 'n', isAlive: false, isHuman: false, tags: ['items'] },
         { jp: "BOORUPEN", pl: caseDeclination('długopis'), counter: 'hon', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
@@ -1852,9 +1858,15 @@ export const nouns: Noun = {
         { jp: "hana", pl: caseDeclination('kwiatek'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['items'] },
     ],
     notMaterial:[
-        { jp: "oto", pl: caseDeclination('dźwięk'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
+        { jp: "oto", pl: caseDeclination('dźwięk'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
+        { jp: "tenki", pl: caseDeclination('pogoda'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
+    ],
+    people:[
+        { jp: "minna", pl: caseDeclination('wszyscy'), counter: '?', plGender: 'mo', isAlive: true, isHuman: true, tags: ['people'] },   
+        { jp: "kata", pl: caseDeclination('osoba'), counter: '?', plGender: 'ż', isAlive: true, isHuman: true, tags: ['people'] },   
     ],
     vehicles: [
+        { jp: "TAKUSHII", pl: caseDeclination('taksówka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['vehicles'] },
         { jp: 'densha', pl: caseDeclination('pociąg'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: 'ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: 'o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
         { jp: 'TORAKKU', pl: caseDeclination('ciężarówka'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: 'ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: 'o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
         { jp: 'BAN', pl: caseDeclination('van'), counter: 'dai', plGender: 'm', isAlive: false, isHuman: false, tags: ['vehicles'], collocations: [{ verb: 'noru', meaning: 'wsiadać', particle: 'ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] }, { verb: 'oriru', meaning: 'wysiadać', particle: 'o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'out'] },] },
@@ -1870,6 +1882,15 @@ export const nouns: Noun = {
         },
         {
             jp: "kyoushitsu", pl: caseDeclination('sala lekcyjna'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [
+                { verb: 'ireru', meaning: 'wchodzić', particle: 'ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
+                { verb: 'deru', meaning: 'wychodzić', particle: 'o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
+                {verb:'iku',meaning:'iść',particle:'ni',particlePl:{particle:'do',casePl:'D'}},
+                {verb:'kaeru',meaning:'wracać',particle:'ni',particlePl:{particle:'do',casePl:'D'}},
+                {verb:'kuru',meaning:'przyjść',particle:'ni',particlePl:{particle:'do',casePl:'D'}}
+                ]
+        },
+        {
+            jp: "SUUPAA", pl: caseDeclination('supermarket'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'], collocations: [
                 { verb: 'ireru', meaning: 'wchodzić', particle: 'ni', particlePl: { particle: 'do', casePl: 'D' }, tags: ['dedicated', 'in'] },
                 { verb: 'deru', meaning: 'wychodzić', particle: 'o', particlePl: { particle: 'z', casePl: 'D' }, tags: ['dedicated', 'in'] },
                 {verb:'iku',meaning:'iść',particle:'ni',particlePl:{particle:'do',casePl:'D'}},

@@ -12,6 +12,7 @@ import { Theme } from "../types/Theme.model";
 import { too } from "../data/Grammar/UaGrammar/too/too";
 import { together } from "../data/Grammar/UaGrammar/together/together";
 import { cases } from "../data/Grammar/UaGrammar/cases/cases";
+import { listUaDictionary } from "../data/Grammar/UaGrammar/dictionaryUa";
 
 interface ContainerProps {
   name: string;
@@ -55,6 +56,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToCases() {
     setData(cases(theme));
   }
+  function changeToList() {
+    setData(listUaDictionary(theme));
+  }
   
   function setRandom() {
     const pool = [
@@ -80,6 +84,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToQuestions}>question</IonButton>
       <IonButton onClick={changeToTogether}>together</IonButton>
       <IonButton onClick={changeToCases}>cases</IonButton>
+      <IonButton onClick={changeToList}>list</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
       <p></p>
