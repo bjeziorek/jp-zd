@@ -1,4 +1,5 @@
 import { Theme } from "../../../types/Theme.model"
+import { caseD } from "../../../UaUtils/cases/cases"
 import { getKeyList } from "../../../UaUtils/getKeyList"
 import transcription, { latinToCyrylic } from "../../../UaUtils/transcription"
 import { UaType } from "./thisIs/thisIs"
@@ -54,7 +55,7 @@ export function listUaDictionary(theme: Theme): UaType {
     let pl=''
     let ua=''
     uaDictionary.forEach(el=>{
-        ua+=transcription(el.ua,latinToCyrylic)+' '+el.pl+' ('+transcription(el.pl,latinToCyrylic)+')\n'
+        ua+=/*' ja ne maju '+caseD( el.ua)+' : '+*/transcription('ja ne maju '+caseD( el.ua),latinToCyrylic)+' ~~ '
     })
     return{
         plCyrylic:ua,
