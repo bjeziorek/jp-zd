@@ -52,10 +52,37 @@ export const persons=[
 ]
 
 export function listUaDictionary(theme: Theme): UaType {
+    const x = ['ja będę pierwszego (dnia miesiąca)',
+    'drugiego',
+    'trzeciego',
+    'czwartego',
+    'piątego',
+    'szóstego',
+    'siódmego',
+    'ósmego',
+    'dziewiątego',
+    'dziesiątego',
+    'jedenastego',
+    'dwunastego',
+    'trzynastego',
+    'czternastego',
+    'piętnastego',
+    'szesnastego',
+    'siedemnastego',
+    'osiemnastego',
+    'dziewiętnastego',
+    'dwudziestego',
+    'dwudziestego pierwszego',
+    'dwudziestego drugiego',
+    'dwudziestego ...',
+    'trzydziestego',
+]
     let pl=''
     let ua=''
-    uaDictionary.forEach(el=>{
-        ua+=/*' ja ne maju '+caseD( el.ua)+' : '+*/transcription('ja ne maju '+caseD( el.ua),latinToCyrylic)+' ~~ '
+        
+    x.forEach(el=>{
+        ua+=el+' ('+transcription(el,latinToCyrylic)+') -- '
+       // ua+=/*' ja ne maju '+caseD( el.ua)+' : '+*/transcription('ja ne maju '+caseD( el.ua),latinToCyrylic)+' ~~ '
     })
     return{
         plCyrylic:ua,

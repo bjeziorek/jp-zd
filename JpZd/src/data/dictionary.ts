@@ -1206,6 +1206,24 @@ export const verbs: Verb = {
     move: [
         {
             jp: {
+                dictionaryForm: 'oyogu',
+                particle: ['e', 'ni']
+            },
+            pl: {
+                infinitive: 'płynąć',
+                isPerfective: false,
+                isReflexive: false,
+                isNonReflexive: true,
+                prepositions: [
+                    { preposition: 'do', case: plCasePool.D },
+                    { preposition: 'z', case: plCasePool.D },
+                ],
+                rozkazujący2os: 'płyń', rozkazujący: 'płyńmy', imieslowNiedokonany: 'pływanie', niedokonany: 'pływać', dokonany: 'popłynąć', os3: 'płynie'
+            },
+            tags: ['move'],
+        },
+        {
+            jp: {
                 dictionaryForm: 'iku',
                 particle: ['e', 'ni']
             },
