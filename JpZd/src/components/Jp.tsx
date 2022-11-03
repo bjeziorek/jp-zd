@@ -127,6 +127,7 @@ import { borrow } from "../data/Grammar/JpGrammar/borrow/borrow";
 import { makeSthMore } from "../data/Grammar/JpGrammar/makeSthMore/makeSthMore";
 import { thisMuch } from "../data/Grammar/JpGrammar/thisMuch/thisMuch";
 import { onlyThatLittle } from "../data/Grammar/JpGrammar/onlyThatLittle/onlyThatLittle";
+import { unfortunatelyIDontSpeak } from "../data/Grammar/JpGrammar/unfortunatelyIDontSpeak/unfortunatelyIDontSpeak";
 
 interface ContainerProps {
   name: string;
@@ -833,8 +834,12 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToOnlyThatLittle() {
     setData(onlyThatLittle(theme));
   }
+  function changeToUnfortunatelyIDontSpeak() {
+    setData(unfortunatelyIDontSpeak(theme));
+  }
   function setRandom() {
     const pool = [
+      unfortunatelyIDontSpeak(theme),
       makeSthMore(theme),
       thisMuch(theme),
       onlyThatLittle(theme),
@@ -1110,6 +1115,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToOnlyThatLittle}>only that little</IonButton>
       <IonButton onClick={changeToThisMuch}>this much</IonButton>
       <IonButton onClick={changeToMakeSthMore}>make sth more</IonButton>
+      <IonButton onClick={changeToUnfortunatelyIDontSpeak}>unfortunately I dont speak</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
