@@ -1318,7 +1318,7 @@ export const verbs: Verb = {
                 particle: ['o']
             },
             pl: {
-                infinitive: 'brać',
+                infinitive: 'trzymać',
                 isPerfective: true,
                 isReflexive: true,
                 isNonReflexive: false,
@@ -1326,6 +1326,23 @@ export const verbs: Verb = {
                     { preposition: '', case: plCasePool.N },
                 ],
                 rozkazujący2os: 'bierz', rozkazujący: 'bierzmy', imieslowNiedokonany: 'branie', niedokonany: 'brać', dokonany: 'zabrać', os3: 'bierze'
+            },
+            tags: ['action'],
+        },
+        {
+            jp: {
+                dictionaryForm: 'sagasu',
+                particle: ['o']
+            },
+            pl: {
+                infinitive: 'szukać',
+                isPerfective: true,
+                isReflexive: true,
+                isNonReflexive: false,
+                prepositions: [
+                    { preposition: '', case: plCasePool.D },
+                ],
+                rozkazujący2os: 'szukaj', rozkazujący: 'szukajmy', imieslowNiedokonany: 'szukanie', niedokonany: 'szukać', dokonany: 'wyszukać', os3: 'szuka'
             },
             tags: ['action'],
         },
