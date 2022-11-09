@@ -612,11 +612,29 @@ export const greetings = [
 ]
 
 export const adjectives: Adjective = {
+    colors:[
+        { jp: 'akarui', pl: 'jasny', rz: 'jasność' },
+        { jp: 'shiroi', pl: 'biały', rz: 'biel' },
+        { jp: '(sora-no-iro/mizu-no-iro) aoi', pl: 'niebieski', rz: 'niebieskość' },
+        { jp: 'akai', pl: 'czerwony', rz: 'czerwień' },
+        { jp: 'BEEJU-no', pl: 'brązowy', rz: 'brąz' },
+        { jp: 'chairo-no', pl: 'czerwony', rz: 'czerwień' },
+        { jp: 'kuroi', pl: 'czarny', rz: 'czerń' },
+        { jp: 'sumire-iro-no', pl: 'fioletowy', rz: 'fiolet' },
+        { jp: 'murasaki-no', pl: 'purpurowy', rz: 'purpura' },
+        { jp: 'kon-iro-no', pl: 'granatowy', rz: 'granat' },
+        { jp: 'orenji-iro-no', pl: 'pomarańczowy', rz: 'pomarańcz' },
+        { jp: 'hai-iro-no', pl: 'czerwony', rz: 'czerwień' },
+        { jp: 'pinku-iro-no', pl: 'różowy', rz: 'róż' },
+        { jp: 'momo-iro-no', pl: 'brzoskwiniowy', rz: 'brzoskwinia' },
+        { jp: 'gin-iro-no', pl: 'srebrny', rz: 'srebro' },
+        { jp: 'midori-no', pl: 'zielony', rz: 'zieleń' },
+        { jp: 'kin-iro-no', pl: 'złoty', rz: 'złoto' },
+        { jp: 'ki-iro-no', pl: 'żółty', rz: 'żółć' },
+        
+    ],
     all: [
         { jp: 'tanoshii', pl: 'przyjemny', rz: 'przyjemność' },
-        { jp: 'shiroi', pl: 'biały', rz: 'biel' },
-        { jp: 'aoi', pl: 'niebieski', rz: 'niebieskość' },
-        { jp: 'akai', pl: 'czerwony', rz: 'czerwień' },
         { jp: 'sukina', pl: 'ulubiony', rz: 'lubienie' },
         { jp: 'kiraina', pl: 'nielubiany', rz: 'nielubienie' },
         { jp: 'hiroi', pl: 'szeroki', rz: 'szerokość' },
@@ -629,6 +647,10 @@ export const adjectives: Adjective = {
         { jp: 'futoi', pl: 'gruby', rz: 'grubość' },
         { jp: 'semai', pl: 'wąski', rz: 'wąskość' },
         { jp: 'isamashii', pl: 'odważny', rz: 'odwaga' },
+        { jp: 'kitanai', pl: 'brudny', rz: 'brud' },
+        { jp: 'usui', pl: 'cieńki', rz: 'cieńkość' },
+        { jp: 'yoi', pl: 'dobry', rz: 'dobro' },
+        { jp: 'fukai', pl: 'głęboki', rz: 'głębokość' },
         { jp: 'anzenna', pl: 'bezpieczny', rz: 'bezpieczeństwo' },
         { jp: 'abunai', pl: 'niebezpieczny', rz: 'niebezpieczeństwo' },
         { jp: 'benrina', pl: 'wygodny', rz: 'wygoda' },
