@@ -128,6 +128,7 @@ import { makeSthMore } from "../data/Grammar/JpGrammar/makeSthMore/makeSthMore";
 import { thisMuch } from "../data/Grammar/JpGrammar/thisMuch/thisMuch";
 import { onlyThatLittle } from "../data/Grammar/JpGrammar/onlyThatLittle/onlyThatLittle";
 import { unfortunatelyIDontSpeak } from "../data/Grammar/JpGrammar/unfortunatelyIDontSpeak/unfortunatelyIDontSpeak";
+import GrammarList from "./GrammarList";
 
 interface ContainerProps {
   name: string;
@@ -980,6 +981,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   }
   return (
     <div className="container">
+      
       <IonButton onClick={changeToKanji}>Kanji</IonButton>
       <IonButton onClick={changeToCountingLongObjects}>LongObjects</IonButton>
       <IonButton onClick={changeToCountingPeople}>People</IonButton>
@@ -1122,10 +1124,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <p></p>
 
       <p></p>
-      <p>
-        kanji: {dataKanji.kanji} {dataKanji.meaning.pl}
-      </p>
-      <p></p>
       <p></p>
 
       {showToggleRomaji === "hide" ? (
@@ -1133,7 +1131,6 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       ) : (
         <strong>?</strong>
       )}
-      <p></p>
       <IonButton onClick={romajiVisibility}>{showToggleRomaji}</IonButton>
       <p></p>
 
@@ -1142,22 +1139,13 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       ) : (
         <strong>?</strong>
       )}
-      <p></p>
       <IonButton onClick={translationiVisibility}>
         {showToggleTranslation}
       </IonButton>
       <p></p>
-      <strong>{name}</strong>
-      <p>
-        xxx Explore{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://ionicframework.com/docs/components"
-        >
-          UI Components
-        </a>
-      </p>
+     
+     
+      <GrammarList/>
     </div>
   );
 };
