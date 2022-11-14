@@ -1,12 +1,14 @@
 import {
-  IonAccordion,
-  IonAccordionGroup,
+  IonCard,
   IonCheckbox,
   IonItem,
   IonLabel,
+  IonList,
+  IonTitle,
 } from "@ionic/react";
-import React, { FormEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import { nouns } from "../data/dictionary";
+import "./GrammarList.css";
 
 export default function GrammarList() {
   const [checkboxes, setCheckboxes] = useState(initCheckboxes);
@@ -41,7 +43,7 @@ export default function GrammarList() {
 
   function changeCheckboxState(event: FormEvent) {
     //const name: string = ((event as FormEvent).target as HTMLIonCheckboxElement)
-      //.parentElement?.children[1].firstChild?.nodeValue as string;
+    //.parentElement?.children[1].firstChild?.nodeValue as string;
     const data = ((event as FormEvent).target as HTMLIonCheckboxElement)
       .dataset;
     const t = checkboxes;
@@ -68,16 +70,13 @@ export default function GrammarList() {
 
   const a = Object.keys(nouns).map((k) => {
     return (
-      <IonAccordionGroup>
-        <IonAccordion value="first" key={k}>
-          <IonItem slot="header" color="light">
-            <IonCheckbox />
-            <IonLabel>Nouns: {k}</IonLabel>
-          </IonItem>
+      <IonCard className="">
+        
+          <p><IonCheckbox />Nouns: {k.toUpperCase()}</p>
+        
+        <p>
           {nouns[k].map((v, i) => (
-            <div
-              className="ion-padding"
-              slot="content"
+            <span
               key={v.jp + "-" + k}
             >
               <IonCheckbox
@@ -85,21 +84,17 @@ export default function GrammarList() {
                 data-value={v.jp}
                 onClick={changeCheckboxState}
               />
-              <span>
+              <IonLabel>
                 {v.jp} - {v.pl.M}
-              </span>
-            </div>
+              </IonLabel>
+            </span>
           ))}
-        </IonAccordion>
-      </IonAccordionGroup>
+        </p>
+      </IonCard>
     );
   });
 
   return (
-    <div>
-      <span>GrammarList</span>
-      {a}
-      {' tu ma byc "a"'}
-    </div>
+    <>{a}</>
   );
 }

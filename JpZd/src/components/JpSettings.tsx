@@ -1,7 +1,8 @@
 import React from 'react'
+import GrammarList from './GrammarList'
 
 export default function JpSettings() {
   return (
-    <div>JpSettings</div>
+    <GrammarList/>
   )
 }

@@ -5,12 +5,8 @@ import './Tab3.css';
 const Tab3: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Ru</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
+     
+      <IonContent >
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">Tab 3</IonTitle>

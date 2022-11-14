@@ -1145,7 +1145,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <p></p>
      
      
-      <GrammarList/>
+     
     </div>
   );
 };
