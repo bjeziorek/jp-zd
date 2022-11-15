@@ -1127,10 +1127,11 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <p></p>
 
       {showToggleRomaji === "hide" ? (
-        <strong>{data.romaji + " || " + data.kanji || "-"}</strong>
+        <strong>{data.romaji}</strong>
       ) : (
         <strong>?</strong>
       )}
+       <p></p>
       <IonButton onClick={romajiVisibility}>{showToggleRomaji}</IonButton>
       <p></p>
 
@@ -1139,6 +1140,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       ) : (
         <strong>?</strong>
       )}
+       <p></p>
       <IonButton onClick={translationiVisibility}>
         {showToggleTranslation}
       </IonButton>

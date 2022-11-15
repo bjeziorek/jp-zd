@@ -1188,9 +1188,6 @@ export default function JpQuestions() {
         </IonCardHeader>
         <IonCardContent>{options}</IonCardContent>
       </IonCard>
-    
-     
-    
     </>
   );
 }
