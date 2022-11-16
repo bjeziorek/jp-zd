@@ -1,5 +1,6 @@
 .list {
     position: static;
-    margin-top: 20%;
+    margin: 10%;
     background-color: blue;
+    z-index: +10;
   }
