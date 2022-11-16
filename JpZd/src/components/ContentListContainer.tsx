@@ -21,9 +21,10 @@ const ContentListComponent: React.FC<ContainerProps> = ({ grammar,data }) => {
         setCategory(categories[index])
     }, [categories, index])
 
+
     function nextOne(){
         let i = categories.indexOf(category)
-        if(i===categories.length-1){
+        if(i>=categories.length-1){
             i=0
         }else{
             i++
@@ -34,7 +35,7 @@ const ContentListComponent: React.FC<ContainerProps> = ({ grammar,data }) => {
     
     function prevOne(){
         let i = categories.indexOf(category)
-        if(index===0){
+        if(index<=0){
             i=categories.length-1
         }else{
             i--
@@ -42,6 +43,7 @@ const ContentListComponent: React.FC<ContainerProps> = ({ grammar,data }) => {
         setIndex(i)
         setCategory(categories[index])
     }
+
 
     //type G=NounStructure|VerbStructure|AdjectiveStructure|TimeStructure
     console.log(categories,category,data,data[category],data[0], categories.indexOf(category))
