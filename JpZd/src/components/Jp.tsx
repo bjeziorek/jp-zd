@@ -129,6 +129,7 @@ import { thisMuch } from "../data/Grammar/JpGrammar/thisMuch/thisMuch";
 import { onlyThatLittle } from "../data/Grammar/JpGrammar/onlyThatLittle/onlyThatLittle";
 import { unfortunatelyIDontSpeak } from "../data/Grammar/JpGrammar/unfortunatelyIDontSpeak/unfortunatelyIDontSpeak";
 import GrammarList from "./GrammarList";
+import { beAble } from "../data/Grammar/JpGrammar/beAble/beAble";
 
 interface ContainerProps {
   name: string;
@@ -838,6 +839,9 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   function changeToUnfortunatelyIDontSpeak() {
     setData(unfortunatelyIDontSpeak(theme));
   }
+  function changeToBeAble() {
+    setData(beAble(theme));
+  }
   function setRandom() {
     const pool = [
       unfortunatelyIDontSpeak(theme),
@@ -967,6 +971,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       hurts(theme),
       age(theme),
       give(theme),
+      beAble(theme),
     ];
 
     console.log(pool);
@@ -1118,6 +1123,7 @@ const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
       <IonButton onClick={changeToThisMuch}>this much</IonButton>
       <IonButton onClick={changeToMakeSthMore}>make sth more</IonButton>
       <IonButton onClick={changeToUnfortunatelyIDontSpeak}>unfortunately I dont speak</IonButton>
+      <IonButton onClick={changeToBeAble}>be able</IonButton>
       <IonButton onClick={changeToMuzyka}>==Muzyka==</IonButton>
       <IonButton onClick={setRandom}>Random</IonButton>
 
