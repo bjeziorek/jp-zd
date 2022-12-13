@@ -613,6 +613,9 @@ export const greetings = [
 
 export const adjectives: Adjective = {
     colors:[
+        { jp: 'fuchuui', pl: 'nieuważny', rz: 'nieuważność' }, 
+        { jp: 'ranzatsuna', pl: 'chaotyczny', rz: 'chaotyczność' },
+        { jp: 'rambona', pl: 'gwałtowny', rz: 'gwałtowność' },
         { jp: 'akarui', pl: 'jasny', rz: 'jasność' },
         { jp: 'shiroi', pl: 'biały', rz: 'biel' },
         { jp: '(sora-no-iro/mizu-no-iro) aoi', pl: 'niebieski', rz: 'niebieskość' },
@@ -1959,6 +1962,7 @@ export const nouns: Noun = {
         { jp: "mondai", pl: caseDeclination('pytanie/problem'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
         { jp: "namae", pl: caseDeclination('imię'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
         { jp: "ryokou", pl: caseDeclination('podróż'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
+        { jp: "yakyuu", pl: caseDeclination('baseball'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
         { jp: "ongaku", pl: caseDeclination('muzyka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
     ],
     people:[
