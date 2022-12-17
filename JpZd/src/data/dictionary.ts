@@ -1786,6 +1786,7 @@ export const nouns: Noun = {
         // o! 
         { jp: 'neko', pl: caseDeclination('kot'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//[{M:'kot'},{D:'kota'},{C:'kotu'},{B:'kota'},{N:'kotem'},{Msc:'o kocie'},{W:'kocie'}]},
         { jp: 'yamaneko', pl: caseDeclination('ryś'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//[{M:'kot'},{D:'kota'},{C:'kotu'},{B:'kota'},{N:'kotem'},{Msc:'o kocie'},{W:'kocie'}]},
+        { jp: 'kirin', pl: caseDeclination('żyrafa'), counter: 'tou', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },//[{M:'kot'},{D:'kota'},{C:'kotu'},{B:'kota'},{N:'kotem'},{Msc:'o kocie'},{W:'kocie'}]},
         { jp: 'sakana', pl: caseDeclination('ryba'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },//[{ M: 'ryba' }, { D: 'ryby' }, { C: 'rybie' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
         { jp: 'nezumi', pl: caseDeclination('mysz'), counter: 'hiki', plGender: 'ż', isAlive: true, isHuman: false, tags: ['animals'] },//[{ M: 'mysz' }, { D: 'myszy' }, { C: 'myszy' }, { B: 'rybę' }, { N: 'rybą' }, { Msc: 'rybie' }, { W: 'rybo' }] },
         { jp: 'ka', pl: caseDeclination('komar'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['komar', 'komara', 'komarowi', ''] },
@@ -1983,6 +1984,8 @@ export const nouns: Noun = {
     people:[
         { jp: "minna", pl: caseDeclination('wszyscy'), counter: '?', plGender: 'mo', isAlive: true, isHuman: true, tags: ['people'] },   
         { jp: "kata", pl: caseDeclination('osoba'), counter: '?', plGender: 'ż', isAlive: true, isHuman: true, tags: ['people'] },   
+        { jp: "sakka", pl: caseDeclination('autor'), counter: '?', plGender: 'm', isAlive: true, isHuman: true, tags: ['people'] },   
+        { jp: "dokusha", pl: caseDeclination('czytelnik'), counter: '?', plGender: 'm', isAlive: true, isHuman: true, tags: ['people'] },   
     ],
     vehicles: [
         { jp: "TAKUSHII", pl: caseDeclination('taksówka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['vehicles'] },
