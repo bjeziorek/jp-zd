@@ -613,6 +613,7 @@ export const greetings = [
 
 export const adjectives: Adjective = {
     colors:[
+        { jp: 'sugoi', pl: 'świetny', rz: 'świetność' }, 
         { jp: 'fuchuui', pl: 'nieuważny', rz: 'nieuważność' }, 
         { jp: 'ranzatsuna', pl: 'chaotyczny', rz: 'chaotyczność' },
         { jp: 'rambona', pl: 'gwałtowny', rz: 'gwałtowność' },
