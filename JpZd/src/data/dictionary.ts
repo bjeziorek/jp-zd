@@ -2001,6 +2001,9 @@ export const nouns: Noun = {
     ],
     places: [
         {
+            jp: "bansen", pl: caseDeclination('peron'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['places'],
+        },
+        {
             jp: "machi", pl: caseDeclination('starówka'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['places'],
         },
         {
