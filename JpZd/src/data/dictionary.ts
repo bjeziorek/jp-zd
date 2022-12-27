@@ -1964,6 +1964,7 @@ export const nouns: Noun = {
         { jp: "to", pl: caseDeclination('japońskie drzwi'), counter: '?', plGender: 'nmo', isAlive: false, isHuman: false, tags: ['items'] },
     ],
     notMaterial:[
+        { jp: "houritsu", pl: caseDeclination('prawo'), counter: '?', plGender: 'n', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
         { jp: "oto", pl: caseDeclination('dźwięk'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
         { jp: "tenki", pl: caseDeclination('pogoda'), counter: '?', plGender: 'm', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
         { jp: "shigoto", pl: caseDeclination('praca'), counter: '?', plGender: 'ż', isAlive: false, isHuman: false, tags: ['notMaterial'] },   
