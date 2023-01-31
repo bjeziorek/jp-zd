@@ -12,35 +12,6 @@ import { Time } from '../types/Time.model';
 import { VerbForm } from '../types/VerbForm.model';
 
 
-type f={
-    description: string,
-    extraValue: number,
-    (arg:number):number
-}
-
-
-
-function proc(myF:f):void{
-   console.log( myF.description)
-   console.log( myF.extraValue)
-}
-
-function f(a:Date):void{
-    console.log(a)
-}
-
-f(new Date())
-
-function xxx(y:number):number{
-    return y*y
-}
-
-function myF(x:f,d:f,z:f){
-    console.log(x.description,'given arg is: ',x(7))
-}
-
-//console.log(myF(xxx,7,'ggg'))
-
 export function testowa(x: number, y: number): number {
     return x + y
 }
@@ -1823,7 +1794,7 @@ export const nouns: Noun = {
         { jp: 'ka', pl: caseDeclination('komar'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['komar', 'komara', 'komarowi', ''] },
         { jp: 'hato', pl: caseDeclination('gołąb'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['gołąb', 'gołębia'] },
         { jp: 'suzume', pl: caseDeclination('wróbel'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },// ['wróbel', 'wróbla'] },
-        { jp: 'sou', pl: caseDeclination('słoń'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['słoń', 'słonia'] },
+        { jp: 'zou', pl: caseDeclination('słoń'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['słoń', 'słonia'] },
         { jp: 'tori', pl: caseDeclination('ptak'), counter: 'wa', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['ptak', 'ptaka'] },
         { jp: 'HAMUSUTAA', pl: caseDeclination('chomik'), counter: 'hiki', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['chomik', 'chomika'] },
         { jp: 'uma', pl: caseDeclination('koń'), counter: 'tou', plGender: 'm', isAlive: true, isHuman: false, tags: ['animals'] },//['koń', 'konia'] },
